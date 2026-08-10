@@ -59,9 +59,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-10
 
-**673 note** di Laboratorio + **64 di Teoria**, 128 immagini, 151 test verdi.
+**673 note** di Laboratorio + **124 di Teoria**, 137 immagini, 151 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 1 capitolo su 16, pagine 1-7 di 256.
+aperta**: 2 capitoli su 18, pagine 1-12 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -118,22 +118,29 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | File | Note | Copre |
 |---|---|---|
 | `01-preparazione-preparato.jsonl` | 64 | sezioni 001-006, pagine 1-7 |
+| `02-colorazioni-istochimiche.jsonl` | 60 | sezioni 007-009 + inizio 010, pagine 7-12 |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
 intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
 preparazione del campione (fissazione, disidratazione, inclusione, taglio,
-colorazione). Sono materiale d'esame come il resto, quindi hanno un mazzo loro
-e **spostano di uno la numerazione** dei quindici capitoli titolati, che vanno
-quindi da `02` a `16`.
+colorazione). Sono materiale d'esame come il resto, quindi hanno un mazzo loro.
 
 Nel capitolo 01 rientrano anche l'Ematossilina-Eosina e le tricromiche, perché
 la colorazione è la quinta fase della preparazione. Il capitolo `02 -
 Colorazioni istochimiche` è un'altra cosa: PAS, Sudan e simili.
 
-Otto delle nove figure sono state usate. La nona, `teoria_p007_22.jpg`, è il
-solito caso di sovrapposizione ai bordi (punto 6): sta a pagina 7 ma illustra le
-colorazioni istochimiche, e la sua didascalia parla di matrice cartilaginea.
-Va ripresa nel capitolo 02.
+Otto delle nove figure del capitolo 01 sono state usate. La nona,
+`teoria_p007_22.jpg`, è il solito caso di sovrapposizione ai bordi (punto 6):
+sta a pagina 7 ma illustra le colorazioni istochimiche. È stata poi usata nel
+capitolo 02, dove appartiene.
+
+**Il capitolo 02 si ferma a pagina 12, non a pagina 24.** A pagina 12 la
+sbobina apre `TESSUTI E RINNOVAMENTO`, un titolo che `segment.py` non riconosce;
+il segmentatore attribuisce perciò alle "Colorazioni istochimiche" tutte le
+pagine fino al titolo successivo che riconosce, a pagina 24. Vedi qui sotto la
+ricognizione dei titoli mancanti: sono tre in tutto e sono stati tutti trovati,
+quindi **la numerazione dei mazzi qui sotto è definitiva** e non verrà più
+spostata.
 
 ---
 
@@ -166,8 +173,8 @@ restare unico dentro tutto il mazzo:
 | `lab-nervoso` | `08a` 001-027, poi `08b` 028-045, poi `08b2` 046-084 |
 | `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, poi `10a` 037-047 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
-| `teoria-tecnica` | `01` 001-038 |
-| `teoria-colorazioni` | `01` 001-026 |
+| `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
+| `teoria-colorazioni` | `01` 001-026, poi `02` 027-075 |
 
 I salti sono ammessi (`lab-esocrino` passa da 035 a 040): serve che i numeri
 crescano e non si ripetano, non che siano contigui. Prima di aprire un file
@@ -312,39 +319,83 @@ marcatura.
 
 ### Teoria
 
-111 sezioni, 98.000 parole, 463 immagini. **Sedici mazzi, non quindici**: le
-pagine 1-7 non hanno intestazione di capitolo ma sono materiale d'esame, quindi
-diventano il mazzo `01` e spostano di uno i capitoli titolati.
+111 sezioni, 98.000 parole, 463 immagini, **diciotto mazzi**.
 
-La colonna "pagine" qui sotto è l'**estensione reale** ricavata da
-`build/teoria/sections.jsonl`, non la pagina del titolo. La colonna "ordine" è
-la sequenza di lavorazione concordata.
+I quindici capitoli elencati nella prima stesura di questo piano erano quelli
+che `segment.py` riconosce come titolo. Ne mancano tre, cercati e trovati tutti
+(la ricognizione è qui sotto), e la numerazione che ne risulta è **definitiva**.
 
-| Mazzo | Pagine | pp | Parole | Img | Ordine | Stato |
-|---|---|---|---|---|---|---|
-| 01 - Preparazione del preparato istologico | 1-7 | 7 | 1.942 | 9 | 1 | **fatto** |
-| 02 - Colorazioni istochimiche | 7-24 | 18 | 6.667 | 24 | 2 | |
-| 03 - Applicazioni terapeutiche delle cellule staminali | 24-28 | 5 | 1.395 | 10 | 15 | |
-| 04 - Tessuti epiteliali | 28-49 | 22 | 7.248 | 43 | 4 | |
-| 05 - Concetti base di microscopia | 49-60 | 12 | 3.934 | 23 | 3 | |
-| 06 - Epitelio di rivestimento | 60-85 | 26 | 7.842 | 60 | 5 | |
-| 07 - Epiteli ghiandolari | 85-86 | 2 | 441 | 5 | 6 | |
-| 08 - Ghiandole esocrine | 86-97 | 12 | 2.845 | 26 | 6 | |
-| 09 - Ghiandole endocrine | 97-111 | 15 | 5.636 | 27 | 7 | |
-| 10 - Tessuti connettivi | 111-137 | 27 | 10.394 | 60 | 8 | |
-| 11 - Tessuti connettivi di sostegno | 137-149 | 13 | 4.557 | 31 | 9 | |
-| 12 - Tessuto osseo | 149-177 | 29 | 12.678 | 52 | 13 | |
-| 13 - Il sangue | 177-198 | 22 | 9.794 | 22 | 12 | |
-| 14 - Sistema linfatico | 198-208 | 11 | 3.983 | 12 | 10 | |
-| 15 - Tessuto muscolare striato scheletrico | 208-227 | 20 | 7.057 | 37 | 11 | |
-| 16 - Il tessuto nervoso | 227-256 | 30 | 11.650 | 47 | 14 | |
+La colonna "pagine" è l'**estensione reale**, non la pagina del titolo. La
+colonna "ordine" è la sequenza di lavorazione concordata.
+
+| Mazzo | Pagine | pp | Ordine | Stato |
+|---|---|---|---|---|
+| 01 - Preparazione del preparato istologico | 1-7 | 7 | 1 | **fatto**, 64 note |
+| 02 - Colorazioni istochimiche | 7-12 | 6 | 2 | **fatto**, 60 note |
+| 03 - Tessuti e rinnovamento | 12-16 | 5 | 3 | |
+| 04 - Cellule staminali e potenziale differenziativo | 16-24 | 9 | 16 | |
+| 05 - Applicazioni terapeutiche delle cellule staminali | 24-28 | 5 | 17 | |
+| 06 - Tessuti epiteliali | 28-49 | 22 | 5 | |
+| 07 - Concetti base di microscopia | 49-60 | 12 | 4 | |
+| 08 - Epitelio di rivestimento | 60-85 | 26 | 6 | |
+| 09 - Epiteli ghiandolari | 85-86 | 2 | 7 | |
+| 10 - Ghiandole esocrine | 86-97 | 12 | 7 | |
+| 11 - Ghiandole endocrine | 97-111 | 15 | 8 | |
+| 12 - Tessuti connettivi | 111-137 | 27 | 9 | |
+| 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | |
+| 14 - Tessuto osseo | 149-177 | 29 | 14 | |
+| 15 - Il sangue | 177-198 | 22 | 13 | |
+| 16 - Sistema linfatico | 198-205 | 8 | 11 | |
+| 17 - Tessuto muscolare | 205-227 | 23 | 12 | |
+| 18 - Il tessuto nervoso | 227-256 | 30 | 15 | |
 
 Il criterio dell'ordine: **i capitoli corti e a basso rischio prima**, per rodare
 le convenzioni della teoria dove un errore costa poco rifarlo; **i quattro
-capitoli più densi in fondo** (10 connettivi, 13 sangue, 12 osseo, 16 nervoso);
-le staminali (03) per ultime perché sono un excursus clinico, non istologia di
-base, e quindi il primo capitolo sacrificabile se il tempo stringe. Il 07 e il
-08 si fanno insieme: il 07 è di due pagine e da solo non è un mazzo.
+capitoli più densi in fondo** (12 connettivi, 15 sangue, 14 osseo, 18 nervoso);
+le staminali (04 e 05) per ultime perché sono in buona parte un excursus
+clinico, non istologia di base, e quindi le prime sacrificabili se il tempo
+stringe. Il 09 e il 10 si fanno insieme: il 09 è di due pagine e da solo non è
+un mazzo.
+
+Il `03 - Tessuti e rinnovamento` è stato messo terzo perché è la **panoramica
+dei quattro tessuti fondamentali** e delle popolazioni cellulari perenni,
+stabili e labili: fa da indice mentale a tutto il resto del corso, e cinque
+pagine sono poche.
+
+#### I tre titoli che il segmentatore non vede
+
+`segment.py` non riconosce alcuni titoli di capitolo, e attribuisce le loro
+pagine al capitolo precedente. La ricerca è stata fatta sulle 256 pagine
+cercando le righe interamente maiuscole che non corrispondono a una sezione
+nota, e ha restituito **tutti** i casi:
+
+| Pagina | Titolo | Effetto |
+|---|---|---|
+| 12 | `TESSUTI E RINNOVAMENTO` | apre il mazzo 03 |
+| 16 | `CELLULE STAMINALI E POTENZIALE DIFFERENZIATIVO` | apre il mazzo 04 |
+| 205 | `TESSUTO MUSCOLARE` | il muscolare inizia qui, non a 208 |
+
+Il caso di pagina 205 è il più insidioso, perché il segmentatore *un* titolo lo
+riconosce: `TESSUTO MUSCOLARE STRIATO SCHELETRICO` a pagina 208. Le pagine
+205-207, che introducono i tre tipi di tessuto muscolare, finiscono così dentro
+il Sistema linfatico. Chi scriverà il mazzo 16 non deve prenderle.
+
+Per rifare la ricognizione da capo:
+
+```sh
+./venv/bin/python -c "
+import json
+secs=[json.loads(l) for l in open('build/teoria/sections.jsonl')]
+titles={s['title'].strip().upper() for s in secs}
+for l in open('build/teoria/pages.jsonl'):
+    p=json.loads(l)
+    for line in p['text'].splitlines():
+        t=line.strip()
+        if not 6 <= len(t) <= 70: continue
+        alpha=[c for c in t if c.isalpha()]
+        if alpha and all(c.isupper() for c in alpha) and t.upper() not in titles:
+            print(p['page'], t)"
+```
 
 **I numeri di mazzo seguono le pagine, non l'ordine di lavorazione.** In Anki i
 mazzi restano quindi nell'ordine del corso qualunque sia la sequenza in cui
@@ -459,6 +510,15 @@ o prefissa `cd /Users/pietrodibello/tools/anki-istologia &&`.
 microfotografia dell'osteone è estratta come `lab_p059_4057.jpg` ma illustra il
 testo di pagina 58, ed è finita sulla carta giusta solo perché è stata guardata.
 Il campo `source` della carta segue il **testo**, non la pagina della figura.
+
+**`segment.py` non vede tutti i titoli di capitolo, e nessuno se ne accorge.**
+Le pagine di un capitolo non riconosciuto vengono attribuite in silenzio al
+capitolo precedente, che risulta così molto più lungo di quello che è: le
+"Colorazioni istochimiche" sembravano coprire 18 pagine e ne coprono 6. Il
+sintomo è una sezione che dichiara molte pagine e cambia argomento a metà.
+Nella Teoria i tre casi sono stati trovati tutti e sono elencati al punto 4;
+sul Laboratorio la ricognizione non è mai stata fatta, ma lì i capitoli sono
+chiusi e verificati pagina per pagina.
 
 **Le sezioni si sovrappongono ai bordi.** `images_for_section` assegna per
 intervallo di pagine, quindi una figura a cavallo di due sezioni compare in
