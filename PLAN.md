@@ -26,7 +26,7 @@ DL=/Users/pietrodibello/Downloads
 ./venv/bin/python scripts/segment.py --build build/lab
 ./venv/bin/python scripts/segment.py --build build/teoria
 
-./venv/bin/python -m pytest tests/ -q          # atteso: 147 passed
+./venv/bin/python -m pytest tests/ -q          # atteso: 151 passed
 ```
 
 L'estrazione della teoria richiede qualche minuto: 256 pagine e 463 immagini.
@@ -49,7 +49,7 @@ pacchetto non viene scritto):
 
 ## 2. Stato al 2026-08-10
 
-**462 note**, 58 immagini, 147 test verdi.
+**486 note**, 66 immagini, 151 test verdi.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -73,7 +73,8 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `06c-sangue-e-linfoide.jsonl` | 26 | sezione 019, pagine 59-60 |
 | `06d-vetrini.jsonl` | 45 | sezione 019, vetrini 1-11, pagine 61-70 |
 | `06e-quiz-connettivi-specializzati.jsonl` | 30 | generato, pagine 71-75 |
-| `08c-quiz-nervoso.jsonl` | 24 | generato, pagine 92-95 |
+| `07a-tessuto-muscolare.jsonl` | 24 | sezione 020, pagine 76-77 |
+| `08c-quiz-nervoso.jsonl` | 24 | generato, pagine 92-95: **domande 1-15 sul muscolare**, 16-24 sul nervoso |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
@@ -120,19 +121,24 @@ Tre assi indipendenti, più uno di segnalazione:
 | Asse | Valori usati finora |
 |---|---|
 | `fonte::` | `lab`, `teoria` |
-| `argomento::` | `colorazioni`, `epiteli`, `ghiandole`, `endocrino`, `connettivi`, `cartilagine`, `osso`, `sangue`, `linfoide`, `nervoso` |
+| `argomento::` | `colorazioni`, `epiteli`, `ghiandole`, `endocrino`, `connettivi`, `cartilagine`, `osso`, `sangue`, `linfoide`, `muscolare`, `nervoso` |
 | `tipo::` | `definizione`, `classificazione`, `elenco`, `sequenza`, `riconoscimento`, `confronto`, `quiz` |
 | segnalazione | `da-verificare` |
 
 Riusa i valori esistenti prima di inventarne di nuovi: i tag servono a Pietro per
 studiare in trasversale, e un sinonimo in più rompe la selezione.
 
-`quiz_to_cards.py` applica gli stessi tag a tutte le carte che genera. Quando un
-quiz è misto, come quello finale dei connettivi specializzati, l'`argomento::` va
-corretto a mano dopo la generazione, domanda per domanda: altrimenti quelle carte
-spariscono dalle selezioni su osso, sangue e linfoide. Il file committato è la
+`quiz_to_cards.py` applica gli stessi tag a tutte le carte che genera, ma **un
+quiz copre spesso più di un capitolo**: quello di pagina 71-75 va dalla
+cartilagine al linfoide, quello di pagina 92-95 dedica al muscolare 15 domande
+su 24 nonostante si chiami `08c-quiz-nervoso`. L'`argomento::` va quindi
+riletto e corretto a mano dopo la generazione, domanda per domanda, altrimenti
+quelle carte spariscono dalle selezioni trasversali. Il file committato è la
 versione corretta, non quella appena uscita dal generatore, e il generatore si
 rifiuta di sovrascriverlo (vedi punto 6).
+
+Correggere i tag è sempre sicuro: il guid della nota dipende **solo dall'id**,
+quindi ritaggare non tocca lo storico di ripetizione di Pietro.
 
 ### Campo `source`
 
@@ -191,20 +197,19 @@ quando le convenzioni sono ormai rodate.
 
 | # | Lavoro | Sezione | Pagine | Parole | Immagini | Deck |
 |---|---|---|---|---|---|---|
-| 1 | Tessuto muscolare | 020 | 76-78 | 585 | 10 | `07 - Tessuto muscolare` |
-| 2 | Tessuto nervoso | 021 | 78-80 | 723 | 7 | `08 - Tessuto nervoso` |
-| 3 | Sistema nervoso periferico | 022 | 80-92 | 2.979 | 45 | `08 - Tessuto nervoso` |
-| 4 | Embriologia | 025 | 96-98 | 699 | 2 | `09 - Embriologia` |
-| 5 | Modellini embriologia | 026 | 98-106 | 2.088 | 15 | `09 - Embriologia` |
-| 6 | Tonsilla palatina | 027 | 106 | 230 | 2 | `10 - Tonsilla palatina` |
+| 1 | Tessuto nervoso | 021 | 78-80 | 723 | 7 | `08 - Tessuto nervoso` |
+| 2 | Sistema nervoso periferico | 022 | 80-92 | 2.979 | 45 | `08 - Tessuto nervoso` |
+| 3 | Embriologia | 025 | 96-98 | 699 | 2 | `09 - Embriologia` |
+| 4 | Modellini embriologia | 026 | 98-106 | 2.088 | 15 | `09 - Embriologia` |
+| 5 | Tonsilla palatina | 027 | 106 | 230 | 2 | `10 - Tonsilla palatina` |
 
-I numeri di deck sono dedotti, non ancora usati: l'unico vincolo già posato è
-che il quiz del nervoso sta nel file `08c`, quindi il nervoso è il capitolo 08 e
-il muscolare il 07.
+I numeri di deck dopo l'08 sono dedotti, non ancora usati.
 
 Il **sistema nervoso periferico** è il pezzo più lungo rimasto, e soprattutto ha
 **45 immagini**: conviene aprirlo a inizio sessione, quando c'è contesto per
-guardarle tutte, e spezzarlo in più file. Il suo quiz (`08c`) è però già fatto.
+guardarle tutte, e spezzarlo in più file. Il suo quiz (`08c`) è però già fatto:
+il capitolo 08 va scritto sapendo che le domande 16-24 di quel file lo coprono
+già dal lato del quiz.
 
 Attenzione al conteggio delle parole di una sezione: quello di `sections.jsonl`
 comprende anche le descrizioni dei vetrini e le pagine di quiz, che sono lavoro
@@ -268,6 +273,7 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `lab-osso-046` | il vetrino 10 mette dei condroblasti lungo le pareti dei canali di Havers; lì ci si aspettano cellule osteoprogenitrici e osteoblasti |
 | `lab-quiz-connettivi-specializzati-001` | la casella spuntata è "Fibroblasto" per la cellula che sintetizza la matrice cartilaginea; è il condrocita |
 | `lab-quiz-connettivi-specializzati-026` | conta la riserva energetica fra le funzioni **non** associate ai connettivi specializzati, contraddicendo le domande 11 e 13 dello stesso quiz sul tessuto adiposo |
+| `lab-muscolare-016` | nega che il miocardio sia un sincizio funzionale e attribuisce l'espressione al muscolo scheletrico; è il contrario, il cuore è il sincizio funzionale classico grazie alle gap junction dei dischi intercalari, mentre lo scheletrico è un sincizio strutturale |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
