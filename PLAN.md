@@ -263,12 +263,6 @@ con certezza, e `lab_p085_5429`/`lab_p085_5431` sono quelle di cui **il prof
 stesso dice di non essere sicuro della colorazione**. Non c'è materiale rimasto
 da recuperare lì.
 
-Il **sistema nervoso periferico** è il pezzo più lungo rimasto, e soprattutto ha
-**45 immagini**: conviene aprirlo a inizio sessione, quando c'è contesto per
-guardarle tutte, e spezzarlo in più file. Il suo quiz (`08c`) è però già fatto:
-il capitolo 08 va scritto sapendo che le domande 16-24 di quel file lo coprono
-già dal lato del quiz.
-
 Attenzione al conteggio delle parole di una sezione: quello di `sections.jsonl`
 comprende anche le descrizioni dei vetrini e le pagine di quiz, che sono lavoro
 diverso dalla teoria. La sezione 019 dichiarava 4.260 parole ed erano in realtà
@@ -318,7 +312,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Otto carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Tredici carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
