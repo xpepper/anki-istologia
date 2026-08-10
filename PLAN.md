@@ -59,9 +59,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-10
 
-**673 note** di Laboratorio + **124 di Teoria**, 137 immagini, 151 test verdi.
+**673 note** di Laboratorio + **182 di Teoria**, 142 immagini, 151 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 2 capitoli su 18, pagine 1-12 di 256.
+aperta**: 3 capitoli su 18, pagine 1-16 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -119,6 +119,7 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 |---|---|---|
 | `01-preparazione-preparato.jsonl` | 64 | sezioni 001-006, pagine 1-7 |
 | `02-colorazioni-istochimiche.jsonl` | 60 | sezioni 007-009 + inizio 010, pagine 7-12 |
+| `03-tessuti-e-rinnovamento.jsonl` | 58 | sezione 010, seconda metà, pagine 12-15 |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
 intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
@@ -141,6 +142,22 @@ pagine fino al titolo successivo che riconosce, a pagina 24. Vedi qui sotto la
 ricognizione dei titoli mancanti: sono tre in tutto e sono stati tutti trovati,
 quindi **la numerazione dei mazzi qui sotto è definitiva** e non verrà più
 spostata.
+
+**Il capitolo 03 sta dentro la sezione 010 e occupa le pagine 12-15.** Comincia
+a metà di pagina 12, alla riga `TESSUTI E RINNOVAMENTO`: quello che sta sopra
+sono gli artefatti di preparazione, già coperti dal mazzo 02. Finisce alla fine
+di pagina 15; pagina 16 riparte con `CELLULE STAMINALI E POTENZIALE
+DIFFERENZIATIVO`, che è il mazzo 04. La tabella dei mazzi dice "12-16" perché
+indica la pagina in cui il capitolo successivo comincia, non l'ultima scritta.
+
+Le pagine 12-15 hanno cinque figure e **sono state usate tutte**. Due sono
+schemi con i nomi stampati sopra (`teoria_p013_47` sul differenziamento,
+`teoria_p015_56` sulla divisione asimmetrica) e stanno sul retro; le due
+tavole di microfotografie dei tessuti muscolari (`teoria_p013_45`) e del
+connettivo dell'epiglottide (`teoria_p012_42`) pure, la prima perché la sbobina
+non dice quale pannello sia quale, la seconda perché porta le sigle `Ep`, `TCL`
+e `TCD` stampate sopra. Solo la tavola dei tre epiteli (`teoria_p012_41`) è
+senza etichette, e sta sul fronte.
 
 ---
 
@@ -176,6 +193,21 @@ restare unico dentro tutto il mazzo:
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
 | `teoria-colorazioni` | `01` 001-026, poi `02` 027-075 |
 
+**Il capitolo 03 apre quattro argomenti che appartengono a capitoli successivi.**
+È la panoramica dei quattro tessuti fondamentali, quindi qualche sua carta parla
+di epiteli, connettivi, muscolare e nervoso prima che i mazzi 06, 12, 17 e 18
+esistano. Quelle carte portano l'`argomento::` del tessuto di cui parlano, non
+`tessuti`, così la selezione trasversale le pesca insieme al capitolo che verrà;
+di conseguenza il loro id segue lo stesso argomento. Chi scriverà quei capitoli
+**non riparte da 001**:
+
+| Argomento | Già usato dal capitolo 03 | Il prossimo capitolo riparte da |
+|---|---|---|
+| `teoria-epiteli` | 001 | 002 |
+| `teoria-connettivi` | 001-004 | 005 |
+| `teoria-muscolare` | 001 | 002 |
+| `teoria-nervoso` | 001-002 | 003 |
+
 I salti sono ammessi (`lab-esocrino` passa da 035 a 040): serve che i numeri
 crescano e non si ripetano, non che siano contigui. Prima di aprire un file
 nuovo, controlla dove è arrivato l'argomento:
@@ -202,7 +234,7 @@ Tre assi indipendenti, più uno di segnalazione:
 | Asse | Valori usati finora |
 |---|---|
 | `fonte::` | `lab`, `teoria` |
-| `argomento::` | `colorazioni`, `epiteli`, `ghiandole`, `endocrino`, `connettivi`, `cartilagine`, `osso`, `sangue`, `linfoide`, `muscolare`, `nervoso`, `tecnica-istologica` |
+| `argomento::` | `colorazioni`, `epiteli`, `ghiandole`, `endocrino`, `connettivi`, `cartilagine`, `osso`, `sangue`, `linfoide`, `muscolare`, `nervoso`, `embriologia`, `tecnica-istologica`, `tessuti`, `staminali` |
 | `tipo::` | `definizione`, `classificazione`, `elenco`, `sequenza`, `riconoscimento`, `confronto`, `quiz` |
 | segnalazione | `da-verificare` |
 
@@ -212,9 +244,20 @@ studiare in trasversale, e un sinonimo in più rompe la selezione.
 `argomento::` **attraversa le due fonti apposta**: le carte di teoria sulla
 Ematossilina-Eosina portano `argomento::colorazioni` come quelle di laboratorio,
 così una selezione per argomento pesca da entrambi i tagli. `tecnica-istologica`
-è l'unico valore nuovo introdotto dalla Teoria finora, e copre il metodo
+è stato introdotto dai capitoli 01-02 della Teoria e copre il metodo
 (fissazione, inclusione, taglio, congelamento) più le carte introduttive sulla
 disciplina.
+
+Il capitolo 03 ha aggiunto gli ultimi due valori e non se ne prevedono altri:
+
+- `tessuti` — la panoramica: che cos'è un tessuto, l'equilibrio dinamico, le
+  popolazioni perenni, stabili e labili, le due vie del rinnovamento. Sono le
+  carte che non appartengono a nessuno dei quattro tessuti in particolare.
+- `staminali` — le cellule staminali, che avranno per sé i mazzi 04 e 05.
+
+`embriologia` invece **non è nuovo**: esisteva già nel Laboratorio (mazzi 09a e
+09b) ed è stato riusato per gastrulazione, foglietti embrionali e creste neurali,
+che sono lo stesso argomento visto dal lato dei meccanismi.
 
 `quiz_to_cards.py` applica gli stessi tag a tutte le carte che genera, ma **un
 quiz copre spesso più di un capitolo**: quello di pagina 71-75 va dalla
@@ -332,7 +375,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 |---|---|---|---|---|
 | 01 - Preparazione del preparato istologico | 1-7 | 7 | 1 | **fatto**, 64 note |
 | 02 - Colorazioni istochimiche | 7-12 | 6 | 2 | **fatto**, 60 note |
-| 03 - Tessuti e rinnovamento | 12-16 | 5 | 3 | |
+| 03 - Tessuti e rinnovamento | 12-16 | 5 | 3 | **fatto**, 58 note |
 | 04 - Cellule staminali e potenziale differenziativo | 16-24 | 9 | 16 | |
 | 05 - Applicazioni terapeutiche delle cellule staminali | 24-28 | 5 | 17 | |
 | 06 - Tessuti epiteliali | 28-49 | 22 | 5 | |
@@ -360,7 +403,8 @@ un mazzo.
 Il `03 - Tessuti e rinnovamento` è stato messo terzo perché è la **panoramica
 dei quattro tessuti fondamentali** e delle popolazioni cellulari perenni,
 stabili e labili: fa da indice mentale a tutto il resto del corso, e cinque
-pagine sono poche.
+pagine sono poche. **È fatto**: il prossimo in ordine è il `07 - Concetti base
+di microscopia`, pagine 49-60.
 
 #### I tre titoli che il segmentatore non vede
 
@@ -415,7 +459,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Sedici carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Diciotto carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -436,6 +480,8 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-tecnica-030` | la sbobina dà due spessori diversi per le sezioni istologiche: 5-20 micron per il microscopio ottico (p. 2) e 1-10 µm per il taglio al microtomo (p. 4), senza spiegare la differenza |
 | `teoria-colorazioni-021` | descrive come "strati di muscolatura liscia" la banda pallida sotto la mucosa in un vetrino di trachea fetale; per aspetto e per anatomia è cartilagine ialina, e la muscolatura liscia della trachea sta nella parte membranacea posteriore |
 | `teoria-colorazioni-024` | classifica l'Azocarminio come colorante **basico** e nella stessa frase gli attribuisce la colorazione dei granuli **acidofili** dell'ipofisi; l'azocarminio è classicamente descritto come colorante acido |
+| `teoria-epiteli-001` | il pannello a della tavola dei tre epiteli è dato per **pancreas**, ma mostra una cavità piena di materiale eosinofilo omogeneo circondata da un solo strato di cellule cubiche, cioè un follicolo (tiroideo o ovarico); il pancreas esocrino è ad acini sierosi. L'epitelio resta comunque monostratificato cubico |
+| `teoria-connettivi-002` | chiama sangue e linfa connettivi "trofici o **propriamente detti**"; i propriamente detti sono classicamente il lasso e il denso, mentre sangue, cartilagine, osso e adiposo stanno fra gli specializzati |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
