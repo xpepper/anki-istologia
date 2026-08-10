@@ -59,9 +59,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-10
 
-**673 note** di Laboratorio + **182 di Teoria**, 142 immagini, 151 test verdi.
+**673 note** di Laboratorio + **271 di Teoria**, 162 immagini, 151 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 3 capitoli su 18, pagine 1-16 di 256.
+aperta**: 4 capitoli su 18, pagine 1-16 e 49-59 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -120,6 +120,7 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `01-preparazione-preparato.jsonl` | 64 | sezioni 001-006, pagine 1-7 |
 | `02-colorazioni-istochimiche.jsonl` | 60 | sezioni 007-009 + inizio 010, pagine 7-12 |
 | `03-tessuti-e-rinnovamento.jsonl` | 58 | sezione 010, seconda metà, pagine 12-15 |
+| `07-concetti-base-di-microscopia.jsonl` | 89 | sezione 024, pagine 49-59 |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
 intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
@@ -234,9 +235,9 @@ Tre assi indipendenti, più uno di segnalazione:
 | Asse | Valori usati finora |
 |---|---|
 | `fonte::` | `lab`, `teoria` |
-| `argomento::` | `colorazioni`, `epiteli`, `ghiandole`, `endocrino`, `connettivi`, `cartilagine`, `osso`, `sangue`, `linfoide`, `muscolare`, `nervoso`, `embriologia`, `tecnica-istologica`, `tessuti`, `staminali` |
+| `argomento::` | `colorazioni`, `epiteli`, `ghiandole`, `endocrino`, `connettivi`, `cartilagine`, `osso`, `sangue`, `linfoide`, `muscolare`, `nervoso`, `embriologia`, `tecnica-istologica`, `tessuti`, `staminali`, `microscopia` |
 | `tipo::` | `definizione`, `classificazione`, `elenco`, `sequenza`, `riconoscimento`, `confronto`, `quiz` |
-| segnalazione | `da-verificare` |
+| segnalazione | `da-verificare`, `non-trattato` |
 
 Riusa i valori esistenti prima di inventarne di nuovi: i tag servono a Pietro per
 studiare in trasversale, e un sinonimo in più rompe la selezione.
@@ -258,6 +259,33 @@ Il capitolo 03 ha aggiunto gli ultimi due valori e non se ne prevedono altri:
 `embriologia` invece **non è nuovo**: esisteva già nel Laboratorio (mazzi 09a e
 09b) ed è stato riusato per gastrulazione, foglietti embrionali e creste neurali,
 che sono lo stesso argomento visto dal lato dei meccanismi.
+
+Il capitolo 07 ne ha aggiunto uno solo, `microscopia`, che copre tutta l'ottica
+e la strumentazione: occhio, lenti, aberrazioni, diffrazione, obiettivi, metodi
+di contrasto e fluorescenza. Non è stato accorpato a `tecnica-istologica` perché
+quello è il **metodo di preparazione** del campione, mentre qui si parla dello
+**strumento** con cui lo si guarda, e da solo vale quasi novanta carte.
+
+### Il tag `non-trattato`
+
+La sbobina marca alcuni passaggi con un riquadro laterale **"Argomento non
+trattato nell'anno 2024/2025"**. Le carte si scrivono lo stesso — il materiale
+è nella dispensa e potrebbe tornare — ma portano il tag `non-trattato` e lo
+dicono in fondo al `back`, così Pietro può sospenderle in blocco con
+`tag:non-trattato` se decide di fidarsi del programma dell'anno.
+
+Il primo caso è `teoria-microscopia-015` (immagine reale e virtuale, pagina 50).
+Il riquadro va guardato nel PDF renderizzato, perché nel testo estratto compare
+come tre parole isolate e non si capisce quanta parte copra:
+
+```sh
+./venv/bin/python -c "import pymupdf; \
+  pymupdf.open('$DL/Istologia 5th gen-combinato.pdf')[49].get_pixmap(dpi=110).save('/tmp/p50.png')"
+```
+
+Da non confondere con il caso del **timo** del Laboratorio, dove la sbobina dice
+il contrario: non trattato a lezione **ma presente all'esame**. Quelle carte non
+vanno sospese e infatti non portano il tag.
 
 `quiz_to_cards.py` applica gli stessi tag a tutte le carte che genera, ma **un
 quiz copre spesso più di un capitolo**: quello di pagina 71-75 va dalla
@@ -379,7 +407,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 04 - Cellule staminali e potenziale differenziativo | 16-24 | 9 | 16 | |
 | 05 - Applicazioni terapeutiche delle cellule staminali | 24-28 | 5 | 17 | |
 | 06 - Tessuti epiteliali | 28-49 | 22 | 5 | |
-| 07 - Concetti base di microscopia | 49-60 | 12 | 4 | |
+| 07 - Concetti base di microscopia | 49-60 | 12 | 4 | **fatto**, 89 note |
 | 08 - Epitelio di rivestimento | 60-85 | 26 | 6 | |
 | 09 - Epiteli ghiandolari | 85-86 | 2 | 7 | |
 | 10 - Ghiandole esocrine | 86-97 | 12 | 7 | |
@@ -403,8 +431,16 @@ un mazzo.
 Il `03 - Tessuti e rinnovamento` è stato messo terzo perché è la **panoramica
 dei quattro tessuti fondamentali** e delle popolazioni cellulari perenni,
 stabili e labili: fa da indice mentale a tutto il resto del corso, e cinque
-pagine sono poche. **È fatto**: il prossimo in ordine è il `07 - Concetti base
-di microscopia`, pagine 49-60.
+pagine sono poche. **È fatto**, e con lui il `07 - Concetti base di
+microscopia`: il prossimo in ordine è il `06 - Tessuti epiteliali`, pagine
+28-49.
+
+Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
+dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
+pagine 49-59 (pagina 60 apre l'`EPITELIO DI RIVESTIMENTO`, mazzo 08) e ha venti
+figure, **tutte usate**. Sono quasi tutte schemi e tabelle con le didascalie
+stampate sopra, quindi stanno sul retro; l'unica sul fronte è la coppia di
+dischi di Airy al limite di Rayleigh, che non ha etichette.
 
 #### I tre titoli che il segmentatore non vede
 
@@ -459,7 +495,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Diciotto carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Ventuno carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -482,6 +518,9 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-colorazioni-024` | classifica l'Azocarminio come colorante **basico** e nella stessa frase gli attribuisce la colorazione dei granuli **acidofili** dell'ipofisi; l'azocarminio è classicamente descritto come colorante acido |
 | `teoria-epiteli-001` | il pannello a della tavola dei tre epiteli è dato per **pancreas**, ma mostra una cavità piena di materiale eosinofilo omogeneo circondata da un solo strato di cellule cubiche, cioè un follicolo (tiroideo o ovarico); il pancreas esocrino è ad acini sierosi. L'epitelio resta comunque monostratificato cubico |
 | `teoria-connettivi-002` | chiama sangue e linfa connettivi "trofici o **propriamente detti**"; i propriamente detti sono classicamente il lasso e il denso, mentre sangue, cartilagine, osso e adiposo stanno fra gli specializzati |
+| `teoria-microscopia-033` | definisce l'ingrandimento come il rapporto fra le dimensioni **dell'oggetto e quelle dell'immagine**; è il capovolgimento del rapporto giusto, altrimenti un'immagine ingrandita darebbe un valore minore di 1 |
+| `teoria-microscopia-036` | dà 100 nm come limite di risoluzione del microscopio ottico a immersione; con luce visibile e NA 1,4 la formula 0,61·λ/NA dà ancora circa 200 nm. Il numero serve però al calcolo dell'ingrandimento utile di 1000x fatto subito dopo |
+| `teoria-microscopia-055` | dà gli obiettivi apocromatici a 23 mm di planarità di campo, mentre la tabella della stessa pagina dice 25; e il testo li definisce i migliori, il che con 23 mm li metterebbe sotto i semi-apocromatici |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 

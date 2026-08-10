@@ -186,6 +186,7 @@ Ogni carta di questi mazzi porta tre tipi di tag. Nella schermata **Sfoglia** pu
 | `tag:tipo::classificazione` | solo le classificazioni |
 | `tag:argomento::epiteli` | tutto quello che riguarda gli epiteli, teoria e laboratorio insieme |
 | `tag:da-verificare` | i punti dubbi della sbobina, vedi sotto |
+| `tag:non-trattato` | gli argomenti che la sbobina marca come non trattati nell'anno 2024/2025 |
 | `deck:Istologia::Laboratorio tag:tipo::riconoscimento` | riconoscimento vetrini del solo Laboratorio |
 | `is:due` | le carte che ti tocca ripassare |
 | `prop:lapses>5` | le carte che sbagli più spesso, candidate a essere riscritte |
@@ -201,6 +202,15 @@ sbobina, ha il tag `da-verificare` e nelle note trovi cosa non quadra e cosa ci 
 
 Prima dell'esame cerca `tag:da-verificare`, sono poche carte, e controllale sul libro. Così
 decidi tu cosa studiare, invece di fidarti di una correzione fatta da me.
+
+### Il tag `non-trattato`
+
+Alcuni passaggi della sbobina hanno di fianco un riquadro "Argomento non trattato nell'anno
+2024/2025". Le carte ci sono lo stesso, perché il materiale resta nella dispensa, ma portano
+il tag `non-trattato` e te lo dicono in fondo alla risposta.
+
+Se decidi di non studiarle, cerca `tag:non-trattato` nella schermata Sfoglia, selezionale
+tutte e premi `-` per sospenderle in blocco.
 
 ### Il campo Fonte
 
