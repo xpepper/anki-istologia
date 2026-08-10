@@ -101,7 +101,26 @@ rendendo il mazzo incoerente a metà. Vanno seguite alla lettera.
 Zero-padded a tre cifre. **Un id pubblicato non si cambia mai.** Il guid della
 nota Anki deriva solo dall'id: cambiarlo fa perdere a Pietro lo storico di
 ripetizione di quella carta. Correggere il testo invece va benissimo, è proprio
-il caso d'uso per cui il guid è costruito così.
+il caso d'uso per cui il guid è costruito così. Anche i **tag** si correggono
+liberamente: non entrano nel guid.
+
+**La numerazione prosegue per argomento, non per file.** Un argomento ripartito
+su più file continua da dove il file precedente si era fermato, perché l'id deve
+restare unico dentro tutto il mazzo:
+
+| Argomento | Dove sta |
+|---|---|
+| `lab-osso` | `06b` 001-032, poi `06d` 033-046 |
+| `lab-cartilagine` | `06a` 001-025, poi `06d` 026-043 |
+| `lab-linfoide` | `06c` 001-012, poi `06d` 013-021 |
+
+I salti sono ammessi (`lab-esocrino` passa da 035 a 040): serve che i numeri
+crescano e non si ripetano, non che siano contigui. Prima di aprire un file
+nuovo, controlla dove è arrivato l'argomento:
+
+```sh
+grep -ho '"id": "lab-osso-[0-9]*"' cards/laboratorio/*.jsonl | sort | tail -1
+```
 
 ### Mazzi
 
