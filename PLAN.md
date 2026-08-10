@@ -49,7 +49,8 @@ pacchetto non viene scritto):
 
 ## 2. Stato al 2026-08-10
 
-**590 note**, 105 immagini, 151 test verdi.
+**673 note**, 120 immagini, 151 test verdi. **Il Laboratorio è finito**: tutte
+e 106 le pagine sono coperte. Resta solo la Teoria.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -73,12 +74,16 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `06c-sangue-e-linfoide.jsonl` | 26 | sezione 019, pagine 59-60 |
 | `06d-vetrini.jsonl` | 45 | sezione 019, vetrini 1-11, pagine 61-70 |
 | `06e-quiz-connettivi-specializzati.jsonl` | 30 | generato, pagine 71-75 |
+| `06f-timo.jsonl` | 15 | sezione 026, pagine 104-105 |
 | `07a-tessuto-muscolare.jsonl` | 24 | sezione 020, pagine 76-77 |
 | `07b-vetrini-muscolari.jsonl` | 20 | sezione 022, vetrini 1-3, pagine 82-85 |
 | `08a-tessuto-nervoso.jsonl` | 27 | sezione 021, pagine 78-80 |
 | `08b-snp-nervi-e-gangli.jsonl` | 18 | sezione 022, pagine 80-81 |
 | `08b2-vetrini-nervoso.jsonl` | 39 | sezione 022, vetrini 4-9, pagine 86-91 |
 | `08c-quiz-nervoso.jsonl` | 24 | generato, pagine 92-95: **domande 1-15 sul muscolare**, 16-24 sul nervoso |
+| `09a-embriologia.jsonl` | 20 | sezione 025, pagine 96-97 |
+| `09b-modellini-embriologia.jsonl` | 37 | sezione 026, modellini 1-9, pagine 98-103 |
+| `10a-tonsilla-palatina.jsonl` | 11 | sezione 027, pagina 106 |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
@@ -128,9 +133,10 @@ restare unico dentro tutto il mazzo:
 |---|---|
 | `lab-osso` | `06b` 001-032, poi `06d` 033-046 |
 | `lab-cartilagine` | `06a` 001-025, poi `06d` 026-043 |
-| `lab-linfoide` | `06c` 001-012, poi `06d` 013-021 |
 | `lab-muscolare` | `07a` 001-024, poi `07b` 025-044 |
 | `lab-nervoso` | `08a` 001-027, poi `08b` 028-045, poi `08b2` 046-084 |
+| `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, poi `10a` 037-047 |
+| `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
 
 I salti sono ammessi (`lab-esocrino` passa da 035 a 040): serve che i numeri
 crescano e non si ripetano, non che siano contigui. Prima di aprire un file
@@ -227,21 +233,26 @@ si sistemano invece senza cerimonie: non cambiano il contenuto.
 
 ## 4. Cosa resta, in ordine
 
-L'ordine è pensato per consegnare valore prima e per lasciare i capitoli lunghi
-quando le convenzioni sono ormai rodate.
+Resta la sola Teoria. L'ordine dei suoi capitoli è ancora da scegliere: vale il
+criterio usato finora, consegnare valore prima e lasciare i capitoli lunghi
+quando le convenzioni sono rodate.
 
 ### Laboratorio
 
-| # | Lavoro | Sezione | Pagine | Parole | Immagini | Deck |
-|---|---|---|---|---|---|---|
-| 1 | Embriologia | 025 | 96-98 | 699 | 2 | `09 - Embriologia` |
-| 2 | Modellini embriologia | 026 | 98-106 | 2.088 | 15 | `09 - Embriologia` |
-| 3 | Tonsilla palatina | 027 | 106 | 230 | 2 | `10 - Tonsilla palatina` |
+**Non resta niente.** Le 28 sezioni sono coperte tutte; le sole saltate sono la
+024 e la 023 nella parte non-quiz, che contengono solo link a video di ripasso.
 
-I numeri di deck dopo l'08 sono dedotti, non ancora usati.
+Due cose trovate lungo la strada che il piano non prevedeva, da non perdere se
+si torna sul Laboratorio:
 
-**Il capitolo 08 è chiuso**: sezioni 021 e 022, teoria, nove vetrini e quiz.
-Restano solo i tre lavori qui sopra, tutti fuori dal nervoso.
+- **Il timo** (pagine 104-105) non era elencato da nessuna parte: sta dentro la
+  sezione dei modellini perché il professore lo ha ripreso a fine corso, per un
+  vetrino che non era stato osservato. La nota dice esplicitamente che **non è
+  stato trattato durante il corso ma sarà presente all'esame**. Le sue carte
+  stanno in `06f`, nel mazzo 06 con il resto del linfoide.
+- Della **tonsilla palatina** il professore **non ha specificato** se sarà
+  all'esame. Ha un mazzo suo (`10`), quindi Pietro può sospenderlo se decide di
+  lasciarla perdere.
 
 Delle 45 figure della sezione 022 ne sono state usate 35. Le dieci scartate
 sono quasi tutte doppioni dello stesso campo a ingrandimento simile
@@ -320,6 +331,8 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `lab-osso-046` | il vetrino 10 mette dei condroblasti lungo le pareti dei canali di Havers; lì ci si aspettano cellule osteoprogenitrici e osteoblasti |
 | `lab-quiz-connettivi-specializzati-001` | la casella spuntata è "Fibroblasto" per la cellula che sintetizza la matrice cartilaginea; è il condrocita |
 | `lab-quiz-connettivi-specializzati-026` | conta la riserva energetica fra le funzioni **non** associate ai connettivi specializzati, contraddicendo le domande 11 e 13 dello stesso quiz sul tessuto adiposo |
+| `lab-linfoide-022` | inquadra il timo come "tessuto connettivo specializzato con funzione trofica"; è un organo, e la sua funzione è la maturazione e selezione dei linfociti T |
+| `lab-linfoide-039` | dà l'epitelio di rivestimento della tonsilla palatina per pavimentoso stratificato **cheratinizzato**; è classicamente non cheratinizzato, come il resto dell'orofaringe. La sbobina cita come fonte un sito divulgativo, non il libro |
 | `lab-nervoso-069` | il vetrino 7 dichiara la tecnica di Golgi, ma descrive un citoplasma ricco di corpi di Nissl "visibili come zone basofile"; il Golgi impregna di nero pochi neuroni interi su fondo chiaro e non dà basofilia, e nelle figure si vedono tutti i neuroni con le loro cellule satelliti |
 | `lab-nervoso-015` | dice che la sostanza tigroide si vede **solo** con colorazioni speciali e non con ematossilina-eosina; i corpi di Nissl sono fortemente basofili e in un preparato EE si vedono come zolle basofile nel citoplasma |
 | `lab-muscolare-016` | nega che il miocardio sia un sincizio funzionale e attribuisce l'espressione al muscolo scheletrico; è il contrario, il cuore è il sincizio funzionale classico grazie alle gap junction dei dischi intercalari, mentre lo scheletrico è un sincizio strutturale |
