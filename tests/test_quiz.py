@@ -2,10 +2,15 @@ import pytest
 
 from scripts.quiz import (
     AmbiguousCheckbox,
+    checkbox_for_span,
     checkbox_state,
     group_questions,
+    is_bold_span,
+    is_bullet,
+    is_checkbox_rect,
     is_noise,
     is_question_start,
+    option_is_checked,
 )
 
 
@@ -31,22 +36,22 @@ class TestIsQuestionStart:
 
 class TestCheckboxState:
     def test_low_ink_means_empty(self):
-        assert checkbox_state(0.074) is False
+        assert checkbox_state(0.33) is False
 
     def test_high_ink_means_checked(self):
-        assert checkbox_state(0.104) is True
+        assert checkbox_state(0.43) is True
 
     def test_a_value_in_the_grey_band_is_refused_rather_than_guessed(self):
         """Una casella incerta va segnalata: tirare a indovinare qui produce
         una carta che insegna la risposta sbagliata."""
         with pytest.raises(AmbiguousCheckbox):
-            checkbox_state(0.090)
+            checkbox_state(0.39)
 
     def test_the_band_edges_are_themselves_ambiguous(self):
         with pytest.raises(AmbiguousCheckbox):
-            checkbox_state(0.085)
+            checkbox_state(0.38)
         with pytest.raises(AmbiguousCheckbox):
-            checkbox_state(0.095)
+            checkbox_state(0.40)
 
 
 class TestQuestionTextSpreadOverSpans:
@@ -83,6 +88,94 @@ class TestQuestionTextSpreadOverSpans:
         question = group_questions(lines)[0]
         assert question["question"] == "Elenca tutti i tessuti ghiandolari endocrini umani"
         assert question["options"] == []
+
+
+class TestOptionIsChecked:
+    """Le sbobine usano due convenzioni diverse per segnare la risposta: la
+    casella spuntata nel quiz endocrino, il grassetto in quello sui connettivi."""
+
+    def test_an_inked_checkbox_marks_the_answer(self):
+        assert option_is_checked(ink_fraction=0.43, bold=False) is True
+
+    def test_bold_text_marks_the_answer_even_with_an_empty_checkbox(self):
+        assert option_is_checked(ink_fraction=0.33, bold=True) is True
+
+    def test_plain_text_with_an_empty_checkbox_is_not_the_answer(self):
+        assert option_is_checked(ink_fraction=0.33, bold=False) is False
+
+    def test_bold_settles_a_checkbox_that_would_be_ambiguous(self):
+        assert option_is_checked(ink_fraction=0.39, bold=True) is True
+
+    def test_an_ambiguous_checkbox_without_bold_is_still_refused(self):
+        with pytest.raises(AmbiguousCheckbox):
+            option_is_checked(ink_fraction=0.39, bold=False)
+
+
+class TestIsBoldSpan:
+    def test_detects_bold_from_the_font_name(self):
+        assert is_bold_span({"font": "Nunito-Bold", "flags": 4}) is True
+
+    def test_detects_bold_from_the_flags(self):
+        assert is_bold_span({"font": "Nunito", "flags": 20}) is True
+
+    def test_regular_text_is_not_bold(self):
+        assert is_bold_span({"font": "Nunito-Regular", "flags": 4}) is False
+
+
+class TestIsBullet:
+    """Terza convenzione, nel quiz sul nervoso: niente caselle, opzioni con
+    punto elenco e risposta in grassetto."""
+
+    @pytest.mark.parametrize("text", ["●", "•", "○", "▪", "-"])
+    def test_recognises_the_list_markers_used(self, text):
+        assert is_bullet(text) is True
+
+    def test_recognises_a_marker_carrying_a_zero_width_space(self):
+        assert is_bullet("●​") is True
+
+    @pytest.mark.parametrize("text", ["Nuclei centrali", "1)", "-5 mm"])
+    def test_rejects_real_content(self, text):
+        assert is_bullet(text) is False
+
+
+class TestIsCheckboxRect:
+    def test_accepts_the_ten_point_square_used_in_the_sbobine(self):
+        assert is_checkbox_rect(10.1, 10.1) is True
+
+    def test_rejects_the_wide_bands_of_the_page_layout(self):
+        assert is_checkbox_rect(507.0, 19.0) is False
+
+    def test_rejects_a_rectangle_that_is_not_square(self):
+        assert is_checkbox_rect(10.1, 4.0) is False
+
+    def test_rejects_a_square_far_from_the_expected_size(self):
+        assert is_checkbox_rect(3.0, 3.0) is False
+
+
+class TestCheckboxForSpan:
+    """La casella a sinistra e cio che rende una riga un'opzione: il testo non
+    produce mai rettangoli, quindi il segnale non si confonde con la domanda."""
+
+    BOX = (66.9, 200.0, 77.0, 210.0)
+    SPAN = (100.0, 199.0, 300.0, 211.0)
+
+    def test_finds_the_box_just_left_of_the_option(self):
+        assert checkbox_for_span(self.SPAN, [self.BOX]) == self.BOX
+
+    def test_ignores_a_box_too_far_to_the_left(self):
+        far = (10.0, 200.0, 20.1, 210.0)
+        assert checkbox_for_span(self.SPAN, [far]) is None
+
+    def test_ignores_a_box_on_another_line(self):
+        other_line = (66.9, 400.0, 77.0, 410.0)
+        assert checkbox_for_span(self.SPAN, [other_line]) is None
+
+    def test_ignores_a_box_to_the_right(self):
+        right = (320.0, 200.0, 330.1, 210.0)
+        assert checkbox_for_span(self.SPAN, [right]) is None
+
+    def test_a_question_line_has_no_box_and_stays_a_question(self):
+        assert checkbox_for_span((35.4, 199.0, 300.0, 211.0), [self.BOX]) is None
 
 
 class TestGroupQuestions:
