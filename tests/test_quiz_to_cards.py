@@ -1,4 +1,6 @@
-from scripts.quiz_to_cards import cards_from_quiz
+import pytest
+
+from scripts.quiz_to_cards import cards_from_quiz, refuse_to_overwrite
 
 DECK = "Istologia::Laboratorio::Quiz"
 
@@ -91,3 +93,32 @@ class TestCardShape:
 
     def test_records_the_source(self):
         assert build([question()])[0]["source"] == "Laboratorio p. 40-43"
+
+
+class TestRefuseToOverwrite:
+    """Un file di quiz pubblicato non e' piu' solo il prodotto del generatore:
+    i tag per argomento dei quiz misti e le note da-verificare sono aggiunti a
+    mano. Rigenerarlo sopra li perderebbe in silenzio."""
+
+    def test_refuses_a_path_that_already_exists(self, tmp_path):
+        published = tmp_path / "06e-quiz.jsonl"
+        published.write_text("carta rifinita a mano\n", encoding="utf-8")
+        with pytest.raises(SystemExit):
+            refuse_to_overwrite(published)
+
+    def test_says_where_to_generate_instead(self, tmp_path):
+        published = tmp_path / "06e-quiz.jsonl"
+        published.write_text("carta rifinita a mano\n", encoding="utf-8")
+        with pytest.raises(SystemExit) as error:
+            refuse_to_overwrite(published)
+        assert "temporaneo" in str(error.value)
+
+    def test_leaves_the_published_file_untouched(self, tmp_path):
+        published = tmp_path / "06e-quiz.jsonl"
+        published.write_text("carta rifinita a mano\n", encoding="utf-8")
+        with pytest.raises(SystemExit):
+            refuse_to_overwrite(published)
+        assert published.read_text(encoding="utf-8") == "carta rifinita a mano\n"
+
+    def test_lets_a_new_path_through(self, tmp_path):
+        assert refuse_to_overwrite(tmp_path / "nuovo.jsonl") is None

@@ -131,7 +131,8 @@ studiare in trasversale, e un sinonimo in più rompe la selezione.
 quiz è misto, come quello finale dei connettivi specializzati, l'`argomento::` va
 corretto a mano dopo la generazione, domanda per domanda: altrimenti quelle carte
 spariscono dalle selezioni su osso, sangue e linfoide. Il file committato è la
-versione corretta, non quella appena uscita dal generatore.
+versione corretta, non quella appena uscita dal generatore, e il generatore si
+rifiuta di sovrascriverlo (vedi punto 6).
 
 ### Campo `source`
 
@@ -300,9 +301,34 @@ toccare le soglie:
   pymupdf.open('PDF')[70].get_pixmap(dpi=140).save('/tmp/p71.png')"
 ```
 
-Dopo qualunque modifica a `quiz.py`, rigenera i quattro file di quiz già
-pubblicati e verifica che il diff sia vuoto: è la prova che non hai cambiato
-carte che Pietro sta già ripassando.
+**I file di quiz pubblicati non sono più solo il prodotto del generatore.**
+Nei quiz misti l'`argomento::` è assegnato a mano domanda per domanda, e le
+risposte che non tornano portano una nota in fondo al `back` e il tag
+`da-verificare`. Niente di questo si ricava dal PDF, quindi `quiz_to_cards.py`
+**si rifiuta di scrivere su un file che esiste già**.
+
+Dopo qualunque modifica a `quiz.py`, il controllo di non-regressione va fatto
+generando su un percorso temporaneo e confrontando `front` e `back`: le uniche
+differenze attese sono le carte taggate `da-verificare`.
+
+```sh
+S=/tmp/checkquiz && mkdir -p $S
+./venv/bin/python -m scripts.quiz_to_cards --pdf "$DL/Istologia Laboratorio combinato.pdf" \
+    --from-page 71 --to-page 75 --deck "Istologia::Laboratorio::Quiz" \
+    --prefix lab-quiz-connettivi-specializzati --tags "fonte::lab" \
+    --source "Laboratorio p. 71-75" --out $S/06e.jsonl
+
+./venv/bin/python -c "
+import json
+core = lambda p: [(c['id'], c['front'], c['back']) for c in map(json.loads, open(p))]
+a, b = core('$S/06e.jsonl'), core('cards/laboratorio/06e-quiz-connettivi-specializzati.jsonl')
+print([x[0] for x, y in zip(a, b) if x != y])"
+```
+
+Atteso oggi: `['lab-quiz-connettivi-specializzati-001',
+'lab-quiz-connettivi-specializzati-026']`, le due carte annotate a mano.
+Qualsiasi altro id nell'elenco è una regressione su carte che Pietro sta già
+ripassando.
 
 **Il validatore considera l'immagine parte della domanda.** Molte carte di
 riconoscimento hanno lo stesso fronte ("Che epitelio è questo?") e sono distinte

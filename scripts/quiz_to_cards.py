@@ -7,8 +7,30 @@ introdurrebbe errori proprio dove la carta deve essere affidabile.
 import argparse
 import html
 import json
+from pathlib import Path
 
 from scripts.quiz import extract_quiz
+
+
+def refuse_to_overwrite(path):
+    """Fermarsi davanti a un file di quiz gia' pubblicato.
+
+    Un file pubblicato non e' piu' solo il prodotto del generatore: nei quiz
+    misti l'argomento e' assegnato a mano domanda per domanda, e le risposte
+    che non tornano portano una nota e il tag da-verificare. Niente di tutto
+    questo si ricava dal PDF, quindi rigenerare sopra lo perderebbe in
+    silenzio, e per giunta cambierebbe carte che Pietro sta gia' ripassando.
+    """
+    if Path(path).exists():
+        raise SystemExit(
+            f"{path} esiste gia'.\n"
+            "I file di quiz vengono rifiniti a mano dopo la generazione (tag per\n"
+            "argomento nei quiz misti, note da-verificare) e rigenerarli sopra le\n"
+            "perderebbe. Per il controllo di non-regressione genera su un percorso\n"
+            "temporaneo e confronta front e back: le uniche differenze attese sono\n"
+            "le carte taggate da-verificare, che portano una nota scritta a mano.\n"
+            "Se vuoi davvero ripartire da zero, cancella prima il file."
+        )
 
 
 def cards_from_quiz(questions, deck, prefix, tags, source):
@@ -49,6 +71,8 @@ def main():
     parser.add_argument("--source", required=True)
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
+
+    refuse_to_overwrite(args.out)
 
     questions = extract_quiz(args.pdf, args.from_page, args.to_page)
     cards = cards_from_quiz(questions, args.deck, args.prefix, args.tags, args.source)
