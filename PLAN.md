@@ -49,7 +49,7 @@ pacchetto non viene scritto):
 
 ## 2. Stato al 2026-08-10
 
-**215 note**, circa 330 carte reali in Anki, 19 immagini, 138 test verdi.
+**304 note**, 31 immagini, 138 test verdi.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -60,11 +60,13 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 |---|---|---|
 | `01-colorazioni.jsonl` | 38 | sezioni 002-005, pagine 2-6 |
 | `02-tessuti-epiteliali.jsonl` | 34 | sezioni 006-007, pagine 6-8 |
-| `03-ghiandolare-esocrino.jsonl` | 35 | sezione 009, **solo la classificazione**, pagine 14-16 |
+| `03-ghiandolare-esocrino.jsonl` | 35 | sezione 009, classificazione, pagine 14-16 |
+| `03b-esocrino-vetrini.jsonl` | 48 | sezione 009, vetrini 1-13, pagine 17-25 |
 | `04a-endocrino-classificazione.jsonl` | 15 | sezione 011, pagine 28-29 |
 | `04b-endocrino-ipofisi-tiroide-paratiroide.jsonl` | 26 | sezione 011, vetrini 1-3, pagine 29-32 |
 | `04c-quiz-endocrino.jsonl` | 18 | generato, pagine 40-42 |
 | `04d-quiz-endocrino-aperte.jsonl` | 4 | scritto a mano, domande 19-22 |
+| `05a-tessuti-connettivi.jsonl` | 41 | sezioni 013-015, vetrini 1-7, pagine 43-50 |
 | `05c-quiz-connettivi.jsonl` | 21 | generato, pagine 51-54 |
 | `08c-quiz-nervoso.jsonl` | 24 | generato, pagine 92-95 |
 
@@ -172,15 +174,13 @@ quando le convenzioni sono ormai rodate.
 
 | # | Lavoro | Sezione | Pagine | Parole | Note |
 |---|---|---|---|---|---|
-| 1 | Vetrini del ghiandolare esocrino | 009 | 16-28 | ~1.800 | 36 immagini da triagiare |
-| 2 | Tessuti connettivi | 013-015 | 43-51 | ~1.850 | |
-| 3 | Cartilagine | 018 | 55-57 | 800 | |
-| 4 | Tessuto osseo | 019 | 57-76 | 4.260 | il più lungo, conviene spezzarlo |
-| 5 | Tessuto muscolare | 020 | 76-78 | 585 | |
-| 6 | Tessuto nervoso e SNP | 021-022 | 78-92 | 3.700 | |
-| 7 | Embriologia | 024-025 | 96-98 | 706 | |
-| 8 | Modellini embriologia | 026 | 98-106 | 2.088 | |
-| 9 | Tonsilla palatina | 027 | 106 | 230 | |
+| 1 | Cartilagine | 018 | 55-57 | 800 | |
+| 2 | Tessuto osseo | 019 | 57-76 | 4.260 | il più lungo, conviene spezzarlo |
+| 3 | Tessuto muscolare | 020 | 76-78 | 585 | |
+| 4 | Tessuto nervoso e SNP | 021-022 | 78-92 | 3.700 | |
+| 5 | Embriologia | 024-025 | 96-98 | 706 | |
+| 6 | Modellini embriologia | 026 | 98-106 | 2.088 | |
+| 7 | Tonsilla palatina | 027 | 106 | 230 | |
 
 I quiz del Laboratorio sono **tutti fatti**. Se ne emergessero altri, il
 generatore gestisce già le tre convenzioni di marcatura.
@@ -224,7 +224,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Tre carte taggate, più una figura scartata senza produrre carta. Vale la pena
+Quattro carte taggate, più una figura scartata senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -232,7 +232,11 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `lab-epiteli-031` | la sbobina scrive cavità "portorie", termine inesistente, con ogni probabilità per cavità sierose |
 | `lab-esocrino-033` | porta le ghiandole di Cowper come esempio di ghiandola intraepiteliale; le bulbouretrali non lo sono, l'esempio atteso sono le ghiandole di Littré |
 | `lab-endocrino-014` | attribuisce il testosterone ai tubuli seminiferi invece che alle cellule di Leydig, gli estrogeni al corpo luteo invece del progesterone, e classifica il corpo luteo fra le interstiziali dopo averlo messo fra quelle a cordoni solidi |
+| `lab-connettivi-037` | descrive la giunzione miotendinea come formata da cartilagine ialina; è classicamente un'interdigitazione fra membrana delle fibre muscolari e collagene, la fibrocartilagine sta semmai all'entesi |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
+
+Casi risolti senza tag, perché il refuso è evidente e non c'è dubbio di contenuto:
+la sbobina scrive adiposo "multicolore" per multiloculare (`lab-connettivi-030`).
 
 ---
 
