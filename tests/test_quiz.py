@@ -10,6 +10,7 @@ from scripts.quiz import (
     is_checkbox_rect,
     is_noise,
     is_question_start,
+    is_title,
     option_is_checked,
 )
 
@@ -122,6 +123,23 @@ class TestIsBoldSpan:
         assert is_bold_span({"font": "Nunito-Regular", "flags": 4}) is False
 
 
+class TestIsTitle:
+    """Il titolo della sezione ("QUIZ", "Domande e risposte del quiz finale")
+    e in grassetto e piu grande del corpo del testo. Va scartato: dove le
+    domande non sono numerate niente segnerebbe altrimenti che il titolo non
+    fa parte della prima domanda."""
+
+    def test_recognises_the_quiz_heading(self):
+        assert is_title({"font": "Nunito-Bold", "flags": 20, "size": 14.0}) is True
+
+    def test_a_bold_question_in_the_body_text_is_not_a_title(self):
+        """Nel quiz sui connettivi le domande numerate sono in grassetto."""
+        assert is_title({"font": "Nunito-Bold", "flags": 20, "size": 11.0}) is False
+
+    def test_plain_body_text_is_not_a_title(self):
+        assert is_title({"font": "Nunito", "flags": 4, "size": 10.5}) is False
+
+
 class TestIsBullet:
     """Terza convenzione, nel quiz sul nervoso: niente caselle, opzioni con
     punto elenco e risposta in grassetto."""
@@ -219,3 +237,55 @@ class TestGroupQuestions:
             {"kind": "option", "text": "A", "checked": False},
         ]
         assert group_questions(lines)[0]["answers"] == []
+
+
+class TestUnnumberedQuestions:
+    """Quarta convenzione, nel quiz finale sui connettivi specializzati: le
+    domande non portano il marcatore "N)". L'unico segnale che una riga di
+    testo e una domanda e che subito dopo comincia un blocco di opzioni."""
+
+    LINES = [
+        {"kind": "text", "text": "Quali cellule riassorbono l'osso?"},
+        {"kind": "option", "text": "Osteoblasti", "checked": False},
+        {"kind": "option", "text": "Osteoclasti", "checked": True},
+        {"kind": "text", "text": "Qual e la componente minerale della matrice?"},
+        {"kind": "option", "text": "Idrossiapatite", "checked": True},
+    ]
+
+    def test_reads_the_text_before_the_options_as_the_question(self):
+        assert [q["question"] for q in group_questions(self.LINES)] == [
+            "Quali cellule riassorbono l'osso?",
+            "Qual e la componente minerale della matrice?",
+        ]
+
+    def test_numbers_them_in_reading_order(self):
+        assert [q["number"] for q in group_questions(self.LINES)] == [1, 2]
+
+    def test_collects_the_options_under_their_question(self):
+        assert [len(q["options"]) for q in group_questions(self.LINES)] == [2, 1]
+
+    def test_lists_the_correct_answers(self):
+        assert [q["answers"] for q in group_questions(self.LINES)] == [
+            ["Osteoclasti"],
+            ["Idrossiapatite"],
+        ]
+
+    def test_joins_a_question_broken_over_two_spans(self):
+        lines = [
+            {"kind": "text", "text": "Quale dei seguenti tessuti protegge"},
+            {"kind": "text", "text": "il sistema nervoso centrale?"},
+            {"kind": "option", "text": "Tessuto osseo", "checked": True},
+        ]
+        question = group_questions(lines)[0]
+        assert question["question"] == "Quale dei seguenti tessuti protegge il sistema nervoso centrale?"
+
+    def test_options_continuing_on_the_next_page_stay_with_their_question(self):
+        """Fra le ultime opzioni di una pagina e le prime della successiva non
+        c'e testo: aprire li una domanda nuova le staccherebbe dalla loro."""
+        lines = [
+            {"kind": "text", "text": "Quali sono le componenti del sangue?"},
+            {"kind": "option", "text": "Plasma", "checked": True},
+            {"kind": "option", "text": "Eritrociti", "checked": True},
+        ]
+        assert len(group_questions(lines)) == 1
+        assert len(group_questions(lines)[0]["options"]) == 2
