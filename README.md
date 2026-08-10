@@ -60,6 +60,21 @@ segnalare un errore e ricevere il mazzo corretto senza ricominciare da capo.
 Ci sono tutte. Anki di default ti propone al massimo **20 carte nuove al giorno**: è un limite
 di studio, non la dimensione del mazzo. Come alzarlo è spiegato qui sotto.
 
+### Passare il mazzo a qualcun altro
+
+Manda il file `.apkg` che trovi in `dist/` e basta. **Non contiene nessun progresso**: chi lo
+importa parte da zero, con tutte le carte nuove e le statistiche vuote.
+
+Non è una precauzione da prendere, è come è fatto il file. Il pacchetto viene costruito dai
+file sorgente in `cards/`, non esportato da una collezione Anki, quindi dentro non c'è storico
+di ripasso, non ci sono intervalli e nessuna carta porta statistiche.
+
+**Non condividerlo esportandolo da Anki** (File → Esporta). Quella strada parte dalla tua
+collezione e può includere le informazioni di programmazione: chi riceve il file si ritroverebbe
+i tuoi intervalli al posto di un mazzo pulito, senza capire perché certe carte non gli vengono
+mai proposte. Se per qualche motivo devi proprio esportare, togli la spunta alla casella sulle
+informazioni di programmazione (scheduling).
+
 ---
 
 ## 3. Impostazioni consigliate
