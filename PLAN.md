@@ -49,7 +49,7 @@ pacchetto non viene scritto):
 
 ## 2. Stato al 2026-08-10
 
-**304 note**, 31 immagini, 138 test verdi.
+**329 note**, 34 immagini, 138 test verdi.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -68,6 +68,7 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `04d-quiz-endocrino-aperte.jsonl` | 4 | scritto a mano, domande 19-22 |
 | `05a-tessuti-connettivi.jsonl` | 41 | sezioni 013-015, vetrini 1-7, pagine 43-50 |
 | `05c-quiz-connettivi.jsonl` | 21 | generato, pagine 51-54 |
+| `06a-cartilagine.jsonl` | 25 | sezione 018, pagine 55-57 |
 | `08c-quiz-nervoso.jsonl` | 24 | generato, pagine 92-95 |
 
 ### Teoria (256 pagine, 111 sezioni)
@@ -174,13 +175,16 @@ quando le convenzioni sono ormai rodate.
 
 | # | Lavoro | Sezione | Pagine | Parole | Note |
 |---|---|---|---|---|---|
-| 1 | Cartilagine | 018 | 55-57 | 800 | |
-| 2 | Tessuto osseo | 019 | 57-76 | 4.260 | il più lungo, conviene spezzarlo |
-| 3 | Tessuto muscolare | 020 | 76-78 | 585 | |
-| 4 | Tessuto nervoso e SNP | 021-022 | 78-92 | 3.700 | |
-| 5 | Embriologia | 024-025 | 96-98 | 706 | |
-| 6 | Modellini embriologia | 026 | 98-106 | 2.088 | |
-| 7 | Tonsilla palatina | 027 | 106 | 230 | |
+| 1 | Tessuto osseo | 019 | 57-76 | 4.260 | il più lungo, conviene spezzarlo |
+| 2 | Tessuto muscolare | 020 | 76-78 | 585 | |
+| 3 | Tessuto nervoso e SNP | 021-022 | 78-92 | 3.700 | |
+| 4 | Embriologia | 024-025 | 96-98 | 706 | |
+| 5 | Modellini embriologia | 026 | 98-106 | 2.088 | |
+| 6 | Tonsilla palatina | 027 | 106 | 230 | |
+
+Il tessuto osseo è il capitolo più lungo del Laboratorio e conviene aprirlo a
+inizio sessione, quando c'è contesto disponibile per leggerlo tutto e guardare
+le sue 29 immagini.
 
 I quiz del Laboratorio sono **tutti fatti**. Se ne emergessero altri, il
 generatore gestisce già le tre convenzioni di marcatura.
