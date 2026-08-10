@@ -96,6 +96,19 @@ class TestIdentity:
         other = basic(id="lab-osso-001", deck="Istologia::Laboratorio::07 - Tessuto osseo")
         assert validate_cards([basic(), other], media) == []
 
+    def test_allows_the_same_wording_when_the_image_differs(self, media):
+        """Le carte di riconoscimento chiedono tutte 'Che epitelio e questo?':
+        a distinguerle e la figura, non il testo."""
+        (media / "lab_p007_2.jpg").write_bytes(b"jpeg")
+        first = basic(id="lab-epiteli-012", front="Che epitelio e questo?", images=["lab_p042_1.jpg"])
+        second = basic(id="lab-epiteli-015", front="Che epitelio e questo?", images=["lab_p007_2.jpg"])
+        assert validate_cards([first, second], media) == []
+
+    def test_reports_the_same_question_with_the_same_image(self, media):
+        first = basic(id="lab-epiteli-012", images=["lab_p042_1.jpg"])
+        second = basic(id="lab-epiteli-015", images=["lab_p042_1.jpg"])
+        assert any("duplicat" in error.lower() for error in validate_cards([first, second], media))
+
 
 class TestMedia:
     def test_reports_an_image_missing_from_disk(self, media):

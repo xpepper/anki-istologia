@@ -54,7 +54,13 @@ def validate_cards(cards, media_dir):
 
         question = card.get("front") or card.get("text")
         if question and card.get("deck"):
-            key = (card["deck"], " ".join(str(question).split()))
+            # L'immagine fa parte della domanda: le carte di riconoscimento
+            # chiedono tutte "che tessuto e questo?" e a distinguerle e la figura.
+            key = (
+                card["deck"],
+                " ".join(str(question).split()),
+                tuple(card.get("images", [])),
+            )
             if key in seen_questions:
                 errors.append(f"{name}: domanda duplicata nello stesso mazzo")
             seen_questions.add(key)
