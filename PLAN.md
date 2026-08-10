@@ -26,7 +26,7 @@ DL=/Users/pietrodibello/Downloads
 ./venv/bin/python scripts/segment.py --build build/lab
 ./venv/bin/python scripts/segment.py --build build/teoria
 
-./venv/bin/python -m pytest tests/ -q          # atteso: 138 passed
+./venv/bin/python -m pytest tests/ -q          # atteso: 147 passed
 ```
 
 L'estrazione della teoria richiede qualche minuto: 256 pagine e 463 immagini.
@@ -49,7 +49,7 @@ pacchetto non viene scritto):
 
 ## 2. Stato al 2026-08-10
 
-**329 note**, 34 immagini, 138 test verdi.
+**462 note**, 58 immagini, 147 test verdi.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -69,7 +69,16 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `05a-tessuti-connettivi.jsonl` | 41 | sezioni 013-015, vetrini 1-7, pagine 43-50 |
 | `05c-quiz-connettivi.jsonl` | 21 | generato, pagine 51-54 |
 | `06a-cartilagine.jsonl` | 25 | sezione 018, pagine 55-57 |
+| `06b-tessuto-osseo.jsonl` | 32 | sezione 019, pagine 57-58 |
+| `06c-sangue-e-linfoide.jsonl` | 26 | sezione 019, pagine 59-60 |
+| `06d-vetrini.jsonl` | 45 | sezione 019, vetrini 1-11, pagine 61-70 |
+| `06e-quiz-connettivi-specializzati.jsonl` | 30 | generato, pagine 71-75 |
 | `08c-quiz-nervoso.jsonl` | 24 | generato, pagine 92-95 |
+
+**La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
+osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
+il capitolo `06 - Tessuti connettivi specializzati` aperto dalla cartilagine.
+I quattro file `06b`-`06e` la chiudono per intero.
 
 ### Teoria (256 pagine, 111 sezioni)
 
@@ -111,12 +120,18 @@ Tre assi indipendenti, più uno di segnalazione:
 | Asse | Valori usati finora |
 |---|---|
 | `fonte::` | `lab`, `teoria` |
-| `argomento::` | `colorazioni`, `epiteli`, `ghiandole`, `endocrino`, `connettivi`, `nervoso` |
+| `argomento::` | `colorazioni`, `epiteli`, `ghiandole`, `endocrino`, `connettivi`, `cartilagine`, `osso`, `sangue`, `linfoide`, `nervoso` |
 | `tipo::` | `definizione`, `classificazione`, `elenco`, `sequenza`, `riconoscimento`, `confronto`, `quiz` |
 | segnalazione | `da-verificare` |
 
 Riusa i valori esistenti prima di inventarne di nuovi: i tag servono a Pietro per
 studiare in trasversale, e un sinonimo in più rompe la selezione.
+
+`quiz_to_cards.py` applica gli stessi tag a tutte le carte che genera. Quando un
+quiz è misto, come quello finale dei connettivi specializzati, l'`argomento::` va
+corretto a mano dopo la generazione, domanda per domanda: altrimenti quelle carte
+spariscono dalle selezioni su osso, sangue e linfoide. Il file committato è la
+versione corretta, non quella appena uscita dal generatore.
 
 ### Campo `source`
 
@@ -173,21 +188,32 @@ quando le convenzioni sono ormai rodate.
 
 ### Laboratorio
 
-| # | Lavoro | Sezione | Pagine | Parole | Note |
-|---|---|---|---|---|---|
-| 1 | Tessuto osseo | 019 | 57-76 | 4.260 | il più lungo, conviene spezzarlo |
-| 2 | Tessuto muscolare | 020 | 76-78 | 585 | |
-| 3 | Tessuto nervoso e SNP | 021-022 | 78-92 | 3.700 | |
-| 4 | Embriologia | 024-025 | 96-98 | 706 | |
-| 5 | Modellini embriologia | 026 | 98-106 | 2.088 | |
-| 6 | Tonsilla palatina | 027 | 106 | 230 | |
+| # | Lavoro | Sezione | Pagine | Parole | Immagini | Deck |
+|---|---|---|---|---|---|---|
+| 1 | Tessuto muscolare | 020 | 76-78 | 585 | 10 | `07 - Tessuto muscolare` |
+| 2 | Tessuto nervoso | 021 | 78-80 | 723 | 7 | `08 - Tessuto nervoso` |
+| 3 | Sistema nervoso periferico | 022 | 80-92 | 2.979 | 45 | `08 - Tessuto nervoso` |
+| 4 | Embriologia | 025 | 96-98 | 699 | 2 | `09 - Embriologia` |
+| 5 | Modellini embriologia | 026 | 98-106 | 2.088 | 15 | `09 - Embriologia` |
+| 6 | Tonsilla palatina | 027 | 106 | 230 | 2 | `10 - Tonsilla palatina` |
 
-Il tessuto osseo è il capitolo più lungo del Laboratorio e conviene aprirlo a
-inizio sessione, quando c'è contesto disponibile per leggerlo tutto e guardare
-le sue 29 immagini.
+I numeri di deck sono dedotti, non ancora usati: l'unico vincolo già posato è
+che il quiz del nervoso sta nel file `08c`, quindi il nervoso è il capitolo 08 e
+il muscolare il 07.
 
-I quiz del Laboratorio sono **tutti fatti**. Se ne emergessero altri, il
-generatore gestisce già le tre convenzioni di marcatura.
+Il **sistema nervoso periferico** è il pezzo più lungo rimasto, e soprattutto ha
+**45 immagini**: conviene aprirlo a inizio sessione, quando c'è contesto per
+guardarle tutte, e spezzarlo in più file. Il suo quiz (`08c`) è però già fatto.
+
+Attenzione al conteggio delle parole di una sezione: quello di `sections.jsonl`
+comprende anche le descrizioni dei vetrini e le pagine di quiz, che sono lavoro
+diverso dalla teoria. La sezione 019 dichiarava 4.260 parole ed erano in realtà
+due pagine di teoria sull'osso, due sul sangue e sul linfoide, undici vetrini e
+trenta domande di quiz: quattro file di carte, non uno.
+
+I quiz del Laboratorio sono **tutti fatti**: pagine 40-42, 51-54, 71-75 e 92-95.
+Se ne emergessero altri, il generatore gestisce già le quattro convenzioni di
+marcatura.
 
 ### Teoria
 
@@ -228,7 +254,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Quattro carte taggate, più una figura scartata senza produrre carta. Vale la pena
+Otto carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -237,7 +263,12 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `lab-esocrino-033` | porta le ghiandole di Cowper come esempio di ghiandola intraepiteliale; le bulbouretrali non lo sono, l'esempio atteso sono le ghiandole di Littré |
 | `lab-endocrino-014` | attribuisce il testosterone ai tubuli seminiferi invece che alle cellule di Leydig, gli estrogeni al corpo luteo invece del progesterone, e classifica il corpo luteo fra le interstiziali dopo averlo messo fra quelle a cordoni solidi |
 | `lab-connettivi-037` | descrive la giunzione miotendinea come formata da cartilagine ialina; è classicamente un'interdigitazione fra membrana delle fibre muscolari e collagene, la fibrocartilagine sta semmai all'entesi |
+| `lab-linfoide-015` | identifica le plasmacellule con i linfociti B maturi del centro germinativo splenico; le plasmacellule sono la forma terminale differenziata e stanno soprattutto nella polpa rossa |
+| `lab-osso-046` | il vetrino 10 mette dei condroblasti lungo le pareti dei canali di Havers; lì ci si aspettano cellule osteoprogenitrici e osteoblasti |
+| `lab-quiz-connettivi-specializzati-001` | la casella spuntata è "Fibroblasto" per la cellula che sintetizza la matrice cartilaginea; è il condrocita |
+| `lab-quiz-connettivi-specializzati-026` | conta la riserva energetica fra le funzioni **non** associate ai connettivi specializzati, contraddicendo le domande 11 e 13 dello stesso quiz sul tessuto adiposo |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
+| (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
 Casi risolti senza tag, perché il refuso è evidente e non c'è dubbio di contenuto:
 la sbobina scrive adiposo "multicolore" per multiloculare (`lab-connettivi-030`).
@@ -251,11 +282,27 @@ di testo più vicino sotto la figura, che spesso è prosa qualsiasi. Su 222 imma
 del Laboratorio solo 94 hanno una didascalia, e non tutte sono corrette. Servono
 come indizio, non come verità: guarda l'immagine.
 
-**Le risposte dei quiz non sono nel testo.** Sono marcate graficamente, in tre
-modi diversi a seconda della lezione. `scripts/quiz.py` le gestisce tutte e tre e
-solleva `AmbiguousCheckbox` invece di indovinare quando il segnale non è chiaro.
-Se una nuova sezione di quiz esce con zero risposte, quasi certamente usa una
-quarta convenzione: renderizza la pagina e guardala prima di modificare le soglie.
+**Le risposte dei quiz non sono nel testo.** Sono marcate graficamente, in
+quattro modi diversi a seconda della lezione: casella spuntata (endocrino),
+casella vuota con risposta in grassetto (connettivi), punto elenco con risposta
+in grassetto (nervoso), e casella spuntata ma **domande non numerate** (quiz
+finale dei connettivi specializzati). `scripts/quiz.py` le gestisce tutte e
+quattro e solleva `AmbiguousCheckbox` invece di indovinare quando il segnale non
+è chiaro.
+
+Se una nuova sezione di quiz esce con **zero domande** il problema è il
+riconoscimento della domanda, non delle caselle; se esce con zero **risposte** è
+il contrario. In entrambi i casi renderizza la pagina e guardala prima di
+toccare le soglie:
+
+```sh
+./venv/bin/python -c "import pymupdf; \
+  pymupdf.open('PDF')[70].get_pixmap(dpi=140).save('/tmp/p71.png')"
+```
+
+Dopo qualunque modifica a `quiz.py`, rigenera i quattro file di quiz già
+pubblicati e verifica che il diff sia vuoto: è la prova che non hai cambiato
+carte che Pietro sta già ripassando.
 
 **Il validatore considera l'immagine parte della domanda.** Molte carte di
 riconoscimento hanno lo stesso fronte ("Che epitelio è questo?") e sono distinte
@@ -264,6 +311,11 @@ davvero immagini diverse, il bug è altrove.
 
 **La cwd della shell si resetta fra un comando e l'altro.** Usa percorsi assoluti
 o prefissa `cd /Users/pietrodibello/tools/anki-istologia &&`.
+
+**Una figura può stare sulla pagina dopo il testo che illustra.** La
+microfotografia dell'osteone è estratta come `lab_p059_4057.jpg` ma illustra il
+testo di pagina 58, ed è finita sulla carta giusta solo perché è stata guardata.
+Il campo `source` della carta segue il **testo**, non la pagina della figura.
 
 **Le sezioni si sovrappongono ai bordi.** `images_for_section` assegna per
 intervallo di pagine, quindi una figura a cavallo di due sezioni compare in
