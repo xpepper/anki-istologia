@@ -49,7 +49,7 @@ pacchetto non viene scritto):
 
 ## 2. Stato al 2026-08-10
 
-**486 note**, 66 immagini, 151 test verdi.
+**513 note**, 70 immagini, 151 test verdi.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -74,6 +74,7 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `06d-vetrini.jsonl` | 45 | sezione 019, vetrini 1-11, pagine 61-70 |
 | `06e-quiz-connettivi-specializzati.jsonl` | 30 | generato, pagine 71-75 |
 | `07a-tessuto-muscolare.jsonl` | 24 | sezione 020, pagine 76-77 |
+| `08a-tessuto-nervoso.jsonl` | 27 | sezione 021, pagine 78-80 |
 | `08c-quiz-nervoso.jsonl` | 24 | generato, pagine 92-95: **domande 1-15 sul muscolare**, 16-24 sul nervoso |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
@@ -216,13 +217,17 @@ quando le convenzioni sono ormai rodate.
 
 | # | Lavoro | Sezione | Pagine | Parole | Immagini | Deck |
 |---|---|---|---|---|---|---|
-| 1 | Tessuto nervoso | 021 | 78-80 | 723 | 7 | `08 - Tessuto nervoso` |
-| 2 | Sistema nervoso periferico | 022 | 80-92 | 2.979 | 45 | `08 - Tessuto nervoso` |
-| 3 | Embriologia | 025 | 96-98 | 699 | 2 | `09 - Embriologia` |
-| 4 | Modellini embriologia | 026 | 98-106 | 2.088 | 15 | `09 - Embriologia` |
-| 5 | Tonsilla palatina | 027 | 106 | 230 | 2 | `10 - Tonsilla palatina` |
+| 1 | Sistema nervoso periferico | 022 | 80-92 | 2.979 | 45 | `08 - Tessuto nervoso` |
+| 2 | Embriologia | 025 | 96-98 | 699 | 2 | `09 - Embriologia` |
+| 3 | Modellini embriologia | 026 | 98-106 | 2.088 | 15 | `09 - Embriologia` |
+| 4 | Tonsilla palatina | 027 | 106 | 230 | 2 | `10 - Tonsilla palatina` |
 
 I numeri di deck dopo l'08 sono dedotti, non ancora usati.
+
+Il tessuto nervoso (`08a`) si ferma a metà di pagina 80, dove comincia il
+titolo `Sistema Nervoso Periferico`. Le tre figure di pagina 80 le assegna a
+entrambe le sezioni `images_for_section`, ma illustrano il testo della 022 e
+sono ancora libere: nessuna carta di `08a` le usa.
 
 Il **sistema nervoso periferico** è il pezzo più lungo rimasto, e soprattutto ha
 **45 immagini**: conviene aprirlo a inizio sessione, quando c'è contesto per
@@ -292,6 +297,7 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `lab-osso-046` | il vetrino 10 mette dei condroblasti lungo le pareti dei canali di Havers; lì ci si aspettano cellule osteoprogenitrici e osteoblasti |
 | `lab-quiz-connettivi-specializzati-001` | la casella spuntata è "Fibroblasto" per la cellula che sintetizza la matrice cartilaginea; è il condrocita |
 | `lab-quiz-connettivi-specializzati-026` | conta la riserva energetica fra le funzioni **non** associate ai connettivi specializzati, contraddicendo le domande 11 e 13 dello stesso quiz sul tessuto adiposo |
+| `lab-nervoso-015` | dice che la sostanza tigroide si vede **solo** con colorazioni speciali e non con ematossilina-eosina; i corpi di Nissl sono fortemente basofili e in un preparato EE si vedono come zolle basofile nel citoplasma |
 | `lab-muscolare-016` | nega che il miocardio sia un sincizio funzionale e attribuisce l'espressione al muscolo scheletrico; è il contrario, il cuore è il sincizio funzionale classico grazie alle gap junction dei dischi intercalari, mentre lo scheletrico è un sincizio strutturale |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
