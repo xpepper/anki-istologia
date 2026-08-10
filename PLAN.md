@@ -59,9 +59,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-10
 
-**673 note** di Laboratorio + **271 di Teoria**, 162 immagini, 151 test verdi.
+**673 note** di Laboratorio + **429 di Teoria**, 203 immagini, 151 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 4 capitoli su 18, pagine 1-16 e 49-59 di 256.
+aperta**: 5 capitoli su 18, pagine 1-16 e 28-59 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -120,6 +120,8 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `01-preparazione-preparato.jsonl` | 64 | sezioni 001-006, pagine 1-7 |
 | `02-colorazioni-istochimiche.jsonl` | 60 | sezioni 007-009 + inizio 010, pagine 7-12 |
 | `03-tessuti-e-rinnovamento.jsonl` | 58 | sezione 010, seconda metà, pagine 12-15 |
+| `06a-epiteli-di-rivestimento.jsonl` | 84 | sezione 021, pagine 28-37 |
+| `06b-giunzioni-e-dominio-basale.jsonl` | 74 | sezioni 022-023, pagine 38-48 |
 | `07-concetti-base-di-microscopia.jsonl` | 89 | sezione 024, pagine 49-59 |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
@@ -204,7 +206,7 @@ di conseguenza il loro id segue lo stesso argomento. Chi scriverà quei capitoli
 
 | Argomento | Già usato dal capitolo 03 | Il prossimo capitolo riparte da |
 |---|---|---|
-| `teoria-epiteli` | 001 | 002 |
+| `teoria-epiteli` | 001 | 002, ed è già stato fatto: il capitolo 06 occupa 002-159 |
 | `teoria-connettivi` | 001-004 | 005 |
 | `teoria-muscolare` | 001 | 002 |
 | `teoria-nervoso` | 001-002 | 003 |
@@ -406,7 +408,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 03 - Tessuti e rinnovamento | 12-16 | 5 | 3 | **fatto**, 58 note |
 | 04 - Cellule staminali e potenziale differenziativo | 16-24 | 9 | 16 | |
 | 05 - Applicazioni terapeutiche delle cellule staminali | 24-28 | 5 | 17 | |
-| 06 - Tessuti epiteliali | 28-49 | 22 | 5 | |
+| 06 - Tessuti epiteliali | 28-49 | 22 | 5 | **fatto**, 158 note in due file |
 | 07 - Concetti base di microscopia | 49-60 | 12 | 4 | **fatto**, 89 note |
 | 08 - Epitelio di rivestimento | 60-85 | 26 | 6 | |
 | 09 - Epiteli ghiandolari | 85-86 | 2 | 7 | |
@@ -432,8 +434,8 @@ Il `03 - Tessuti e rinnovamento` è stato messo terzo perché è la **panoramica
 dei quattro tessuti fondamentali** e delle popolazioni cellulari perenni,
 stabili e labili: fa da indice mentale a tutto il resto del corso, e cinque
 pagine sono poche. **È fatto**, e con lui il `07 - Concetti base di
-microscopia`: il prossimo in ordine è il `06 - Tessuti epiteliali`, pagine
-28-49.
+microscopia` e il `06 - Tessuti epiteliali`: il prossimo in ordine è il
+`08 - Epitelio di rivestimento`, pagine 60-85.
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
 dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
@@ -441,6 +443,30 @@ pagine 49-59 (pagina 60 apre l'`EPITELIO DI RIVESTIMENTO`, mazzo 08) e ha venti
 figure, **tutte usate**. Sono quasi tutte schemi e tabelle con le didascalie
 stampate sopra, quindi stanno sul retro; l'unica sul fronte è la coppia di
 dischi di Airy al limite di Rayleigh, che non ha etichette.
+
+Il `06 - Tessuti epiteliali` **finisce a pagina 48**, non a 49: la tabella qui
+sopra dice 28-49 perché la sezione 023 sconfina di una riga, ma pagina 49 apre
+già `CONCETTI BASE DI MICROSCOPIA`. Copre tre sezioni (021, 022, 023) e due
+lezioni, quella del 06-03-2025 e quella dell'11-03-2025, che riprende da capo
+con un cappello di ripasso a pagina 38. È stato **diviso in due file** su quel
+confine, che è anche un confine di contenuto:
+
+| File | Pagine | Contenuto |
+|---|---|---|
+| `06a-epiteli-di-rivestimento.jsonl` | 28-37 | generalità, classificazione, pseudostratificato, urotelio, polarità, dominio apicale (microvilli, stereociglia, ciglia) |
+| `06b-giunzioni-e-dominio-basale.jsonl` | 38-48 | complesso giunzionale, le tre giunzioni, CAM, lamina basale, emidesmosomi, adesioni focali, pieghe basali, membrane mucose e sierose |
+
+Come nel Laboratorio (`09a` e `09b`), i due file **condividono lo stesso mazzo**
+`Istologia::Teoria::06 - Tessuti epiteliali`: dividere è una comodità di
+scrittura, non una scelta di studio.
+
+Le quarantuno figure delle pagine 28-48 sono **tutte usate, tutte sul retro**.
+Il capitolo non offre niente da mettere sul fronte: le micrografie senza
+etichette (microvilli e stereociglia al microscopio elettronico) sono
+indistinguibili l'una dall'altra fuori dal contesto, e tutto il resto sono schemi
+molecolari e tabelle con le risposte stampate sopra. Una sola carta viene da
+**pagina 48** pur stando in `06a`: la domanda sul movimento delle ciglia, che la
+sbobina stessa dichiara posta nella lezione precedente.
 
 #### I tre titoli che il segmentatore non vede
 
@@ -495,7 +521,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Ventuno carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Ventisei carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -521,6 +547,11 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-microscopia-033` | definisce l'ingrandimento come il rapporto fra le dimensioni **dell'oggetto e quelle dell'immagine**; è il capovolgimento del rapporto giusto, altrimenti un'immagine ingrandita darebbe un valore minore di 1 |
 | `teoria-microscopia-036` | dà 100 nm come limite di risoluzione del microscopio ottico a immersione; con luce visibile e NA 1,4 la formula 0,61·λ/NA dà ancora circa 200 nm. Il numero serve però al calcolo dell'ingrandimento utile di 1000x fatto subito dopo |
 | `teoria-microscopia-055` | dà gli obiettivi apocromatici a 23 mm di planarità di campo, mentre la tabella della stessa pagina dice 25; e il testo li definisce i migliori, il che con 23 mm li metterebbe sotto i semi-apocromatici |
+| `teoria-epiteli-019` | dà tutto il tratto gastrointestinale per rivestito da epiteli pluristratificati "per resistenza meccanica"; pluristratificati sono solo le estremità, esofago e canale anale, come conferma la tabella della pagina dopo |
+| `teoria-epiteli-053` | dà le stereociglia "lunghe 100-120 µm", mentre la tabella riassuntiva della pagina successiva scrive "fino a 120 µm" |
+| `teoria-epiteli-063` | scrive l'assetto delle ciglia mobili come "9 + 1", mentre la tabella della stessa dispensa dice "9 + 2"; la descrizione a parole della stessa carta, nove doppiette periferiche più una coppia centrale, è però corretta |
+| `teoria-epiteli-089` | elenca il complesso giunzionale come zonula occludente, zonula aderente e "una zonula con le giunzioni comunicanti"; il terzo elemento classico è la macula aderente (desmosoma), e le giunzioni comunicanti non formano una zonula |
+| `teoria-epiteli-100` | chiama "Freeze Capture" la tecnica di criofrattura; il nome corretto è freeze-fracture |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
