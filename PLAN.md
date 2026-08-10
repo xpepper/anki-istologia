@@ -43,7 +43,17 @@ pacchetto non viene scritto):
 ```sh
 ./venv/bin/python -m scripts.build_apkg --cards cards/laboratorio \
     --media build/lab/images --out dist/Istologia-Laboratorio.apkg
+
+./venv/bin/python -m scripts.build_apkg --cards cards/teoria \
+    --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
+
+**Due pacchetti, uno per fonte**, non uno solo: `--media` è una singola
+directory e le immagini stanno in due alberi separati (`build/lab/images` e
+`build/teoria/images`). In Anki non cambia nulla, i mazzi restano sotto lo
+stesso genitore `Istologia::` e i tag `argomento::` continuano a pescare da
+entrambe le fonti. Così la teoria si consegna un capitolo per volta senza
+rispedire ogni volta le 673 note del laboratorio.
 
 ---
 
