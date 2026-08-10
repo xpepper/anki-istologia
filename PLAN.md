@@ -59,8 +59,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-10
 
-**673 note**, 120 immagini, 151 test verdi. **Il Laboratorio è finito**: tutte
-e 106 le pagine sono coperte. Resta solo la Teoria.
+**673 note** di Laboratorio + **64 di Teoria**, 128 immagini, 151 test verdi.
+**Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
+aperta**: 1 capitolo su 16, pagine 1-7 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -114,7 +115,25 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 
 ### Teoria (256 pagine, 111 sezioni)
 
-**Non iniziata.** Nessun file in `cards/teoria/`.
+| File | Note | Copre |
+|---|---|---|
+| `01-preparazione-preparato.jsonl` | 64 | sezioni 001-006, pagine 1-7 |
+
+**Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
+intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
+preparazione del campione (fissazione, disidratazione, inclusione, taglio,
+colorazione). Sono materiale d'esame come il resto, quindi hanno un mazzo loro
+e **spostano di uno la numerazione** dei quindici capitoli titolati, che vanno
+quindi da `02` a `16`.
+
+Nel capitolo 01 rientrano anche l'Ematossilina-Eosina e le tricromiche, perché
+la colorazione è la quinta fase della preparazione. Il capitolo `02 -
+Colorazioni istochimiche` è un'altra cosa: PAS, Sudan e simili.
+
+Otto delle nove figure sono state usate. La nona, `teoria_p007_22.jpg`, è il
+solito caso di sovrapposizione ai bordi (punto 6): sta a pagina 7 ma illustra le
+colorazioni istochimiche, e la sua didascalia parla di matrice cartilaginea.
+Va ripresa nel capitolo 02.
 
 ---
 
@@ -147,6 +166,8 @@ restare unico dentro tutto il mazzo:
 | `lab-nervoso` | `08a` 001-027, poi `08b` 028-045, poi `08b2` 046-084 |
 | `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, poi `10a` 037-047 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
+| `teoria-tecnica` | `01` 001-038 |
+| `teoria-colorazioni` | `01` 001-026 |
 
 I salti sono ammessi (`lab-esocrino` passa da 035 a 040): serve che i numeri
 crescano e non si ripetano, non che siano contigui. Prima di aprire un file
@@ -174,12 +195,19 @@ Tre assi indipendenti, più uno di segnalazione:
 | Asse | Valori usati finora |
 |---|---|
 | `fonte::` | `lab`, `teoria` |
-| `argomento::` | `colorazioni`, `epiteli`, `ghiandole`, `endocrino`, `connettivi`, `cartilagine`, `osso`, `sangue`, `linfoide`, `muscolare`, `nervoso` |
+| `argomento::` | `colorazioni`, `epiteli`, `ghiandole`, `endocrino`, `connettivi`, `cartilagine`, `osso`, `sangue`, `linfoide`, `muscolare`, `nervoso`, `tecnica-istologica` |
 | `tipo::` | `definizione`, `classificazione`, `elenco`, `sequenza`, `riconoscimento`, `confronto`, `quiz` |
 | segnalazione | `da-verificare` |
 
 Riusa i valori esistenti prima di inventarne di nuovi: i tag servono a Pietro per
 studiare in trasversale, e un sinonimo in più rompe la selezione.
+
+`argomento::` **attraversa le due fonti apposta**: le carte di teoria sulla
+Ematossilina-Eosina portano `argomento::colorazioni` come quelle di laboratorio,
+così una selezione per argomento pesca da entrambi i tagli. `tecnica-istologica`
+è l'unico valore nuovo introdotto dalla Teoria finora, e copre il metodo
+(fissazione, inclusione, taglio, congelamento) più le carte introduttive sulla
+disciplina.
 
 `quiz_to_cards.py` applica gli stessi tag a tutte le carte che genera, ma **un
 quiz copre spesso più di un capitolo**: quello di pagina 71-75 va dalla
@@ -243,9 +271,8 @@ si sistemano invece senza cerimonie: non cambiano il contenuto.
 
 ## 4. Cosa resta, in ordine
 
-Resta la sola Teoria. L'ordine dei suoi capitoli è ancora da scegliere: vale il
-criterio usato finora, consegnare valore prima e lasciare i capitoli lunghi
-quando le convenzioni sono rodate.
+Resta la sola Teoria. **L'ordine di lavorazione è stato concordato con Pietro il
+2026-08-10** e sta qui sotto.
 
 ### Laboratorio
 
@@ -285,28 +312,43 @@ marcatura.
 
 ### Teoria
 
-Non iniziata: 111 sezioni, 98.000 parole, 463 immagini. I 15 capitoli sono:
+111 sezioni, 98.000 parole, 463 immagini. **Sedici mazzi, non quindici**: le
+pagine 1-7 non hanno intestazione di capitolo ma sono materiale d'esame, quindi
+diventano il mazzo `01` e spostano di uno i capitoli titolati.
 
-| Pagine | Capitolo |
-|---|---|
-| 7 | Colorazioni istochimiche |
-| 24 | Applicazioni terapeutiche delle cellule staminali |
-| 28 | Tessuti epiteliali |
-| 49 | Concetti base di microscopia |
-| 60 | Epitelio di rivestimento |
-| 85 | Epiteli ghiandolari |
-| 86 | Ghiandole esocrine |
-| 97 | Ghiandole endocrine |
-| 111 | Tessuti connettivi |
-| 137 | Tessuti connettivi di sostegno |
-| 149 | Tessuto osseo |
-| 177 | Il sangue |
-| 198 | Sistema linfatico |
-| 208 | Tessuto muscolare striato scheletrico |
-| 227 | Il tessuto nervoso |
+La colonna "pagine" qui sotto è l'**estensione reale** ricavata da
+`build/teoria/sections.jsonl`, non la pagina del titolo. La colonna "ordine" è
+la sequenza di lavorazione concordata.
 
-Le pagine indicate sono quelle del titolo di capitolo; l'estensione reale di ogni
-sezione sta in `build/teoria/sections.jsonl`.
+| Mazzo | Pagine | pp | Parole | Img | Ordine | Stato |
+|---|---|---|---|---|---|---|
+| 01 - Preparazione del preparato istologico | 1-7 | 7 | 1.942 | 9 | 1 | **fatto** |
+| 02 - Colorazioni istochimiche | 7-24 | 18 | 6.667 | 24 | 2 | |
+| 03 - Applicazioni terapeutiche delle cellule staminali | 24-28 | 5 | 1.395 | 10 | 15 | |
+| 04 - Tessuti epiteliali | 28-49 | 22 | 7.248 | 43 | 4 | |
+| 05 - Concetti base di microscopia | 49-60 | 12 | 3.934 | 23 | 3 | |
+| 06 - Epitelio di rivestimento | 60-85 | 26 | 7.842 | 60 | 5 | |
+| 07 - Epiteli ghiandolari | 85-86 | 2 | 441 | 5 | 6 | |
+| 08 - Ghiandole esocrine | 86-97 | 12 | 2.845 | 26 | 6 | |
+| 09 - Ghiandole endocrine | 97-111 | 15 | 5.636 | 27 | 7 | |
+| 10 - Tessuti connettivi | 111-137 | 27 | 10.394 | 60 | 8 | |
+| 11 - Tessuti connettivi di sostegno | 137-149 | 13 | 4.557 | 31 | 9 | |
+| 12 - Tessuto osseo | 149-177 | 29 | 12.678 | 52 | 13 | |
+| 13 - Il sangue | 177-198 | 22 | 9.794 | 22 | 12 | |
+| 14 - Sistema linfatico | 198-208 | 11 | 3.983 | 12 | 10 | |
+| 15 - Tessuto muscolare striato scheletrico | 208-227 | 20 | 7.057 | 37 | 11 | |
+| 16 - Il tessuto nervoso | 227-256 | 30 | 11.650 | 47 | 14 | |
+
+Il criterio dell'ordine: **i capitoli corti e a basso rischio prima**, per rodare
+le convenzioni della teoria dove un errore costa poco rifarlo; **i quattro
+capitoli più densi in fondo** (10 connettivi, 13 sangue, 12 osseo, 16 nervoso);
+le staminali (03) per ultime perché sono un excursus clinico, non istologia di
+base, e quindi il primo capitolo sacrificabile se il tempo stringe. Il 07 e il
+08 si fanno insieme: il 07 è di due pagine e da solo non è un mazzo.
+
+**I numeri di mazzo seguono le pagine, non l'ordine di lavorazione.** In Anki i
+mazzi restano quindi nell'ordine del corso qualunque sia la sequenza in cui
+vengono scritti, e l'ordine qui sopra si può cambiare senza toccare niente.
 
 Attenzione: la teoria ripete argomenti già coperti dal Laboratorio, ma da un
 punto di vista diverso (meccanismi invece che riconoscimento al vetrino). Non è
@@ -322,7 +364,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Tredici carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Sedici carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -340,6 +382,9 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `lab-nervoso-069` | il vetrino 7 dichiara la tecnica di Golgi, ma descrive un citoplasma ricco di corpi di Nissl "visibili come zone basofile"; il Golgi impregna di nero pochi neuroni interi su fondo chiaro e non dà basofilia, e nelle figure si vedono tutti i neuroni con le loro cellule satelliti |
 | `lab-nervoso-015` | dice che la sostanza tigroide si vede **solo** con colorazioni speciali e non con ematossilina-eosina; i corpi di Nissl sono fortemente basofili e in un preparato EE si vedono come zolle basofile nel citoplasma |
 | `lab-muscolare-016` | nega che il miocardio sia un sincizio funzionale e attribuisce l'espressione al muscolo scheletrico; è il contrario, il cuore è il sincizio funzionale classico grazie alle gap junction dei dischi intercalari, mentre lo scheletrico è un sincizio strutturale |
+| `teoria-tecnica-030` | la sbobina dà due spessori diversi per le sezioni istologiche: 5-20 micron per il microscopio ottico (p. 2) e 1-10 µm per il taglio al microtomo (p. 4), senza spiegare la differenza |
+| `teoria-colorazioni-021` | descrive come "strati di muscolatura liscia" la banda pallida sotto la mucosa in un vetrino di trachea fetale; per aspetto e per anatomia è cartilagine ialina, e la muscolatura liscia della trachea sta nella parte membranacea posteriore |
+| `teoria-colorazioni-024` | classifica l'Azocarminio come colorante **basico** e nella stessa frase gli attribuisce la colorazione dei granuli **acidofili** dell'ipofisi; l'azocarminio è classicamente descritto come colorante acido |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
