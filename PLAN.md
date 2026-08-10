@@ -49,7 +49,7 @@ pacchetto non viene scritto):
 
 ## 2. Stato al 2026-08-10
 
-**513 note**, 70 immagini, 151 test verdi.
+**590 note**, 105 immagini, 151 test verdi.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -74,13 +74,28 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `06d-vetrini.jsonl` | 45 | sezione 019, vetrini 1-11, pagine 61-70 |
 | `06e-quiz-connettivi-specializzati.jsonl` | 30 | generato, pagine 71-75 |
 | `07a-tessuto-muscolare.jsonl` | 24 | sezione 020, pagine 76-77 |
+| `07b-vetrini-muscolari.jsonl` | 20 | sezione 022, vetrini 1-3, pagine 82-85 |
 | `08a-tessuto-nervoso.jsonl` | 27 | sezione 021, pagine 78-80 |
+| `08b-snp-nervi-e-gangli.jsonl` | 18 | sezione 022, pagine 80-81 |
+| `08b2-vetrini-nervoso.jsonl` | 39 | sezione 022, vetrini 4-9, pagine 86-91 |
 | `08c-quiz-nervoso.jsonl` | 24 | generato, pagine 92-95: **domande 1-15 sul muscolare**, 16-24 sul nervoso |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
 il capitolo `06 - Tessuti connettivi specializzati` aperto dalla cartilagine.
 I quattro file `06b`-`06e` la chiudono per intero.
+
+**Anche la sezione 022 mescola gli argomenti**, come già il suo quiz: i primi
+tre dei nove vetrini sono di tessuto **muscolare** (lingua, cuore, intestino).
+Le loro carte stanno in `07b`, nel mazzo `07 - Tessuto muscolare`, perché è lì
+che Pietro ripassa il muscolare; il campo `source` rimanda comunque alle pagine
+82-85. Il precedente di `06d` (deck del capitolo dove sta la pagina) non si
+applicava: lì tutti gli argomenti appartenevano davvero a quel capitolo.
+Spostare una carta di mazzo è comunque sicuro, il guid dipende solo dall'id.
+
+Il nome `08b2` esiste perché `08c` era già occupato dal quiz, generato prima
+che il capitolo fosse scritto: `08b` è la teoria del periferico, `08b2` i suoi
+vetrini, e l'ordine alfabetico resta quello delle pagine.
 
 ### Teoria (256 pagine, 111 sezioni)
 
@@ -114,6 +129,8 @@ restare unico dentro tutto il mazzo:
 | `lab-osso` | `06b` 001-032, poi `06d` 033-046 |
 | `lab-cartilagine` | `06a` 001-025, poi `06d` 026-043 |
 | `lab-linfoide` | `06c` 001-012, poi `06d` 013-021 |
+| `lab-muscolare` | `07a` 001-024, poi `07b` 025-044 |
+| `lab-nervoso` | `08a` 001-027, poi `08b` 028-045, poi `08b2` 046-084 |
 
 I salti sono ammessi (`lab-esocrino` passa da 035 a 040): serve che i numeri
 crescano e non si ripetano, non che siano contigui. Prima di aprire un file
@@ -217,17 +234,23 @@ quando le convenzioni sono ormai rodate.
 
 | # | Lavoro | Sezione | Pagine | Parole | Immagini | Deck |
 |---|---|---|---|---|---|---|
-| 1 | Sistema nervoso periferico | 022 | 80-92 | 2.979 | 45 | `08 - Tessuto nervoso` |
-| 2 | Embriologia | 025 | 96-98 | 699 | 2 | `09 - Embriologia` |
-| 3 | Modellini embriologia | 026 | 98-106 | 2.088 | 15 | `09 - Embriologia` |
-| 4 | Tonsilla palatina | 027 | 106 | 230 | 2 | `10 - Tonsilla palatina` |
+| 1 | Embriologia | 025 | 96-98 | 699 | 2 | `09 - Embriologia` |
+| 2 | Modellini embriologia | 026 | 98-106 | 2.088 | 15 | `09 - Embriologia` |
+| 3 | Tonsilla palatina | 027 | 106 | 230 | 2 | `10 - Tonsilla palatina` |
 
 I numeri di deck dopo l'08 sono dedotti, non ancora usati.
 
-Il tessuto nervoso (`08a`) si ferma a metà di pagina 80, dove comincia il
-titolo `Sistema Nervoso Periferico`. Le tre figure di pagina 80 le assegna a
-entrambe le sezioni `images_for_section`, ma illustrano il testo della 022 e
-sono ancora libere: nessuna carta di `08a` le usa.
+**Il capitolo 08 è chiuso**: sezioni 021 e 022, teoria, nove vetrini e quiz.
+Restano solo i tre lavori qui sopra, tutti fuori dal nervoso.
+
+Delle 45 figure della sezione 022 ne sono state usate 35. Le dieci scartate
+sono quasi tutte doppioni dello stesso campo a ingrandimento simile
+(`lab_p082_5330`, `lab_p082_5332`, `lab_p083_5371`, `lab_p088_5555`,
+`lab_p088_5557`, `lab_p089_5593`), più tre casi su cui non si poteva costruire
+una domanda onesta: `lab_p084_5401` e `lab_p085_5433` non sono identificabili
+con certezza, e `lab_p085_5429`/`lab_p085_5431` sono quelle di cui **il prof
+stesso dice di non essere sicuro della colorazione**. Non c'è materiale rimasto
+da recuperare lì.
 
 Il **sistema nervoso periferico** è il pezzo più lungo rimasto, e soprattutto ha
 **45 immagini**: conviene aprirlo a inizio sessione, quando c'è contesto per
@@ -297,6 +320,7 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `lab-osso-046` | il vetrino 10 mette dei condroblasti lungo le pareti dei canali di Havers; lì ci si aspettano cellule osteoprogenitrici e osteoblasti |
 | `lab-quiz-connettivi-specializzati-001` | la casella spuntata è "Fibroblasto" per la cellula che sintetizza la matrice cartilaginea; è il condrocita |
 | `lab-quiz-connettivi-specializzati-026` | conta la riserva energetica fra le funzioni **non** associate ai connettivi specializzati, contraddicendo le domande 11 e 13 dello stesso quiz sul tessuto adiposo |
+| `lab-nervoso-069` | il vetrino 7 dichiara la tecnica di Golgi, ma descrive un citoplasma ricco di corpi di Nissl "visibili come zone basofile"; il Golgi impregna di nero pochi neuroni interi su fondo chiaro e non dà basofilia, e nelle figure si vedono tutti i neuroni con le loro cellule satelliti |
 | `lab-nervoso-015` | dice che la sostanza tigroide si vede **solo** con colorazioni speciali e non con ematossilina-eosina; i corpi di Nissl sono fortemente basofili e in un preparato EE si vedono come zolle basofile nel citoplasma |
 | `lab-muscolare-016` | nega che il miocardio sia un sincizio funzionale e attribuisce l'espressione al muscolo scheletrico; è il contrario, il cuore è il sincizio funzionale classico grazie alle gap junction dei dischi intercalari, mentre lo scheletrico è un sincizio strutturale |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
