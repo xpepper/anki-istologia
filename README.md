@@ -232,3 +232,6 @@ I test si eseguono con `./venv/bin/python -m pytest tests/ -q`.
 
 Il design del progetto e le ragioni delle scelte fatte stanno in
 `docs/superpowers/specs/2026-08-10-anki-istologia-design.md`.
+
+Lo stato di avanzamento, le convenzioni con cui sono scritte le carte e cosa resta
+da fare stanno in `PLAN.md`.
