@@ -26,10 +26,10 @@ DL=/Users/pietrodibello/Downloads
 ./venv/bin/python scripts/segment.py --build build/lab
 ./venv/bin/python scripts/segment.py --build build/teoria
 
-./venv/bin/python -m pytest tests/ -q          # atteso: 151 passed
+./venv/bin/python -m pytest tests/ -q          # atteso: 153 passed
 ```
 
-L'estrazione della teoria richiede qualche minuto: 256 pagine e 463 immagini.
+L'estrazione della teoria richiede qualche minuto: 256 pagine e 486 immagini.
 
 Poi, per leggere una sezione su cui lavorare:
 
@@ -48,6 +48,9 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
+Atteso oggi: **1474 carte, 14 mazzi, 331 immagini** per la Teoria e **673 carte,
+11 mazzi, 120 immagini** per il Laboratorio.
+
 **Due pacchetti, uno per fonte**, non uno solo: `--media` è una singola
 directory e le immagini stanno in due alberi separati (`build/lab/images` e
 `build/teoria/images`). In Anki non cambia nulla, i mazzi restano sotto lo
@@ -59,9 +62,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-11
 
-**673 note** di Laboratorio + **1301 di Teoria**, 422 immagini, 151 test verdi.
+**673 note** di Laboratorio + **1474 di Teoria**, 451 immagini, 153 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 13 capitoli su 18, pagine 1-16, 28-148 e 198-226 di 256.
+aperta**: 14 capitoli su 18, pagine 1-16, 28-148 e 177-226 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -138,6 +141,11 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `12e-confronti-al-microscopio.jsonl` | 12 | sezioni 065-066, pagine 131-134, **mazzi 10 e 11** |
 | `13a-cartilagine-generalita.jsonl` | 51 | sezioni 068-069, pagine 137-144 |
 | `13b-tipi-di-cartilagine.jsonl` | 25 | sezione 069, pagine 145-148 |
+| `15a-sangue-e-plasma.jsonl` | 39 | sezione 080, prima parte, pagine 177-180 |
+| `15b-eritrociti-e-gruppi-sanguigni.jsonl` | 26 | sezione 080, seconda parte, pagine 180-184 |
+| `15c-leucociti.jsonl` | 42 | sezione 081, prima parte, pagine 184-189 |
+| `15d-piastrine-ed-emostasi.jsonl` | 30 | sezione 081, seconda parte, pagine 189-193 |
+| `15e-emopoiesi-e-midollo-osseo.jsonl` | 36 | sezioni 082-084, pagine 193-198 |
 | `16-sistema-linfatico.jsonl` | 77 | sezioni 085-089, pagine 198-205 |
 | `17a-generalita-e-fibra-muscolare.jsonl` | 49 | sezioni 090-094, pagine 205-212 |
 | `17b-contrazione-e-tipi-di-fibre.jsonl` | 44 | sezioni 095-097, pagine 212-219 |
@@ -214,7 +222,7 @@ restare unico dentro tutto il mazzo:
 | `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, poi `10a` 037-047 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
-| `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, `12a` 080, `12b` 081, `12d` 082-085, poi `13a` 086-087, `13b` 088 |
+| `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, `12a` 080, `12b` 081, `12d` 082-085, `13a` 086-087, `13b` 088, poi `15a` 089-090 |
 | `teoria-ghiandole` | `09` 001-016, `10` 017-085, poi `12e` 086-094 |
 | `teoria-endocrino` | `09` 001-006, `11a` 007-041, `11b` 042-089, `11c` 090-121, poi `12e` 122-124 |
 | `teoria-connettivi` | `03` 001-004, `12a` 005-043, `12b` 044-090, `12c` 091-129, `12d` 130-160, poi `13a` 161 |
@@ -222,7 +230,13 @@ restare unico dentro tutto il mazzo:
 | `teoria-cartilagine` | `13a` 001-047, poi `13b` 048-070 |
 | `teoria-linfoide` | `16` 001-077 |
 | `teoria-muscolare` | `03` 001, `17a` 002-047, `17b` 048-091, `17c` 092-115, poi `17d` 116-140 |
-| `teoria-staminali` | `03` 001-011, `11c` 012-016, `12d` 017, poi `17a` 018-020 |
+| `teoria-sangue` | `15a` 001-039 (senza 007-008), `15b` 040-065, `15c` 066-107, `15d` 108-137, poi `15e` 138-168 |
+| `teoria-staminali` | `03` 001-011, `11c` 012-016, `12d` 017, `17a` 018-020, poi `15e` 021-025 |
+
+`teoria-sangue-007` e `008` **non esistono**: erano le due carte sulla
+colorazione di Wright, spostate su `teoria-colorazioni-089` e `090` mentre il
+file era ancora in scrittura. I salti sono ammessi e non è stato rinumerato il
+resto del file.
 
 **Il capitolo 03 apre quattro argomenti che appartengono a capitoli successivi.**
 È la panoramica dei quattro tessuti fondamentali, quindi qualche sua carta parla
@@ -250,12 +264,18 @@ sulla terapia cellulare del diabete di tipo I (pagina 109) parlano di cellule
 staminali e di iPS, non di ghiandole: portano `argomento::staminali` e gli id
 `teoria-staminali-012`-`016`, che proseguono la numerazione aperta dal capitolo
 03. Il capitolo 12 ne ha aggiunta una sola, `017`, sulle biobanche del cordone
-ombelicale, e il capitolo 17 tre, `018`-`020`, sulle **cellule satellite** del
+ombelicale; il capitolo 17 tre, `018`-`020`, sulle **cellule satellite** del
 muscolo (che cosa sono, come rigenerano la fibra, perché la loro capacità si
 esaurisce): sono staminali a tutti gli effetti, e la dispensa le chiama così.
 Le carte sulla **distrofia di Duchenne** restano invece su `muscolare`, perché
 sono una malattia del muscolo e non una questione di staminalità.
-**Chi scriverà i mazzi 04 e 05 riparte da 021.** Restano nel mazzo
+Il capitolo 15 ne ha aggiunte cinque, `021`-`025`, sulle **cellule staminali
+emopoietiche**: la nicchia, l'autorinnovamento, la divisione simmetrica e
+asimmetrica, l'MPP e le staminali mesenchimali del midollo. È lo stesso criterio
+delle cellule satellite: ciò che parla di **staminalità** va su `staminali`,
+mentre la filiera che porta alle cellule mature (CFU, precursori, eritropoiesi,
+trombopoiesi) resta su `sangue`.
+**Chi scriverà i mazzi 04 e 05 riparte da 026.** Restano nel mazzo
 dove la sbobina le colloca, ma la selezione per argomento le pesca insieme alle
 staminali.
 
@@ -376,6 +396,24 @@ aggiunto un `endocrino` alla carta sugli ormoni timici, che parla del timo:
 **nessuna carta del progetto porta due `argomento::`**, e non è il caso di
 cominciare qui.
 
+**E nemmeno il capitolo 15.** Sta quasi tutto su `sangue`, che **esisteva già**
+in entrambe le fonti (nel Laboratorio con `lab-sangue-001`-`018` e nella Teoria
+con `teoria-epiteli-198` sulla forma biconcava degli eritrociti):
+`teoria-sangue` apre quindi il contatore da `001` pur non essendo un tag nuovo,
+esattamente come `teoria-cartilagine` nel 13 e `teoria-linfoide` nel 16. Riusa
+poi `colorazioni` per le due carte il cui contenuto è la colorazione e non il
+tessuto (quali coloranti usa la Wright, che rapporto ha con la Giemsa) e
+`staminali` per le cinque sulle staminali emopoietiche.
+
+**I linfociti stanno su `sangue`, non su `linfoide`**, ed è una scelta
+deliberata: nel capitolo 15 il taglio è quello del **leucocita nello striscio**
+(morfologia, formula leucocitaria, diapedesi, riconoscimento al microscopio),
+non quello dell'organo linfoide di cui si occupa il 16. Le due letture
+restano vicine — `teoria-sangue-102`-`107` sui linfociti e `teoria-sangue-168`
+sull'istruzione antigenica hanno il loro seguito naturale nel mazzo 16 — ma
+**nessuna carta del progetto porta due `argomento::`**, e raddoppiare qui
+avrebbe rotto la regola.
+
 **E nemmeno il capitolo 17.** Sta quasi tutto su `muscolare`, che **esisteva
 già** in entrambe le fonti (`lab-muscolare-001`-`044` e la carta
 `teoria-muscolare-001` del capitolo 03), e riusa `staminali` per le tre carte
@@ -406,6 +444,18 @@ delimitati**, non blocchi a cavallo di più pagine come quello del linfatico:
 - **pagina 221**, "Battito cardiaco": sistole e diastole, propagazione via gap
   junction, fasi dal nodo SA ai ventricoli. Due carte,
   `teoria-muscolare-112` e `113`.
+
+Il capitolo 15 ne ha aggiunti altri due, entrambi verificati sulla pagina
+renderizzata perché **l'estensione non si capisce dal testo estratto**:
+
+- **pagina 178**, "Ripasso sui circuiti sanguigni": copre il **solo blocco in
+  corsivo** con la figura del circolo, e finisce dove comincia `Analisi del
+  sangue`. Tre carte, `teoria-sangue-009`-`011`.
+- **pagina 197**, che apre il riquadro su `Monocitopoiesi`: copre **sia la
+  monocitopoiesi sia la granulocitopoiesi**, con le loro due figure, e prosegue
+  fino a metà di pagina 198. La **linfocitopoiesi**, subito sotto, è in tondo e
+  **non** è marcata: è materiale trattato. Quattro carte,
+  `teoria-sangue-163`-`166`.
 
 Il riquadro va guardato nel PDF
 renderizzato, perché nel testo estratto compare come tre parole isolate e non si
@@ -523,7 +573,7 @@ marcatura.
 
 ### Teoria
 
-111 sezioni, 98.000 parole, 463 immagini, **diciotto mazzi**.
+111 sezioni, 98.000 parole, 486 immagini, **diciotto mazzi**.
 
 I quindici capitoli elencati nella prima stesura di questo piano erano quelli
 che `segment.py` riconosce come titolo. Ne mancano tre, cercati e trovati tutti
@@ -547,8 +597,8 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 11 - Ghiandole endocrine | 93-111 | 19 | 8 | **fatto**, 120 note in tre file |
 | 12 - Tessuti connettivi | 111-137 | 27 | 9 | **fatto**, 179 note in cinque file |
 | 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | **fatto**, 76 note in due file |
-| 14 - Tessuto osseo | 149-177 | 29 | 14 | (chiude a **176**, vedi sotto) |
-| 15 - Il sangue | 177-198 | 22 | 13 | |
+| 14 - Tessuto osseo | 149-176 | 28 | 14 | (chiude a **176**, vedi sotto) |
+| 15 - Il sangue | 177-198 | 22 | 13 | **fatto**, 173 note in cinque file |
 | 16 - Sistema linfatico | 198-205 | 8 | 11 | **fatto**, 77 note |
 | 17 - Tessuto muscolare | 205-227 | 23 | 12 | **fatto**, 142 note in quattro file |
 | 18 - Il tessuto nervoso | 227-256 | 30 | 15 | |
@@ -613,35 +663,27 @@ pagine sono poche. **È fatto**, e con lui il `07 - Concetti base di
 microscopia`, il `06 - Tessuti epiteliali`, l'`08 - Epitelio di rivestimento`,
 il `09 - Epiteli ghiandolari`, il `10 - Ghiandole esocrine`, l'`11 - Ghiandole
 endocrine`, il `12 - Tessuti connettivi`, il `13 - Tessuti connettivi di
-sostegno`, il `16 - Sistema linfatico` e il `17 - Tessuto muscolare`.
+sostegno`, il `15 - Il sangue`, il `16 - Sistema linfatico` e il `17 - Tessuto
+muscolare`.
 
-**Il prossimo in ordine è il `15 - Il sangue`, pagine 177-198.** Il suo confine
-di valle è **già verificato**, perché è lo stesso di pagina 198 che apre il
-mazzo 16: il sangue finisce **sopra** il titolo `SISTEMA LINFATICO`, e la figura
-`teoria_p198_1206` (schema della granulocitopoiesi) è **sua** e non è ancora
-stata usata.
+**Il prossimo in ordine è il `14 - Tessuto osseo`, pagine 149-176**, che con 28
+pagine è il secondo più lungo della Teoria.
 
-**Anche il confine di monte, a pagina 177, è già verificato**: la pagina è stata
-renderizzata ed è **interamente del 15**. Si apre in cima con l'intestazione di
-una lezione nuova (13-05-2025, sbobinatori Ferretti e Mehovic) e subito sotto
-con il titolo `IL SANGUE`. Il `14 - Tessuto osseo` chiude quindi a **fine pagina
-176**, benché la sezione `079` (`Midollo osseo`) dichiari 175-177 e benché la
-riga della tabella qui sopra dica 149-177: è la solita convenzione della colonna,
-che indica la pagina in cui comincia il capitolo successivo. Pagina 176 **non ha
-figure**, quindi al confine non c'è niente da contendersi. È il caso di pagina
-227 fra il 17 e il 18, dove pure la tabella dava un confine più avanti di quello
-reale.
-
-**Attenzione: due sezioni si chiamano `Midollo osseo`.** La `079` (pagine
-175-177) è del mazzo 14; la `083` (pagine 194-197) è del mazzo 15. Il titolo
-identico è lo stesso inciampo della `091`/`092` nel 17.
-
-Il contatore `teoria-sangue`
-riparte da **001**: `sangue` è un `argomento::` che esiste già (nel Laboratorio,
-e su una carta del capitolo 08 sulla forma biconcava degli eritrociti, che porta
-però l'id `teoria-epiteli-198`), ma nella Teoria non è mai stato usato come
-prefisso di id, esattamente come è successo a `teoria-cartilagine` nel 13 e a
-`teoria-linfoide` nel 16.
+- Il **confine di valle è verificato**: pagina 177 è **interamente del 15** (si
+  apre con l'intestazione della lezione del 13-05-2025 e subito sotto con il
+  titolo `IL SANGUE`), quindi il 14 chiude a **fine pagina 176**, benché la
+  sezione `079` (`Midollo osseo`) dichiari 175-177. Pagina 176 **non ha figure**,
+  quindi al confine non c'è niente da contendersi.
+- Il **confine di monte è già stato guardato scrivendo il 13** ed è documentato
+  nella sottosezione "Il mazzo 13 e la cartilagine": pagina 149 è interamente del
+  14 e la figura `teoria_p149_1023` (sezione di femore) è sua.
+- **Attenzione: due sezioni si chiamano `Midollo osseo`.** La `079` (pagine
+  175-177) è del mazzo 14; la `083` (pagine 194-197) è del mazzo 15, ed è **già
+  scritta**. Il titolo identico è lo stesso inciampo della `091`/`092` nel 17.
+- Fra pagina 149 e pagina 176 c'è **una figura che la vecchia soglia di
+  `is_artifact` scartava**, `teoria_p165_1091` (301x138): ora è estratta, quindi
+  il conteggio delle figure del capitolo è di una unità più alto di quello che
+  una sessione precedente avrebbe visto. Vedi il punto 6.
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
 dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
@@ -953,6 +995,133 @@ Quattro figure stanno sul **fronte**, e sono le sole che portino marcatori muti:
 fibrocartilagine). Tutto il resto sono schemi, tavole e figure di libro con la
 **didascalia stampata sopra**, cioè materiale da retro.
 
+#### Il mazzo 15 e il sangue
+
+**Il `15 - Il sangue` va da inizio pagina 177 a metà di pagina 198.** Entrambi i
+confini sono stati renderizzati e guardati: pagina 177 si apre con
+l'intestazione di lezione nuova e il titolo `IL SANGUE`, e pagina 198 chiude con
+la linfocitopoiesi, **sopra** il titolo `SISTEMA LINFATICO`. La figura
+`teoria_p198_1206` (granulocitopoiesi) è del 15; `teoria_p198_1207` (la tavola
+del corpo con linfonodi e organi linfatici) è del 16 e ha già la sua carta.
+
+Il capitolo copre le sezioni da `080` a `084`, circa 9.800 parole, ed è **diviso
+in cinque file**. È la prima volta che due sezioni vanno spezzate **al loro
+interno**: la `080` vale 3.566 parole e la `081` 4.155, cioè ciascuna più di un
+intero file del 17.
+
+| File | Pagine | Contenuto |
+|---|---|---|
+| `15a-sangue-e-plasma.jsonl` | 177-180 | generalità, funzioni, striscio e colorazione di Wright, ripasso dei circuiti (non trattato), analisi del sangue, composizione, plasma e sue proteine, complemento |
+| `15b-eritrociti-e-gruppi-sanguigni.jsonl` | 180-184 | globulo rosso, membrana e citoscheletro di spettrina, sistema AB0, fattore Rh, emoglobina |
+| `15c-leucociti.jsonl` | 184-189 | formula leucocitaria, diapedesi, neutrofili, eosinofili, basofili, monociti e sistema dei fagociti mononucleati, linfociti |
+| `15d-piastrine-ed-emostasi.jsonl` | 189-193 | piastrine, megacariociti, le quattro fasi dell'emostasi, cascata coagulativa, via intrinseca e via comune |
+| `15e-emopoiesi-e-midollo-osseo.jsonl` | 193-198 | sedi dell'emopoiesi, midollo rosso e giallo, staminali emopoietiche, citochine e ormoni, eritropoiesi, trombopoiesi, monocitopoiesi e granulocitopoiesi (non trattate), linfocitopoiesi |
+
+Come per `06a`/`06b`, `08a`-`08c`, `11a`-`11c` e `17a`-`17d`, tutti e cinque i
+file condividono lo stesso mazzo `Istologia::Teoria::15 - Il sangue`.
+
+**Come sono stati decisi i tagli.** I due dentro le sezioni seguono un confine
+di contenuto:
+
+- dentro la `080`, fra le **generalità** (plasma, complemento) e gli
+  **eritrociti**: il primo blocco parla della matrice, il secondo dei corpuscoli;
+- dentro la `081`, **non** fra granulociti e agranulociti e **non** al cambio di
+  lezione di pagina 192, ma alla fine dei **linfociti**, cioè dove finiscono i
+  leucociti veri e propri e cominciano le piastrine.
+
+Il taglio a pagina 192 era il candidato più ovvio, ed è stato **scartato di
+proposito**: la nuova lezione si apre con un `[Nota del supervisore]` che
+riporta le **fasi dell'emostasi** dalla stesura dell'altro anno «che chiarisce
+meglio l'ultimo argomento della lezione precedente». L'emostasi sta quindi **a
+cavallo del cambio di lezione** (pagine 190-191 e poi 192), e tagliare lì
+avrebbe messo le due passate in due file diversi, con il rischio di due
+parafrasi della stessa carta: il validatore blocca solo le domande **identiche**.
+È lo stesso motivo per cui `17a` arriva fino alla sezione `094`.
+
+**Le due passate sull'emostasi sono state fuse**, con il metodo del mazzo 11:
+una sola carta per fatto, costruita sulla versione più completa, e `source` con
+**entrambe le pagine** (`5th gen p. 191 e p. 192`). Non è però il caso del 17:
+qui la seconda passata non ricomincia il capitolo da capo, ma **riprende un solo
+argomento**, e aggiunge le quattro fasi numerate, il nome *trombo bianco*, i
+tempi e la definizione di **siero**. Le altre due note del supervisore (via
+classica e via comune, pagine 192-193) **aggiungono soltanto**, e sono state
+cardate normalmente.
+
+**I quattro blocchi di integrazione sono tutti additivi**, come nel 16 e a
+differenza del 17: la composizione del plasma (p. 179), il pattern di
+donazione-ricezione AB0 (pp. 182-183), il sistema dei fagociti mononucleati
+(p. 188) e le citochine e gli ormoni dell'emopoiesi (pp. 195-196) dicono cose
+che il testo principale non dice. Nessuno di loro ripete, quindi non c'è stato
+niente da fondere.
+
+**Il primo `[N.d.S.]` di pagina 177 è un caso nuovo: lo sbobinatore corregge la
+docente.** La tecnica descritta a lezione come "colorazione di Giemsa" è in
+realtà la **colorazione di Wright**, ed entrambe derivano da Romanowsky. Le
+carte (`teoria-colorazioni-089` e `090`) sono scritte sulla **versione corretta**
+e la nota è riportata in corsivo, ma **senza `da-verificare`**: la dispensa non
+si contraddice, si è già corretta da sola. Il secondo `[N.d.S.]`, a pagina 180,
+segnala la **via delle lectine** del complemento, non nominata a lezione: è
+citata nella carta `teoria-sangue-029`, dove per giunta la figura della stessa
+pagina la disegna.
+
+**Le 29 figure delle pagine 177-198 sono state usate tutte.** Il controllo del
+clip path del punto 6 è stato eseguito su quelle pagine e ha segnalato **due
+figure sotto soglia su 29**, entrambe utilizzabili e usate: `teoria_p186_1165`
+(neutrofilo al ME, corr 0,72) e `teoria_p187_1168` (basofilo al ME, corr 0,73).
+In tutti e due i casi il file estratto **è più completo della pagina**, perché
+include il pannello di testo con la legenda dei colori che la pagina taglia via;
+è lo stesso caso di `teoria_p141_987` nel 13. **Nessuna finestra di browser**,
+al contrario dell'`08` e del 17.
+
+**Otto figure su 29 stanno sul fronte, ed è la proporzione più alta di tutta la
+Teoria** (nel 17 erano cinque su 26, nel 16 due su otto). Il motivo è che il
+sangue si studia sugli **strisci**, e uno striscio senza etichette è esattamente
+il materiale da fronte: lo striscio colorato di Wright (`teoria_p177_1134`),
+quello della porzione corpuscolata (`teoria_p180_1143`), gli eritrociti al SEM
+(`teoria_p181_1146`), l'eosinofilo con il **marcatore muto `D`**
+(`teoria_p186_1163`), il monocita al ME (`teoria_p187_1169`), la piastrina
+indicata da una **freccia muta** (`teoria_p189_1174`), i due linfociti
+(`teoria_p189_1175`) e il confronto fra midollo rosso e midollo giallo
+(`teoria_p194_1190`). Tutto il resto sono schemi e tavole con i nomi stampati
+sopra.
+
+**Otto delle 29 figure esistono solo perché la soglia di `is_artifact` è stata
+abbassata** all'inizio di questo capitolo (vedi punto 6): `teoria_p177_1134`,
+`p180_1143`, `p182_1150`, `p182_1151`, `p186_1163`, `p189_1174`, `p189_1175` e
+`p197_1202`. Senza quella modifica il capitolo avrebbe perso lo **schema
+dell'eritropoiesi**, il citoscheletro dell'eritrocita, gli antigeni AB0 e
+**cinque delle otto figure finite sul fronte**.
+
+**Dieci segnalazioni su 173 carte**, che è il tasso del 16 e il doppio di quello
+del 17. Quattro nascono da **contraddizioni interne alla dispensa**: le NK
+elencate fra i sottotipi dei linfociti T due righe dopo essere state distinte da
+loro (`107`), il fattore IX dato per componente della via comune che il
+paragrafo successivo fa cominciare dal fattore X (`132`), la sigla CFU-M usata
+per il progenitore mieloide dopo essere stata usata per i monociti sette pagine
+prima (`144`), e l'esito dell'incompatibilità Rh dato per fatale "nel 100% dei
+casi" subito dopo averlo definito un "rischio molto elevato" (`060`). Le altre
+sei sono errori verso la nozione classica, fra cui un altro **scambio di unità**
+(`044`, i 5,4 milioni di eritrociti per **millilitro** invece che per microlitro)
+e un'**inversione di funzione** (`091`, gli eosinofili che rilasciano istamina
+invece di inattivarla).
+
+**L'aggancio con `lab-linfoide-015` e `teoria-linfoide-016` non si chiude qui**,
+ma il capitolo dà un indizio nella stessa direzione. Le due segnalazioni
+identificano le **plasmacellule con i linfociti B maturi**; il 15 non lo dice
+mai, e anzi tratta le due cose come **distinte**: gli anticorpi sono prodotti
+dalle **plasmacellule** (p. 179, `teoria-sangue-027`), mentre il **linfocita B
+maturo** è quello che lascia il midollo e va incontro all'**istruzione
+antigenica** negli organi linfoidi secondari (p. 198, `teoria-sangue-168`), cioè
+uno stadio che **precede** l'incontro con l'antigene. Le due segnalazioni
+restano aperte, ma nessuna carta del 15 le conferma.
+
+**Il Laboratorio aveva già coperto il sangue** con `lab-sangue-001`-`018` (file
+`06c` e `06d`), e le due fonti **non si contraddicono**: il Laboratorio guarda
+lo striscio e il riconoscimento, la Teoria i meccanismi. L'unico contatto diretto
+è `teoria-epiteli-198` del capitolo 08, che chiede *perché* gli eritrociti hanno
+forma biconcava; qui `teoria-sangue-042` chiede invece *che cosa* li rende
+deformabili, e risponde con il citoscheletro di spettrina.
+
 #### Il mazzo 16 e il sistema linfatico
 
 **Il `16 - Sistema linfatico` va da metà di pagina 198 a metà di pagina 205.**
@@ -1230,7 +1399,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Settantuno carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Ottantuno carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -1306,6 +1475,16 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-muscolare-122` | parla di un solo "muscolo dell'iride", il **dilatatore della pupilla**, e fa causare la **miosi** dal suo rilassamento; l'iride ha classicamente **due** muscoli lisci antagonisti, e la miosi è la contrazione attiva dello **sfintere della pupilla**, che la dispensa non nomina mai |
 | `teoria-muscolare-127` | dice che desmina e vimentina, filamenti intermedi del muscolo liscio, "svolgono un ruolo simile a quello della **troponina e della tropomiosina**"; sono proteine strutturali, non regolatrici, e due pagine dopo la stessa dispensa dichiara che nel muscolo liscio la **troponina manca del tutto** e che la regolazione avviene per fosforilazione delle teste della miosina |
 | `teoria-muscolare-134` | dice che l'**ossitocina favorisce il rilassamento** della tonaca muscolare dell'utero durante il parto; l'ossitocina stimola classicamente la **contrazione** del miometrio, ed è per questo che si usa per indurre il travaglio. L'esempio è per giunta inserito in un paragrafo che sta spiegando come uno stimolo ormonale **inneschi** la contrazione |
+| `teoria-sangue-030` | descrive la via classica del complemento come C1 che attiva **C2 e successivamente C4**; nella sequenza classica il C1 attivato taglia prima il **C4** e poi il **C2**, i cui frammenti si associano nella C3-convertasi (C4b2a) |
+| `teoria-sangue-044` | dà **5,4 milioni/ml** di eritrociti nell'uomo e 4,8 milioni/ml nella donna; il valore classico è per **microlitro** (mm³), cioè mille volte più concentrato. Espresso per ml, il numero è incompatibile con l'ematocrito del 45% dichiarato dalla stessa pagina precedente |
+| `teoria-sangue-060` | dice che nell'incompatibilità Rh, in assenza di interventi, "l'esito è nel **100% dei casi** fatale per il feto", nella frase immediatamente successiva a quella che parla di "rischio molto elevato di aborto o morte fetale". La malattia emolitica del feto e del neonato ha classicamente gravità variabile |
+| `teoria-sangue-091` | dice che nelle reazioni allergiche gli eosinofili agiscono "**rilasciando istamina**"; classicamente l'eosinofilo **inattiva** l'istamina con l'istaminasi dei suoi granuli, e a rilasciarla sono basofili e mastociti, come la dispensa stessa dice nella pagina successiva |
+| `teoria-sangue-107` | elenca le **cellule NK** fra i sottotipi dei **linfociti T** che "diventano immunocompetenti nel timo", due righe dopo averle distinte dai piccoli linfociti B e T classificandole fra i **grandi linfociti**. Le NK non hanno recettore T e non maturano nel timo |
+| `teoria-sangue-114` | mette il **fattore VI** della coagulazione fra i contenuti dei granuli α delle piastrine; un fattore VI non esiste nella nomenclatura corrente (il numero fu assegnato e poi ritirato), e il contenuto classico è fattore V e fattore VIII/von Willebrand |
+| `teoria-sangue-115` | chiama **α2β3** l'integrina della membrana piastrinica; l'integrina piastrinica classica è la **αIIbβ3** (GPIIb-IIIa), mentre α2β1 è il recettore del collagene. "α2β3" non corrisponde a nessuna integrina nota |
+| `teoria-sangue-132` | dice che il fattore XIa attiva il fattore IX, "**componente essenziale anche della via comune**", ma il paragrafo successivo fa cominciare la via comune dal **fattore X**; il IX appartiene alla sola via intrinseca |
+| `teoria-sangue-144` | usa la sigla **CFU-M** per il progenitore **mieloide** comune, mentre a pagina 188 la stessa dispensa usa **M-CFU** per la linea dei soli **monociti**. Nella nomenclatura corrente CFU-M è proprio quest'ultima (*macrophage colony-forming unit*) e il progenitore mieloide comune si indica con CMP |
+| `teoria-sangue-160` | dice che il megacariocita poliploide arriva a contenere "fino a **64 cromosomi**"; il valore classico è **64n**, cioè fino a 64 *corredi* (qualche migliaio di cromosomi). Con 64 cromosomi la cellula sarebbe poco più che diploide, e non si spiegherebbero né la poliploidia né le sue dimensioni |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
@@ -1395,15 +1574,47 @@ Nella Teoria i tre casi sono stati trovati tutti e sono elencati al punto 4;
 sul Laboratorio la ricognizione non è mai stata fatta, ma lì i capitoli sono
 chiusi e verificati pagina per pagina.
 
-**`extract.py` butta via figure vere scambiandole per icone, e `images.jsonl`
-non lo dice.** `is_artifact()` scarta ogni immagine che abbia **un lato sotto
-`MIN_USEFUL_PX = 200`**, per togliere loghi e strisce di layout. Su tutta la
-Teoria ne scarta **25, di cui 23 hanno entrambi i lati sopra i 100 px** e sono,
-a occhio, figure di contenuto. Il sintomo è che una pagina **mostra** una figura
-che `images.jsonl` non elenca affatto: non c'è nessun avviso, e il conteggio
-delle figure di un capitolo risulta semplicemente più basso del vero.
+**`extract.py` buttava via figure vere scambiandole per icone. Risolto il
+2026-08-11, scrivendo il mazzo 15.** `is_artifact()` scartava ogni immagine con
+**un lato sotto `MIN_USEFUL_PX`**, che valeva **200**: su tutta la Teoria ne
+perdeva 25 e sul Laboratorio 17. Il sintomo era che una pagina **mostrava** una
+figura che `images.jsonl` non elencava affatto, senza nessun avviso.
 
-Per ritrovarle:
+**La soglia è ora a 100 px.** La modifica è stata fatta test-first, e i due test
+nuovi in `tests/test_extract.py` descrivono dove cade il confine e perché:
+
+- `test_keeps_a_small_micrograph_crop`: `is_artifact(122, 122)` e
+  `is_artifact(874, 156)` devono essere `False`. 122x122 è il più piccolo
+  ritaglio di striscio delle due sbobine (un leucocita fra gli eritrociti,
+  `lab_p070_4342`), 874x156 è lo schema dell'eritropoiesi di pagina 197;
+- `test_flags_a_formula_rendered_as_an_image`: `is_artifact(282, 56)` deve
+  restare `True`. È la **formula dell'apertura numerica** di pagina 54,
+  renderizzata come immagine: larga abbastanza ma alta quanto una riga.
+
+Sotto i 100 px restano solo le **icone** (le più grandi sono 35x25, nel
+Laboratorio) e le **due formule** di pagina 54 della Teoria. La suite è passata
+da 151 a **153 test**.
+
+L'estrazione rigenerata dà **486 immagini** per la Teoria (erano 463) e **235**
+per il Laboratorio (erano 222). **I due pacchetti non sono cambiati**: 1301
+carte / 302 immagini e 673 carte / 120 immagini, esattamente come prima, perché
+`build_apkg` impacchetta solo le immagini **referenziate** dalle carte.
+
+**Le figure recuperate non ancora usate** (le otto del mazzo 15 sono già
+finite sulle carte):
+
+| Dove | Figure | Stato del capitolo |
+|---|---|---|
+| p. 7 (mazzo 01), p. 13 (03), p. 42 (06), p. 53, 56, 57 ×2, 58 (07), p. 125 (12), p. 148 (13) | 10 | **già scritti**: è un follow-up aperto, non lavoro del capitolo in corso |
+| p. 16, 19 ×2, 21 (mazzo 04) | 4 | **da scrivere**: chi farà il 04 le troverà già estratte |
+| p. 165 (mazzo 14) | 1 | **da scrivere**: è il prossimo capitolo |
+
+*Attenzione*: la stesura precedente di questo piano dava tutte e quindici per
+"in capitoli già scritti". Non è così: **cinque stanno in capitoli ancora da
+fare**, e per quelle non c'è niente da recuperare a posteriori.
+
+Per ritrovare le immagini che una soglia scarta, il modo è questo (con `< 100`
+al posto di `< 200` per verificare che cosa resta fuori oggi):
 
 ```sh
 ./venv/bin/python -c "
@@ -1421,29 +1632,19 @@ for pno in range(1, d.page_count + 1):
             print(f'p{pno} xref{x} {w}x{h}')"
 ```
 
-**Il capitolo più colpito è di gran lunga il `15 - Il sangue`**, con **otto**
+**Il capitolo più colpito era di gran lunga il `15 - Il sangue`**, con **otto**
 figure perse fra pagina 177 e pagina 198, perché le sue illustrazioni sono
-ritagli piccoli di striscio. Sono state guardate una per una e non sono icone:
-lo **striscio di sangue** colorato di Wright (p. 177, xref 1134, unica figura
-della pagina), il **citoscheletro dell'eritrocita** e gli **antigeni dei gruppi
-AB0** con la glicoforina (p. 182, xref 1150 e 1151), quattro **strisci con
-eritrociti e leucociti** (p. 180 xref 1143, p. 186 xref 1163, p. 189 xref 1174 e
-1175) e lo **schema dell'eritropoiesi** da proeritroblasto a eritrocita (p. 197,
-xref 1202). Cinque delle otto sono strisci **senza etichette**, cioè proprio il
-materiale da **fronte** che al capitolo servirà di più.
+ritagli piccoli di striscio: fra queste lo **schema dell'eritropoiesi** e cinque
+strisci senza etichette, cioè materiale da **fronte**. È il motivo per cui la
+soglia è stata abbassata proprio lì, e non prima.
 
-Le altre quindici stanno in **capitoli già scritti**: pagine 7, 13, 16,
-19, 21, 42, 53, 56, 57, 58, 125, 148 e 165. Recuperarle è un **follow-up
-aperto**, non lavoro del capitolo in corso.
-
-**Abbassare la soglia è additivo e non rompe niente pubblicato**, ed è la
+**Abbassare la soglia è additivo e non rompe niente di pubblicato**, ed è la
 differenza con la trappola del clip path qui sotto: il nome del file è
 `teoria_pNNN_XREF.jpg`, quindi rigenerare **aggiunge** file senza rinominare né
 modificare quelli esistenti, e nessuna carta già consegnata a Pietro cambia. Il
 clip path invece cambierebbe il **contenuto** di file già referenziati, e va
-perciò fatto prima di scrivere altre carte. Resta comunque una modifica a
-`extract.py`, che serve **entrambe le fonti**: va fatta test-first, e dopo va
-ricontrollato che il conteggio del Laboratorio non cambi in modo inatteso.
+perciò fatto prima di scrivere altre carte, **non dopo**: resta l'unica modifica
+a `extract.py` ancora aperta.
 
 **Le sezioni si sovrappongono ai bordi.** `images_for_section` assegna per
 intervallo di pagine, quindi una figura a cavallo di due sezioni compare in
