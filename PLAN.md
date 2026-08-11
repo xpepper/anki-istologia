@@ -59,9 +59,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-11
 
-**673 note** di Laboratorio + **1082 di Teoria**, 388 immagini, 151 test verdi.
+**673 note** di Laboratorio + **1159 di Teoria**, 396 immagini, 151 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 11 capitoli su 18, pagine 1-16 e 28-148 di 256.
+aperta**: 12 capitoli su 18, pagine 1-16, 28-148 e 198-205 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -138,6 +138,7 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `12e-confronti-al-microscopio.jsonl` | 12 | sezioni 065-066, pagine 131-134, **mazzi 10 e 11** |
 | `13a-cartilagine-generalita.jsonl` | 51 | sezioni 068-069, pagine 137-144 |
 | `13b-tipi-di-cartilagine.jsonl` | 25 | sezione 069, pagine 145-148 |
+| `16-sistema-linfatico.jsonl` | 77 | sezioni 085-089, pagine 198-205 |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
 intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
@@ -215,6 +216,7 @@ restare unico dentro tutto il mazzo:
 | `teoria-connettivi` | `03` 001-004, `12a` 005-043, `12b` 044-090, `12c` 091-129, `12d` 130-160, poi `13a` 161 |
 | `teoria-embriologia` | `03` 001-022, `12a` 023-026, poi `13a` 027, `13b` 028 |
 | `teoria-cartilagine` | `13a` 001-047, poi `13b` 048-070 |
+| `teoria-linfoide` | `16` 001-077 |
 
 **Il capitolo 03 apre quattro argomenti che appartengono a capitoli successivi.**
 È la panoramica dei quattro tessuti fondamentali, quindi qualche sua carta parla
@@ -350,6 +352,19 @@ creste neurali e per la notocorda, e `colorazioni` per le tre carte il cui
 contenuto è la colorazione e non il tessuto (Alcian blu-PAS sulle zone della
 matrice, basofilia della capsula, Verhoeff sulla cartilagine elastica).
 
+**E nemmeno il capitolo 16.** Sta **interamente** su `linfoide`, che
+**esisteva già** in entrambe le fonti: nel Laboratorio con `lab-linfoide-001`-`047`
+e nella Teoria con cinque carte del capitolo 08 (linfociti intraepiteliali e
+cellule di Langerhans) che portano però id `teoria-epiteli-*`. `teoria-linfoide`
+apre quindi il contatore da `001` pur non essendo un tag nuovo, esattamente come
+`teoria-cartilagine` nel 13. È l'unico capitolo della Teoria con **un solo**
+`argomento::` su tutte le carte: anche l'immunologia generale (antigene, MHC,
+tolleranza, risposta innata e adattativa) ci sta sotto, perché nessun altro
+valore esistente la copre e il capitolo non ne giustifica uno nuovo. Non è stato
+aggiunto un `endocrino` alla carta sugli ormoni timici, che parla del timo:
+**nessuna carta del progetto porta due `argomento::`**, e non è il caso di
+cominciare qui.
+
 ### Il tag `non-trattato`
 
 La sbobina marca alcuni passaggi con un riquadro laterale **"Argomento non
@@ -359,8 +374,11 @@ dicono in fondo al `back`, così Pietro può sospenderle in blocco con
 `tag:non-trattato` se decide di fidarsi del programma dell'anno.
 
 Il primo caso è `teoria-microscopia-015` (immagine reale e virtuale, pagina 50).
-Il riquadro va guardato nel PDF renderizzato, perché nel testo estratto compare
-come tre parole isolate e non si capisce quanta parte copra:
+Il secondo è il blocco in corsivo che va da metà di **pagina 201** a metà di
+**pagina 202** (movimento e percorso della linfa, definizione di essudato):
+quattro carte, `teoria-linfoide-040`-`043`. Il riquadro va guardato nel PDF
+renderizzato, perché nel testo estratto compare come tre parole isolate e non si
+capisce quanta parte copra:
 
 ```sh
 ./venv/bin/python -c "import pymupdf; \
@@ -500,7 +518,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | **fatto**, 76 note in due file |
 | 14 - Tessuto osseo | 149-177 | 29 | 14 | |
 | 15 - Il sangue | 177-198 | 22 | 13 | |
-| 16 - Sistema linfatico | 198-205 | 8 | 11 | |
+| 16 - Sistema linfatico | 198-205 | 8 | 11 | **fatto**, 77 note |
 | 17 - Tessuto muscolare | 205-227 | 23 | 12 | |
 | 18 - Il tessuto nervoso | 227-256 | 30 | 15 | |
 
@@ -563,11 +581,15 @@ stabili e labili: fa da indice mentale a tutto il resto del corso, e cinque
 pagine sono poche. **È fatto**, e con lui il `07 - Concetti base di
 microscopia`, il `06 - Tessuti epiteliali`, l'`08 - Epitelio di rivestimento`,
 il `09 - Epiteli ghiandolari`, il `10 - Ghiandole esocrine`, l'`11 - Ghiandole
-endocrine`, il `12 - Tessuti connettivi` e il `13 - Tessuti connettivi di
-sostegno`: il prossimo in ordine è il `16 - Sistema linfatico`, pagine 198-205.
-Attenzione, per quello: **il muscolare comincia a pagina 205**, non a 208, e le
-pagine 205-207 finiscono dentro il Sistema linfatico solo perché il segmentatore
-non vede il titolo (vedi la ricognizione dei tre titoli mancanti, qui sotto).
+endocrine`, il `12 - Tessuti connettivi`, il `13 - Tessuti connettivi di
+sostegno` e il `16 - Sistema linfatico`: **il prossimo in ordine è il
+`17 - Tessuto muscolare`, che comincia a pagina 205 e non a 208**, e le pagine
+205-207 finiscono dentro il Sistema linfatico solo perché il segmentatore non
+vede il titolo (vedi la ricognizione dei tre titoli mancanti, qui sotto). Chi lo
+scrive parte quindi dalla **sezione 090**, e prende di pagina 205 solo quello che
+sta **sotto** il titolo `TESSUTO MUSCOLARE`: la milza che la precede è già del
+mazzo 16. Il contatore `teoria-muscolare` **non riparte da 001**: il capitolo 03
+ha già usato il `001`, quindi si riprende da **002** (vedi la tabella al punto 3).
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
 dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
@@ -879,6 +901,73 @@ Quattro figure stanno sul **fronte**, e sono le sole che portino marcatori muti:
 fibrocartilagine). Tutto il resto sono schemi, tavole e figure di libro con la
 **didascalia stampata sopra**, cioè materiale da retro.
 
+#### Il mazzo 16 e il sistema linfatico
+
+**Il `16 - Sistema linfatico` va da metà di pagina 198 a metà di pagina 205.**
+Entrambi i confini sono stati renderizzati e guardati, e **entrambi cadono a
+metà pagina**: è l'unico capitolo della Teoria fatto così.
+
+A **pagina 198**, sopra il titolo `SISTEMA LINFATICO`, ci sono ancora la
+granulocitopoiesi e la linfocitopoiesi, che sono del **`15 - Il sangue`**, non
+ancora scritto. La figura `teoria_p198_1206` (schema della granulocitopoiesi)
+appartiene quindi al 15 e **non è stata presa**; solo `teoria_p198_1207`, la
+tavola del corpo con linfonodi, vasi linfatici e organi linfatici primari, è
+del 16.
+
+A **pagina 205** il capitolo si chiude con la riga
+`[Fine integrazione slides 2024-2025]` che termina la milza, e subito sotto
+comincia il titolo `TESSUTO MUSCOLARE`. Pagina 205 **non ha figure**, quindi al
+confine di valle non c'è niente da contendersi. Le pagine 205-207 sono del mazzo
+17, benché le sezioni `090` e `091` portino `chapter: 'SISTEMA LINFATICO'`: è il
+caso descritto qui sotto, in cui il campo `chapter` mente e i titoli delle
+sezioni sono invece corretti.
+
+Il capitolo copre le sezioni da `085` a `089`, circa 3.000 parole, e **sta in un
+file solo**: `16-sistema-linfatico.jsonl`, 77 note.
+
+**Nessuna delle 9 figure delle pagine 198-205 è sotto soglia.** Il controllo del
+clip path del punto 6 è stato eseguito su quelle pagine e ha dato `corr=1.00` su
+tutte e nove, cioè il file estratto coincide esattamente con ciò che la pagina
+mostra. È il primo capitolo in cui il controllo non segnala niente. Delle nove,
+otto sono del 16 e **sono state usate tutte**; la nona è quella della
+granulocitopoiesi, che è del 15.
+
+Due figure stanno sul **fronte**, e sono le sole che pongano una domanda senza
+contenerne la risposta:
+
+- `teoria_p204_1226`, la micrografia con le sigle mute `VEA` e `VAE` sulle venule
+  ad alto endotelio. È il caso classico del marcatore muto, come le quattro del
+  capitolo 13.
+- `teoria_p203_1222`, il timo fetale in ematossilina-eosina. È l'unico caso finora
+  di una figura **usata su due carte con lati diversi**: la tavola porta stampate
+  `cortex`, `medulla`, `capsule` e `connective tissue trabeculae`, quindi sta sul
+  **retro** della carta che chiede come si distinguono corteccia e midollare
+  (`teoria-linfoide-057`); ma il riquadro in alto a destra, il corpuscolo di
+  Hassall, **non ha etichette**, e su quello si può costruire una domanda di
+  riconoscimento con la figura sul **fronte** (`teoria-linfoide-059`). Le
+  etichette presenti danno il contesto (è un timo) senza dare la risposta.
+
+Tutto il resto sono schemi, tavole anatomiche e figure di libro con la
+didascalia stampata sopra, cioè materiale da retro.
+
+**Le tre integrazioni.** La dispensa segnala esplicitamente il materiale preso da
+altre annate: `[integrazione sbobina 2022-2023]` per la suddivisione dei linfociti
+in T e B (pagina 199), `[integrazione sbobina 2023-2024]` per il riconoscimento
+dei vasi linfatici in ematossilina-eosina (pagina 201) e per l'apoptosi dei
+linfociti (pagina 202), `[integrazione slides 2024-2025]` per le zone del centro
+germinativo e per tutta la milza (pagine 204-205). Non è il caso della doppia
+sbobinatura del mazzo 11: qui le integrazioni **aggiungono** materiale invece di
+ripetere, quindi non c'è stato niente da fondere. Le carte lo dicono in corsivo in
+fondo al `back`, così Pietro sa quali parti non vengono dalla lezione dell'anno.
+
+**Sette segnalazioni su 77 carte**, che è il livello del capitolo 13. Quattro
+nascono da **contraddizioni interne alla dispensa**: le MHC collocate sul
+patogeno e poi descritte come presentanti (`014`), l'essudato usato prima per il
+drenaggio fisiologico e poi definito come materiale dell'infiammazione (`043`),
+i vasi afferenti fatti arrivare alla midollare mentre lo schema della stessa
+pagina disegna il seno sottocapsulare (`067`), le venule ad alto endotelio messe
+nella midollare mentre la paracorticale è elencata ma **mai descritta** (`068`).
+
 #### I tre titoli che il segmentatore non vede
 
 `segment.py` non riconosce alcuni titoli di capitolo, e attribuisce le loro
@@ -939,7 +1028,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Cinquantasette carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Sessantaquattro carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -1001,6 +1090,13 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-cartilagine-063` | mette i **piccoli bronchi** fra le sedi della cartilagine elastica; la tavola dei tre tipi di pagina 138 elenca per l'elastica orecchio esterno, punta del naso, epiglottide, canale uditivo e cartilagini cuneiformi laringee, e mette trachea e bronchi fra le sedi della **ialina**, come fa anche pagina 146 |
 | `teoria-cartilagine-065` | fa arrivare il nutrimento alla cartilagine fibrosa "tramite i fibroblasti"; i fibroblasti sono cellule, non una via di trasporto, e a pagina 141 la stessa dispensa diceva che la fibrocartilagine dell'anello fibroso è nutrita dal nucleo polposo |
 | `teoria-cartilagine-069` | descrive l'ernia del disco come la rottura degli anelli di fibre collagene "i quali fuoriescono"; classicamente a erniare attraverso la lacerazione dell'anulus è il **nucleo polposo**, ed è quello a comprimere le radici nervose |
+| `teoria-linfoide-014` | dà le proteine **MHC** per molecole antigeniche che "si trovano sulla superficie di agenti patogeni", e nella frase immediatamente successiva le descrive come le molecole che espongono i frammenti antigenici alle cellule per farli riconoscere dai linfociti T. Le MHC sono classicamente molecole **self**, codificate dal genoma dell'ospite ed espresse dalle sue cellule: è l'antigene a essere di origine patogena, non il presentatore |
+| `teoria-linfoide-016` | dà i linfociti B per "noti anche come plasmacellule quando maturi"; il linfocita B maturo è la cellula vergine che esce dal midollo prima di incontrare l'antigene, mentre la plasmacellula è la forma terminale differenziata che compare **dopo** l'attivazione. Stesso equivoco di `lab-linfoide-015` |
+| `teoria-linfoide-027` | oppone i capillari linfatici, che si originano "a fondo cieco", a quelli sanguigni, "che sono chiusi"; le due espressioni vogliono dire la stessa cosa. La differenza attesa è che il capillare sanguigno è aperto a entrambe le estremità, in continuità fra arteriola e venula, mentre il linfatico ha un solo capo aperto |
+| `teoria-linfoide-043` | definisce l'**essudato** come il materiale che fuoriesce dai capillari "durante processi infiammatori", ma poche righe prima chiama essudato anche il liquido del drenaggio fisiologico che dai capillari passa all'interstizio e da lì ai capillari linfatici; quello è classicamente un **trasudato**, povero di proteine |
+| `teoria-linfoide-067` | fa arrivare i **vasi linfatici afferenti** alla zona **midollare** del linfonodo; classicamente sboccano nel **seno sottocapsulare**, e da lì la linfa percola verso l'interno per uscire dall'ilo con il vaso efferente. Lo schema della stessa pagina 204 lo disegna così, e ha "seno sottocapsulare" fra le proprie etichette |
+| `teoria-linfoide-068` | colloca le **venule ad alto endotelio** nella rete capillare della **midollare**; sono classicamente descritte nella **paracorticale**, che è la porta d'ingresso dei linfociti circolanti. La dispensa elenca la zona paracorticale fra le tre del linfonodo ma **non la descrive mai**, pur avendone bisogno qui |
+| `teoria-linfoide-075` | chiama "**linfonodi** periarteriolari (PALS)" le guaine linfoidi periarteriolari della polpa bianca; la sigla stessa sta per *Periarteriolar Lymphoid Sheath*, cioè **guaina**, e si tratta del manicotto di linfociti T attorno all'arteriola centrale, non di un organo capsulato come i linfonodi descritti nella pagina precedente |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
