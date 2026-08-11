@@ -59,9 +59,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-11
 
-**673 note** di Laboratorio + **612 di Teoria**, 251 immagini, 151 test verdi.
+**673 note** di Laboratorio + **707 di Teoria**, 276 immagini, 151 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 6 capitoli su 18, pagine 1-16 e 28-84 di 256.
+aperta**: 8 capitoli su 18, pagine 1-16 e 28-93 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -126,6 +126,8 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `08a-epitelio-di-rivestimento.jsonl` | 132 | sezioni 025-033, pagine 60-75 |
 | `08b-cellule-epidermide-e-sommario.jsonl` | 39 | sezioni 034-035, pagine 76-82 |
 | `08c-quiz-tessuto-epiteliale.jsonl` | 12 | sezione 036, pagine 82-84 |
+| `09-epiteli-ghiandolari.jsonl` | 22 | sezioni 037-039, pagine 85-86 |
+| `10-ghiandole-esocrine.jsonl` | 73 | sezioni 040-041, pagine 86-93 |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
 intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
@@ -197,7 +199,8 @@ restare unico dentro tutto il mazzo:
 | `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, poi `10a` 037-047 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
-| `teoria-colorazioni` | `01` 001-026, poi `02` 027-075 |
+| `teoria-colorazioni` | `01` 001-026, `02` 027-075, poi `10` 076-079 |
+| `teoria-ghiandole` | `09` 001-016, poi `10` 017-085 |
 
 **Il capitolo 03 apre quattro argomenti che appartengono a capitoli successivi.**
 È la panoramica dei quattro tessuti fondamentali, quindi qualche sua carta parla
@@ -213,6 +216,11 @@ di conseguenza il loro id segue lo stesso argomento. Chi scriverà quei capitoli
 | `teoria-connettivi` | 001-004 | 005 |
 | `teoria-muscolare` | 001 | 002 |
 | `teoria-nervoso` | 001-002 | 003 |
+
+**Lo stesso è successo con il capitolo 09 e l'endocrino.** Il 09 confronta le
+ghiandole esocrine con le endocrine, quindi sei delle sue carte parlano di
+endocrino prima che il mazzo 11 esista: portano `argomento::endocrino` e l'id
+`teoria-endocrino-001`-`006`. **Chi scriverà il mazzo 11 riparte da 007.**
 
 I salti sono ammessi (`lab-esocrino` passa da 035 a 040): serve che i numeri
 crescano e non si ripetano, non che siano contigui. Prima di aprire un file
@@ -277,6 +285,14 @@ Il capitolo 08 **non ne ha aggiunti**: le sue 183 carte stanno quasi tutte su
 le cellule di Langerhans, `nervoso` per le terminazioni nervose libere,
 `staminali` per le cripte intestinali, `tecnica-istologica` per
 l'immunoistochimica, `colorazioni` per la PAS sulle cellule caliciformi).
+
+**Nemmeno i capitoli 09 e 10 ne hanno aggiunti.** Riusano `ghiandole` e
+`endocrino`, che il Laboratorio aveva già introdotto con `lab-esocrino` e
+`lab-endocrino`, e `colorazioni` per le quattro carte il cui contenuto è la
+colorazione e non la ghiandola: mucina invisibile alle colorazioni comuni,
+tricromica e PAS sull'intestino tenue, Alcian blu sul colon, secreto mucoso
+invisibile in ematossilina-eosina. Non è stato inventato un `esocrino` a parte:
+nel Laboratorio l'argomento delle esocrine si chiama già `ghiandole`.
 
 ### Il tag `non-trattato`
 
@@ -421,9 +437,9 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 06 - Tessuti epiteliali | 28-49 | 22 | 5 | **fatto**, 158 note in due file |
 | 07 - Concetti base di microscopia | 49-60 | 12 | 4 | **fatto**, 89 note |
 | 08 - Epitelio di rivestimento | 60-85 | 26 | 6 | **fatto**, 183 note in tre file |
-| 09 - Epiteli ghiandolari | 85-86 | 2 | 7 | |
-| 10 - Ghiandole esocrine | 86-97 | 12 | 7 | |
-| 11 - Ghiandole endocrine | 97-111 | 15 | 8 | |
+| 09 - Epiteli ghiandolari | 85-86 | 2 | 7 | **fatto**, 22 note |
+| 10 - Ghiandole esocrine | 86-93 | 8 | 7 | **fatto**, 73 note |
+| 11 - Ghiandole endocrine | 93-111 | 19 | 8 | |
 | 12 - Tessuti connettivi | 111-137 | 27 | 9 | |
 | 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | |
 | 14 - Tessuto osseo | 149-177 | 29 | 14 | |
@@ -437,8 +453,9 @@ le convenzioni della teoria dove un errore costa poco rifarlo; **i quattro
 capitoli più densi in fondo** (12 connettivi, 15 sangue, 14 osseo, 18 nervoso);
 le staminali (04 e 05) per ultime perché sono in buona parte un excursus
 clinico, non istologia di base, e quindi le prime sacrificabili se il tempo
-stringe. Il 09 e il 10 si fanno insieme: il 09 è di due pagine e da solo non è
-un mazzo.
+stringe. Il 09 e il 10 sono stati fatti insieme, perché il 09 è di due pagine e
+da solo non è una sessione di lavoro; **un mazzo suo però ce l'ha**, e il perché
+sta più sotto.
 
 Il `08 - Epitelio di rivestimento` **copre le pagine 60-84**, non 60-85: pagina
 85 apre già `EPITELI GHIANDOLARI`, che è il mazzo 09. Attenzione anche all'altro
@@ -488,9 +505,9 @@ Il `03 - Tessuti e rinnovamento` è stato messo terzo perché è la **panoramica
 dei quattro tessuti fondamentali** e delle popolazioni cellulari perenni,
 stabili e labili: fa da indice mentale a tutto il resto del corso, e cinque
 pagine sono poche. **È fatto**, e con lui il `07 - Concetti base di
-microscopia`, il `06 - Tessuti epiteliali` e l'`08 - Epitelio di rivestimento`:
-i prossimi in ordine sono il `09 - Epiteli ghiandolari` e il `10 - Ghiandole
-esocrine`, pagine 85-97, **da fare insieme** perché il 09 è di due pagine.
+microscopia`, il `06 - Tessuti epiteliali`, l'`08 - Epitelio di rivestimento`,
+il `09 - Epiteli ghiandolari` e il `10 - Ghiandole esocrine`: il prossimo in
+ordine è l'`11 - Ghiandole endocrine`, pagine 93-111.
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
 dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
@@ -523,6 +540,56 @@ molecolari e tabelle con le risposte stampate sopra. Una sola carta viene da
 **pagina 48** pur stando in `06a`: la domanda sul movimento delle ciglia, che la
 sbobina stessa dichiara posta nella lezione precedente.
 
+#### I capitoli 09 e 10, e dove finisce davvero l'esocrino
+
+**Il `10 - Ghiandole esocrine` finisce a pagina 93, non a 97.** La riga di
+questa tabella diceva 86-97 ed era sbagliata. La sezione `042` si chiama
+"Ghiandole endocrine", va da pagina 93 a 97 ed è attribuita dal segmentatore al
+capitolo `GHIANDOLE ESOCRINE`, ma il suo contenuto è **interamente endocrino**:
+le principali ghiandole endocrine, gli ormoni per composizione chimica, i
+recettori, il feedback, e la classificazione in ghiandole a cordoni, a follicolo,
+a isolotti, interstiziali e a secrezione mista.
+
+Il confine è stato deciso guardando le pagine 93 e 94 renderizzate. A **pagina
+93**, sotto il paragrafo sulle cellule mioepiteliali, c'è un titolo `Ghiandole
+endocrine` **della stessa dimensione** dei titoli di capitolo (`EPITELI
+GHIANDOLARI`, `GHIANDOLE ESOCRINE`), non delle intestazioni di paragrafo che lo
+circondano. **Lì comincia il mazzo 11**, e quello che segue non va preso
+scrivendo il 10. Le pagine 94-97 lo confermano: parlano solo di endocrino.
+
+È il caso di pagina 205 rovesciato. Lì il segmentatore non vedeva il titolo
+giusto e ne riconosceva uno più avanti; qui **il titolo che riconosce, a pagina
+97, è quello sbagliato**: a pagina 97 non comincia il capitolo, comincia una
+lezione nuova (27-03-2025, sbobinatori diversi) che il capitolo già aperto a 93
+prosegue. La ricognizione delle righe maiuscole qui sotto non poteva trovarlo,
+perché `Ghiandole endocrine` a pagina 93 **non è in maiuscolo**.
+
+**Il 09 ha un mazzo suo**, contro quanto diceva la prima stesura di questo piano
+("da solo non è un mazzo"). La frase valeva per l'ordine di lavorazione: due
+pagine non sono una sessione di lavoro, e infatti 09 e 10 sono stati scritti
+insieme. Ma la tabella dei mazzi è dichiarata definitiva e il 09 ci figura, e
+soprattutto **il suo contenuto non è esocrino**: è la premessa comune a esocrine
+ed endocrine (che cos'è un epitelio ghiandolare, secrezione costitutiva e
+regolata, le differenze fra i due tipi, lo sviluppo di entrambi). Infilarlo nel
+`10 - Ghiandole esocrine` metterebbe la distinzione esocrino/endocrino dentro il
+mazzo dell'esocrino, dove chi ripassa l'endocrino non la cercherebbe.
+
+È il ragionamento opposto a quello fatto per il quiz del capitolo 08, e per lo
+stesso motivo: lì un mazzo a parte avrebbe aggiunto navigazione senza dare
+niente in cambio, perché il quiz apparteneva al capitolo che lo precede; qui il
+09 non appartiene a nessuno dei due mazzi che lo circondano. Le sue sei carte
+endocrine portano comunque `argomento::endocrino`, quindi la selezione
+trasversale le pesca insieme al mazzo 11 quando sarà scritto.
+
+Le **25 figure** delle pagine 85-93 sono state **usate tutte**, 2 nel mazzo 09 e
+23 nel mazzo 10. Erano state passate al controllo del clip path (punto 6) e
+corrispondono tutte a quello che si vede sulla pagina. Sette stanno sul fronte:
+le microfotografie senza etichette (tricromica e PAS sull'intestino tenue, Alcian
+blu sul colon, le quattro forme di adenomero, le tubulari glomerulari in
+tricromica, la sebacea olocrina e il dotto mammario con le frecce sulle
+protrusioni apicali). Tutto il resto sono schemi, tabelle e figure di libro con
+la **didascalia stampata sopra**, che è già la risposta, e sta quindi sul retro.
+
 #### I tre titoli che il segmentatore non vede
 
 `segment.py` non riconosce alcuni titoli di capitolo, e attribuisce le loro
@@ -540,6 +607,13 @@ Il caso di pagina 205 è il più insidioso, perché il segmentatore *un* titolo 
 riconosce: `TESSUTO MUSCOLARE STRIATO SCHELETRICO` a pagina 208. Le pagine
 205-207, che introducono i tre tipi di tessuto muscolare, finiscono così dentro
 il Sistema linfatico. Chi scriverà il mazzo 16 non deve prenderle.
+
+**"Tutti i casi" vale solo per i titoli in maiuscolo.** La ricognizione cerca
+righe interamente maiuscole, quindi non poteva trovare il `Ghiandole endocrine`
+di pagina 93, che è scritto in tondo pur avendo il corpo di un titolo di
+capitolo (vedi qui sopra). Prima di scrivere un capitolo, **guarda comunque la
+pagina renderizzata** al confine dichiarato dalla tabella: il conteggio delle
+maiuscole non è una garanzia.
 
 Per rifare la ricognizione da capo:
 
@@ -576,7 +650,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Trentadue carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Trentacinque carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -613,6 +687,9 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-epiteli-282` | la stessa dispensa dà allo strato spinoso "cinque o sei strati" a pagina 73 e "4-8 strati" a pagina 74, senza spiegare la differenza |
 | `teoria-epiteli-338` | nella risposta alla domanda 5 del quiz convivono due numerazioni: "2, 3, 6, 7" sono le opzioni corrette, mentre "1, 6 e 7" della nota sono i tipi di epitelio privi di specializzazioni. Nessuna delle due si riconcilia con i numeri stampati sulla figura |
 | `teoria-epiteli-340` | il quiz dà "zonulina" come proteina di placca della giunzione occludente; la proteina classica è la ZO-1 (zonula occludens-1), mentre la zonulina è un'altra molecola |
+| `teoria-ghiandole-028` | lo schema di pagina 85 porta stampato "ADENOMERO = Parenchima (cellule) + Stroma (matrice extracellulare)", mentre il testo di pagina 87 dice che il parenchima è composto da adenomero e dotto escretore e che lo stroma è connettivale. I due rapporti sono l'uno il rovescio dell'altro |
+| `teoria-ghiandole-043` | dà la ghiandola mammaria per composta da più ghiandole, ciascuna responsabile di una diversa sostanza del secreto (lipidi, glucidi, proteine); classicamente sono 15-20 ghiandole tubulo-alveolari composte, ciascuna con il proprio dotto galattoforo, e sono le stesse cellule alveolari a produrre sia i lipidi, per secrezione apocrina, sia le proteine e il lattosio, per secrezione merocrina |
+| `teoria-ghiandole-070` | dice che nelle ghiandole miste sono "le porzioni acinose" a rappresentare la parte più esterna dell'adenomero, ma sia le sierose sia le mucose sono acinose; la didascalia della figura 13.16, nelle stesse pagine, dice che sono le cellule sierose a circondare le mucose formando le semilune di Giannuzzi |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
