@@ -1092,8 +1092,8 @@ abbassata** all'inizio di questo capitolo (vedi punto 6): `teoria_p177_1134`,
 dell'eritropoiesi**, il citoscheletro dell'eritrocita, gli antigeni AB0 e
 **cinque delle otto figure finite sul fronte**.
 
-**Dieci segnalazioni su 173 carte**, che è il tasso del 16 e il doppio di quello
-del 17. Quattro nascono da **contraddizioni interne alla dispensa**: le NK
+**Dieci segnalazioni su 173 carte** (5,8%), cioè poco più del tasso del 17
+(4,9%) e circa i due terzi di quello del 16 (9,1%). Quattro nascono da **contraddizioni interne alla dispensa**: le NK
 elencate fra i sottotipi dei linfociti T due righe dopo essere state distinte da
 loro (`107`), il fattore IX dato per componente della via comune che il
 paragrafo successivo fa cominciare dal fattore X (`132`), la sigla CFU-M usata
