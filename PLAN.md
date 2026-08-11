@@ -57,11 +57,11 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ---
 
-## 2. Stato al 2026-08-10
+## 2. Stato al 2026-08-11
 
-**673 note** di Laboratorio + **429 di Teoria**, 203 immagini, 151 test verdi.
+**673 note** di Laboratorio + **612 di Teoria**, 251 immagini, 151 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 5 capitoli su 18, pagine 1-16 e 28-59 di 256.
+aperta**: 6 capitoli su 18, pagine 1-16 e 28-84 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -123,6 +123,9 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `06a-epiteli-di-rivestimento.jsonl` | 84 | sezione 021, pagine 28-37 |
 | `06b-giunzioni-e-dominio-basale.jsonl` | 74 | sezioni 022-023, pagine 38-48 |
 | `07-concetti-base-di-microscopia.jsonl` | 89 | sezione 024, pagine 49-59 |
+| `08a-epitelio-di-rivestimento.jsonl` | 132 | sezioni 025-033, pagine 60-75 |
+| `08b-cellule-epidermide-e-sommario.jsonl` | 39 | sezioni 034-035, pagine 76-82 |
+| `08c-quiz-tessuto-epiteliale.jsonl` | 12 | sezione 036, pagine 82-84 |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
 intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
@@ -206,7 +209,7 @@ di conseguenza il loro id segue lo stesso argomento. Chi scriverà quei capitoli
 
 | Argomento | Già usato dal capitolo 03 | Il prossimo capitolo riparte da |
 |---|---|---|
-| `teoria-epiteli` | 001 | 002, ed è già stato fatto: il capitolo 06 occupa 002-159 |
+| `teoria-epiteli` | 001 | 002, ed è già stato fatto: il capitolo 06 occupa 002-159 e il capitolo 08 occupa 160-342 |
 | `teoria-connettivi` | 001-004 | 005 |
 | `teoria-muscolare` | 001 | 002 |
 | `teoria-nervoso` | 001-002 | 003 |
@@ -267,6 +270,13 @@ e la strumentazione: occhio, lenti, aberrazioni, diffrazione, obiettivi, metodi
 di contrasto e fluorescenza. Non è stato accorpato a `tecnica-istologica` perché
 quello è il **metodo di preparazione** del campione, mentre qui si parla dello
 **strumento** con cui lo si guarda, e da solo vale quasi novanta carte.
+
+Il capitolo 08 **non ne ha aggiunti**: le sue 183 carte stanno quasi tutte su
+`epiteli`, e le poche che parlano d'altro riusano valori esistenti
+(`sangue` per gli eritrociti, `linfoide` per i linfociti intraepiteliali e per
+le cellule di Langerhans, `nervoso` per le terminazioni nervose libere,
+`staminali` per le cripte intestinali, `tecnica-istologica` per
+l'immunoistochimica, `colorazioni` per la PAS sulle cellule caliciformi).
 
 ### Il tag `non-trattato`
 
@@ -410,7 +420,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 05 - Applicazioni terapeutiche delle cellule staminali | 24-28 | 5 | 17 | |
 | 06 - Tessuti epiteliali | 28-49 | 22 | 5 | **fatto**, 158 note in due file |
 | 07 - Concetti base di microscopia | 49-60 | 12 | 4 | **fatto**, 89 note |
-| 08 - Epitelio di rivestimento | 60-85 | 26 | 6 | |
+| 08 - Epitelio di rivestimento | 60-85 | 26 | 6 | **fatto**, 183 note in tre file |
 | 09 - Epiteli ghiandolari | 85-86 | 2 | 7 | |
 | 10 - Ghiandole esocrine | 86-97 | 12 | 7 | |
 | 11 - Ghiandole endocrine | 97-111 | 15 | 8 | |
@@ -430,12 +440,57 @@ clinico, non istologia di base, e quindi le prime sacrificabili se il tempo
 stringe. Il 09 e il 10 si fanno insieme: il 09 è di due pagine e da solo non è
 un mazzo.
 
+Il `08 - Epitelio di rivestimento` **copre le pagine 60-84**, non 60-85: pagina
+85 apre già `EPITELI GHIANDOLARI`, che è il mazzo 09. Attenzione anche all'altro
+lato: la sezione `024` dichiara le pagine 49-60, ma pagina 60 è interamente
+dell'08 e il 07 si chiude a 59. Il capitolo copre le sezioni da `025` a `036` e
+due lezioni, quella del 18-03-2025 e quella del 20-03-2025.
+
+Venticinque pagine e 59 figure sono troppe per un file solo, quindi è stato
+**diviso in tre**. Il taglio principale è a **pagina 76**, dove cambia la lezione
+e cambiano gli sbobinatori, ed è anche un confine di contenuto: fino a 75 si
+percorrono i tipi di epitelio, da 76 si passa alle altre popolazioni cellulari
+dell'epidermide.
+
+| File | Pagine | Contenuto |
+|---|---|---|
+| `08a-epitelio-di-rivestimento.jsonl` | 60-75 | pavimentoso semplice, endotelio, capillari, periciti, alveoli, cubico e cilindrico semplice, epitelio intestinale, pseudostratificato, cubico e cilindrico pluristratificato, urotelio, pavimentoso pluristratificato, epidermide |
+| `08b-cellule-epidermide-e-sommario.jsonl` | 76-82 | melanociti e donazione del pigmento, meccanocettori, cellule di Merkel e di Langerhans, sommario con i criteri di riconoscimento |
+| `08c-quiz-tessuto-epiteliale.jsonl` | 82-84 | le otto domande del quiz finale |
+
+**Il quiz sta nel mazzo del capitolo, non in un mazzo `Quiz` a parte.** Il mazzo
+`Istologia::Laboratorio::Quiz` esiste perché lì i quiz sono quattro, novantatré
+carte in tutto, prodotti dal generatore e ciascuno a cavallo di più capitoli:
+raccoglierli conveniva. Qui il quiz è **uno solo**, dodici carte, scritto a mano
+e intitolato dalla sbobina stessa "Quiz finale - tessuto epiteliale": un mazzo
+suo aggiungerebbe un livello di navigazione senza dare niente in cambio. Le tre
+domande sulle giunzioni appartengono in realtà al capitolo 06, ma portano lo
+stesso `argomento::epiteli`, quindi la selezione trasversale le pesca comunque.
+Come per `06a`/`06b`, tutti e tre i file usano lo stesso nome di mazzo
+`Istologia::Teoria::08 - Epitelio di rivestimento`.
+
+**Il quiz non è leggibile da `scripts/quiz.py`.** Non usa le caselle spuntate
+delle quattro convenzioni del Laboratorio: è prosa, con le etichette "Domanda" e
+"Risposta" e note `[N.d.S.]` che spiegano perché le altre opzioni erano
+sbagliate. È stato scritto a mano, e le sette immagini delle pagine 82-84 sono
+screenshot delle slide del quiz **senza le risposte**, quindi stanno tutte sul
+fronte.
+
+Delle 59 figure ne sono state usate **48**. Le undici scartate sono il caso
+delle immagini ritagliate da un clip path descritto al punto 6: dieci screenshot
+di browser alle pagine 70-75 e la `teoria_p065_468`, che contiene due disegni
+impilati di cui la pagina mostra solo il primo. Non si perde contenuto, perché
+erano tutte slide con le risposte stampate sopra, cioè materiale da retro che il
+testo copre già; si perde solo l'illustrazione dell'urotelio e degli strati
+dell'epidermide.
+
 Il `03 - Tessuti e rinnovamento` è stato messo terzo perché è la **panoramica
 dei quattro tessuti fondamentali** e delle popolazioni cellulari perenni,
 stabili e labili: fa da indice mentale a tutto il resto del corso, e cinque
 pagine sono poche. **È fatto**, e con lui il `07 - Concetti base di
-microscopia` e il `06 - Tessuti epiteliali`: il prossimo in ordine è il
-`08 - Epitelio di rivestimento`, pagine 60-85.
+microscopia`, il `06 - Tessuti epiteliali` e l'`08 - Epitelio di rivestimento`:
+i prossimi in ordine sono il `09 - Epiteli ghiandolari` e il `10 - Ghiandole
+esocrine`, pagine 85-97, **da fare insieme** perché il 09 è di due pagine.
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
 dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
@@ -521,7 +576,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Ventisei carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Trentadue carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -552,6 +607,12 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-epiteli-063` | scrive l'assetto delle ciglia mobili come "9 + 1", mentre la tabella della stessa dispensa dice "9 + 2"; la descrizione a parole della stessa carta, nove doppiette periferiche più una coppia centrale, è però corretta |
 | `teoria-epiteli-089` | elenca il complesso giunzionale come zonula occludente, zonula aderente e "una zonula con le giunzioni comunicanti"; il terzo elemento classico è la macula aderente (desmosoma), e le giunzioni comunicanti non formano una zonula |
 | `teoria-epiteli-100` | chiama "Freeze Capture" la tecnica di criofrattura; il nome corretto è freeze-fracture |
+| `teoria-epiteli-183` | mette l'aumento delle fenestrazioni dei capillari intestinali durante l'assorbimento dentro il paragrafo sui capillari **sinusoidali**, dopo aver appena elencato l'intestino fra le sedi dei **fenestrati** e i sinusoidali fra i soli organi emopoietici |
+| `teoria-epiteli-203` | fa nascere i microvilli dell'enterocita dal **corpo basale**; il corpo basale ancora un ciglio, mentre i microvilli originano dalla trama terminale, che è probabilmente la struttura descritta |
+| `teoria-epiteli-265` | mette il **retto** fra le sedi del pavimentoso pluristratificato non cheratinizzato; il retto è classicamente cilindrico semplice, ed è il canale anale a essere pluristratificato. Stesso equivoco di `teoria-epiteli-019` |
+| `teoria-epiteli-282` | la stessa dispensa dà allo strato spinoso "cinque o sei strati" a pagina 73 e "4-8 strati" a pagina 74, senza spiegare la differenza |
+| `teoria-epiteli-338` | nella risposta alla domanda 5 del quiz convivono due numerazioni: "2, 3, 6, 7" sono le opzioni corrette, mentre "1, 6 e 7" della nota sono i tipi di epitelio privi di specializzazioni. Nessuna delle due si riconcilia con i numeri stampati sulla figura |
+| `teoria-epiteli-340` | il quiz dà "zonulina" come proteina di placca della giunzione occludente; la proteina classica è la ZO-1 (zonula occludens-1), mentre la zonulina è un'altra molecola |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
@@ -639,3 +700,52 @@ chiusi e verificati pagina per pagina.
 **Le sezioni si sovrappongono ai bordi.** `images_for_section` assegna per
 intervallo di pagine, quindi una figura a cavallo di due sezioni compare in
 entrambe. Va scelta a giudizio, non usata due volte.
+
+**Il file estratto non è sempre quello che si vede sulla pagina.**
+`extract.py` salva l'immagine **grezza** incorporata nel PDF (`extract_image`),
+ignorando il *clip path* con cui la pagina la ritaglia. Se lo sbobinatore ha
+incollato uno screenshot intero e poi lo ha ritagliato dentro il documento, sul
+file finiscono la finestra del browser, le schede e la barra delle applicazioni,
+che sulla pagina non si vedono. Nelle pagine 70-75 della Teoria sono dieci
+figure su dieci, e altre tre (`teoria_p060_430`, `teoria_p060_431`,
+`teoria_p069_503`) sono slide intere di cui la pagina mostra solo un pezzo.
+
+Il controllo dei bordi non basta, perché il clip può stare tutto dentro la
+pagina. Il modo affidabile è **confrontare il file estratto con la regione
+renderizzata** e guardare i casi che non corrispondono:
+
+```sh
+./venv/bin/python -c "
+import pymupdf, io, statistics
+from PIL import Image
+d = pymupdf.open('\$DL/Istologia 5th gen-combinato.pdf')
+thumb = lambda im: list(im.convert('L').resize((48, 48)).getdata())
+def corr(a, b):
+    ma, mb = statistics.mean(a), statistics.mean(b)
+    da, db = [x - ma for x in a], [y - mb for y in b]
+    den = (sum(x * x for x in da) * sum(y * y for y in db)) ** 0.5
+    return sum(x * y for x, y in zip(da, db)) / den if den else 0.0
+for pno in range(60, 85):
+    page = d[pno - 1]
+    for info in page.get_images(full=True):
+        xref = info[0]
+        src = thumb(Image.open(io.BytesIO(d.extract_image(xref)['image'])))
+        best = -2
+        for r in page.get_image_rects(xref):
+            clip = r & page.rect
+            if clip.is_empty or clip.width < 5 or clip.height < 5:
+                continue
+            pix = page.get_pixmap(clip=clip, dpi=72)
+            shown = thumb(Image.frombytes('RGB', (pix.width, pix.height), pix.samples))
+            best = max(best, corr(src, shown))
+        if best < 0.80:
+            print(f'p{pno} xref{xref} corr={best:.2f}')"
+```
+
+Una figura che non corrisponde va **guardata comunque**: se il file è una slide
+intera e leggibile si può usare sul **retro** (è pur sempre la fonte), se è una
+finestra di browser va scartata. Recuperare il ritaglio richiederebbe di leggere
+il clip path dal content stream: né `get_image_rects` né `get_image_info` lo
+riportano, e non vale la pena per delle illustrazioni da retro. Se un giorno
+servisse, è un intervento su `extract.py` che cambia l'output di **entrambe** le
+fonti, quindi va fatto prima di scrivere altre carte, non dopo.
