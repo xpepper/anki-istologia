@@ -59,9 +59,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-11
 
-**673 note** di Laboratorio + **827 di Teoria**, 302 immagini, 151 test verdi.
+**673 note** di Laboratorio + **1006 di Teoria**, 361 immagini, 151 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 9 capitoli su 18, pagine 1-16 e 28-110 di 256.
+aperta**: 10 capitoli su 18, pagine 1-16 e 28-137 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -131,6 +131,11 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `11a-endocrino-generalita.jsonl` | 35 | sezioni 042-047, pagine 93-99 |
 | `11b-ipofisi-paratiroidi-tiroide.jsonl` | 48 | sezioni 048-050, pagine 99-105 |
 | `11c-surrene-e-pancreas-endocrino.jsonl` | 37 | sezione 051, pagine 105-110 |
+| `12a-matrice-extracellulare.jsonl` | 44 | sezioni 052-062, pagine 111-116 |
+| `12b-fibre-collagene-ed-elastiche.jsonl` | 48 | sezione 062, pagine 116-123 |
+| `12c-cellule-del-connettivo.jsonl` | 39 | sezioni 063-064, pagine 123-128 |
+| `12d-classificazione-dei-connettivi.jsonl` | 36 | sezioni 065-067, pagine 128-131 e 134-137 |
+| `12e-confronti-al-microscopio.jsonl` | 12 | sezioni 065-066, pagine 131-134, **mazzi 10 e 11** |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
 intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
@@ -202,9 +207,11 @@ restare unico dentro tutto il mazzo:
 | `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, poi `10a` 037-047 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
-| `teoria-colorazioni` | `01` 001-026, `02` 027-075, poi `10` 076-079 |
-| `teoria-ghiandole` | `09` 001-016, poi `10` 017-085 |
-| `teoria-endocrino` | `09` 001-006, poi `11a` 007-041, `11b` 042-089, `11c` 090-121 |
+| `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, poi `12a` 080, `12b` 081, `12d` 082-085 |
+| `teoria-ghiandole` | `09` 001-016, `10` 017-085, poi `12e` 086-094 |
+| `teoria-endocrino` | `09` 001-006, `11a` 007-041, `11b` 042-089, `11c` 090-121, poi `12e` 122-124 |
+| `teoria-connettivi` | `03` 001-004, poi `12a` 005-043, `12b` 044-090, `12c` 091-129, `12d` 130-160 |
+| `teoria-embriologia` | `03` 001-022, poi `12a` 023-026 |
 
 **Il capitolo 03 apre quattro argomenti che appartengono a capitoli successivi.**
 È la panoramica dei quattro tessuti fondamentali, quindi qualche sua carta parla
@@ -217,7 +224,7 @@ di conseguenza il loro id segue lo stesso argomento. Chi scriverà quei capitoli
 | Argomento | Già usato dal capitolo 03 | Il prossimo capitolo riparte da |
 |---|---|---|
 | `teoria-epiteli` | 001 | 002, ed è già stato fatto: il capitolo 06 occupa 002-159 e il capitolo 08 occupa 160-342 |
-| `teoria-connettivi` | 001-004 | 005 |
+| `teoria-connettivi` | 001-004 | 005, ed è già stato fatto: il capitolo 12 occupa 005-160 |
 | `teoria-muscolare` | 001 | 002 |
 | `teoria-nervoso` | 001-002 | 003 |
 
@@ -231,9 +238,18 @@ endocrino prima che il mazzo 11 esista: portano `argomento::endocrino` e l'id
 sulla terapia cellulare del diabete di tipo I (pagina 109) parlano di cellule
 staminali e di iPS, non di ghiandole: portano `argomento::staminali` e gli id
 `teoria-staminali-012`-`016`, che proseguono la numerazione aperta dal capitolo
-03. **Chi scriverà i mazzi 04 e 05 riparte da 017.** Restano nel mazzo 11, che è
+03. Il capitolo 12 ne ha aggiunta una sola, `017`, sulle biobanche del cordone
+ombelicale. **Chi scriverà i mazzi 04 e 05 riparte da 018.** Restano nel mazzo
 dove la sbobina le colloca, ma la selezione per argomento le pesca insieme alle
 staminali.
+
+**Il capitolo 12 riapre `embriologia` e prosegue `connettivi`.** Le quattro
+carte sull'origine mesenchimale dei connettivi (mesoderma, creste neurali,
+migrazione e differenziamento delle cellule mesenchimali) sono embriologia,
+non connettivi: portano `argomento::embriologia` e gli id
+`teoria-embriologia-023`-`026`, che proseguono la numerazione aperta dal
+capitolo 03. Le carte di connettivo vero e proprio ripartono invece da `005`,
+dove il capitolo 03 si era fermato, come la tabella qui sopra prevedeva.
 
 I salti sono ammessi (`lab-esocrino` passa da 035 a 040): serve che i numeri
 crescano e non si ripetano, non che siano contigui. Prima di aprire un file
@@ -310,6 +326,17 @@ nel Laboratorio l'argomento delle esocrine si chiama già `ghiandole`.
 **Nemmeno il capitolo 11**, che è il più grosso dei tre: le sue 120 carte stanno
 quasi tutte su `endocrino`, e le cinque sulla terapia cellulare del diabete di
 tipo I usano `staminali`, che il capitolo 03 aveva già introdotto.
+
+**E nemmeno il capitolo 12**, che è il più grosso di tutti con 179 carte. Sta
+quasi tutto su `connettivi`, che il Laboratorio aveva già introdotto; riusa
+`embriologia` per l'origine mesenchimale, `staminali` per le biobanche del
+cordone ombelicale, `colorazioni` per le sei carte il cui contenuto è la
+colorazione e non il tessuto (Alcian Blu sulla sostanza fondamentale,
+aldeide-fucsina e orceina sulle fibre elastiche, osmio e Sudan sui lipidi,
+Azan-Mallory e Verhoeff sulla tavola comparativa dei connettivi), e
+`ghiandole` ed `endocrino` per l'excursus delle pagine 131-134. **Non è stato
+inventato un `adiposo` a parte**: il tessuto adiposo sta su `connettivi`, come
+già nel Laboratorio (`lab-connettivi-030`).
 
 ### Il tag `non-trattato`
 
@@ -457,7 +484,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 09 - Epiteli ghiandolari | 85-86 | 2 | 7 | **fatto**, 22 note |
 | 10 - Ghiandole esocrine | 86-93 | 8 | 7 | **fatto**, 73 note |
 | 11 - Ghiandole endocrine | 93-111 | 19 | 8 | **fatto**, 120 note in tre file |
-| 12 - Tessuti connettivi | 111-137 | 27 | 9 | |
+| 12 - Tessuti connettivi | 111-137 | 27 | 9 | **fatto**, 179 note in cinque file |
 | 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | |
 | 14 - Tessuto osseo | 149-177 | 29 | 14 | |
 | 15 - Il sangue | 177-198 | 22 | 13 | |
@@ -523,11 +550,11 @@ dei quattro tessuti fondamentali** e delle popolazioni cellulari perenni,
 stabili e labili: fa da indice mentale a tutto il resto del corso, e cinque
 pagine sono poche. **È fatto**, e con lui il `07 - Concetti base di
 microscopia`, il `06 - Tessuti epiteliali`, l'`08 - Epitelio di rivestimento`,
-il `09 - Epiteli ghiandolari`, il `10 - Ghiandole esocrine` e l'`11 - Ghiandole
-endocrine`: il prossimo in ordine è il `12 - Tessuti connettivi`, pagine
-111-137. È il primo dei quattro capitoli densi tenuti per il fondo, e comincia a
-pagina **111**, con l'intestazione della lezione del 01-04-2025 (sbobinatori
-Zamboni e Webber).
+il `09 - Epiteli ghiandolari`, il `10 - Ghiandole esocrine`, l'`11 - Ghiandole
+endocrine` e il `12 - Tessuti connettivi`: il prossimo in ordine è il `13 -
+Tessuti connettivi di sostegno`, pagine 137-149. Comincia a **metà di pagina
+137**, sotto le due tavole comparative delle colorazioni che chiudono il 12, con
+il titolo `TESSUTI CONNETTIVI DI SOSTEGNO` e subito sotto `Cartilagine`.
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
 dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
@@ -703,6 +730,73 @@ gonadi**, non fra le interstiziali (`teoria-endocrino-118`). La teoria quindi
 **corregge il Laboratorio**, e non è stata aperta una segnalazione nuova: quella
 sul Laboratorio resta e ora ha una risposta.
 
+#### Il mazzo 12 e l'excursus sulle ghiandole
+
+**Il `12 - Tessuti connettivi` va da pagina 111 a metà di pagina 137.** Pagina
+137 è stata renderizzata e guardata: in cima ci sono ancora le due tavole
+comparative delle colorazioni che chiudono il 12, e solo sotto comincia il
+titolo `TESSUTI CONNETTIVI DI SOSTEGNO`. Le figure `teoria_p137_968`, `969` e
+`970` (le tre righe della tavola: ematossilina-eosina, Azan-Mallory, Verhoeff)
+appartengono quindi al **12**, non al 13, benché `images_for_section` le
+assegni a entrambe le sezioni. Solo `teoria_p137_971`, la microfotografia di
+cartilagine, è del 13.
+
+**Diviso in cinque file**: 26 pagine, circa 10.400 parole e 59 figure sono il
+capitolo più grosso della Teoria. I tagli seguono i confini di contenuto.
+
+| File | Pagine | Contenuto |
+|---|---|---|
+| `12a-matrice-extracellulare.jsonl` | 111-116 | generalità e classificazione, origine embrionale e strutturale, ECM, sostanza fondamentale, GAG, acido ialuronico, proteoglicani, glicoproteine adesive, integrine |
+| `12b-fibre-collagene-ed-elastiche.jsonl` | 116-123 | componente fibrillare, collagene (struttura, sintesi, tipi, FACIT), fibre reticolari, collagenopatie, fibre elastiche, elastina, Marfan |
+| `12c-cellule-del-connettivo.jsonl` | 123-128 | cellule residenti e transitorie, fibroblasti, fibrociti, miofibroblasti, macrofagi, mastociti, adipociti |
+| `12d-classificazione-dei-connettivi.jsonl` | 128-131, 134-137 | mesenchima, mucoso, lasso, denso (regolare, irregolare, a fasci incrociati), reticolare, elastico, tessuto adiposo, confronto delle colorazioni |
+| `12e-confronti-al-microscopio.jsonl` | 131-134 | l'excursus sulle ghiandole (vedi qui sotto) |
+
+I primi quattro condividono il mazzo `Istologia::Teoria::12 - Tessuti
+connettivi`, come `06a`/`06b` e `08a`/`08b`/`08c`. Il quinto no.
+
+**Le pagine 131-134 non parlano di connettivi.** Sono un `[N.d.S.]`: un
+confronto al microscopio fra **parotide e pancreas** e fra **corticale
+surrenale e adenoipofisi**, riportato "a fronte di dubbi sorti nelle lezioni
+precedenti". Sta dentro la lezione sui connettivi solo perché il professore lo
+ha ripreso lì. Le sue **12 carte stanno quindi nei mazzi `10 - Ghiandole
+esocrine` e `11 - Ghiandole endocrine`**, che è dove Pietro ripassa quegli
+argomenti, e portano gli id `teoria-ghiandole-086`-`094` e
+`teoria-endocrino-122`-`124`.
+
+È il precedente di **`07b` del Laboratorio**, non quello di `06d`: il criterio
+"deck del capitolo dove sta la pagina" vale quando gli argomenti appartengono
+davvero a quel capitolo, e qui non è il caso. Diverso è invece il caso delle
+carte su `embriologia` e `staminali`, che parlano comunque di connettivo visto
+da un altro lato e restano nel mazzo 12 con il loro `argomento::`.
+
+Il contenuto di `12e` è quasi tutto **riconoscimento**: la teoria della
+corticale surrenale e delle cellule dell'adenoipofisi era già coperta dal mazzo
+11 (`teoria-endocrino-055`-`058` e `095`-`098`), quindi da lì si sono prese solo
+le immagini e il criterio con cui distinguere i due tessuti.
+
+**Le 59 figure sono state usate tutte.** Il controllo del clip path del punto 6
+è stato eseguito sulle pagine 111-137 e ha segnalato quattro figure sotto
+soglia, tutte guardate una per una e tutte utilizzabili:
+
+- `teoria_p126_909` (mastociti, corr 0,01): il file estratto è lo **stesso**
+  campo della pagina, ma **ruotato di 90°**; la correlazione crolla per la
+  rotazione, non per un ritaglio.
+- `teoria_p133_945` (corr 0,17): è l'immagine **intera** delle tre zone della
+  corticale surrenale impilate, che la pagina spezza in tre riquadri distanziati.
+  Il file estratto è più completo della pagina, ed è stato usato così.
+- `teoria_p136_962` (mesentere murino, corr 0,80) e `teoria_p123_898`: al limite
+  della soglia, ma integri.
+
+Nessuna è il caso della finestra di browser che aveva costretto a scartarne
+undici nell'`08`.
+
+**Attenzione a due figure che illustrano una pagina diversa dalla propria**,
+il caso del punto 6: `teoria_p113_828`, lo schema delle cellule del connettivo,
+sta a pagina 113 in mezzo alla sostanza fondamentale ma illustra il testo di
+pagina 123; e `teoria_p111_808`, lo schema di classificazione, apre il capitolo
+12 pur stando sulla pagina che il mazzo 11 chiude.
+
 #### I tre titoli che il segmentatore non vede
 
 `segment.py` non riconosce alcuni titoli di capitolo, e attribuisce le loro
@@ -763,7 +857,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Quarantadue carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Cinquantuno carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -810,6 +904,15 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-endocrino-081` | fa secernere all'ipotalamo la **somatostatina insieme al TRH** quando gli ormoni tiroidei calano, e la fa poi ridurre insieme al TRH quando risalgono; la somatostatina inibisce il rilascio di TSH e dovrebbe quindi muoversi in senso opposto |
 | `teoria-endocrino-085` | dà gli ormoni tiroidei per legati a **TBG e albumina** perché poco solubili in acqua, mentre pagina 98 dice che i derivati da amminoacidi viaggiano liberi "grazie alla loro solubilità". È l'altro punto in cui le due stesure si contraddicono; qui la versione corretta è quella di pagina 105 |
 | `teoria-endocrino-103` | contrappone la rapidità della midollare del surrene all'asse ipotalamo-ipofisi-**gonadi**; il termine di paragone atteso, e quello che il paragrafo successivo usa, è l'asse ipotalamo-ipofisi-**corticale**, cioè l'altra metà della stessa ghiandola |
+| `teoria-colorazioni-080` | conclude che l'Alcian Blu, che lega i glicosaminoglicani, permette "di colorare il collagene"; è un colorante cationico dei GAG e dei mucopolisaccaridi acidi, cioè della sostanza fondamentale, mentre il collagene si colora con le tricromiche |
+| `teoria-connettivi-041` | mette l'integrina α6β4 "nei contatti focali e negli emidesmosomi"; il capitolo 06 della stessa dispensa la dà come l'integrina del solo **emidesmosoma**, dove lega la laminina 332, e attribuisce alle adesioni focali integrine che legano la fibronectina |
+| `teoria-connettivi-054` | la dispensa dà tre diametri diversi per la fibra collagene nel giro di due pagine: "fino a 10 micrometri" (p. 116), "può raggiungere i 300 nanometri" (p. 117, che è però il valore della fibrilla dato tre righe dopo) e "3-4 micron" (p. 118). La figura di pagina 117 dice 0,5-3 µm |
+| `teoria-connettivi-066` | i geni delle catene alfa del collagene sono "29" a pagina 116 e "42 geni distinti" a pagina 119; il numero delle molecole identificate (29) resta invece lo stesso |
+| `teoria-connettivi-082` | chiama "desmina" e "isodesmina" gli amminoacidi che formano i legami crociati dell'elastina; la figura della stessa pagina 122 li chiama **desmosina** e li fa derivare da lisina e allisina, mentre la desmina è un filamento intermedio del muscolo |
+| `teoria-connettivi-088` | dichiara colorata in ematossilina-eosina una sezione di derma in cui le fibre elastiche sono **nere**, il che è tipico delle colorazioni specifiche per l'elastico; la pagina precedente aveva appena detto che in ematossilina-eosina le fibre elastiche non sono facilmente distinguibili |
+| `teoria-connettivi-090` | per spiegare il coinvolgimento cardiovascolare nella sindrome di Marfan dice che la fibrillina non è "presente nelle arterie"; due pagine prima aveva detto che le fibre elastiche della parete dei vasi, fatte di elastina e fibrillina, sono prodotte dalle cellule muscolari lisce |
+| `teoria-connettivi-108` | subito dopo aver detto che i macrofagi derivano dai **monociti**, li mette in una famiglia di fagociti "derivanti dal mastocito", e inserisce il mastocito nell'elenco insieme a osteoclasto, cellule di Kupffer e microglia |
+| `teoria-colorazioni-084` | chiama il blu di anilina "colorante acidofilo"; è un **colorante acido**, mentre acidofilo è il collagene che lo lega. La distinzione era già stata fatta nel capitolo sulle colorazioni |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
