@@ -59,9 +59,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-11
 
-**673 note** di Laboratorio + **707 di Teoria**, 276 immagini, 151 test verdi.
+**673 note** di Laboratorio + **827 di Teoria**, 302 immagini, 151 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 8 capitoli su 18, pagine 1-16 e 28-93 di 256.
+aperta**: 9 capitoli su 18, pagine 1-16 e 28-110 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -128,6 +128,9 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `08c-quiz-tessuto-epiteliale.jsonl` | 12 | sezione 036, pagine 82-84 |
 | `09-epiteli-ghiandolari.jsonl` | 22 | sezioni 037-039, pagine 85-86 |
 | `10-ghiandole-esocrine.jsonl` | 73 | sezioni 040-041, pagine 86-93 |
+| `11a-endocrino-generalita.jsonl` | 35 | sezioni 042-047, pagine 93-99 |
+| `11b-ipofisi-paratiroidi-tiroide.jsonl` | 48 | sezioni 048-050, pagine 99-105 |
+| `11c-surrene-e-pancreas-endocrino.jsonl` | 37 | sezione 051, pagine 105-110 |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
 intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
@@ -201,6 +204,7 @@ restare unico dentro tutto il mazzo:
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
 | `teoria-colorazioni` | `01` 001-026, `02` 027-075, poi `10` 076-079 |
 | `teoria-ghiandole` | `09` 001-016, poi `10` 017-085 |
+| `teoria-endocrino` | `09` 001-006, poi `11a` 007-041, `11b` 042-089, `11c` 090-121 |
 
 **Il capitolo 03 apre quattro argomenti che appartengono a capitoli successivi.**
 È la panoramica dei quattro tessuti fondamentali, quindi qualche sua carta parla
@@ -220,7 +224,16 @@ di conseguenza il loro id segue lo stesso argomento. Chi scriverà quei capitoli
 **Lo stesso è successo con il capitolo 09 e l'endocrino.** Il 09 confronta le
 ghiandole esocrine con le endocrine, quindi sei delle sue carte parlano di
 endocrino prima che il mazzo 11 esista: portano `argomento::endocrino` e l'id
-`teoria-endocrino-001`-`006`. **Chi scriverà il mazzo 11 riparte da 007.**
+`teoria-endocrino-001`-`006`. Il mazzo 11 è **ripartito da 007** e ha chiuso a
+121.
+
+**E il capitolo 11 ha fatto la stessa cosa con le staminali.** Le cinque carte
+sulla terapia cellulare del diabete di tipo I (pagina 109) parlano di cellule
+staminali e di iPS, non di ghiandole: portano `argomento::staminali` e gli id
+`teoria-staminali-012`-`016`, che proseguono la numerazione aperta dal capitolo
+03. **Chi scriverà i mazzi 04 e 05 riparte da 017.** Restano nel mazzo 11, che è
+dove la sbobina le colloca, ma la selezione per argomento le pesca insieme alle
+staminali.
 
 I salti sono ammessi (`lab-esocrino` passa da 035 a 040): serve che i numeri
 crescano e non si ripetano, non che siano contigui. Prima di aprire un file
@@ -293,6 +306,10 @@ colorazione e non la ghiandola: mucina invisibile alle colorazioni comuni,
 tricromica e PAS sull'intestino tenue, Alcian blu sul colon, secreto mucoso
 invisibile in ematossilina-eosina. Non è stato inventato un `esocrino` a parte:
 nel Laboratorio l'argomento delle esocrine si chiama già `ghiandole`.
+
+**Nemmeno il capitolo 11**, che è il più grosso dei tre: le sue 120 carte stanno
+quasi tutte su `endocrino`, e le cinque sulla terapia cellulare del diabete di
+tipo I usano `staminali`, che il capitolo 03 aveva già introdotto.
 
 ### Il tag `non-trattato`
 
@@ -439,7 +456,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 08 - Epitelio di rivestimento | 60-85 | 26 | 6 | **fatto**, 183 note in tre file |
 | 09 - Epiteli ghiandolari | 85-86 | 2 | 7 | **fatto**, 22 note |
 | 10 - Ghiandole esocrine | 86-93 | 8 | 7 | **fatto**, 73 note |
-| 11 - Ghiandole endocrine | 93-111 | 19 | 8 | |
+| 11 - Ghiandole endocrine | 93-111 | 19 | 8 | **fatto**, 120 note in tre file |
 | 12 - Tessuti connettivi | 111-137 | 27 | 9 | |
 | 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | |
 | 14 - Tessuto osseo | 149-177 | 29 | 14 | |
@@ -506,8 +523,11 @@ dei quattro tessuti fondamentali** e delle popolazioni cellulari perenni,
 stabili e labili: fa da indice mentale a tutto il resto del corso, e cinque
 pagine sono poche. **È fatto**, e con lui il `07 - Concetti base di
 microscopia`, il `06 - Tessuti epiteliali`, l'`08 - Epitelio di rivestimento`,
-il `09 - Epiteli ghiandolari` e il `10 - Ghiandole esocrine`: il prossimo in
-ordine è l'`11 - Ghiandole endocrine`, pagine 93-111.
+il `09 - Epiteli ghiandolari`, il `10 - Ghiandole esocrine` e l'`11 - Ghiandole
+endocrine`: il prossimo in ordine è il `12 - Tessuti connettivi`, pagine
+111-137. È il primo dei quattro capitoli densi tenuti per il fondo, e comincia a
+pagina **111**, con l'intestazione della lezione del 01-04-2025 (sbobinatori
+Zamboni e Webber).
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
 dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
@@ -579,7 +599,7 @@ stesso motivo: lì un mazzo a parte avrebbe aggiunto navigazione senza dare
 niente in cambio, perché il quiz apparteneva al capitolo che lo precede; qui il
 09 non appartiene a nessuno dei due mazzi che lo circondano. Le sue sei carte
 endocrine portano comunque `argomento::endocrino`, quindi la selezione
-trasversale le pesca insieme al mazzo 11 quando sarà scritto.
+trasversale le pesca insieme al mazzo 11, che è stato poi scritto.
 
 Le **25 figure** delle pagine 85-93 sono state **usate tutte**, 2 nel mazzo 09 e
 23 nel mazzo 10. Erano state passate al controllo del clip path (punto 6) e
@@ -590,10 +610,7 @@ tricromica, la sebacea olocrina e il dotto mammario con le frecce sulle
 protrusioni apicali). Tutto il resto sono schemi, tabelle e figure di libro con
 la **didascalia stampata sopra**, che è già la risposta, e sta quindi sul retro.
 
-#### Due cose che aspettano il mazzo 11
-
-Trovate lavorando ai confini del 10, non ancora usate perché il capitolo non è
-scritto. Vanno lette **prima** di cominciarlo.
+#### Il mazzo 11 e la sua doppia sbobinatura
 
 **Le pagine 93-99 sono sbobinate due volte.** La sezione `042` (pagine 93-96,
 lezione del 25-03-2025, sbobinatori Maccarini e Bergamin) e le sezioni
@@ -606,29 +623,85 @@ diversi, sono due passate sulla stessa lezione, con dettagli in più ora da una
 parte ora dall'altra: le ghiandole a cordoni, per esempio, sono molto più ricche
 nella seconda.
 
-**Vanno fuse, non scritte due volte.** Il validatore blocca solo le domande
+**Sono state fuse, non scritte due volte.** Il validatore blocca solo le domande
 identiche nello stesso mazzo: due parafrasi della stessa carta gli passano
-davanti e finiscono nei ripassi di Pietro come doppioni. Per ogni fatto va
-tenuta la versione più completa, con il `source` che punta alla pagina da cui
-viene.
+davanti e finiscono nei ripassi di Pietro come doppioni. Il metodo seguito è
+stato: leggere per intero entrambe le stesure prima di scrivere una riga, e per
+ogni fatto tenere **una sola carta**, quella costruita sulla versione più
+completa. Il `source` porta allora **entrambe le pagine** (`5th gen p. 95 e p.
+98`), che è la convenzione già usata per `teoria-tecnica-030`; quando invece una
+sola delle due stesure contiene il fatto, il `source` è una pagina sola. Le
+trentacinque carte di `11a` coprono così ciò che nella sbobina occupa sette
+pagine.
+
+Anche **le figure sono doppie**: `teoria_p095_689` e `teoria_p098_712` sono lo
+stesso schema del feedback, la seconda con il titolo stampato sopra. È stata
+usata **solo la seconda**, ed è l'unica delle 27 figure del capitolo a non
+essere finita su una carta.
+
+Due delle sette segnalazioni `da-verificare` del capitolo nascono proprio dalla
+doppia stesura, cioè da punti in cui le due passate **si contraddicono**
+(`teoria-endocrino-019` sulle catecolamine, `teoria-endocrino-085` sul trasporto
+degli ormoni tiroidei). In questi casi la carta tiene la versione corretta e
+l'altra è citata nella nota in corsivo, così Pietro sa che cosa ha letto
+altrove.
 
 **L'`11 - Ghiandole endocrine` finisce a pagina 110, non a 111.** La riga della
 tabella dice 93-111 secondo la convenzione della colonna, che indica la pagina in
-cui comincia il capitolo successivo, ma **pagina 111 è interamente del mazzo
-12**: si apre in cima con l'intestazione di una lezione nuova (01-04-2025,
-sbobinatori Zamboni e Webber) e subito sotto con il titolo `TESSUTI CONNETTIVI`.
-La figura di pagina 111 appartiene quindi al 12. È lo stesso caso dell'`08`, che
-la tabella dà per 60-85 e che si ferma a 84.
+cui comincia il capitolo successivo. **Pagina 111 è stata renderizzata e
+guardata, ed è interamente del mazzo 12**: si apre in cima con l'intestazione di
+una lezione nuova (01-04-2025, sbobinatori Zamboni e Webber) e subito sotto con
+il titolo `TESSUTI CONNETTIVI`, seguito dallo schema di classificazione dei
+connettivi. La figura `teoria_p111_808` appartiene quindi al 12 e **non va
+ripresa**. È lo stesso caso dell'`08`, che la tabella dà per 60-85 e che si
+ferma a 84.
 
-Il capitolo resta comunque grande: **18 pagine, circa 6.800 parole, 27 figure**
-fra pagina 95 e pagina 110 (le tre di pagina 93 sono del mazzo 10; le pagine 94,
-96 e 110 non ne hanno). Non ci sta in un file solo. I tagli naturali sono
-`042`-`047` per le generalità, `048`-`050` per ipofisi, paratiroidi e tiroide, e
-`051` per il surrene, e lasciano tre blocchi di dimensione simile.
+**Diviso in tre file**, perché 18 pagine, circa 6.800 parole e 27 figure non
+stanno in un file solo. I tagli seguono i confini di sezione e lasciano tre
+blocchi di dimensione simile:
 
-Attenzione infine al **controllo del clip path** del punto 6: è stato fatto fino
-a pagina 97 e lì tutte le figure corrispondevano, ma **da 98 a 110 non è mai
-stato eseguito**.
+| File | Sezioni | Pagine | Contenuto |
+|---|---|---|---|
+| `11a-endocrino-generalita.jsonl` | `042`-`047` | 93-99 | ormoni, recettori, feedback, classificazione strutturale delle endocrine (**è qui che sta la doppia sbobinatura**) |
+| `11b-ipofisi-paratiroidi-tiroide.jsonl` | `048`-`050` | 99-105 | ipofisi, sistema ipotalamo-ipofisario, cellule dell'adenoipofisi, paratiroidi, tiroide |
+| `11c-surrene-e-pancreas-endocrino.jsonl` | `051` | 105-110 | surrene, pancreas endocrino, diabete di tipo I, cellule non epiteliali a funzione endocrina |
+
+Come per `06a`/`06b` e `08a`/`08b`/`08c`, tutti e tre condividono lo stesso mazzo
+`Istologia::Teoria::11 - Ghiandole endocrine`. Il terzo file **non si chiama come
+la sezione**: la `051` si intitola "Ghiandole endocrine del surrene" ma il
+surrene finisce a pagina 107 e il resto è pancreas endocrino, diabete e cellule
+non epiteliali.
+
+**Nessun tag nuovo.** Il capitolo riusa `endocrino` (che viene dal Laboratorio,
+mazzi `04a` e `04b`) e `staminali` per le cinque carte sulla terapia cellulare
+del diabete.
+
+Delle **27 figure** ne sono state usate **26**, l'unica scartata essendo il
+doppione del feedback di cui sopra. Il **controllo del clip path** del punto 6,
+che il piano dichiarava fatto solo fino a pagina 97, **è stato completato da 98 a
+110**: due figure sono uscite sotto soglia e sono state guardate una per una.
+Nessuna delle due è il caso della finestra di browser che aveva costretto a
+scartarne undici nell'`08`: `teoria_p100_726` (origine embrionale dell'ipofisi)
+esce a 0,43 perché il file estratto include la riga di didascalia del libro che
+la pagina taglia via, e `teoria_p104_757` (schema del follicolo tiroideo) esce a
+0,72 perché la pagina ne rifila il bordo destro. Entrambe sono complete e
+leggibili, ed entrambe sono state usate sul retro.
+
+Cinque figure stanno sul **fronte**, e sono tutte micrografie senza etichette:
+l'adenoipofisi con i richiami muti `A`, `B` e `C` (`teoria_p101_734`), la
+paratiroide a basso ingrandimento (`teoria_p103_747`) e i follicoli tiroidei
+(`teoria_p104_756`). Tutto il resto sono schemi, tavole anatomiche e figure di
+libro con la didascalia stampata sopra, cioè materiale da retro.
+
+**L'aggancio con `lab-endocrino-014` si chiude qui, e la teoria dà ragione al
+sospetto.** Il Laboratorio attribuiva il testosterone ai tubuli seminiferi e
+metteva il corpo luteo fra le ghiandole interstiziali; la teoria, a pagina 96 e a
+pagina 99, dice che a produrre testosterone sono le **cellule di Leydig**, che
+stanno *negli interstizi fra* i tubuli seminiferi (è `teoria-endocrino-039`), e a
+pagina 110 elenca il corpo luteo fra le **cellule endocrine associate alle
+gonadi**, non fra le interstiziali (`teoria-endocrino-118`). La teoria quindi
+**corregge il Laboratorio**, e non è stata aperta una segnalazione nuova: quella
+sul Laboratorio resta e ora ha una risposta.
 
 #### I tre titoli che il segmentatore non vede
 
@@ -690,7 +763,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Trentacinque carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Quarantadue carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -730,6 +803,13 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-ghiandole-028` | lo schema di pagina 85 porta stampato "ADENOMERO = Parenchima (cellule) + Stroma (matrice extracellulare)", mentre il testo di pagina 87 dice che il parenchima è composto da adenomero e dotto escretore e che lo stroma è connettivale. I due rapporti sono l'uno il rovescio dell'altro |
 | `teoria-ghiandole-043` | dà la ghiandola mammaria per composta da più ghiandole, ciascuna responsabile di una diversa sostanza del secreto (lipidi, glucidi, proteine); classicamente sono 15-20 ghiandole tubulo-alveolari composte, ciascuna con il proprio dotto galattoforo, e sono le stesse cellule alveolari a produrre sia i lipidi, per secrezione apocrina, sia le proteine e il lattosio, per secrezione merocrina |
 | `teoria-ghiandole-070` | dice che nelle ghiandole miste sono "le porzioni acinose" a rappresentare la parte più esterna dell'adenomero, ma sia le sierose sia le mucose sono acinose; la didascalia della figura 13.16, nelle stesse pagine, dice che sono le cellule sierose a circondare le mucose formando le semilune di Giannuzzi |
+| `teoria-endocrino-019` | a pagina 94 le catecolamine sono classificate fra i derivati dell'**acido arachidonico**; a pagina 98, nella seconda stesura della stessa lezione, sono ricondotte alla **fenilalanina e alla tirosina**, che è la via classica. La carta tiene la seconda versione |
+| `teoria-endocrino-022` | il testo di pagina 95 e 98 dà gli **steroidei** come gli unici ormoni capaci di attraversare la membrana, ma la figura di pagina 98 disegna anche gli **ormoni tiroidei** diretti al recettore citoplasmatico, e pagina 105 dice che i recettori di T3 sono proteine nucleari |
+| `teoria-endocrino-063` | chiama la **prolattina** "PRH", e poche righe dopo usa la stessa sigla per l'ormone ipotalamico che la stimola; la sigla della prolattina è PRL, come riporta la figura 13.21 della stessa dispensa |
+| `teoria-endocrino-074` | attribuisce alla **calcitonina** l'aumento dell'assorbimento intestinale di calcio, nella stessa frase in cui dice che riduce la calcemia; la figura 13.24 della stessa pagina le attribuisce il deposito di calcio nelle ossa e la riduzione dell'assorbimento renale, e mette l'assorbimento intestinale sul lato del paratormone |
+| `teoria-endocrino-081` | fa secernere all'ipotalamo la **somatostatina insieme al TRH** quando gli ormoni tiroidei calano, e la fa poi ridurre insieme al TRH quando risalgono; la somatostatina inibisce il rilascio di TSH e dovrebbe quindi muoversi in senso opposto |
+| `teoria-endocrino-085` | dà gli ormoni tiroidei per legati a **TBG e albumina** perché poco solubili in acqua, mentre pagina 98 dice che i derivati da amminoacidi viaggiano liberi "grazie alla loro solubilità". È l'altro punto in cui le due stesure si contraddicono; qui la versione corretta è quella di pagina 105 |
+| `teoria-endocrino-103` | contrappone la rapidità della midollare del surrene all'asse ipotalamo-ipofisi-**gonadi**; il termine di paragone atteso, e quello che il paragrafo successivo usa, è l'asse ipotalamo-ipofisi-**corticale**, cioè l'altra metà della stessa ghiandola |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
