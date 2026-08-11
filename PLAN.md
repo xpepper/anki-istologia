@@ -59,9 +59,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-11
 
-**673 note** di Laboratorio + **1006 di Teoria**, 361 immagini, 151 test verdi.
+**673 note** di Laboratorio + **1082 di Teoria**, 388 immagini, 151 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 10 capitoli su 18, pagine 1-16 e 28-137 di 256.
+aperta**: 11 capitoli su 18, pagine 1-16 e 28-148 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -136,6 +136,8 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `12c-cellule-del-connettivo.jsonl` | 39 | sezioni 063-064, pagine 123-128 |
 | `12d-classificazione-dei-connettivi.jsonl` | 36 | sezioni 065-067, pagine 128-131 e 134-137 |
 | `12e-confronti-al-microscopio.jsonl` | 12 | sezioni 065-066, pagine 131-134, **mazzi 10 e 11** |
+| `13a-cartilagine-generalita.jsonl` | 51 | sezioni 068-069, pagine 137-144 |
+| `13b-tipi-di-cartilagine.jsonl` | 25 | sezione 069, pagine 145-148 |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
 intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
@@ -207,11 +209,12 @@ restare unico dentro tutto il mazzo:
 | `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, poi `10a` 037-047 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
-| `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, poi `12a` 080, `12b` 081, `12d` 082-085 |
+| `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, `12a` 080, `12b` 081, `12d` 082-085, poi `13a` 086-087, `13b` 088 |
 | `teoria-ghiandole` | `09` 001-016, `10` 017-085, poi `12e` 086-094 |
 | `teoria-endocrino` | `09` 001-006, `11a` 007-041, `11b` 042-089, `11c` 090-121, poi `12e` 122-124 |
-| `teoria-connettivi` | `03` 001-004, poi `12a` 005-043, `12b` 044-090, `12c` 091-129, `12d` 130-160 |
-| `teoria-embriologia` | `03` 001-022, poi `12a` 023-026 |
+| `teoria-connettivi` | `03` 001-004, `12a` 005-043, `12b` 044-090, `12c` 091-129, `12d` 130-160, poi `13a` 161 |
+| `teoria-embriologia` | `03` 001-022, `12a` 023-026, poi `13a` 027, `13b` 028 |
+| `teoria-cartilagine` | `13a` 001-047, poi `13b` 048-070 |
 
 **Il capitolo 03 apre quattro argomenti che appartengono a capitoli successivi.**
 È la panoramica dei quattro tessuti fondamentali, quindi qualche sua carta parla
@@ -337,6 +340,15 @@ Azan-Mallory e Verhoeff sulla tavola comparativa dei connettivi), e
 `ghiandole` ed `endocrino` per l'excursus delle pagine 131-134. **Non è stato
 inventato un `adiposo` a parte**: il tessuto adiposo sta su `connettivi`, come
 già nel Laboratorio (`lab-connettivi-030`).
+
+**E nemmeno il capitolo 13.** Sta quasi tutto su `cartilagine`, che **esisteva
+già nel Laboratorio** (mazzi `06a` e `06d`, `lab-cartilagine-001`-`043`) ma che
+nella Teoria non era mai stato usato: `teoria-cartilagine` apre quindi il
+contatore da `001` pur non essendo un tag nuovo. Riusa poi `connettivi` per la
+carta introduttiva sui connettivi di sostegno, `embriologia` per l'origine dalle
+creste neurali e per la notocorda, e `colorazioni` per le tre carte il cui
+contenuto è la colorazione e non il tessuto (Alcian blu-PAS sulle zone della
+matrice, basofilia della capsula, Verhoeff sulla cartilagine elastica).
 
 ### Il tag `non-trattato`
 
@@ -485,7 +497,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 10 - Ghiandole esocrine | 86-93 | 8 | 7 | **fatto**, 73 note |
 | 11 - Ghiandole endocrine | 93-111 | 19 | 8 | **fatto**, 120 note in tre file |
 | 12 - Tessuti connettivi | 111-137 | 27 | 9 | **fatto**, 179 note in cinque file |
-| 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | |
+| 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | **fatto**, 76 note in due file |
 | 14 - Tessuto osseo | 149-177 | 29 | 14 | |
 | 15 - Il sangue | 177-198 | 22 | 13 | |
 | 16 - Sistema linfatico | 198-205 | 8 | 11 | |
@@ -551,10 +563,11 @@ stabili e labili: fa da indice mentale a tutto il resto del corso, e cinque
 pagine sono poche. **È fatto**, e con lui il `07 - Concetti base di
 microscopia`, il `06 - Tessuti epiteliali`, l'`08 - Epitelio di rivestimento`,
 il `09 - Epiteli ghiandolari`, il `10 - Ghiandole esocrine`, l'`11 - Ghiandole
-endocrine` e il `12 - Tessuti connettivi`: il prossimo in ordine è il `13 -
-Tessuti connettivi di sostegno`, pagine 137-149. Comincia a **metà di pagina
-137**, sotto le due tavole comparative delle colorazioni che chiudono il 12, con
-il titolo `TESSUTI CONNETTIVI DI SOSTEGNO` e subito sotto `Cartilagine`.
+endocrine`, il `12 - Tessuti connettivi` e il `13 - Tessuti connettivi di
+sostegno`: il prossimo in ordine è il `16 - Sistema linfatico`, pagine 198-205.
+Attenzione, per quello: **il muscolare comincia a pagina 205**, non a 208, e le
+pagine 205-207 finiscono dentro il Sistema linfatico solo perché il segmentatore
+non vede il titolo (vedi la ricognizione dei tre titoli mancanti, qui sotto).
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
 dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
@@ -797,6 +810,75 @@ sta a pagina 113 in mezzo alla sostanza fondamentale ma illustra il testo di
 pagina 123; e `teoria_p111_808`, lo schema di classificazione, apre il capitolo
 12 pur stando sulla pagina che il mazzo 11 chiude.
 
+#### Il mazzo 13 e la cartilagine
+
+**Il `13 - Tessuti connettivi di sostegno` va da metà di pagina 137 a fine
+pagina 148.** La riga della tabella dice 137-149 secondo la convenzione della
+colonna, che indica la pagina in cui comincia il capitolo successivo. **Pagina
+149 è stata renderizzata e guardata, ed è interamente del mazzo 14**: si apre in
+cima con il titolo `TESSUTO OSSEO`. La figura `teoria_p149_1023` (sezione di
+femore) appartiene quindi al 14 e **non va ripresa**, benché
+`images_for_section` la assegni alla sezione `069`.
+
+All'altro capo, le figure `teoria_p137_968`, `969` e `970` sono le tre righe
+della tavola comparativa delle colorazioni che chiude il 12 e sono **già usate
+da `12d`**. Solo `teoria_p137_971`, la microfotografia di cartilagine, è del 13.
+
+Il capitolo copre le sezioni `068` (il cappello di tre righe sui connettivi di
+sostegno) e `069` (tutta la cartilagine), e due lezioni. **Diviso in due file**
+sul cambio di lezione a pagina 145, che porta un'intestazione nuova
+(sbobinatori Ognibeni e Giovannini, 10-04-2025) e la riga
+`[continuazione della lezione precedente sulla CARTILAGINE]`:
+
+| File | Pagine | Contenuto |
+|---|---|---|
+| `13a-cartilagine-generalita.jsonl` | 137-144 | definizione, localizzazione, i tre tipi, funzioni, matrice extracellulare e aggregati di proteoglicani, resistenza alla compressione, pericondrio, condroblasti e condrociti, gruppi isogeni, aree della matrice, condrogenesi, accrescimento |
+| `13b-tipi-di-cartilagine.jsonl` | 145-148 | cartilagine ialina (vie respiratorie, cartilagine di accrescimento e ossificazione endocondrale, cartilagine articolare), elastica, fibrosa, dischi intervertebrali |
+
+Come per `06a`/`06b` e `08a`/`08b`/`08c`, i due file **condividono lo stesso
+mazzo** `Istologia::Teoria::13 - Tessuti connettivi di sostegno`.
+
+**La seconda lezione ripassa un pezzo della prima**, come già le pagine 93-99
+del mazzo 11, anche se in misura molto minore: pagina 145 rielenca i tre tipi di
+cartilagine (già a pagina 138) e rispiega la colorazione differenziale della
+matrice (già a pagine 142-143). Non sono state scritte due volte: `13a` tiene la
+prima stesura, e `13b` prende dalla seconda **solo ciò che aggiunge**, cioè la
+composizione della matrice tipo per tipo. Il punto in cui le due passate si
+contraddicono è diventato una segnalazione (`teoria-cartilagine-050`).
+
+**Le 27 figure delle pagine 137-148 sono state usate tutte.** Il controllo del
+clip path del punto 6 è stato eseguito sulle pagine 137-149 e ha segnalato
+cinque figure sotto soglia, tutte guardate una per una e tutte utilizzabili.
+Nessuna è il caso della finestra di browser che aveva costretto a scartarne
+undici nell'`08`. Sono tutte **figure composite di più pannelli**, e la
+correlazione crolla per due motivi diversi:
+
+*Il file estratto è più completo della pagina*, come `teoria_p133_945`:
+
+- `teoria_p137_971` (corr 0,50): due pannelli impilati e **ruotati di 90°**, di
+  cui la pagina mostra solo il primo. Usato così, come `teoria_p126_909`.
+- `teoria_p141_987` (corr 0,55): include in cima lo schema
+  "Organizzazione cellulare ed extracellulare della cartilagine", che la pagina
+  taglia via.
+
+*La pagina mostra tutto, ma spezzato in placement separati e riordinati*, quindi
+nessun singolo ritaglio somiglia al file intero:
+
+- `teoria_p141_989` (corr 0,58): microfotografia al ME e schema del condrocita,
+  che la pagina affianca in ordine invertito.
+- `teoria_p144_999` (corr 0,75): le due modalità di accrescimento in una figura
+  sola; la pagina colloca prima il pannello B (interstiziale) e poi l'A
+  (apposizione), accanto ai rispettivi paragrafi.
+- `teoria_p148_1020` (corr 0,73): la tavola delle vertebre più il disegno di
+  midollo e radici nervose, che la pagina mette in due punti diversi.
+
+Quattro figure stanno sul **fronte**, e sono le sole che portino marcatori muti:
+`teoria_p137_971` (la sigla `L` sulle lacune), `teoria_p142_993` (`C`, `AT`,
+`AI` sulle zone della matrice in Alcian blu-PAS), `teoria_p145_1003` (`TCD`,
+`P`, `CA`, `MT`, `MI`, `N`) e `teoria_p148_1017` (`C`, `M`, `NP` sulla
+fibrocartilagine). Tutto il resto sono schemi, tavole e figure di libro con la
+**didascalia stampata sopra**, cioè materiale da retro.
+
 #### I tre titoli che il segmentatore non vede
 
 `segment.py` non riconosce alcuni titoli di capitolo, e attribuisce le loro
@@ -857,7 +939,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Cinquantuno carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Cinquantasette carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -913,11 +995,22 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-connettivi-090` | per spiegare il coinvolgimento cardiovascolare nella sindrome di Marfan dice che la fibrillina non è "presente nelle arterie"; due pagine prima aveva detto che le fibre elastiche della parete dei vasi, fatte di elastina e fibrillina, sono prodotte dalle cellule muscolari lisce |
 | `teoria-connettivi-108` | subito dopo aver detto che i macrofagi derivano dai **monociti**, li mette in una famiglia di fagociti "derivanti dal mastocito", e inserisce il mastocito nell'elenco insieme a osteoclasto, cellule di Kupffer e microglia |
 | `teoria-colorazioni-084` | chiama il blu di anilina "colorante acidofilo"; è un **colorante acido**, mentre acidofilo è il collagene che lo lega. La distinzione era già stata fatta nel capitolo sulle colorazioni |
+| `teoria-cartilagine-020` | dà agli aggregati di proteoglicani "dimensioni visibili, talvolta fino a 0,5 cm di lunghezza"; la figura al microscopio elettronico della stessa pagina mostra un aggregato accanto a una barra di scala di 300 nm, cioè lungo qualche micrometro, che è anche il valore classico |
+| `teoria-cartilagine-050` | spiega la diversa colorazione delle zone della matrice con il "diverso peso delle molecole", e attribuisce la capsula alle sole glicoproteine adesive; tre pagine prima la stessa dispensa la spiegava con la carica (il blu è basico e si lega ai GAG solforati acidi), che è il criterio giusto. È il punto in cui le due stesure della lezione si contraddicono |
+| `teoria-cartilagine-055` | dà l'esofago per rivestito da pavimentoso pluristratificato **cheratinizzato**; nell'uomo è classicamente non cheratinizzato. Stesso equivoco di `lab-linfoide-039` sulla tonsilla palatina |
+| `teoria-cartilagine-063` | mette i **piccoli bronchi** fra le sedi della cartilagine elastica; la tavola dei tre tipi di pagina 138 elenca per l'elastica orecchio esterno, punta del naso, epiglottide, canale uditivo e cartilagini cuneiformi laringee, e mette trachea e bronchi fra le sedi della **ialina**, come fa anche pagina 146 |
+| `teoria-cartilagine-065` | fa arrivare il nutrimento alla cartilagine fibrosa "tramite i fibroblasti"; i fibroblasti sono cellule, non una via di trasporto, e a pagina 141 la stessa dispensa diceva che la fibrocartilagine dell'anello fibroso è nutrita dal nucleo polposo |
+| `teoria-cartilagine-069` | descrive l'ernia del disco come la rottura degli anelli di fibre collagene "i quali fuoriescono"; classicamente a erniare attraverso la lacerazione dell'anulus è il **nucleo polposo**, ed è quello a comprimere le radici nervose |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
 Casi risolti senza tag, perché il refuso è evidente e non c'è dubbio di contenuto:
-la sbobina scrive adiposo "multicolore" per multiloculare (`lab-connettivi-030`).
+
+- la sbobina scrive adiposo "multicolore" per multiloculare (`lab-connettivi-030`);
+- a pagine 145 e 146 scrive "piastre **ipofisarie**" per piastre **epifisarie**
+  (`teoria-cartilagine-049` e `056`). La stessa dispensa usa il termine giusto a
+  pagina 138, dove le definisce "regioni di cartilagine collocate tra le epifisi
+  e la diafisi", a pagina 144 e nella didascalia della figura di pagina 146.
 
 ---
 
