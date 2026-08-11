@@ -590,6 +590,46 @@ tricromica, la sebacea olocrina e il dotto mammario con le frecce sulle
 protrusioni apicali). Tutto il resto sono schemi, tabelle e figure di libro con
 la **didascalia stampata sopra**, che è già la risposta, e sta quindi sul retro.
 
+#### Due cose che aspettano il mazzo 11
+
+Trovate lavorando ai confini del 10, non ancora usate perché il capitolo non è
+scritto. Vanno lette **prima** di cominciarlo.
+
+**Le pagine 93-99 sono sbobinate due volte.** La sezione `042` (pagine 93-96,
+lezione del 25-03-2025, sbobinatori Maccarini e Bergamin) e le sezioni
+`043`-`047` (pagine 97-99, lezione del 27-03-2025, sbobinatori Hasanaj e
+Cerqueti) coprono **gli stessi cinque argomenti**: che cos'è una ghiandola
+endocrina, il confronto fra sistema endocrino e sistema nervoso, la
+classificazione degli ormoni per natura chimica, il meccanismo di feedback e la
+classificazione strutturale delle ghiandole endocrine. Non sono due argomenti
+diversi, sono due passate sulla stessa lezione, con dettagli in più ora da una
+parte ora dall'altra: le ghiandole a cordoni, per esempio, sono molto più ricche
+nella seconda.
+
+**Vanno fuse, non scritte due volte.** Il validatore blocca solo le domande
+identiche nello stesso mazzo: due parafrasi della stessa carta gli passano
+davanti e finiscono nei ripassi di Pietro come doppioni. Per ogni fatto va
+tenuta la versione più completa, con il `source` che punta alla pagina da cui
+viene.
+
+**L'`11 - Ghiandole endocrine` finisce a pagina 110, non a 111.** La riga della
+tabella dice 93-111 secondo la convenzione della colonna, che indica la pagina in
+cui comincia il capitolo successivo, ma **pagina 111 è interamente del mazzo
+12**: si apre in cima con l'intestazione di una lezione nuova (01-04-2025,
+sbobinatori Zamboni e Webber) e subito sotto con il titolo `TESSUTI CONNETTIVI`.
+La figura di pagina 111 appartiene quindi al 12. È lo stesso caso dell'`08`, che
+la tabella dà per 60-85 e che si ferma a 84.
+
+Il capitolo resta comunque grande: **18 pagine, circa 6.800 parole, 27 figure**
+fra pagina 95 e pagina 110 (le tre di pagina 93 sono del mazzo 10; le pagine 94,
+96 e 110 non ne hanno). Non ci sta in un file solo. I tagli naturali sono
+`042`-`047` per le generalità, `048`-`050` per ipofisi, paratiroidi e tiroide, e
+`051` per il surrene, e lasciano tre blocchi di dimensione simile.
+
+Attenzione infine al **controllo del clip path** del punto 6: è stato fatto fino
+a pagina 97 e lì tutte le figure corrispondevano, ma **da 98 a 110 non è mai
+stato eseguito**.
+
 #### I tre titoli che il segmentatore non vede
 
 `segment.py` non riconosce alcuni titoli di capitolo, e attribuisce le loro
