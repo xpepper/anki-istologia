@@ -20,7 +20,7 @@ from PIL import Image
 
 MAX_PX = 1000
 JPEG_QUALITY = 78
-MIN_USEFUL_PX = 200
+MIN_USEFUL_PX = 100
 MAX_CAPTION_GAP = 60.0
 
 
@@ -41,7 +41,13 @@ def compress_image(raw, max_px=MAX_PX, quality=JPEG_QUALITY):
 
 
 def is_artifact(width, height, min_px=MIN_USEFUL_PX):
-    """Icone, loghi e strisce di layout: nessun valore didattico."""
+    """Icone, loghi e strisce di layout: nessun valore didattico.
+
+    La soglia sta a 100 px e non piu alta perche le figure del sangue sono
+    ritagli piccoli di striscio: a 200 px se ne perdevano otto solo fra le
+    pagine 177 e 198. Sotto i 100 px restano icone (21x17) e formule
+    renderizzate come immagine (282x56), che una figura vera non e mai.
+    """
     return width < min_px or height < min_px
 
 

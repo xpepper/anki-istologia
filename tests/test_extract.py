@@ -70,6 +70,22 @@ class TestIsArtifact:
     def test_keeps_a_real_micrograph(self):
         assert is_artifact(760, 480) is False
 
+    def test_keeps_a_small_micrograph_crop(self):
+        """Gli strisci di sangue sono ritagli piccoli, non icone.
+
+        Il piu piccolo delle sbobine e 121x126 (un leucocita fra gli
+        eritrociti); il capitolo sul sangue ne ha otto fra 122x122 e 874x156.
+        """
+        assert is_artifact(122, 122) is False
+        assert is_artifact(874, 156) is False
+
+    def test_flags_a_formula_rendered_as_an_image(self):
+        """Una striscia di testo (la formula dell'apertura numerica, p. 54):
+
+        larga abbastanza, ma alta quanto una riga.
+        """
+        assert is_artifact(282, 56) is True
+
 
 class TestHeadingLevel:
     BODY = 10.0
