@@ -48,7 +48,7 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1649 carte, 15 mazzi, 378 immagini** per la Teoria e **673 carte,
+Atteso oggi: **1813 carte, 16 mazzi, 424 immagini** per la Teoria e **673 carte,
 11 mazzi, 120 immagini** per il Laboratorio.
 
 **Due pacchetti, uno per fonte**, non uno solo: `--media` è una singola
@@ -60,12 +60,12 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ---
 
-## 2. Stato al 2026-08-11
+## 2. Stato al 2026-08-12
 
-**673 note** di Laboratorio + **1649 di Teoria**, 498 immagini, 153 test verdi.
+**673 note** di Laboratorio + **1813 di Teoria**, 544 immagini, 153 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 15 capitoli su 18, pagine 1-16 e 28-226 di 256. Restano il `04` e il
-`05` (pagine 16-28) e il `18` (pagine 227-256).
+aperta**: 16 capitoli su 18, pagine 1-16 e 28-256 di 256. Restano solo il `04` e
+il `05` (pagine 16-28), cioè **l'unico buco rimasto è in mezzo, non in fondo**.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -158,6 +158,12 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `17b-contrazione-e-tipi-di-fibre.jsonl` | 44 | sezioni 095-097, pagine 212-219 |
 | `17c-tessuto-muscolare-cardiaco.jsonl` | 24 | sezione 098, pagine 219-222 |
 | `17d-tessuto-muscolare-liscio.jsonl` | 25 | sezione 099, pagine 223-226 |
+| `18a-generalita-e-sistema-nervoso.jsonl` | 31 | sezioni 100-103, pagine 227-231 |
+| `18b-sistema-nervoso-periferico.jsonl` | 20 | sezioni 104-105 (1ª parte), pagine 231-234 |
+| `18c-il-neurone.jsonl` | 30 | sezione 105 (2ª parte), pagine 234-239 |
+| `18d-sinapsi-e-neurotrasmettitori.jsonl` | 23 | sezione 105 (3ª parte), pagine 239-246 |
+| `18e-fibre-nervose-e-neuroglia.jsonl` | 33 | sezioni 106-107, pagine 246-251 |
+| `18f-staminali-neurali-e-rigenerazione.jsonl` | 27 | sezioni 108-110, pagine 251-256 |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
 intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
@@ -229,7 +235,7 @@ restare unico dentro tutto il mazzo:
 | `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, poi `10a` 037-047 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
-| `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, `12a` 080, `12b` 081, `12d` 082-085, `13a` 086-087, `13b` 088, `15a` 089-090, poi `14a` 091 |
+| `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, `12a` 080, `12b` 081, `12d` 082-085, `13a` 086-087, `13b` 088, `15a` 089-090, `14a` 091, poi `18a` 092-094 e `18c` 095 |
 | `teoria-ghiandole` | `09` 001-016, `10` 017-085, poi `12e` 086-094 |
 | `teoria-endocrino` | `09` 001-006, `11a` 007-041, `11b` 042-089, `11c` 090-121, poi `12e` 122-124 |
 | `teoria-connettivi` | `03` 001-004, `12a` 005-043, `12b` 044-090, `12c` 091-129, `12d` 130-160, poi `13a` 161 |
@@ -239,7 +245,8 @@ restare unico dentro tutto il mazzo:
 | `teoria-muscolare` | `03` 001, `17a` 002-047, `17b` 048-091, `17c` 092-115, poi `17d` 116-140 |
 | `teoria-osso` | `14a` 001-030, `14b` 031-059, `14c` 060-086, `14d` 087-119, `14e` 120-152, poi `14f` 153-168 |
 | `teoria-sangue` | `15a` 001-039 (senza 007-008), `15b` 040-065, `15c` 066-107, `15d` 108-137, `15e` 138-168, poi `14f` 169-174 |
-| `teoria-staminali` | `03` 001-011, `11c` 012-016, `12d` 017, `17a` 018-020, poi `15e` 021-025 |
+| `teoria-staminali` | `03` 001-011, `11c` 012-016, `12d` 017, `17a` 018-020, `15e` 021-025, poi `18f` 026-040 |
+| `teoria-nervoso` | `03` 001-002, `18a` 003-030, `18b` 031-050, `18c` 051-079, `18d` 080-102, `18e` 103-135, poi `18f` 136-147 |
 
 `teoria-sangue-007` e `008` **non esistono**: erano le due carte sulla
 colorazione di Wright, spostate su `teoria-colorazioni-089` e `090` mentre il
@@ -259,7 +266,7 @@ di conseguenza il loro id segue lo stesso argomento. Chi scriverà quei capitoli
 | `teoria-epiteli` | 001 | 002, ed è già stato fatto: il capitolo 06 occupa 002-159 e il capitolo 08 occupa 160-342 |
 | `teoria-connettivi` | 001-004 | 005, ed è già stato fatto: il capitolo 12 occupa 005-160 |
 | `teoria-muscolare` | 001 | 002, ed è già stato fatto: il capitolo 17 occupa 002-140 |
-| `teoria-nervoso` | 001-002 | 003 |
+| `teoria-nervoso` | 001-002 | 003, ed è già stato fatto: il capitolo 18 occupa 003-147 |
 
 **Lo stesso è successo con il capitolo 09 e l'endocrino.** Il 09 confronta le
 ghiandole esocrine con le endocrine, quindi sei delle sue carte parlano di
@@ -283,7 +290,14 @@ asimmetrica, l'MPP e le staminali mesenchimali del midollo. È lo stesso criteri
 delle cellule satellite: ciò che parla di **staminalità** va su `staminali`,
 mentre la filiera che porta alle cellule mature (CFU, precursori, eritropoiesi,
 trombopoiesi) resta su `sangue`.
-**Chi scriverà i mazzi 04 e 05 riparte da 026.** Restano nel mazzo
+Il capitolo 18 ne ha aggiunte quindici, `026`-`040`, sulle **cellule staminali
+neurali**: l'origine dagli astrociti, la neurogenesi adulta nell'ippocampo, la
+glia radiale come progenitore, e i due esperimenti di *birth-dating* (BrdU nel
+topo, carbonio-14 nell'uomo). Stesso criterio: la **rigenerazione dell'assone**
+dopo una lesione resta invece su `nervoso`, perché non è una questione di
+staminalità — le staminali neurali, dice la dispensa stessa a pagina 255, **non
+partecipano** alla rigenerazione.
+**Chi scriverà i mazzi 04 e 05 riparte da 041.** Restano nel mazzo
 dove la sbobina le colloca, ma la selezione per argomento le pesca insieme alle
 staminali.
 
@@ -450,6 +464,34 @@ parte: sono i tre tipi di uno stesso tessuto, e separarli spezzerebbe proprio
 la selezione trasversale che serve per i confronti, che sono la parte più
 richiesta del capitolo.
 
+**E nemmeno il capitolo 18**, che è il più lungo della Teoria. Sta quasi tutto
+su `nervoso`, che **esisteva già** in entrambe le fonti (`lab-nervoso-001`-`084`
+e le due carte `teoria-nervoso-001` e `002` del capitolo 03); riusa `staminali`
+per le quindici carte sulle staminali neurali e `colorazioni` per le **quattro**
+carte il cui contenuto è la colorazione e non il tessuto: che cosa si vede del
+tessuto nervoso in ematossilina-eosina (`092`), la colorazione di Golgi e il suo
+5% di cellule (`093`), il Nissl su sostanza bianca e grigia (`094`) e il cresil
+violetto sui corpi di Nissl (`095`).
+
+Due scelte di questo capitolo meritano di essere ricordate, perché non erano
+obbligate:
+
+- il **Brainbow** e l'**immunoistochimica anti-GFAP** stanno su `nervoso`, non
+  su `tecnica-istologica`. Il criterio è quello già usato: `tecnica-istologica`
+  è il **metodo di preparazione** del campione, mentre queste sono tecniche che
+  esistono solo per rispondere a una domanda sul tessuto nervoso (che circuito è
+  questo, che cellula è questa) e fuori da quel contesto non dicono niente. Le
+  quattro carte su `colorazioni` sono invece colorazioni vere e proprie, che
+  Pietro incontra anche altrove;
+- l'**origine embrionale** delle cellule nervose (neuroectoderma per il SNC,
+  creste neurali per il SNP, mesoderma per la microglia) sta su `nervoso` e
+  **non** apre carte su `embriologia`, al contrario di quanto fatto nel 12 con
+  l'origine mesenchimale dei connettivi. Lì l'argomento era la gastrulazione e i
+  foglietti; qui è un **criterio di classificazione delle cellule gliali**, ed è
+  presentato dalla dispensa dentro l'elenco della neuroglia. Il **tubo neurale**
+  e la **glia radiale** di pagina 252 stanno invece su `staminali`, perché sono
+  la filiera dei progenitori.
+
 ### Il tag `non-trattato`
 
 La sbobina marca alcuni passaggi con un riquadro laterale **"Argomento non
@@ -505,7 +547,37 @@ sono stati verificati sulla pagina renderizzata:
   in verde, la matrice in viola, il nuovo osteone. Finisce dove comincia
   `Dinamica del modellamento`. Due carte, `teoria-osso-156` e `157`.
 
-Attenzione a quest'ultimo: il riquadro descrive la figura, ma il **processo** che
+**Il capitolo 18 ne ha aggiunti sette, ed è di gran lunga il capitolo che ne ha
+di più**: diciotto carte su 164. Il riquadro è sempre fatto allo stesso modo, e
+una volta capito si riconosce a colpo d'occhio sulla pagina renderizzata: la
+dicitura sta nel **margine sinistro**, e copre il **blocco in corsivo** che le
+sta a destra, fino a dove riprende il testo in tondo. Un blocco può avere **più
+sottotitoli in corsivo** al suo interno e restare un riquadro solo, e può
+proseguire sulla pagina dopo **senza ripetere la dicitura**.
+
+| Pagine | Riquadro | Carte |
+|---|---|---|
+| 232 | `Vie afferenti ed efferenti` | `037`-`038` |
+| 236 | `In base alla forma del pirenoforo` **e** `In base alla lunghezza dell'assone` | `059`-`063` |
+| 237 | `Citoscheletro dei neuroni` | `066` |
+| 239 | `Il valore soglia` | `079` |
+| 240-241 | `Tipi di sinapsi` **e** `Struttura delle sinapsi` | `085`-`087` |
+| 245-246 | tutta la **seconda stesura** dei neurotrasmettitori | `098`-`102` |
+| 250-251 | `Struttura della barriera ematoencefalica` | `133` |
+
+Due di questi vanno guardati con attenzione:
+
+- quello di **pagine 245-246** non è un riquadro breve ma **due pagine intere**,
+  ed è il più importante del capitolo perché coincide con una **doppia stesura**
+  (vedi la sottosezione del mazzo 18);
+- quello di **pagina 237**, sul citoscheletro, **si sovrappone al testo in
+  tondo** che lo segue: il riquadro dice che i dendriti sono lunghi al massimo
+  700 micron e parla di spine dendritiche, e il paragrafo `Dendriti` subito
+  sotto **ripete gli stessi due fatti** in tondo. Le carte sui dendriti
+  (`067`-`069`) sono quindi materiale **trattato** e non portano il tag; solo la
+  carta sulle tre componenti del citoscheletro (`066`) lo porta.
+
+Attenzione al riquadro di pagina 173 del mazzo 14: il riquadro descrive la figura, ma il **processo** che
 la figura illustra è trattato subito sotto, in tondo, ed è materiale normale
 (`teoria-osso-158`-`161`). Non tutta la figura è "non trattata": lo sono i **due
 coni** e la lettura dei colori.
@@ -654,7 +726,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 15 - Il sangue | 177-198 | 22 | 13 | **fatto**, 173 note in cinque file |
 | 16 - Sistema linfatico | 198-205 | 8 | 11 | **fatto**, 77 note |
 | 17 - Tessuto muscolare | 205-227 | 23 | 12 | **fatto**, 142 note in quattro file |
-| 18 - Il tessuto nervoso | 227-256 | 30 | 15 | |
+| 18 - Il tessuto nervoso | 227-256 | 30 | 15 | **fatto**, 164 note in sei file |
 
 Il criterio dell'ordine: **i capitoli corti e a basso rischio prima**, per rodare
 le convenzioni della teoria dove un errore costa poco rifarlo; **i quattro
@@ -717,9 +789,9 @@ microscopia`, il `06 - Tessuti epiteliali`, l'`08 - Epitelio di rivestimento`,
 il `09 - Epiteli ghiandolari`, il `10 - Ghiandole esocrine`, l'`11 - Ghiandole
 endocrine`, il `12 - Tessuti connettivi`, il `13 - Tessuti connettivi di
 sostegno`, il `14 - Tessuto osseo`, il `15 - Il sangue`, il `16 - Sistema
-linfatico` e il `17 - Tessuto muscolare`.
+linfatico`, il `17 - Tessuto muscolare` e il `18 - Il tessuto nervoso`.
 
-**Il prossimo in ordine è il `18 - Il tessuto nervoso`, pagine 227-256.** Vedi
+**Restano solo il `04` e il `05`, le cellule staminali, pagine 16-28.** Vedi
 il puntatore in fondo a questo punto.
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
@@ -1611,6 +1683,216 @@ esattamente il sincizio **funzionale**. La teoria quindi **corregge il
 Laboratorio**, e non è stata aperta una segnalazione nuova: quella sul
 Laboratorio resta e ora ha una risposta, come per `lab-endocrino-014`.
 
+#### Il mazzo 18 e il tessuto nervoso
+
+**Il `18 - Il tessuto nervoso` va da inizio pagina 227 a fine pagina 256**, cioè
+alla **fine del PDF**. Entrambi i confini sono verificati:
+
+- **pagina 227** era già stata renderizzata scrivendo il 17 ed è interamente
+  sua: si apre con l'intestazione della lezione del 22-05-2025 (sbobinatori
+  Bergamin e Maccarini) e subito sotto con il titolo `IL TESSUTO NERVOSO`. Le due
+  figure `teoria_p227_1335` e `teoria_p227_1336` sono sue, benché
+  `images_for_section` le assegni alla sezione `099`;
+- **pagina 256** chiude davvero il capitolo, e il capitolo chiude davvero il
+  PDF: la pagina finisce con una `Divagazione del docente` sui trial clinici
+  della riparazione del midollo spinale, e sotto non c'è altro. **Non ha
+  figure.** Il capitolo non finisce prima: le pagine 254-256 sono la
+  rigenerazione neurale, che è materia sua a tutti gli effetti.
+
+Il capitolo copre le sezioni da `100` a `110`, **11.650 parole**, ed è il **più
+lungo della Teoria** per numero di pagine (30) benché non per parole: il 14 ne
+ha 12.700 in 28 pagine. È **diviso in sei file**, come il 14.
+
+| File | Sezioni | Pagine | Contenuto |
+|---|---|---|---|
+| `18a-generalita-e-sistema-nervoso.jsonl` | `100`-`103` | 227-231 | generalità del tessuto e della sua matrice, divisione anatomica del sistema nervoso, neuroni e circuiti, connettoma e Brainbow, colorazioni elettive (ematossilina-eosina, Golgi, Nissl), Golgi contro Cajal, encefalo, midollo spinale |
+| `18b-sistema-nervoso-periferico.jsonl` | `104`-`105` (1ª parte) | 231-234 | gangli e nervi, classificazione ed elenco dei nervi cranici, vie afferenti ed efferenti, arco riflesso, suddivisione del SNP, simpatico e parasimpatico, sistema nervoso enterico |
+| `18c-il-neurone.jsonl` | `105` (2ª parte) | 234-239 | soma, assone e dendriti, le quattro classificazioni dei neuroni, corpi di Nissl e pericarion, citoscheletro e spine dendritiche, trasporto assonico, NGF, monticolo assonico e potenziale d'azione |
+| `18d-sinapsi-e-neurotrasmettitori.jsonl` | `105` (3ª parte) | 239-246 | sinapsi chimiche ed elettriche, neurexine e neuroligine, tipi e struttura, neurotrasmettitori e loro rimozione, sinapsi eccitatorie e inibitorie, antidepressivi (**è qui che sta la doppia stesura**) |
+| `18e-fibre-nervose-e-neuroglia.jsonl` | `106`-`107` | 246-251 | fibre mieliniche e amieliniche, fascio di Remak, mielinizzazione e nodi di Ranvier, i tre involucri del nervo, gangli, cellule satelliti, microglia, astrociti, barriera ematoencefalica, cellule ependimali e liquor |
+| `18f-staminali-neurali-e-rigenerazione.jsonl` | `108`-`110` | 251-256 | cellule staminali neurali, neurogenesi adulta, glia radiale, *birth-dating* con BrdU e carbonio-14, rigenerazione nel SNP, limiti della rigenerazione nel SNC |
+
+Come per `06a`/`06b`, `08a`-`08c`, `11a`-`11c`, `14a`-`14f`, `15a`-`15e` e
+`17a`-`17d`, tutti e sei i file condividono lo stesso mazzo
+`Istologia::Teoria::18 - Il tessuto nervoso`.
+
+**Come sono stati decisi i tagli, e perché il cambio di lezione è stato di nuovo
+scartato.** Il capitolo ha **un solo cambio di lezione al suo interno**, a
+**pagina 244**, dove comincia la lezione del **23-05-2025** (sbobinatori Bogo,
+Jona e Zattara) con la riga `[Continuazione dell'argomento della lezione
+precedente: TESSUTO NERVOSO]`. Era il taglio più ovvio, ed è **sbagliato**, per
+la terza volta di fila dopo il 14 e il 15:
+
+- le pagine **242-243** chiudono la prima lezione con i **neurotrasmettitori**,
+  i criteri per definirne uno, la classificazione delle sinapsi in eccitatorie e
+  inibitorie e gli antidepressivi;
+- le pagine **245-246** sono la **seconda stesura degli stessi argomenti**:
+  modalità d'azione dei neurotrasmettitori, sinapsi eccitatorie e inibitorie,
+  rimozione del neurotrasmettitore, serotonina e depressione.
+
+Tagliare a pagina 244 avrebbe messo le due passate in **file diversi**, con il
+rischio delle due parafrasi che il validatore non intercetta. `18d` le contiene
+quindi **entrambe**, e va da pagina 239 a pagina 246.
+
+**Questa doppia stesura ha però una particolarità che le altre non avevano: la
+seconda passata è marcata `non-trattato`.** Le pagine 245-246 stanno per intero
+dentro un riquadro `Argomento non trattato nell'anno 2024/2025`, mentre le
+pagine 242-243 sono in tondo. La fusione è stata quindi più facile che nel mazzo
+11 o nel 17: **le carte sono state costruite sulla prima passata**, quella
+trattata, e dalla seconda è stato preso **solo ciò che aggiunge**, con il tag
+`non-trattato`. Sono cinque carte, `teoria-nervoso-098`-`102`:
+
+- il nome **neuromodulazione** per la trasmissione lenta;
+- i nomi **EPSP** e **IPSP** dei due potenziali postsinaptici, che la prima
+  passata descrive senza nominare;
+- l'**acetilcolinesterasi** e i suoi prodotti (colina e acido acetico);
+- la **ricaptazione da parte delle cellule della glia**, che la prima passata non
+  nomina (a pagina 242 la ricaptazione è del solo neurone presinaptico);
+- il **GABA non sempre inibitorio** nello sviluppo embrionale.
+
+Gli altri due tagli dentro la `105`, che da sola vale **4.719 parole** cioè il
+40% del capitolo, seguono **confini di contenuto netti**:
+
+- fra `18b` e `18c`, a **pagina 234**, al titolo `Neurone`: sopra c'è
+  l'**organizzazione** del sistema nervoso periferico (somatico, autonomo,
+  enterico), sotto comincia la **cellula**;
+- fra `18c` e `18d`, a **pagina 239**, al titolo `Sinapsi`: sopra c'è il
+  **neurone** con la sua struttura, il suo citoscheletro e il potenziale
+  d'azione che genera, sotto comincia **come quel potenziale passa alla cellula
+  successiva**.
+
+Il primo di questi due tagli spiega anche perché `18b` è il file più corto (20
+carte): la prima parte della `105` vale meno di mille parole ed è stata unita
+alla `104`, con cui forma un blocco unico sul SNP.
+
+**Le due integrazioni dalla sbobina 2023/2024 sono entrambe additive**, come nel
+15 e nel 16 e a differenza del 17. Sono il **midollo spinale** (pagine 230-231:
+coda equina, corna della sostanza grigia, loro variazione lungo i tratti) e la
+**classificazione dei nervi cranici** (pagine 231-232, con l'elenco dei dodici
+come approfondimento del docente). Nessuna delle due ripete il testo principale,
+e tutte le carte lo citano in corsivo in fondo al `back`.
+
+**Il controllo del clip path del punto 6 è stato eseguito sulle pagine 227-256 e
+ha segnalato due placement su 47.** È l'esito più pulito di tutta la Teoria dopo
+il 16, e **non c'è nessuna finestra di browser**, benché il piano avvisasse che
+lo sbobinatore dell'`08` e del 17 poteva ricomparire: gli sbobinatori di questo
+capitolo sono altri, e le loro figure sono quasi tutte scansioni di libro.
+Entrambe le segnalate sono il caso solito del **file estratto più completo della
+pagina**, ed entrambe sono state usate:
+
+- `teoria_p239_1458` (corr 0,33): lo schema degli stimoli sotto e sopra soglia,
+  il cui file include la **didascalia del libro** («Fig. 5.20 — Relazione tra
+  l'intensità degli impulsi di corrente depolarizzante...») che la pagina taglia
+  via;
+- `teoria_p248_1550` (corr 0,68): la micrografia del ganglio, il cui file
+  include la **colonna di etichette** (`Pericarion del neurone`, `Nucleo`,
+  `Cellule satelliti`, `Tessuto connettivo`) che la pagina rifila.
+
+**Delle 47 figure delle pagine 227-256 ne sono state usate 46.** L'unica
+scartata è `teoria_p245_1516`, lo schema della giunzione neuromuscolare con
+l'acetilcolina: è un **doppione** di `teoria_p246_1526`, che è lo stesso schema
+alla tappa successiva, con l'acetilcolinesterasi cerchiata in rosso. Tenuta la
+seconda, che è quella su cui la carta è costruita.
+
+**Dieci figure su 46 stanno sul fronte** (22%), che è la proporzione più bassa
+dopo quella del 17. Il motivo è l'opposto di quello del 14: qui il capitolo è
+fatto quasi tutto di **schemi e tavole di libro con i nomi stampati sopra**, e
+le poche microfotografie sono l'eccezione. Otto delle dieci sono **senza alcuna
+etichetta**: il nervo sciatico in ematossilina-eosina (`p229_1351`), la coppia
+colorazione argentica / Nissl (`p236_1421`), l'immunofluorescenza sui neuroni di
+tipo II di Golgi (`p236_1423`), il ganglio in tricromica (`p249_1560`), la
+microglia (`p249_1561`), l'astrocita in anti-GFAP (`p249_1562`), le cellule
+ependimali (`p251_1582`), il cono di crescita nel tubo di Schwann (`p254_1614`) e
+l'assone rimielinizzato (`p255_1622`). La decima, `p237_1435`, è il caso del
+**marcatore muto**: la micrografia al ME del citoscheletro porta le sigle `m`,
+`mt`, `nf`, `ser`, `ger` e `s` senza scioglierle.
+
+**Nove segnalazioni su 164 carte** (5,5%), cioè poco sopra il tasso del 15
+(5,8%) e sotto quello del 14 (6,9%). **Sei nascono da contraddizioni interne
+alla dispensa**, e quattro di queste sono contraddizioni **con una figura della
+stessa pagina**, che è una quota più alta del solito:
+
+- il tessuto nervoso che «non è innervato: non sono presenti fibre nervose al
+  suo interno» (`008`), che è una frase che si contraddice da sola;
+- l'**ipotalamo** dato per «situato posteriormente al talamo» mentre la tavola
+  della stessa pagina lo disegna **sotto** (`023`);
+- il **mesencefalo** dato per struttura di collegamento fra telencefalo e tronco
+  encefalico mentre la tavola della stessa pagina lo **include** nel tronco
+  encefalico (`025`);
+- la **via motoria** (muscolo) contrapposta alla **via efferente** (ghiandola)
+  una riga prima di dire che «le vie afferenti ed efferenti possono essere sia
+  somatiche sia viscerali» (`041`);
+- i **neuroni piramidali** dati per «ultima porzione delle vie sensoriali»
+  mentre la pagina precedente li fa origine della **via piramidale motoria**
+  (`060`);
+- la **microglia** elencata **due volte nello stesso elenco**, fra le gliali di
+  origine neuroectodermica e come derivata dal mesoderma (`120`).
+
+Le altre tre sono errori verso la nozione classica: l'**adrenalina** data per
+neurotrasmettitore dei neuroni gangliari del simpatico invece della
+noradrenalina (`048`), il **GABA eccitatorio** nello sviluppo spiegato con
+l'*entrata* di cloro invece che con la sua uscita (`102`), e gli **astrociti
+reattivi** che «diventano neurotrofici» formando una cicatrice che blocca la
+ricrescita degli assoni (`145`).
+
+**Tre refusi sono stati risolti senza tag**, perché non c'è dubbio di contenuto:
+
+- a pagina 232 la dispensa scrive che l'assone del motoneurone «esce dalla parte
+  del **cranio** del midollo spinale»: lo schema della stessa pagina lo chiama
+  `Assone della cellula del **corno anteriore**`. È il precedente di
+  Voorman/Volkmann nel 14, e le carte usano il termine giusto;
+- a pagina 242 la dispensa scrive «recettori accoppiati a **dendriti**» dove a
+  pagina 245 scrive correttamente «recettori legati alla **proteina G**»;
+- a pagina 254 scrive «degenerazione **Welleriana**» per degenerazione
+  **walleriana**, da Augustus Waller.
+
+**Le due segnalazioni aperte sul Laboratorio si chiudono qui, e in due modi
+opposti.** Vale la pena tenerle vicine, perché mostrano che una segnalazione può
+chiudersi anche *senza* che la teoria dia ragione al sospetto:
+
+- **`lab-nervoso-069` si chiude come `lab-osso-046`: la teoria corregge il
+  Laboratorio.** Il Laboratorio dichiarava per il vetrino 7 la tecnica di Golgi
+  e poi descriveva corpi di Nissl «visibili come zone basofile». La teoria dice,
+  a pagina 229, che la colorazione di Golgi è **argentica**, a base di cromo e
+  argento, che ha **bassa affinità** per il tessuto e colora **solo il 5% delle
+  cellule, 1 su 20**, e che colora **di nero** il corpo cellulare e i
+  prolungamenti (`teoria-colorazioni-093`); la **basofilia** con le zolle di
+  sostanza tigroide è invece l'effetto del **Nissl** o del **cresil violetto**,
+  che sono una colorazione diversa e che la teoria descrive separatamente a
+  pagina 236 (`teoria-colorazioni-095`). Le due cose non possono stare nello
+  stesso vetrino, e la segnalazione del Laboratorio ora ha una risposta;
+- **`lab-nervoso-015` si chiude al contrario: la teoria dà ragione al
+  Laboratorio, non alla nozione classica.** Il Laboratorio diceva che la
+  sostanza tigroide si vede *solo* con colorazioni speciali e non in
+  ematossilina-eosina, e la segnalazione obiettava che i corpi di Nissl sono
+  fortemente basofili e in un preparato EE si vedono. La teoria, a pagina 229,
+  dice che in ematossilina-eosina il tessuto nervoso è **difficile da
+  visualizzare**, che si distinguono «solo delle porzioni bianche» e che si
+  identificano **solo le macrostrutture** (`teoria-colorazioni-092`), e per i
+  corpi di Nissl nomina esclusivamente il **cresil violetto** e il **Nissl
+  staining**. Le due fonti quindi **concordano fra loro** e divergono entrambe
+  dalla nozione classica: non è una contraddizione interna alla dispensa, ed è
+  un caso da portare al libro. Nessuna segnalazione nuova è stata aperta, come
+  per `lab-endocrino-014`, `lab-muscolare-016` e `lab-osso-046`.
+
+**Per il resto le due fonti non si contraddicono**, ed è notevole perché il
+Laboratorio aveva coperto il nervoso più estesamente di qualsiasi altro
+argomento (`lab-nervoso-001`-`084`, quattro file). Il taglio è quello solito: il
+Laboratorio guarda il **vetrino** (nervo in sezione, ganglio spinale, midollo
+spinale, cervelletto), la Teoria i **meccanismi** (potenziale d'azione, sinapsi,
+mielinizzazione, rigenerazione). Dove si toccano dicono la stessa cosa: i tre
+involucri connettivali del nervo, il fascio di Remak, i nodi di Ranvier, le
+cellule satelliti attorno ai pirenofori dei gangli.
+
+**Due `[N.d.S.]` sono di tipo diverso.** Quello di **pagina 244** è l'unico
+contenuto di quella pagina e riporta una **precisazione della docente** sui
+neuroni pseudounipolari (il prolungamento unico si comporta tutto da assone,
+con un ramo periferico e uno centrale): è materiale vero, ed è finito su
+`teoria-nervoso-057`, con `source` a **entrambe le pagine** (`5th gen p. 235 e
+p. 244`) perché completa la classificazione di pagina 235. Quello di **pagina
+249** invece **non produce carte**: dice solo che le cellule di Schwann sono già
+state descritte trattando le fibre nervose.
+
 #### I tre titoli che il segmentatore non vede
 
 `segment.py` non riconosce alcuni titoli di capitolo, e attribuisce le loro
@@ -1664,46 +1946,57 @@ i duplicati esatti dentro lo stesso mazzo.
 
 #### Il prossimo capitolo
 
-**Tocca al `18 - Il tessuto nervoso`, pagine 227-256**, che con 30 pagine è il
-**più lungo della Teoria** e l'ultimo dei quattro capitoli densi.
+**Restano il `04 - Cellule staminali e potenziale differenziativo` (pagine
+16-24) e il `05 - Applicazioni terapeutiche delle cellule staminali` (pagine
+24-28), gli ultimi due.** Sono anche gli unici due che **non stanno in fondo al
+PDF ma in mezzo**: il buco è fra il mazzo 03, che chiude a fine pagina 15, e il
+mazzo 06, che apre a pagina 28.
 
-- Il **confine di monte è già verificato**, ed è documentato nella sottosezione
-  "Il mazzo 17 e il tessuto muscolare": **pagina 227 è interamente sua**, si apre
-  con l'intestazione della lezione del 22-05-2025 (sbobinatori Bergamin e
-  Maccarini) e subito sotto con il titolo `IL TESSUTO NERVOSO`. Le **due figure
-  di pagina 227** (`teoria_p227_1335`, la tavola del tessuto nervoso, e
-  `teoria_p227_1336`, lo schema SNC/SNP) sono **sue**, benché
-  `images_for_section` le assegni alla sezione `099`.
-- Il **confine di valle non è stato guardato**: pagina 256 è l'ultima del PDF,
-  ma va comunque verificato che il capitolo non finisca prima.
-- `teoria-nervoso` **riparte da 003**: il capitolo 03 ha già usato `001` e `002`
-  per la panoramica dei quattro tessuti (vedi la tabella "Il capitolo 03 apre
-  quattro argomenti"). È l'unico dei quattro argomenti aperti dal 03 che non sia
-  ancora stato proseguito.
-- **Il Laboratorio ha già coperto il nervoso** in modo esteso
-  (`lab-nervoso-001`-`084`, file `08a`, `08b` e `08b2`, più il quiz `08c`), ed è
-  il posto dove cercare contraddizioni fra le due fonti. Restano **due
-  segnalazioni aperte** dal lato del Laboratorio: `lab-nervoso-015` (la sostanza
-  tigroide che si vedrebbe solo con colorazioni speciali) e `lab-nervoso-069`
-  (la tecnica di Golgi che darebbe basofilia). Se la teoria dà una risposta, va
-  registrata qui come è stato fatto per `lab-endocrino-014`, `lab-muscolare-016`
-  e `lab-osso-046`, **senza aprire una segnalazione nuova**.
-- Copre le sezioni da `100` a `110`, **circa 11.700 parole** e **47 figure**
-  fra pagina 227 e pagina 256: poco meno del 14 su entrambi i conti (12.700
-  parole e 53 figure). Aspettati **cinque o sei file**.
-- La sezione **`105`** (`Suddivisione del SNP`, pagine 233-246) da sola vale
-  **4.700 parole**, cioè il 40% del capitolo: va spezzata **al suo interno**,
-  come la `073` nel 14 e la `080` e la `081` nel 15. Cerca il confine di
-  contenuto e, prima, i cambi di lezione.
-- La sezione **`108`** si intitola `Cellule staminali neurali` (pagine 251-254,
-  1.256 parole): quasi certamente aprirà carte su `argomento::staminali`, che
-  **riparte da `026`**. Sarà il quinto capitolo a proseguire quel contatore.
+- **Sono corti.** Il 04 copre le sezioni da `011` a `017` (**3.209 parole**,
+  9 pagine) e il 05 le sezioni da `018` a `020` (**1.395 parole**, 5 pagine):
+  insieme fanno **4.600 parole**, cioè **meno della metà** del capitolo più
+  piccolo fra quelli divisi in più file. **Un file per mazzo dovrebbe bastare**,
+  e i due si possono scrivere nella stessa sessione come è stato fatto per il 09
+  e il 10.
+- Il **confine di monte è già verificato**, ed è documentato al punto 2 sotto la
+  tabella della Teoria: il mazzo 03 **finisce alla fine di pagina 15**, e
+  **pagina 16 riparte** con il titolo `CELLULE STAMINALI E POTENZIALE
+  DIFFERENZIATIVO`, che è uno dei tre titoli che il segmentatore non vede. Per
+  questo le sezioni `011`-`017` portano ancora `chapter: 'Colorazioni
+  istochimiche'`: **il campo `chapter` mente**, i titoli delle sezioni sono
+  corretti.
+- Il **confine fra il 04 e il 05 è dichiarato ma non guardato**: la sezione
+  `018` si intitola `APPLICAZIONI TERAPEUTICHE DELLE CELLULE STAMINALI` e apre a
+  **pagina 24**, dove però la sezione `017` (`Il ruolo della nicchia staminale`)
+  è ancora in corso. **Pagina 24 va renderizzata** per vedere dove cade la riga
+  del titolo, come è stato fatto per pagina 93 nel mazzo 11.
+- Il **confine di valle va guardato anche lui**: la sezione `020` finisce a
+  **pagina 28**, ma pagina 28 è **già stata cardata dal mazzo 06** (`06a` copre
+  28-37). Bisogna quindi verificare **quanta parte** di pagina 28 sia del 05,
+  cioè dove comincia il titolo `TESSUTI EPITELIALI`, e non riprendere ciò che il
+  06 ha già preso. È il caso di pagina 198 fra il 15 e il 16, rovesciato.
+- Attenzione al titolo della sezione `019`, che il segmentatore restituisce
+  come `incontrollata.] Proliferazione in vitro di cellule somatiche cutanee`:
+  la prima parola è la **coda di un `[N.d.S.]`** finito dentro il titolo. Non è
+  il nome di niente.
+- `teoria-staminali` **riparte da 041**: è il contatore aperto dal capitolo 03 e
+  proseguito dai capitoli 11, 12, 15, 17 e 18. Saranno il **settimo e l'ottavo**
+  capitolo a proseguirlo, e presumibilmente gli ultimi. Se servisse
+  `argomento::tessuti`, quel contatore è fermo a **017**.
+- Le **22 figure** delle pagine 16-28 non sono mai state controllate con il clip
+  path del punto 6: va fatto prima di sceglierle. Quattro di loro
+  (`teoria_p016_59`, `teoria_p019_77`, `teoria_p019_78`, `teoria_p021_84`)
+  esistono **solo** perché la soglia di `is_artifact` è stata abbassata
+  scrivendo il 15, e sono le uniche recuperate che stanno in un capitolo ancora
+  da fare.
+- **Il Laboratorio non ha mai coperto le staminali**, quindi qui non c'è nessun
+  confronto fra le due fonti da fare: è il primo capitolo della Teoria in questa
+  situazione dopo il 07.
 
-Dopo il 18 restano solo il `04 - Cellule staminali e potenziale differenziativo`
-(pagine 16-24) e il `05 - Applicazioni terapeutiche delle cellule staminali`
-(pagine 24-28). Chi li scrive riparte da **dove il 18 avrà lasciato**
-`teoria-staminali`, e trova già estratte le **quattro figure** delle pagine 16,
-19 e 21 recuperate abbassando la soglia di `is_artifact` (punto 6).
+**Dopo questi due il progetto è finito.** Vale la pena, a quel punto, riprendere
+i due follow-up ancora aperti al punto 6: le **dieci figure recuperate in
+capitoli già scritti**, che nessuno ha più guardato, e il **clip path di
+`extract.py`**, che resta l'unica modifica pianificata e mai fatta.
 
 ### Ritmo di consegna
 
@@ -1714,7 +2007,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Novantatré carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Centodue carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -1812,6 +2105,15 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-osso-103` | paragona i **100 micron** dell'osteoclasto a "una grandezza simile a quella di cellule come i **monociti**"; il monocita è la più grande cellula del sangue con 15-20 µm, cioè cinque volte meno, e il paragone contraddice la frase stessa, che apre definendo l'osteoclasto una cellula "molto grande" |
 | `teoria-osso-134` | fa crescere il **cranio** "principalmente per apposizione, cioè per deposizione di nuovo osso sulla **superficie esterna**" e due frasi dopo dice che "sulla superficie esterna, quella convessa, si verifica un **riassorbimento**" mentre su quella interna avviene la deposizione. Classicamente vale il primo verso: si depone sulla convessa e si riassorbe sulla concava, ed è questo a far ingrandire la volta cranica conservandone la curvatura |
 | `teoria-osso-150` | descrive il recettore del **FGF** come quello che "aiuta nell'accrescimento delle ossa", e nella stessa pagina fa causare il **nanismo** da una sua mutazione **attivatoria**. Se aiutasse la crescita, tenerlo acceso darebbe ossa più lunghe; l'FGFR3 è classicamente un **regolatore negativo** della proliferazione dei condrociti |
+| `teoria-nervoso-008` | dice che il tessuto nervoso "non è innervato: non sono presenti fibre nervose al suo interno, per cui non percepisce il dolore". La frase si contraddice da sola, perché il tessuto nervoso **è fatto** di fibre nervose; quello che si intende è che il parenchima nervoso è privo di **terminazioni nocicettive proprie** |
+| `teoria-nervoso-023` | colloca l'**ipotalamo** "posteriormente al talamo"; la tavola dell'encefalo della stessa pagina 230 lo disegna **al di sotto**, ed è anche ciò che dice il nome |
+| `teoria-nervoso-025` | dà il **mesencefalo** per "struttura di collegamento tra il telencefalo e il tronco encefalico", ma la tavola della stessa pagina disegna il tronco encefalico come costituito da **mesencefalo, ponte e midollo allungato**: il mesencefalo farebbe quindi da ponte verso una struttura di cui fa parte |
+| `teoria-nervoso-041` | distingue una "via motoria" (organo bersaglio muscolo) da una "via efferente" (organo bersaglio ghiandola), ma una via motoria **è** una via efferente, e la frase successiva della stessa pagina dice che "le vie afferenti ed efferenti possono essere sia somatiche sia viscerali". La contrapposizione attesa è somatico/viscerale, ed è quella che lo schema della stessa pagina disegna |
+| `teoria-nervoso-048` | dà l'**adrenalina** per neurotrasmettitore dei neuroni gangliari del simpatico; classicamente è la **noradrenalina**, mentre l'adrenalina è l'ormone che la midollare del surrene riversa nel sangue, come la stessa pagina 234 dice due righe prima |
+| `teoria-nervoso-060` | descrive i **neuroni piramidali** della corteccia come "l'ultima porzione delle vie sensoriali"; pagina 235 della stessa dispensa fa partire da loro la **via piramidale**, che è efferente e scende al midollo spinale |
+| `teoria-nervoso-102` | spiega l'effetto **eccitatorio** del GABA nello sviluppo embrionale con "l'entrata di cloro" nella cellula; il cloro che entra iperpolarizza sempre, ed è il meccanismo dell'IPSP descritto nella pagina precedente. Classicamente nel neurone immaturo il cloro intracellulare è alto e i canali GABA lo fanno **uscire**, depolarizzando |
+| `teoria-nervoso-120` | elenca la **microglia** due volte nello stesso elenco delle origini embrionali: prima fra le gliali del SNC derivate dal **neuroectoderma**, poi come derivata dal **mesoderma** in quanto fagocita mononucleato. La seconda è la versione corretta, ed è quella che la pagina successiva conferma facendola derivare dai progenitori mieloidi |
+| `teoria-nervoso-145` | dice che gli astrociti che invadono il sito di lesione "si riattivano e diventano **neurotrofici**", e nella frase successiva che la cicatrice gliale che formano "impedisce fisicamente e chimicamente la ricrescita degli assoni". Classicamente l'astrocita reattivo produce molecole **inibitorie** per la crescita assonale |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
@@ -1832,7 +2134,16 @@ Casi risolti senza tag, perché il refuso è evidente e non c'è dubbio di conte
   segnalata in corsivo sulla carta senza tag;
 - a pagina 164 intitola un paragrafo "Gli **osteoclasti** come meccanorecettori",
   ma il paragrafo parla per intero degli **osteociti**, come tutto il resto del
-  capitolo. È un lapsus di intestazione e non tocca il contenuto.
+  capitolo. È un lapsus di intestazione e non tocca il contenuto;
+- a pagina 232 scrive che l'assone del motoneurone dell'arco riflesso "esce dalla
+  parte del **cranio** del midollo spinale": lo schema della stessa pagina lo
+  chiama `Assone della cellula del **corno anteriore**`, che è la via d'uscita
+  attesa (`teoria-nervoso-039`);
+- a pagina 242 scrive "recettori accoppiati a **dendriti**" dove a pagina 245
+  scrive correttamente "recettori legati alla **proteina G**"
+  (`teoria-nervoso-092`);
+- a pagina 254 scrive "degenerazione **Welleriana**" per degenerazione
+  **walleriana**, da Augustus Waller (`teoria-nervoso-137`).
 
 ---
 
@@ -2009,7 +2320,11 @@ figure su dieci, e altre tre (`teoria_p060_430`, `teoria_p060_431`,
 altre nove finestre di Safari, riconoscibili a colpo d'occhio perché hanno tutte
 la **stessa dimensione, 1600x1041**, e la stessa fila di schede in alto. Se in un
 capitolo compaiono più file estratti con dimensioni identiche e correlazione
-prossima a zero, sono quasi certamente questo caso. Prima di scartarli **guardali
+prossima a zero, sono quasi certamente questo caso. **Nel 18 non ricompare**,
+benché il capitolo segua immediatamente il 17: gli sbobinatori sono altri e le
+loro figure sono quasi tutte scansioni di libro, tanto che il controllo del clip
+path sulle pagine 227-256 ha segnalato **due placement su 47**, nessuno dei
+quali è una finestra di browser. Prima di scartarli **guardali
 comunque**: fra quelli del 17 c'era lo schema riassuntivo per il riconoscimento
 dei vetrini annunciato da un `[N.d.S.]`, cioè materiale d'esame che nel testo
 estratto non compare affatto e che è stato recuperato leggendolo dallo
