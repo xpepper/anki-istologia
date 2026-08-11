@@ -59,9 +59,9 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-11
 
-**673 note** di Laboratorio + **1159 di Teoria**, 396 immagini, 151 test verdi.
+**673 note** di Laboratorio + **1301 di Teoria**, 422 immagini, 151 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 12 capitoli su 18, pagine 1-16, 28-148 e 198-205 di 256.
+aperta**: 13 capitoli su 18, pagine 1-16, 28-148 e 198-226 di 256.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -139,6 +139,10 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `13a-cartilagine-generalita.jsonl` | 51 | sezioni 068-069, pagine 137-144 |
 | `13b-tipi-di-cartilagine.jsonl` | 25 | sezione 069, pagine 145-148 |
 | `16-sistema-linfatico.jsonl` | 77 | sezioni 085-089, pagine 198-205 |
+| `17a-generalita-e-fibra-muscolare.jsonl` | 49 | sezioni 090-094, pagine 205-212 |
+| `17b-contrazione-e-tipi-di-fibre.jsonl` | 44 | sezioni 095-097, pagine 212-219 |
+| `17c-tessuto-muscolare-cardiaco.jsonl` | 24 | sezione 098, pagine 219-222 |
+| `17d-tessuto-muscolare-liscio.jsonl` | 25 | sezione 099, pagine 223-226 |
 
 **Il capitolo 01 non esiste come titolo nel PDF.** Le pagine 1-7 non hanno
 intestazione di capitolo: sono la definizione di istologia e le cinque fasi di
@@ -217,6 +221,8 @@ restare unico dentro tutto il mazzo:
 | `teoria-embriologia` | `03` 001-022, `12a` 023-026, poi `13a` 027, `13b` 028 |
 | `teoria-cartilagine` | `13a` 001-047, poi `13b` 048-070 |
 | `teoria-linfoide` | `16` 001-077 |
+| `teoria-muscolare` | `03` 001, `17a` 002-047, `17b` 048-091, `17c` 092-115, poi `17d` 116-140 |
+| `teoria-staminali` | `03` 001-011, `11c` 012-016, `12d` 017, poi `17a` 018-020 |
 
 **Il capitolo 03 apre quattro argomenti che appartengono a capitoli successivi.**
 È la panoramica dei quattro tessuti fondamentali, quindi qualche sua carta parla
@@ -230,7 +236,7 @@ di conseguenza il loro id segue lo stesso argomento. Chi scriverà quei capitoli
 |---|---|---|
 | `teoria-epiteli` | 001 | 002, ed è già stato fatto: il capitolo 06 occupa 002-159 e il capitolo 08 occupa 160-342 |
 | `teoria-connettivi` | 001-004 | 005, ed è già stato fatto: il capitolo 12 occupa 005-160 |
-| `teoria-muscolare` | 001 | 002 |
+| `teoria-muscolare` | 001 | 002, ed è già stato fatto: il capitolo 17 occupa 002-140 |
 | `teoria-nervoso` | 001-002 | 003 |
 
 **Lo stesso è successo con il capitolo 09 e l'endocrino.** Il 09 confronta le
@@ -244,7 +250,12 @@ sulla terapia cellulare del diabete di tipo I (pagina 109) parlano di cellule
 staminali e di iPS, non di ghiandole: portano `argomento::staminali` e gli id
 `teoria-staminali-012`-`016`, che proseguono la numerazione aperta dal capitolo
 03. Il capitolo 12 ne ha aggiunta una sola, `017`, sulle biobanche del cordone
-ombelicale. **Chi scriverà i mazzi 04 e 05 riparte da 018.** Restano nel mazzo
+ombelicale, e il capitolo 17 tre, `018`-`020`, sulle **cellule satellite** del
+muscolo (che cosa sono, come rigenerano la fibra, perché la loro capacità si
+esaurisce): sono staminali a tutti gli effetti, e la dispensa le chiama così.
+Le carte sulla **distrofia di Duchenne** restano invece su `muscolare`, perché
+sono una malattia del muscolo e non una questione di staminalità.
+**Chi scriverà i mazzi 04 e 05 riparte da 021.** Restano nel mazzo
 dove la sbobina le colloca, ma la selezione per argomento le pesca insieme alle
 staminali.
 
@@ -365,6 +376,14 @@ aggiunto un `endocrino` alla carta sugli ormoni timici, che parla del timo:
 **nessuna carta del progetto porta due `argomento::`**, e non è il caso di
 cominciare qui.
 
+**E nemmeno il capitolo 17.** Sta quasi tutto su `muscolare`, che **esisteva
+già** in entrambe le fonti (`lab-muscolare-001`-`044` e la carta
+`teoria-muscolare-001` del capitolo 03), e riusa `staminali` per le tre carte
+sulle cellule satellite. Non è stato inventato un `cardiaco` o un `liscio` a
+parte: sono i tre tipi di uno stesso tessuto, e separarli spezzerebbe proprio
+la selezione trasversale che serve per i confronti, che sono la parte più
+richiesta del capitolo.
+
 ### Il tag `non-trattato`
 
 La sbobina marca alcuni passaggi con un riquadro laterale **"Argomento non
@@ -376,7 +395,19 @@ dicono in fondo al `back`, così Pietro può sospenderle in blocco con
 Il primo caso è `teoria-microscopia-015` (immagine reale e virtuale, pagina 50).
 Il secondo è il blocco in corsivo che va da metà di **pagina 201** a metà di
 **pagina 202** (movimento e percorso della linfa, definizione di essudato):
-quattro carte, `teoria-linfoide-040`-`043`. Il riquadro va guardato nel PDF
+quattro carte, `teoria-linfoide-040`-`043`.
+
+Il capitolo 17 ne ha aggiunti altri due, entrambi **riquadri brevi e ben
+delimitati**, non blocchi a cavallo di più pagine come quello del linfatico:
+
+- **pagina 209**, "Organizzazione delle cellule muscolari": il ruolo della
+  componente connettivale nel coordinare la contrazione. Due carte,
+  `teoria-muscolare-018` e `019`.
+- **pagina 221**, "Battito cardiaco": sistole e diastole, propagazione via gap
+  junction, fasi dal nodo SA ai ventricoli. Due carte,
+  `teoria-muscolare-112` e `113`.
+
+Il riquadro va guardato nel PDF
 renderizzato, perché nel testo estratto compare come tre parole isolate e non si
 capisce quanta parte copra:
 
@@ -519,7 +550,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 14 - Tessuto osseo | 149-177 | 29 | 14 | |
 | 15 - Il sangue | 177-198 | 22 | 13 | |
 | 16 - Sistema linfatico | 198-205 | 8 | 11 | **fatto**, 77 note |
-| 17 - Tessuto muscolare | 205-227 | 23 | 12 | |
+| 17 - Tessuto muscolare | 205-227 | 23 | 12 | **fatto**, 142 note in quattro file |
 | 18 - Il tessuto nervoso | 227-256 | 30 | 15 | |
 
 Il criterio dell'ordine: **i capitoli corti e a basso rischio prima**, per rodare
@@ -582,14 +613,20 @@ pagine sono poche. **È fatto**, e con lui il `07 - Concetti base di
 microscopia`, il `06 - Tessuti epiteliali`, l'`08 - Epitelio di rivestimento`,
 il `09 - Epiteli ghiandolari`, il `10 - Ghiandole esocrine`, l'`11 - Ghiandole
 endocrine`, il `12 - Tessuti connettivi`, il `13 - Tessuti connettivi di
-sostegno` e il `16 - Sistema linfatico`: **il prossimo in ordine è il
-`17 - Tessuto muscolare`, che comincia a pagina 205 e non a 208**, e le pagine
-205-207 finiscono dentro il Sistema linfatico solo perché il segmentatore non
-vede il titolo (vedi la ricognizione dei tre titoli mancanti, qui sotto). Chi lo
-scrive parte quindi dalla **sezione 090**, e prende di pagina 205 solo quello che
-sta **sotto** il titolo `TESSUTO MUSCOLARE`: la milza che la precede è già del
-mazzo 16. Il contatore `teoria-muscolare` **non riparte da 001**: il capitolo 03
-ha già usato il `001`, quindi si riprende da **002** (vedi la tabella al punto 3).
+sostegno`, il `16 - Sistema linfatico` e il `17 - Tessuto muscolare`.
+
+**Il prossimo in ordine è il `15 - Il sangue`, pagine 177-198.** Il suo confine
+di valle è **già verificato**, perché è lo stesso di pagina 198 che apre il
+mazzo 16: il sangue finisce **sopra** il titolo `SISTEMA LINFATICO`, e la figura
+`teoria_p198_1206` (schema della granulocitopoiesi) è **sua** e non è ancora
+stata usata. Il confine di monte, a pagina 177, va invece guardato: la tabella
+dà il `14 - Tessuto osseo` per 149-177, quindi pagina 177 è probabilmente
+condivisa e va renderizzata prima di cominciare. Il contatore `teoria-sangue`
+riparte da **001**: `sangue` è un `argomento::` che esiste già (nel Laboratorio,
+e su una carta del capitolo 08 sulla forma biconcava degli eritrociti, che porta
+però l'id `teoria-epiteli-198`), ma nella Teoria non è mai stato usato come
+prefisso di id, esattamente come è successo a `teoria-cartilagine` nel 13 e a
+`teoria-linfoide` nel 16.
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
 dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
@@ -968,6 +1005,156 @@ i vasi afferenti fatti arrivare alla midollare mentre lo schema della stessa
 pagina disegna il seno sottocapsulare (`067`), le venule ad alto endotelio messe
 nella midollare mentre la paracorticale è elencata ma **mai descritta** (`068`).
 
+#### Il mazzo 17 e il tessuto muscolare
+
+**Il `17 - Tessuto muscolare` va da metà di pagina 205 a fine pagina 226.** La
+riga della tabella dice 205-227, ma **pagina 227 è stata renderizzata e guardata
+ed è interamente del mazzo 18**: si apre con l'intestazione di una lezione nuova
+(22-05-2025, sbobinatori Bergamin e Maccarini) e subito sotto con il titolo
+`IL TESSUTO NERVOSO`. Le **due figure di pagina 227** (`teoria_p227_1335`, la
+tavola del tessuto nervoso, e `teoria_p227_1336`, lo schema SNC/SNP) appartengono
+quindi al 18 e **non vanno riprese**, benché `images_for_section` le assegni alla
+sezione `099`. È lo stesso caso delle pagine 111 e 149.
+
+Il confine di monte, a metà di pagina 205, era già stato verificato scrivendo il
+mazzo 16 e non è stato toccato: sotto la riga `[Fine integrazione slides
+2024-2025]` che chiude la milza comincia il titolo `TESSUTO MUSCOLARE`, e pagina
+205 non ha figure. Il capitolo copre le sezioni `090`-`091` e `093`-`099`; la
+`092` è vuota perché il segmentatore riconosce a pagina 208 un secondo titolo
+`TESSUTO MUSCOLARE STRIATO SCHELETRICO` identico a quello della `091`.
+
+**Le pagine 205-207 e 208-210 sono due stesure della stessa introduzione.** È il
+fatto che decide tutto il resto, e il piano precedente non lo prevedeva. Le
+pagine 205-207 appartengono alla lezione del **16-05-2025** (la stessa del
+linfatico: non portano intestazione propria, e l'ultima prima di loro è a pagina
+192), mentre pagina 208 apre una **lezione nuova**, quella del **20-05-2025**
+sbobinata da Moussaoui e Guiducci, che **ricomincia da capo**: fibra muscolare
+come sincizio cilindrico multinucleato, fusione dei mioblasti, nuclei periferici,
+endomisio-perimisio-epimisio, vasi e nervi, tendini. È il caso delle pagine 93-99
+del mazzo 11, non quello delle integrazioni del 16.
+
+**Sono state fuse, non scritte due volte**, con lo stesso metodo del mazzo 11:
+una sola carta per fatto, costruita sulla versione più completa (quasi sempre la
+seconda, che aggiunge sarcolemma, sarcoplasma, mioglobina, aponeurosi e ventre
+muscolare), e `source` con **entrambe le pagine** (`5th gen p. 206 e p. 208`)
+quando il fatto sta in tutte e due. Lo stesso vale per la **distrofia di
+Duchenne**, che compare a pagina 207 dal lato delle cellule satellite e a pagina
+212 dal lato della distrofina come proteina della linea Z: una sola coppia di
+carte, `teoria-muscolare-021` e `022`, con entrambe le pagine nel `source`.
+
+**Anche due figure sono doppie**, come lo schema del feedback nel mazzo 11:
+`teoria_p206_1231` e `teoria_p208_1237` sono lo stesso schema dell'organizzazione
+generale del muscolo, `teoria_p206_1232` e `teoria_p209_1240` la stessa
+microfotografia. In entrambi i casi è stata usata **solo la versione della
+seconda stesura**, che è più grande e meno rifilata.
+
+**Diviso in quattro file.** I tagli seguono i confini di sezione, ma il primo è
+deciso dalla fusione: `17a` deve contenere **tutte e due** le stesure, altrimenti
+il validatore, che blocca solo le domande identiche, lascerebbe passare due
+parafrasi nello stesso mazzo. Per questo `17a` arriva fino alla `094` e non si
+ferma alla `091` come la sola conta delle pagine suggerirebbe.
+
+| File | Sezioni | Pagine | Contenuto |
+|---|---|---|---|
+| `17a-generalita-e-fibra-muscolare.jsonl` | `090`-`094` | 205-212 | i tre tipi di tessuto muscolare, fibra muscolare e involucri connettivali, cellule satellite e distrofie, struttura della fibra, actina e miosina, sarcomero e bande (**è qui che sta la doppia stesura**) |
+| `17b-contrazione-e-tipi-di-fibre.jsonl` | `095`-`097` | 212-219 | troponina e tropomiosina, unità motoria, giunzione neuromuscolare, scivolamento dei filamenti, triade, accoppiamento eccitazione-contrazione, tipi di fibre |
+| `17c-tessuto-muscolare-cardiaco.jsonl` | `098` | 219-222 | parete cardiaca, cardiomiociti, dischi intercalari, diadi, i tre citotipi, sistema di conduzione, ECG |
+| `17d-tessuto-muscolare-liscio.jsonl` | `099` | 223-226 | miociti lisci, localizzazioni, caveole, corpi densi, calmodulina e fosforilazione della miosina, schema riassuntivo di riconoscimento |
+
+Il confine `094`/`095` è anche un confine di contenuto: la `094` chiude la
+**struttura** del sarcomero (bande, proteine accessorie), la `095` apre le
+proteine **regolatrici** che portano alla contrazione. Come per `06a`/`06b`,
+`08a`/`08b`/`08c` e `11a`/`11b`/`11c`, tutti e quattro i file condividono lo
+stesso mazzo `Istologia::Teoria::17 - Tessuto muscolare`.
+
+**Le cinque integrazioni dalla sbobina 2023-2024 sono un caso misto**, e questa è
+la seconda cosa che il piano precedente non prevedeva. Tre **aggiungono**
+materiale, come nel 16, e sono state cardate normalmente citando l'integrazione
+in corsivo in fondo al `back`: le sezioni trasversali delle bande al ME (p. 212),
+l'origine dei nomi dei recettori diidropiridinici e rianodinici (p. 216) e le
+localizzazioni del muscolo liscio (p. 223). Due invece **ripetono** ciò che il
+testo principale ha appena detto, e da quelle è stata presa **solo la parte che
+aggiunge**, come fra `13a` e `13b`: l'integrazione di pagina 220-221 rispiega la
+diade appena descritta e aggiunge i **tre citotipi** del miocardio;
+l'integrazione di pagine 225-226 rispiega le **caveole** già trattate a pagina
+224 e aggiunge l'**assenza della troponina** e il controllo ormonale via IP3.
+
+**I due `[N.d.S.]` non sono equivalenti.** Quello di pagina 217, sui tre video
+riassuntivi visionati a lezione, non produce carte, come i link ai video di
+pagina 226. Quello di pagina 226 invece annuncia uno **schema riassuntivo utile
+per il riconoscimento dei vetrini** che è materiale d'esame vero: sta nella
+figura `teoria_p226_1327`, che è una finestra di browser e come **immagine** è
+scartata, ma il cui contenuto è perfettamente leggibile ed è stato trascritto in
+tre carte, `teoria-muscolare-138`-`140`, una per tipo di tessuto, ciascuna con i
+criteri in sezione longitudinale e trasversale. **Non cercarlo nel testo
+estratto: lì l'N.d.S. è una riga sola.**
+
+**Il controllo del clip path del punto 6 è stato eseguito sulle pagine 205-227 e
+ha segnalato undici figure su 39 sotto soglia.** È l'esito peggiore dopo l'`08`,
+e per la stessa ragione: **nove sono finestre di browser** (`teoria_p222_1289`,
+`1291`, `1293`; `teoria_p223_1300`; `teoria_p224_1307`, `1309`;
+`teoria_p226_1323`, `1325`, `1327`), tutte screenshot di Safari con barra degli
+indirizzi e schede, di cui la pagina mostra solo il riquadro della slide. Sono
+state **scartate**, come le dieci dell'`08`. Si perdono i tre vetrini di cuore
+(Em-Eo 40x, Em-Eo 63x con i dischi intercalari, Azan-Mallory con le fibre di
+Purkinje cerchiate) e i due di muscolo liscio (tuba uterina, intestino): il
+**testo** che li descrive è stato cardato lo stesso, ma **senza figura**, quindi
+quelle sono carte di riconoscimento senza vetrino.
+
+Le altre due sotto soglia sono invece **integre e sono state usate**, ed è il
+caso solito della figura più completa della pagina: `teoria_p215_1261` (la
+tavola della giunzione neuromuscolare, corr 0,19) include la didascalia del libro
+che la pagina taglia via, e `teoria_p219_1277` (schema della parete del cuore,
+corr 0,77) è al limite della soglia con il bordo rifilato.
+
+**Delle 37 figure delle pagine 205-226 ne sono state usate 26.** Le undici
+scartate sono le **nove finestre di browser** più i **due doppioni di pagina 206**
+della prima stesura.
+
+**Cinque figure su 26 stanno sul fronte**, ed è la proporzione attesa per un
+capitolo fatto quasi tutto di schemi con i nomi stampati sopra. Due sono il caso
+del marcatore muto:
+
+- `teoria_p209_1240`, la microfotografia di muscolo scheletrico: le etichette
+  presenti (`epimisio`, `fascicolo`, `nervo`, `fibra`) danno il contesto senza
+  dare la risposta, che è da che cosa derivano le striature del riquadro *b*. È
+  il caso di `teoria_p203_1222` del mazzo 16.
+- `teoria_p212_1250`, la micrografia al ME del sarcomero, con le sigle mute `Z`,
+  `I`, `A`, `H`, `M`: la figura marca la banda H ma non dice che cosa contenga.
+
+Le altre tre sono **senza alcuna etichetta**: `teoria_p214_1257` (il ME della
+giunzione neuromuscolare), `teoria_p219_1278` (il miocardio con le **frecce
+mute** sui dischi intercalari) e `teoria_p223_1298` (il muscolo liscio in
+sezione longitudinale e trasversale sullo stesso campo).
+
+Tutto il resto sono schemi, tavole e figure di libro con la didascalia stampata
+sopra, cioè materiale da retro.
+
+**Sette segnalazioni su 142 carte**, che è la metà del tasso del 16 e del 13,
+come è ragionevole per un capitolo di meccanismi molecolari dove la dispensa ha
+poco spazio per contraddirsi. Due nascono da **contraddizioni interne**: le fibre
+che percorrono o no l'intera lunghezza del muscolo (`005`, ed è proprio il punto
+in cui le due stesure divergono, con lo stesso quadricipite come esempio) e i
+filamenti intermedi del muscolo liscio dati per equivalenti di troponina e
+tropomiosina due pagine prima che la dispensa dichiari assente la troponina
+(`127`). Le altre cinque sono errori verso la nozione classica, fra cui uno
+**scambio di unità di misura** (`069`, tubulo T e cisterne "separate da circa 10
+micron") e un'**inversione di effetto** (`134`, l'ossitocina che "favorisce il
+rilassamento" dell'utero durante il parto).
+
+**L'aggancio con `lab-muscolare-016` si chiude qui, e la teoria dà ragione al
+sospetto.** Il Laboratorio negava che il miocardio fosse un sincizio funzionale e
+attribuiva l'espressione al muscolo scheletrico. La teoria dice il contrario da
+entrambi i lati: le fibre **scheletriche** sono "sincizi cilindrici
+multinucleati" perché **derivano dalla fusione dei mioblasti** (pagine 206 e 208,
+`teoria-muscolare-011`), cioè un sincizio **strutturale**; mentre nel
+**miocardio** i cardiomiociti restano cellule distinte, uni- o binucleate, e sono
+le **giunzioni comunicanti dei dischi intercalari** a permettere la
+"depolarizzazione simultanea" (pagina 220, `teoria-muscolare-099` e `112`), cioè
+esattamente il sincizio **funzionale**. La teoria quindi **corregge il
+Laboratorio**, e non è stata aperta una segnalazione nuova: quella sul
+Laboratorio resta e ora ha una risposta, come per `lab-endocrino-014`.
+
 #### I tre titoli che il segmentatore non vede
 
 `segment.py` non riconosce alcuni titoli di capitolo, e attribuisce le loro
@@ -1028,7 +1215,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Sessantaquattro carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Settantuno carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -1097,6 +1284,13 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-linfoide-067` | fa arrivare i **vasi linfatici afferenti** alla zona **midollare** del linfonodo; classicamente sboccano nel **seno sottocapsulare**, e da lì la linfa percola verso l'interno per uscire dall'ilo con il vaso efferente. Lo schema della stessa pagina 204 lo disegna così, e ha "seno sottocapsulare" fra le proprie etichette |
 | `teoria-linfoide-068` | colloca le **venule ad alto endotelio** nella rete capillare della **midollare**; sono classicamente descritte nella **paracorticale**, che è la porta d'ingresso dei linfociti circolanti. La dispensa elenca la zona paracorticale fra le tre del linfonodo ma **non la descrive mai**, pur avendone bisogno qui |
 | `teoria-linfoide-075` | chiama "**linfonodi** periarteriolari (PALS)" le guaine linfoidi periarteriolari della polpa bianca; la sigla stessa sta per *Periarteriolar Lymphoid Sheath*, cioè **guaina**, e si tratta del manicotto di linfociti T attorno all'arteriola centrale, non di un organo capsulato come i linfonodi descritti nella pagina precedente |
+| `teoria-muscolare-005` | a pagina 205 dice che le fibre "in alcuni muscoli possono comporre l'intera lunghezza del muscolo stesso", citando il quadricipite femorale; a pagina 209 dice che **non raggiungono mai** l'intera estensione del muscolo, "neppure nei muscoli più lunghi come il quadricipite femorale". È il punto in cui le due stesure della lezione si contraddicono, e usano lo stesso muscolo come esempio |
+| `teoria-muscolare-058` | attribuisce alle **fessure sinaptiche secondarie** il compito di "penetrare profondamente nella cellula, mettendola in contatto con i miofilamenti"; quello è classicamente il compito dei **tubuli T**, che la stessa dispensa descrive correttamente due pagine dopo come "profonde invaginazioni della membrana plasmatica", elencandoli accanto alle fessure secondarie come strutture distinte |
+| `teoria-muscolare-069` | dà tubulo T e cisterne terminali per "separate da circa **10 micron**"; è una distanza dell'ordine del diametro dell'intera fibra (10-100 micron secondo la stessa dispensa a pagina 209) e renderebbe impossibile l'accoppiamento fisico fra recettori diidropiridinici e rianodinici descritto due pagine dopo. Il valore classico è dell'ordine dei **10 nanometri**: è verosimilmente uno scambio di unità |
+| `teoria-muscolare-093` | definisce l'**endocardio** come "lo strato più interno" della parete cardiaca e lo dice formato da solo tessuto connettivo lasso, per poi descrivere subito dopo un **endotelio ancora più interno** senza dire a quale strato appartenga; classicamente l'endocardio comprende l'endotelio, che ne è la componente più interna |
+| `teoria-muscolare-122` | parla di un solo "muscolo dell'iride", il **dilatatore della pupilla**, e fa causare la **miosi** dal suo rilassamento; l'iride ha classicamente **due** muscoli lisci antagonisti, e la miosi è la contrazione attiva dello **sfintere della pupilla**, che la dispensa non nomina mai |
+| `teoria-muscolare-127` | dice che desmina e vimentina, filamenti intermedi del muscolo liscio, "svolgono un ruolo simile a quello della **troponina e della tropomiosina**"; sono proteine strutturali, non regolatrici, e due pagine dopo la stessa dispensa dichiara che nel muscolo liscio la **troponina manca del tutto** e che la regolazione avviene per fosforilazione delle teste della miosina |
+| `teoria-muscolare-134` | dice che l'**ossitocina favorisce il rilassamento** della tonaca muscolare dell'utero durante il parto; l'ossitocina stimola classicamente la **contrazione** del miometrio, ed è per questo che si usa per indurre il travaglio. L'esempio è per giunta inserito in un paragrafo che sta spiegando come uno stimolo ormonale **inneschi** la contrazione |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
@@ -1198,6 +1392,16 @@ file finiscono la finestra del browser, le schede e la barra delle applicazioni,
 che sulla pagina non si vedono. Nelle pagine 70-75 della Teoria sono dieci
 figure su dieci, e altre tre (`teoria_p060_430`, `teoria_p060_431`,
 `teoria_p069_503`) sono slide intere di cui la pagina mostra solo un pezzo.
+
+**Lo stesso sbobinatore ricompare nel capitolo 17**: alle pagine 222-226 sono
+altre nove finestre di Safari, riconoscibili a colpo d'occhio perché hanno tutte
+la **stessa dimensione, 1600x1041**, e la stessa fila di schede in alto. Se in un
+capitolo compaiono più file estratti con dimensioni identiche e correlazione
+prossima a zero, sono quasi certamente questo caso. Prima di scartarli **guardali
+comunque**: fra quelli del 17 c'era lo schema riassuntivo per il riconoscimento
+dei vetrini annunciato da un `[N.d.S.]`, cioè materiale d'esame che nel testo
+estratto non compare affatto e che è stato recuperato leggendolo dallo
+screenshot. Si scarta l'immagine, non il contenuto.
 
 Il controllo dei bordi non basta, perché il clip può stare tutto dentro la
 pagina. Il modo affidabile è **confrontare il file estratto con la regione
