@@ -547,7 +547,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 11 - Ghiandole endocrine | 93-111 | 19 | 8 | **fatto**, 120 note in tre file |
 | 12 - Tessuti connettivi | 111-137 | 27 | 9 | **fatto**, 179 note in cinque file |
 | 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | **fatto**, 76 note in due file |
-| 14 - Tessuto osseo | 149-177 | 29 | 14 | |
+| 14 - Tessuto osseo | 149-177 | 29 | 14 | (chiude a **176**, vedi sotto) |
 | 15 - Il sangue | 177-198 | 22 | 13 | |
 | 16 - Sistema linfatico | 198-205 | 8 | 11 | **fatto**, 77 note |
 | 17 - Tessuto muscolare | 205-227 | 23 | 12 | **fatto**, 142 note in quattro file |
@@ -619,9 +619,24 @@ sostegno`, il `16 - Sistema linfatico` e il `17 - Tessuto muscolare`.
 di valle è **già verificato**, perché è lo stesso di pagina 198 che apre il
 mazzo 16: il sangue finisce **sopra** il titolo `SISTEMA LINFATICO`, e la figura
 `teoria_p198_1206` (schema della granulocitopoiesi) è **sua** e non è ancora
-stata usata. Il confine di monte, a pagina 177, va invece guardato: la tabella
-dà il `14 - Tessuto osseo` per 149-177, quindi pagina 177 è probabilmente
-condivisa e va renderizzata prima di cominciare. Il contatore `teoria-sangue`
+stata usata.
+
+**Anche il confine di monte, a pagina 177, è già verificato**: la pagina è stata
+renderizzata ed è **interamente del 15**. Si apre in cima con l'intestazione di
+una lezione nuova (13-05-2025, sbobinatori Ferretti e Mehovic) e subito sotto
+con il titolo `IL SANGUE`. Il `14 - Tessuto osseo` chiude quindi a **fine pagina
+176**, benché la sezione `079` (`Midollo osseo`) dichiari 175-177 e benché la
+riga della tabella qui sopra dica 149-177: è la solita convenzione della colonna,
+che indica la pagina in cui comincia il capitolo successivo. Pagina 176 **non ha
+figure**, quindi al confine non c'è niente da contendersi. È il caso di pagina
+227 fra il 17 e il 18, dove pure la tabella dava un confine più avanti di quello
+reale.
+
+**Attenzione: due sezioni si chiamano `Midollo osseo`.** La `079` (pagine
+175-177) è del mazzo 14; la `083` (pagine 194-197) è del mazzo 15. Il titolo
+identico è lo stesso inciampo della `091`/`092` nel 17.
+
+Il contatore `teoria-sangue`
 riparte da **001**: `sangue` è un `argomento::` che esiste già (nel Laboratorio,
 e su una carta del capitolo 08 sulla forma biconcava degli eritrociti, che porta
 però l'id `teoria-epiteli-198`), ma nella Teoria non è mai stato usato come
@@ -1379,6 +1394,56 @@ sintomo è una sezione che dichiara molte pagine e cambia argomento a metà.
 Nella Teoria i tre casi sono stati trovati tutti e sono elencati al punto 4;
 sul Laboratorio la ricognizione non è mai stata fatta, ma lì i capitoli sono
 chiusi e verificati pagina per pagina.
+
+**`extract.py` butta via figure vere scambiandole per icone, e `images.jsonl`
+non lo dice.** `is_artifact()` scarta ogni immagine che abbia **un lato sotto
+`MIN_USEFUL_PX = 200`**, per togliere loghi e strisce di layout. Su tutta la
+Teoria ne scarta **25, di cui 23 hanno entrambi i lati sopra i 100 px** e sono,
+a occhio, figure di contenuto. Il sintomo è che una pagina **mostra** una figura
+che `images.jsonl` non elenca affatto: non c'è nessun avviso, e il conteggio
+delle figure di un capitolo risulta semplicemente più basso del vero.
+
+Per ritrovarle:
+
+```sh
+./venv/bin/python -c "
+import pymupdf
+d = pymupdf.open('\$DL/Istologia 5th gen-combinato.pdf')
+seen = set()
+for pno in range(1, d.page_count + 1):
+    for info in d[pno - 1].get_images(full=True):
+        x = info[0]
+        if x in seen: continue
+        seen.add(x)
+        r = d.extract_image(x)
+        w, h = r['width'], r['height']
+        if (w < 200 or h < 200) and w >= 100 and h >= 100:
+            print(f'p{pno} xref{x} {w}x{h}')"
+```
+
+**Il capitolo più colpito è di gran lunga il `15 - Il sangue`**, con **otto**
+figure perse fra pagina 177 e pagina 198, perché le sue illustrazioni sono
+ritagli piccoli di striscio. Sono state guardate una per una e non sono icone:
+lo **striscio di sangue** colorato di Wright (p. 177, xref 1134, unica figura
+della pagina), il **citoscheletro dell'eritrocita** e gli **antigeni dei gruppi
+AB0** con la glicoforina (p. 182, xref 1150 e 1151), quattro **strisci con
+eritrociti e leucociti** (p. 180 xref 1143, p. 186 xref 1163, p. 189 xref 1174 e
+1175) e lo **schema dell'eritropoiesi** da proeritroblasto a eritrocita (p. 197,
+xref 1202). Cinque delle otto sono strisci **senza etichette**, cioè proprio il
+materiale da **fronte** che al capitolo servirà di più.
+
+Le altre quindici stanno in **capitoli già scritti**: pagine 7, 13, 16,
+19, 21, 42, 53, 56, 57, 58, 125, 148 e 165. Recuperarle è un **follow-up
+aperto**, non lavoro del capitolo in corso.
+
+**Abbassare la soglia è additivo e non rompe niente pubblicato**, ed è la
+differenza con la trappola del clip path qui sotto: il nome del file è
+`teoria_pNNN_XREF.jpg`, quindi rigenerare **aggiunge** file senza rinominare né
+modificare quelli esistenti, e nessuna carta già consegnata a Pietro cambia. Il
+clip path invece cambierebbe il **contenuto** di file già referenziati, e va
+perciò fatto prima di scrivere altre carte. Resta comunque una modifica a
+`extract.py`, che serve **entrambe le fonti**: va fatta test-first, e dopo va
+ricontrollato che il conteggio del Laboratorio non cambi in modo inatteso.
 
 **Le sezioni si sovrappongono ai bordi.** `images_for_section` assegna per
 intervallo di pagine, quindi una figura a cavallo di due sezioni compare in
