@@ -48,7 +48,7 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1474 carte, 14 mazzi, 331 immagini** per la Teoria e **673 carte,
+Atteso oggi: **1649 carte, 15 mazzi, 378 immagini** per la Teoria e **673 carte,
 11 mazzi, 120 immagini** per il Laboratorio.
 
 **Due pacchetti, uno per fonte**, non uno solo: `--media` è una singola
@@ -62,9 +62,10 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-11
 
-**673 note** di Laboratorio + **1474 di Teoria**, 451 immagini, 153 test verdi.
+**673 note** di Laboratorio + **1649 di Teoria**, 498 immagini, 153 test verdi.
 **Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 14 capitoli su 18, pagine 1-16, 28-148 e 177-226 di 256.
+aperta**: 15 capitoli su 18, pagine 1-16 e 28-226 di 256. Restano il `04` e il
+`05` (pagine 16-28) e il `18` (pagine 227-256).
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -141,6 +142,12 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `12e-confronti-al-microscopio.jsonl` | 12 | sezioni 065-066, pagine 131-134, **mazzi 10 e 11** |
 | `13a-cartilagine-generalita.jsonl` | 51 | sezioni 068-069, pagine 137-144 |
 | `13b-tipi-di-cartilagine.jsonl` | 25 | sezione 069, pagine 145-148 |
+| `14a-generalita-e-matrice.jsonl` | 31 | sezioni 070-071, pagine 149-152 |
+| `14b-osso-lamellare-e-immaturo.jsonl` | 29 | sezione 072, pagine 152-157 |
+| `14c-osteone-e-canali.jsonl` | 27 | sezione 073, prima parte, pagine 157-161 |
+| `14d-le-cellule-del-tessuto-osseo.jsonl` | 33 | sezione 073, seconda parte, pagine 161-167 |
+| `14e-ossificazione.jsonl` | 33 | sezioni 073 (terza parte)-076, pagine 167-173 |
+| `14f-rimodellamento-riparazione-midollo.jsonl` | 22 | sezioni 077-079, pagine 173-176 |
 | `15a-sangue-e-plasma.jsonl` | 39 | sezione 080, prima parte, pagine 177-180 |
 | `15b-eritrociti-e-gruppi-sanguigni.jsonl` | 26 | sezione 080, seconda parte, pagine 180-184 |
 | `15c-leucociti.jsonl` | 42 | sezione 081, prima parte, pagine 184-189 |
@@ -222,7 +229,7 @@ restare unico dentro tutto il mazzo:
 | `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, poi `10a` 037-047 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
-| `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, `12a` 080, `12b` 081, `12d` 082-085, `13a` 086-087, `13b` 088, poi `15a` 089-090 |
+| `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, `12a` 080, `12b` 081, `12d` 082-085, `13a` 086-087, `13b` 088, `15a` 089-090, poi `14a` 091 |
 | `teoria-ghiandole` | `09` 001-016, `10` 017-085, poi `12e` 086-094 |
 | `teoria-endocrino` | `09` 001-006, `11a` 007-041, `11b` 042-089, `11c` 090-121, poi `12e` 122-124 |
 | `teoria-connettivi` | `03` 001-004, `12a` 005-043, `12b` 044-090, `12c` 091-129, `12d` 130-160, poi `13a` 161 |
@@ -230,7 +237,8 @@ restare unico dentro tutto il mazzo:
 | `teoria-cartilagine` | `13a` 001-047, poi `13b` 048-070 |
 | `teoria-linfoide` | `16` 001-077 |
 | `teoria-muscolare` | `03` 001, `17a` 002-047, `17b` 048-091, `17c` 092-115, poi `17d` 116-140 |
-| `teoria-sangue` | `15a` 001-039 (senza 007-008), `15b` 040-065, `15c` 066-107, `15d` 108-137, poi `15e` 138-168 |
+| `teoria-osso` | `14a` 001-030, `14b` 031-059, `14c` 060-086, `14d` 087-119, `14e` 120-152, poi `14f` 153-168 |
+| `teoria-sangue` | `15a` 001-039 (senza 007-008), `15b` 040-065, `15c` 066-107, `15d` 108-137, `15e` 138-168, poi `14f` 169-174 |
 | `teoria-staminali` | `03` 001-011, `11c` 012-016, `12d` 017, `17a` 018-020, poi `15e` 021-025 |
 
 `teoria-sangue-007` e `008` **non esistono**: erano le due carte sulla
@@ -405,6 +413,26 @@ poi `colorazioni` per le due carte il cui contenuto è la colorazione e non il
 tessuto (quali coloranti usa la Wright, che rapporto ha con la Giemsa) e
 `staminali` per le cinque sulle staminali emopoietiche.
 
+**E nemmeno il capitolo 14.** Sta quasi tutto su `osso`, che **esisteva già nel
+Laboratorio** (`lab-osso-001`-`046`, file `06b` e `06d`) ma che nella Teoria non
+era mai stato usato come prefisso di id: `teoria-osso` apre quindi il contatore
+da `001` pur non essendo un tag nuovo, esattamente come `teoria-cartilagine` nel
+13, `teoria-linfoide` nel 16 e `teoria-sangue` nel 15. Riusa poi `colorazioni`
+per la sola carta il cui contenuto è la colorazione e non il tessuto (perché
+l'osso appare più rosa della cartilagine: il collagene è una proteina basica e
+lega l'eosina) e `sangue` per le sei del **midollo osseo**, sul perché vedi qui
+sotto.
+
+**Le sei carte sul midollo osseo del 14 portano `argomento::sangue`**, non
+`osso`, e stanno comunque nel mazzo 14. Il motivo è che la sezione `079`
+(pagine 175-176) e la `083` (pagine 194-197, già cardata dal 15) descrivono
+**la stessa cosa**: se le prime finissero su `osso` e le seconde su `sangue`, la
+selezione trasversale spezzerebbe in due un unico argomento. Il precedente
+contrario esiste (`lab-osso-038`, sul midollo giallo o rosso negli spazi
+intertrabecolari, sta su `osso`), ma lì la carta è un **riconoscimento su un
+vetrino di osso**, non una descrizione del midollo. **Non è stato inventato un
+`midollo` a parte**, e nessuna carta porta due `argomento::`.
+
 **I linfociti stanno su `sangue`, non su `linfoide`**, ed è una scelta
 deliberata: nel capitolo 15 il taglio è quello del **leucocita nello striscio**
 (morfologia, formula leucocitaria, diapedesi, riconoscimento al microscopio),
@@ -456,6 +484,31 @@ renderizzata perché **l'estensione non si capisce dal testo estratto**:
   fino a metà di pagina 198. La **linfocitopoiesi**, subito sotto, è in tondo e
   **non** è marcata: è materiale trattato. Quattro carte,
   `teoria-sangue-163`-`166`.
+
+Il capitolo 14 ne ha aggiunti **tre**, ed è il capitolo che ne ha di più. Tutti e
+tre sono **riquadri brevi e ben delimitati**, come quelli del 17, e tutti e tre
+sono stati verificati sulla pagina renderizzata:
+
+- **pagina 170**, `Approfondimento del docente` sul **VEGF**: il fattore di
+  crescita dei vasi, la **degenerazione maculare** e la terapia con
+  **anti-VEGF**. Copre il solo blocco in corsivo e finisce dove riprende il
+  testo in tondo («L'osso neoformato assume la struttura di spicole…»). Due
+  carte, `teoria-osso-135` e `136`.
+- **pagina 172**, `Approfondimento del docente` sulla **menopausa**: il calo
+  degli estrogeni, lo squilibrio fra riassorbimento e deposizione,
+  l'**osteoporosi**. Due carte, `teoria-osso-151` e `152`. Il riquadro sta a
+  pagina 172, in coda alle condrodisplasie, ma parla dell'**equilibrio del
+  rimodellamento**, che il testo in tondo introduce solo a pagina 173: è
+  collocato prima dell'argomento a cui si riferisce.
+- **pagina 173**, il riquadro che descrive la **figura dell'unità di
+  rimodellamento**: cono di escavazione e cono di riempimento, gli osteoclasti
+  in verde, la matrice in viola, il nuovo osteone. Finisce dove comincia
+  `Dinamica del modellamento`. Due carte, `teoria-osso-156` e `157`.
+
+Attenzione a quest'ultimo: il riquadro descrive la figura, ma il **processo** che
+la figura illustra è trattato subito sotto, in tondo, ed è materiale normale
+(`teoria-osso-158`-`161`). Non tutta la figura è "non trattata": lo sono i **due
+coni** e la lettura dei colori.
 
 Il riquadro va guardato nel PDF
 renderizzato, perché nel testo estratto compare come tre parole isolate e non si
@@ -597,7 +650,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 11 - Ghiandole endocrine | 93-111 | 19 | 8 | **fatto**, 120 note in tre file |
 | 12 - Tessuti connettivi | 111-137 | 27 | 9 | **fatto**, 179 note in cinque file |
 | 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | **fatto**, 76 note in due file |
-| 14 - Tessuto osseo | 149-176 | 28 | 14 | (chiude a **176**, vedi sotto) |
+| 14 - Tessuto osseo | 149-176 | 28 | 14 | **fatto**, 175 note in sei file |
 | 15 - Il sangue | 177-198 | 22 | 13 | **fatto**, 173 note in cinque file |
 | 16 - Sistema linfatico | 198-205 | 8 | 11 | **fatto**, 77 note |
 | 17 - Tessuto muscolare | 205-227 | 23 | 12 | **fatto**, 142 note in quattro file |
@@ -663,27 +716,11 @@ pagine sono poche. **È fatto**, e con lui il `07 - Concetti base di
 microscopia`, il `06 - Tessuti epiteliali`, l'`08 - Epitelio di rivestimento`,
 il `09 - Epiteli ghiandolari`, il `10 - Ghiandole esocrine`, l'`11 - Ghiandole
 endocrine`, il `12 - Tessuti connettivi`, il `13 - Tessuti connettivi di
-sostegno`, il `15 - Il sangue`, il `16 - Sistema linfatico` e il `17 - Tessuto
-muscolare`.
+sostegno`, il `14 - Tessuto osseo`, il `15 - Il sangue`, il `16 - Sistema
+linfatico` e il `17 - Tessuto muscolare`.
 
-**Il prossimo in ordine è il `14 - Tessuto osseo`, pagine 149-176**, che con 28
-pagine è il secondo più lungo della Teoria.
-
-- Il **confine di valle è verificato**: pagina 177 è **interamente del 15** (si
-  apre con l'intestazione della lezione del 13-05-2025 e subito sotto con il
-  titolo `IL SANGUE`), quindi il 14 chiude a **fine pagina 176**, benché la
-  sezione `079` (`Midollo osseo`) dichiari 175-177. Pagina 176 **non ha figure**,
-  quindi al confine non c'è niente da contendersi.
-- Il **confine di monte è già stato guardato scrivendo il 13** ed è documentato
-  nella sottosezione "Il mazzo 13 e la cartilagine": pagina 149 è interamente del
-  14 e la figura `teoria_p149_1023` (sezione di femore) è sua.
-- **Attenzione: due sezioni si chiamano `Midollo osseo`.** La `079` (pagine
-  175-177) è del mazzo 14; la `083` (pagine 194-197) è del mazzo 15, ed è **già
-  scritta**. Il titolo identico è lo stesso inciampo della `091`/`092` nel 17.
-- Fra pagina 149 e pagina 176 c'è **una figura che la vecchia soglia di
-  `is_artifact` scartava**, `teoria_p165_1091` (301x138): ora è estratta, quindi
-  il conteggio delle figure del capitolo è di una unità più alto di quello che
-  una sessione precedente avrebbe visto. Vedi il punto 6.
+**Il prossimo in ordine è il `18 - Il tessuto nervoso`, pagine 227-256.** Vedi
+il puntatore in fondo a questo punto.
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
 dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
@@ -994,6 +1031,241 @@ Quattro figure stanno sul **fronte**, e sono le sole che portino marcatori muti:
 `P`, `CA`, `MT`, `MI`, `N`) e `teoria_p148_1017` (`C`, `M`, `NP` sulla
 fibrocartilagine). Tutto il resto sono schemi, tavole e figure di libro con la
 **didascalia stampata sopra**, cioè materiale da retro.
+
+#### Il mazzo 14 e il tessuto osseo
+
+**Il `14 - Tessuto osseo` va da inizio pagina 149 a fine pagina 176.** Entrambi i
+confini erano già stati verificati e sono stati riconfermati:
+
+- **pagina 149** è interamente del 14 (si apre con il titolo `TESSUTO OSSEO`) e
+  la figura `teoria_p149_1023`, la sezione di femore, è sua, benché
+  `images_for_section` la assegni alla sezione `069`;
+- **pagina 176** chiude il capitolo con l'elenco delle cellule del midollo rosso
+  ed è **mezza vuota**; pagina 177 si apre con l'intestazione della lezione del
+  13-05-2025 e il titolo `IL SANGUE`. Pagina 176 **non ha figure**.
+
+Il capitolo copre le sezioni da `070` a `079`, **circa 12.700 parole**, ed è il
+**più grosso della Teoria**: più del 12 (10.400) e del 15 (9.800). È **diviso in
+sei file**, il numero più alto finora.
+
+| File | Sezioni | Pagine | Contenuto |
+|---|---|---|---|
+| `14a-generalita-e-matrice.jsonl` | `070`-`071` | 149-152 | definizione, funzioni, classificazione macroscopica, matrice organica e inorganica, osteonectina e osteocalcina, mineralizzazione e demineralizzazione, i due metodi di preparazione, lacune e canalicoli |
+| `14b-osso-lamellare-e-immaturo.jsonl` | `072` | 152-157 | osso lamellare compatto e spugnoso, osso immaturo, trabecole e linee di forza (**è qui che sta la doppia stesura**) |
+| `14c-osteone-e-canali.jsonl` | `073` (1ª parte) | 157-161 | tavolati, osteone, lamelle interstiziali e circonferenziali, formazione dell'osteone, osteoni secondari, canali di Havers e di Volkmann, periostio, fibre di Sharpey, endostio |
+| `14d-le-cellule-del-tessuto-osseo.jsonl` | `073` (2ª parte) | 161-167 | i quattro citotipi, linea mesenchimale e BMP, osteoblasti e osteoide, cellule di rivestimento, osteociti meccanorecettori, osteoclasti, lacuna di Howship, riassorbimento |
+| `14e-ossificazione.jsonl` | `073` (3ª parte)-`076` | 167-173 | tipi di ossificazione, intramembranosa (**seconda doppia stesura**), endocondrale, cartilagine di accrescimento, condrodisplasie |
+| `14f-rimodellamento-riparazione-midollo.jsonl` | `077`-`079` | 173-176 | rimodellamento, unità di rimodellamento, riparazione delle fratture, midollo osseo |
+
+Come per `06a`/`06b`, `08a`-`08c`, `11a`-`11c`, `15a`-`15e` e `17a`-`17d`, tutti
+e sei i file condividono lo stesso mazzo `Istologia::Teoria::14 - Tessuto osseo`.
+
+**Come sono stati decisi i tagli.** Il capitolo ha **due cambi di lezione al suo
+interno** (pagine 154 e 169; il terzo, a pagina 177, apre il 15) e **due doppie
+stesure**, e sono queste ultime a decidere tutto:
+un taglio in mezzo a una doppia stesura avrebbe messo le due passate in file
+diversi, con il rischio di due parafrasi della stessa carta, che il validatore
+**non** intercetta perché blocca solo le domande identiche.
+
+- **La sezione `072` (pagine 152-157) è tutta doppia stesura.** Le pagine 152-153
+  chiudono la prima lezione con osso lamellare e osso immaturo; pagina 154 apre
+  la lezione del **15-04-2025** (sbobinatori Benedetti e Benacchio) con la riga
+  `[continuazione della lezione precedente sul TESSUTO OSSEO]` e **rifà gli
+  stessi argomenti**: immaturo contro maturo, spugnoso contro compatto. Il cambio
+  di lezione a pagina 154 era il taglio più ovvio ed è stato **scartato**: `14b`
+  tiene entrambe le passate, esattamente come `17a` tiene le due stesure
+  dell'introduzione al muscolare.
+- **Anche la sezione `073` finisce dentro una doppia stesura.** Pagina 169 apre
+  la lezione del **06-05-2025** (sbobinatori Calone e Airoma) con un `[N.d.S.:
+  questi argomenti sono stati trattati velocemente nella lezione precedente. Si
+  riporta, per completezza, anche quanto detto in questa lezione]`, e rifà i
+  **tipi di ossificazione** e l'**ossificazione intramembranosa**, già trattati
+  alle pagine 167-168. La seconda passata finisce dove un secondo `[N.d.S.: da
+  qui cominciano gli argomenti trattati esclusivamente il 06-05-2025]`, a metà di
+  **pagina 170**, dichiara chiuso il ripasso. Il taglio è quindi a **pagina 167**,
+  all'inizio di `Tipi di ossificazione`: così `14e` contiene tutte e due le
+  passate.
+- **La `073` da sola vale 5.900 parole**, quasi metà del capitolo, e va spezzata
+  al suo interno in tre. Il primo taglio, fra `14c` e `14d`, cade a pagina 161 su
+  un **confine di contenuto netto**: sopra la **struttura** dell'osso compatto
+  (lamelle, canali, involucri), sotto il titolo `Le cellule del tessuto osseo`.
+  Il secondo è quello di pagina 167 appena descritto.
+
+**Le due doppie stesure sono state fuse, non scritte due volte**, con il metodo
+del mazzo 11: una sola carta per fatto, costruita sulla **versione più completa**,
+e `source` con **entrambe le pagine** (`5th gen p. 152 e p. 154`) quando il fatto
+sta in tutte e due. La seconda passata della `072` è quella più ricca su
+spugnoso, compatto e linee di forza; la prima è l'unica ad avere filogenesi
+dell'osso immaturo, sedi nell'adulto, spessore delle lamelle e forma delle lacune.
+
+**Un terzo caso di ripetizione non è un cambio di lezione**, ed è più insidioso
+perché a cavallo di due file: **periostio, endostio, lacune e canalicoli
+compaiono due volte**, brevemente a pagina 151 (sezione `071`) e per esteso a
+pagina 161 (sezione `073`). Le carte sono state scritte **una volta sola**, sulla
+versione di pagina 161, con `source` `5th gen p. 151 e p. 161`, e stanno in `14c`:
+`14a` non le ripete. Stesso trattamento per i **due metodi di preparazione**
+(demineralizzazione e sezione per usura), descritti nelle integrazioni di pagine
+150-151 e poi di nuovo a pagina 156: le carte stanno in `14a` con `source`
+`5th gen p. 150-151 e p. 156`, e `14b` usa la figura di pagina 156 per una carta
+di **riconoscimento**, che è cosa diversa.
+
+**Il midollo osseo si sovrappone al mazzo 15, e questa è la trappola peggiore
+del capitolo.** La sezione `079` (pagine 175-176) e la sezione `083` (pagine
+194-197, già cardata in `15e`) hanno **lo stesso titolo e in parte lo stesso
+contenuto**. Il 15 aveva già coperto consistenza e stroma gelatinoso
+(`teoria-sangue-139`), peso di 2,6 kg e 4% del peso corporeo (`140`), differenza
+fra midollo rosso e giallo (`141`), sedi del rosso nell'adulto (`142`) e le tre
+categorie di cellule midollari (`teoria-staminali-021`). **Quelle carte non sono
+state riscritte.** Il `14f` prende solo ciò che il 15 non ha:
+
+- le **tre funzioni** del midollo osseo, che sono l'angolo del capitolo sull'osso
+  (`teoria-sangue-169`);
+- il passaggio **rosso → giallo con l'età** (dai 20 anni) e le **sedi del
+  midollo giallo** (omero e femore), che il 15 non nomina (`170`);
+- l'elenco dei **sette citotipi** del midollo rosso, molto più fine delle tre
+  categorie di `teoria-staminali-021`, con lo **0,1%** delle staminali
+  emopoietiche (`171`-`174`).
+
+Il validatore **non avrebbe visto niente**, perché i due mazzi sono diversi e
+controlla i duplicati solo dentro lo stesso mazzo: chi tocca questo confine deve
+rileggere `15e` prima di scrivere.
+
+**Il controllo del clip path del punto 6 è stato eseguito sulle pagine 149-176 e
+ha segnalato quattro placement su 54.** È l'esito più pulito dopo il 16. Nessuna
+finestra di browser:
+
+- `teoria_p151_1030` (corr 0,77): al limite della soglia, **integra**, con il
+  bordo appena rifilato. È la sezione per usura con i marcatori muti `CH`, `LO`,
+  `CV`, ed è usata sul **fronte**.
+- `teoria_p156_1051` (corr 0,34, segnalata **due volte** perché la pagina la
+  colloca in due punti): il file estratto è la **figura intera a due pannelli**
+  `A`/`B`, che la pagina **spezza in due ritagli separati** e distanti. È il caso
+  di `teoria_p144_999` nel 13. Usata intera, sul **fronte**.
+- `teoria_p165_1091` (corr −0,49, 301x138): **non è una figura**. È uno dei
+  **rettangoli colorati sovrapposti** allo schema dell'osteoclasto di pagina 165
+  (quello blu sulla regione basolaterale), estratto come un rettangolo nero con
+  il bordo blu. **Scartata.**
+
+Quest'ultima merita attenzione: era **l'unica figura del capitolo recuperata
+abbassando la soglia di `is_artifact`** scrivendo il 15, e il piano la dava per
+materiale da recuperare. Non lo era. Il capitolo **non ha guadagnato niente** da
+quella modifica, al contrario del 15 che ci ha guadagnato otto figure.
+
+**Delle 53 figure delle pagine 149-176 ne sono state usate 47.** Le sei scartate
+sono `teoria_p165_1091`, il rettangolo di cui sopra, e **cinque doppioni della
+doppia stesura**, per i quali è stata tenuta ogni volta la **versione più
+grande**:
+
+| Scartata | Tenuta | Che cos'è |
+|---|---|---|
+| `teoria_p152_1035` | `teoria_p154_1042` | osteone in ematossilina-eosina con il marcatore muto `O` |
+| `teoria_p152_1036` | `teoria_p154_1041` | osso immaturo in ematossilina-eosina |
+| `teoria_p169_1104` | `teoria_p167_1097` | schema a quattro pannelli dell'ossificazione intramembranosa |
+| `teoria_p170_1107` | `teoria_p168_1100` | schema del centro di ossificazione più microfotografia |
+| `teoria_p170_1108` | `teoria_p168_1101` | sezione di mandibola, figura 8.19 |
+
+**Quindici figure su 47 stanno sul fronte** (32%), ed è la **proporzione più alta
+di tutta la Teoria** (nel 15 erano otto su 29, cioè il 28%). Il motivo è che
+l'osso si studia su **due tipi di preparato**, il demineralizzato e la sezione
+per usura, e le microfotografie di entrambi portano quasi sempre **marcatori muti
+a due lettere** invece di didascalie: `CO`, `LO`, `CH`, `CV`, `OST`, `T`, `MO`,
+`VS`, `Ob`, `Oc`, `O`. Sono `teoria_p150_1026`, `p150_1027`, `p151_1030`,
+`p154_1041`, `p154_1042`, `p155_1046`, `p156_1051`, `p157_1054`, `p160_1069`,
+`p163_1081`, `p164_1085` e `p166_1094`. Le altre tre sono **senza alcuna
+etichetta**: `p161_1073` (le fibre di Sharpey che entrano nelle lamelle
+circonferenziali), `p170_1109` (osso spugnoso in via di formazione) e
+`p174_1125` (la microradiografia con gli osteoni a mineralizzazione diversa).
+
+Tutto il resto sono schemi, tavole e figure di libro con la **didascalia stampata
+sopra**, cioè materiale da retro.
+
+Un caso è al limite e vale la pena spiegarlo: `teoria_p166_1094` porta stampata
+la didascalia del libro «Fotografia al microscopio ottico di un **osteoclasto**
+su una spicola ossea», ma la carta che ci sta sopra chiede di distinguere
+**osso e cartilagine** dentro la stessa spicola, cosa che la didascalia non
+rivela. È il criterio di `teoria_p203_1222` nel 16: le etichette danno il
+contesto senza dare la risposta.
+
+**Dodici segnalazioni su 175 carte** (6,9%), fra il tasso del 15 (5,8%) e quello
+del 16 (9,1%). **Sette nascono da contraddizioni interne alla dispensa**, ed è la
+quota più alta di tutta la Teoria:
+
+- le lamelle circonferenziali interne date insieme «a contatto con il canale di
+  Havers» e come quelle che «separano l'osso dalla cavità midollare» (`063`);
+- le lamelle deposte **verso l'interno** del canale che però lo renderebbero
+  «più grande» (`074`) — a pagina 173 la stessa dispensa dice che si dispongono
+  «dalla periferia verso il centro» e che alla fine «rimane solo una cavità
+  centrale»;
+- l'osso compatto resistente in **una sola direzione** a pagina 152 e «alle
+  sollecitazioni provenienti dalle diverse direzioni» a pagina 156, cioè il punto
+  in cui le due stesure della `072` divergono (`037`);
+- le **lacune ossee** collocate dentro le **cavità midollari** una riga prima di
+  dire che gli osteociti sono «immersi nella matrice ossea mineralizzata»
+  (`050`);
+- l'osteoclasto di **100 micron** paragonato a «cellule come i **monociti**», che
+  ne misurano quindici (`103`);
+- gli osteociti che «non hanno un ruolo primario nel rimodellamento» due
+  paragrafi prima di essere quelli che producono i segnali chemiotattici che
+  attivano gli osteoclasti, e dopo che pagina 149 li ha indicati come i
+  captatori dello stimolo (`102`);
+- il **cranio** che cresce «per deposizione di nuovo osso sulla superficie
+  esterna» e che due frasi dopo riassorbe proprio sulla superficie esterna
+  (`134`).
+
+Le altre cinque sono errori verso la nozione classica: i **canalicoli**
+identificati con i canali trasversali «di Voorman» (`049`), i **canali
+trasversali** chiamati «osteoni» nella didascalia di pagina 151 (`023`), le
+«cellule **epiteliali**» elencate fra quelle dell'endostio nella didascalia della
+figura (`086`), la «forte capacità **mitotica**» attribuita agli osteoblasti
+(`097`) e il recettore del **FGF** dato per acceleratore della crescita ossea
+mentre la sua mutazione **attivatoria** causa il nanismo (`150`).
+
+**Due refusi sono stati risolti senza tag**, perché non c'è dubbio di contenuto:
+
+- la dispensa chiama **«canale trasversale di Voorman»** quello che a pagina 160,
+  e in tutte le figure delle pagine 158 e 160, chiama correttamente **canale di
+  Volkmann**. Il nome è stato scritto giusto nelle carte. Resta invece la
+  segnalazione `049`, che non è sul **nome** ma sulla **cosa**: lì i canalicoli e
+  i canali trasversali sono dati per la stessa struttura.
+- il titoletto di pagina 164 dice **«Gli osteoclasti come meccanorecettori»** ma
+  il paragrafo parla per intero degli **osteociti**, come tutto il resto del
+  capitolo. È un lapsus di intestazione e non tocca il contenuto.
+- a pagina 152 la dispensa scrive «scheletro inferiore dei vertebrati» per
+  «scheletro dei **vertebrati inferiori**»: è un'inversione di parole, ed è
+  segnalata in corsivo sulla carta `045` senza tag.
+
+**L'aggancio con `lab-osso-046` si chiude qui, e la teoria dà ragione al
+sospetto.** Il Laboratorio metteva dei **condroblasti** lungo le pareti dei canali
+di Havers. La teoria dice, a pagina 161, che i canali di Havers e di Volkmann sono
+rivestiti da **endostio**, il quale contiene «cellule di rivestimento, cellule
+osteoprogenitrici, osteoblasti e osteoclasti» (`teoria-osso-085` e `086`), e
+ripete a pagina 162 che «le cellule osteoprogenitrici si trovano [...] anche
+all'interno dei canali di Havers e di Volkmann, che sono anch'essi rivestiti da
+endostio» (`teoria-osso-090`). I condroblasti non ci sono, e le cellule attese
+sono esattamente quelle che il Laboratorio non nominava. La teoria quindi
+**corregge il Laboratorio**, e non è stata aperta una segnalazione nuova: quella
+sul Laboratorio resta e ora ha una risposta, come per `lab-endocrino-014`,
+`lab-muscolare-016` e `lab-linfoide-015`.
+
+**Per il resto le due fonti non si contraddicono.** Il Laboratorio
+(`lab-osso-001`-`046`, file `06b` e `06d`) guarda il **vetrino** e il
+riconoscimento; la Teoria i **meccanismi**. Dove si toccano dicono la stessa
+cosa: le fibre di Sharpey che si addentrano nel sistema di lamelle
+(`lab-osso-012` e `teoria-osso-084`), i canali di Volkmann (`lab-osso-027` e
+`teoria-osso-077`), i due metodi di preparazione (`lab-osso-006`-`009` e
+`teoria-osso-021`-`022`).
+
+**Un `[N.d.S.]` non produce carte**: quello di pagina 173, che riporta il link a
+un video sul rimodellamento visionato in aula. È il caso dei video di pagina 217 e
+226 nel 17.
+
+**Le integrazioni sono tutte additive**, come nel 15 e nel 16 e a differenza del
+17. Sono quattro, tutte fra le pagine 150 e 151: tre `[Integrazione da sbobina
+2023/2024]` (la microfotografia di osso demineralizzato, la preparazione della
+sezione per usura, il destino dell'osteoblasto inglobato) e una `[Integrazione da
+sbobina 2022/2023]` (la **calcinazione**, cioè la combustione in ossigeno che
+rende l'osso friabile come la porcellana). Nessuna ripete il testo principale, e
+tutte sono citate in corsivo in fondo al `back`.
 
 #### Il mazzo 15 e il sangue
 
@@ -1390,6 +1662,49 @@ punto di vista diverso (meccanismi invece che riconoscimento al vetrino). Non è
 duplicazione da evitare, sono due tagli complementari. Il validatore blocca solo
 i duplicati esatti dentro lo stesso mazzo.
 
+#### Il prossimo capitolo
+
+**Tocca al `18 - Il tessuto nervoso`, pagine 227-256**, che con 30 pagine è il
+**più lungo della Teoria** e l'ultimo dei quattro capitoli densi.
+
+- Il **confine di monte è già verificato**, ed è documentato nella sottosezione
+  "Il mazzo 17 e il tessuto muscolare": **pagina 227 è interamente sua**, si apre
+  con l'intestazione della lezione del 22-05-2025 (sbobinatori Bergamin e
+  Maccarini) e subito sotto con il titolo `IL TESSUTO NERVOSO`. Le **due figure
+  di pagina 227** (`teoria_p227_1335`, la tavola del tessuto nervoso, e
+  `teoria_p227_1336`, lo schema SNC/SNP) sono **sue**, benché
+  `images_for_section` le assegni alla sezione `099`.
+- Il **confine di valle non è stato guardato**: pagina 256 è l'ultima del PDF,
+  ma va comunque verificato che il capitolo non finisca prima.
+- `teoria-nervoso` **riparte da 003**: il capitolo 03 ha già usato `001` e `002`
+  per la panoramica dei quattro tessuti (vedi la tabella "Il capitolo 03 apre
+  quattro argomenti"). È l'unico dei quattro argomenti aperti dal 03 che non sia
+  ancora stato proseguito.
+- **Il Laboratorio ha già coperto il nervoso** in modo esteso
+  (`lab-nervoso-001`-`084`, file `08a`, `08b` e `08b2`, più il quiz `08c`), ed è
+  il posto dove cercare contraddizioni fra le due fonti. Restano **due
+  segnalazioni aperte** dal lato del Laboratorio: `lab-nervoso-015` (la sostanza
+  tigroide che si vedrebbe solo con colorazioni speciali) e `lab-nervoso-069`
+  (la tecnica di Golgi che darebbe basofilia). Se la teoria dà una risposta, va
+  registrata qui come è stato fatto per `lab-endocrino-014`, `lab-muscolare-016`
+  e `lab-osso-046`, **senza aprire una segnalazione nuova**.
+- Copre le sezioni da `100` a `110`, **circa 11.700 parole** e **47 figure**
+  fra pagina 227 e pagina 256: poco meno del 14 su entrambi i conti (12.700
+  parole e 53 figure). Aspettati **cinque o sei file**.
+- La sezione **`105`** (`Suddivisione del SNP`, pagine 233-246) da sola vale
+  **4.700 parole**, cioè il 40% del capitolo: va spezzata **al suo interno**,
+  come la `073` nel 14 e la `080` e la `081` nel 15. Cerca il confine di
+  contenuto e, prima, i cambi di lezione.
+- La sezione **`108`** si intitola `Cellule staminali neurali` (pagine 251-254,
+  1.256 parole): quasi certamente aprirà carte su `argomento::staminali`, che
+  **riparte da `026`**. Sarà il quinto capitolo a proseguire quel contatore.
+
+Dopo il 18 restano solo il `04 - Cellule staminali e potenziale differenziativo`
+(pagine 16-24) e il `05 - Applicazioni terapeutiche delle cellule staminali`
+(pagine 24-28). Chi li scrive riparte da **dove il 18 avrà lasciato**
+`teoria-staminali`, e trova già estratte le **quattro figure** delle pagine 16,
+19 e 21 recuperate abbassando la soglia di `is_artifact` (punto 6).
+
 ### Ritmo di consegna
 
 Un capitolo per volta: scrivere le carte, `build_apkg` (che valida), commit.
@@ -1399,7 +1714,7 @@ Ogni capitolo committato è un incremento che Pietro può già importare.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Ottantuno carte taggate, più due figure scartate senza produrre carta. Vale la pena
+Novantatré carte taggate, più due figure scartate senza produrre carta. Vale la pena
 rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
 
 | Carta | Cosa non torna |
@@ -1485,6 +1800,18 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-sangue-132` | dice che il fattore XIa attiva il fattore IX, "**componente essenziale anche della via comune**", ma il paragrafo successivo fa cominciare la via comune dal **fattore X**; il IX appartiene alla sola via intrinseca |
 | `teoria-sangue-144` | usa la sigla **CFU-M** per il progenitore **mieloide** comune, mentre a pagina 188 la stessa dispensa usa **M-CFU** per la linea dei soli **monociti**. Nella nomenclatura corrente CFU-M è proprio quest'ultima (*macrophage colony-forming unit*) e il progenitore mieloide comune si indica con CMP |
 | `teoria-sangue-160` | dice che il megacariocita poliploide arriva a contenere "fino a **64 cromosomi**"; il valore classico è **64n**, cioè fino a 64 *corredi* (qualche migliaio di cromosomi). Con 64 cromosomi la cellula sarebbe poco più che diploide, e non si spiegherebbero né la poliploidia né le sue dimensioni |
+| `teoria-osso-023` | descrivendo la sezione per usura di pagina 151, chiama **osteoni** i canali trasversali visibili in basso: "canali trasversali, gli osteoni, che connettono ciascuna struttura lamellare a quella adiacente". Gli osteoni sono le strutture lamellari stesse; i canali trasversali sono i **canali di Volkmann**, come la stessa dispensa dice a pagina 160 e come stampano le figure di pagina 158 |
+| `teoria-osso-037` | a pagina 152 dà l'osso compatto per resistente in **un'unica direzione**, perché le lamelle sono orientate tutte allo stesso modo; a pagina 156, nella seconda stesura della stessa lezione, dice che "la struttura cilindrica degli osteoni è progettata per resistere alle sollecitazioni meccaniche provenienti dalle **diverse direzioni**". È uno dei punti in cui le due stesure si contraddicono |
+| `teoria-osso-049` | chiama i **canalicoli** che collegano le lacune "canali trasversali di Voorman". I canali trasversali (di **Volkmann**) collegano invece fra loro i **canali di Havers** e li connettono ai vasi esterni all'osso, come la stessa dispensa dice a pagina 160: sono due strutture diverse, non due nomi della stessa |
+| `teoria-osso-050` | fa derivare le **cavità midollari** dai fasci intrecciati di collagene "in seguito alla mineralizzazione" e vi colloca dentro le **lacune ossee** con gli osteociti; la frase immediatamente successiva della stessa pagina dice però che "gli osteociti sono immersi nella matrice ossea mineralizzata", che è dove stanno le lacune |
+| `teoria-osso-063` | dà le lamelle circonferenziali interne per "a contatto con il **canale di Havers**" e, nella stessa frase, per quelle che "separano l'osso dalla **cavità midollare** interna". Le due cose non stanno insieme: il canale di Havers è al centro di ogni singolo osteone. Gli schemi di pagina 158 e 159 disegnano le circonferenziali interne al confine con il canale midollare |
+| `teoria-osso-074` | dice che le lamelle successive dell'osteone vengono deposte **verso l'interno** del canale, e nella frase dopo che questo rende "il canale di Havers **più grande** man mano che vengono depositate nuove lamelle". Deponendo verso l'interno il lume si restringe, ed è quanto la stessa dispensa dice a pagina 173, dove le lamelle "si dispongono dalla periferia verso il centro" e alla fine "rimane solo una cavità centrale" |
+| `teoria-osso-086` | la didascalia della figura dell'endostio elenca fra le sue cellule delle "**cellule epiteliali**", che il testo della stessa pagina non nomina mai; le cellule appiattite dell'endostio sono le **cellule di rivestimento dell'osso**, di origine osteoblastica |
+| `teoria-osso-097` | attribuisce agli **osteoblasti** una "forte capacità mitotica"; l'osteoblasto è classicamente una cellula differenziata e secernente, con scarsa o nulla attività proliferativa, ed è la **cellula osteoprogenitrice** a proliferare, come la dispensa stessa lascia intendere chiamandola il precursore che si differenzia "ogni volta che è necessario depositare nuovo osso" |
+| `teoria-osso-102` | dice che gli osteociti "non hanno un ruolo primario nel rimodellamento osseo" e che solo "alcuni studi suggeriscono" che ne influenzino il riassorbimento; ma pagina 149 li indica come le cellule che **captano gli stimoli** del rimodellamento, e poche righe sotto sono proprio loro a produrre i **segnali chemiotattici** che attivano gli osteoclasti |
+| `teoria-osso-103` | paragona i **100 micron** dell'osteoclasto a "una grandezza simile a quella di cellule come i **monociti**"; il monocita è la più grande cellula del sangue con 15-20 µm, cioè cinque volte meno, e il paragone contraddice la frase stessa, che apre definendo l'osteoclasto una cellula "molto grande" |
+| `teoria-osso-134` | fa crescere il **cranio** "principalmente per apposizione, cioè per deposizione di nuovo osso sulla **superficie esterna**" e due frasi dopo dice che "sulla superficie esterna, quella convessa, si verifica un **riassorbimento**" mentre su quella interna avviene la deposizione. Classicamente vale il primo verso: si depone sulla convessa e si riassorbe sulla concava, ed è questo a far ingrandire la volta cranica conservandone la curvatura |
+| `teoria-osso-150` | descrive il recettore del **FGF** come quello che "aiuta nell'accrescimento delle ossa", e nella stessa pagina fa causare il **nanismo** da una sua mutazione **attivatoria**. Se aiutasse la crescita, tenerlo acceso darebbe ossa più lunghe; l'FGFR3 è classicamente un **regolatore negativo** della proliferazione dei condrociti |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
 | (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
@@ -1494,7 +1821,18 @@ Casi risolti senza tag, perché il refuso è evidente e non c'è dubbio di conte
 - a pagine 145 e 146 scrive "piastre **ipofisarie**" per piastre **epifisarie**
   (`teoria-cartilagine-049` e `056`). La stessa dispensa usa il termine giusto a
   pagina 138, dove le definisce "regioni di cartilagine collocate tra le epifisi
-  e la diafisi", a pagina 144 e nella didascalia della figura di pagina 146.
+  e la diafisi", a pagina 144 e nella didascalia della figura di pagina 146;
+- a pagine 151, 152 e 153 scrive "canale trasversale di **Voorman**" per canale
+  di **Volkmann**. La stessa dispensa usa il nome giusto a pagina 160, dove
+  intitola un paragrafo `Canali di Havers e canali di Volkmann`, e nelle figure
+  delle pagine 158, 159 e 160, che lo portano stampato sopra. Resta invece la
+  segnalazione `teoria-osso-049`, che non riguarda il **nome** ma la **cosa**;
+- a pagina 152 scrive "scheletro inferiore dei vertebrati" per scheletro dei
+  **vertebrati inferiori** (`teoria-osso-045`): è un'inversione di parole, ed è
+  segnalata in corsivo sulla carta senza tag;
+- a pagina 164 intitola un paragrafo "Gli **osteoclasti** come meccanorecettori",
+  ma il paragrafo parla per intero degli **osteociti**, come tutto il resto del
+  capitolo. È un lapsus di intestazione e non tocca il contenuto.
 
 ---
 
@@ -1607,11 +1945,19 @@ finite sulle carte):
 |---|---|---|
 | p. 7 (mazzo 01), p. 13 (03), p. 42 (06), p. 53, 56, 57 ×2, 58 (07), p. 125 (12), p. 148 (13) | 10 | **già scritti**: è un follow-up aperto, non lavoro del capitolo in corso |
 | p. 16, 19 ×2, 21 (mazzo 04) | 4 | **da scrivere**: chi farà il 04 le troverà già estratte |
-| p. 165 (mazzo 14) | 1 | **da scrivere**: è il prossimo capitolo |
+| p. 165 (mazzo 14) | 1 | **falso positivo**, vedi qui sotto |
 
 *Attenzione*: la stesura precedente di questo piano dava tutte e quindici per
-"in capitoli già scritti". Non è così: **cinque stanno in capitoli ancora da
+"in capitoli già scritti". Non è così: **quattro stanno in capitoli ancora da
 fare**, e per quelle non c'è niente da recuperare a posteriori.
+
+**La quindicesima non era una figura.** `teoria_p165_1091` (301x138) è stata
+guardata scrivendo il mazzo 14 ed è uno dei **rettangoli colorati sovrapposti**
+allo schema dell'osteoclasto di pagina 165, quello blu che marca la regione
+basolaterale: il file estratto è un rettangolo **nero con il bordo blu**, e la
+correlazione con la pagina è −0,49. È stata scartata. Il capitolo 14 **non ha
+guadagnato nulla** dall'abbassamento della soglia: ci si aspettava il contrario,
+e vale la pena ricordarlo prima di ricontrollare gli altri capitoli.
 
 Per ritrovare le immagini che una soglia scarta, il modo è questo (con `< 100`
 al posto di `< 200` per verificare che cosa resta fuori oggi):
