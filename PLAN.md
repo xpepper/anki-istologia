@@ -48,7 +48,7 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1813 carte, 16 mazzi, 424 immagini** per la Teoria e **673 carte,
+Atteso oggi: **1871 carte, 18 mazzi, 445 immagini** per la Teoria e **673 carte,
 11 mazzi, 120 immagini** per il Laboratorio.
 
 **Due pacchetti, uno per fonte**, non uno solo: `--media` è una singola
@@ -62,10 +62,15 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-12
 
-**673 note** di Laboratorio + **1813 di Teoria**, 544 immagini, 153 test verdi.
-**Il Laboratorio è finito**: tutte e 106 le pagine sono coperte. **La Teoria è
-aperta**: 16 capitoli su 18, pagine 1-16 e 28-256 di 256. Restano solo il `04` e
-il `05` (pagine 16-28), cioè **l'unico buco rimasto è in mezzo, non in fondo**.
+**673 note** di Laboratorio + **1871 di Teoria**, 565 immagini, 153 test verdi.
+
+**Il progetto è finito.** Il Laboratorio copre tutte e 106 le sue pagine, la
+Teoria tutti e **diciotto** i capitoli e tutte e 256 le pagine. Non c'è più
+nessun buco, né in fondo né in mezzo.
+
+Restano aperti i due follow-up del punto 6, che **non sono lavoro sulle carte**:
+le dieci figure recuperate in capitoli già scritti e il clip path di
+`extract.py`. Vedi la chiusura del punto 4.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -124,6 +129,8 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `01-preparazione-preparato.jsonl` | 64 | sezioni 001-006, pagine 1-7 |
 | `02-colorazioni-istochimiche.jsonl` | 60 | sezioni 007-009 + inizio 010, pagine 7-12 |
 | `03-tessuti-e-rinnovamento.jsonl` | 58 | sezione 010, seconda metà, pagine 12-15 |
+| `04-cellule-staminali-e-potenziale-differenziativo.jsonl` | 37 | sezioni 011-017, pagine 16-24 (prima metà) |
+| `05-applicazioni-terapeutiche-delle-cellule-staminali.jsonl` | 21 | sezioni 018-020, pagine 24 (seconda metà)-27 |
 | `06a-epiteli-di-rivestimento.jsonl` | 84 | sezione 021, pagine 28-37 |
 | `06b-giunzioni-e-dominio-basale.jsonl` | 74 | sezioni 022-023, pagine 38-48 |
 | `07-concetti-base-di-microscopia.jsonl` | 89 | sezione 024, pagine 49-59 |
@@ -245,7 +252,7 @@ restare unico dentro tutto il mazzo:
 | `teoria-muscolare` | `03` 001, `17a` 002-047, `17b` 048-091, `17c` 092-115, poi `17d` 116-140 |
 | `teoria-osso` | `14a` 001-030, `14b` 031-059, `14c` 060-086, `14d` 087-119, `14e` 120-152, poi `14f` 153-168 |
 | `teoria-sangue` | `15a` 001-039 (senza 007-008), `15b` 040-065, `15c` 066-107, `15d` 108-137, `15e` 138-168, poi `14f` 169-174 |
-| `teoria-staminali` | `03` 001-011, `11c` 012-016, `12d` 017, `17a` 018-020, `15e` 021-025, poi `18f` 026-040 |
+| `teoria-staminali` | `03` 001-011, `11c` 012-016, `12d` 017, `17a` 018-020, `15e` 021-025, `18f` 026-040, `04` 041-077, poi `05` 078-098 |
 | `teoria-nervoso` | `03` 001-002, `18a` 003-030, `18b` 031-050, `18c` 051-079, `18d` 080-102, `18e` 103-135, poi `18f` 136-147 |
 
 `teoria-sangue-007` e `008` **non esistono**: erano le due carte sulla
@@ -297,9 +304,11 @@ topo, carbonio-14 nell'uomo). Stesso criterio: la **rigenerazione dell'assone**
 dopo una lesione resta invece su `nervoso`, perché non è una questione di
 staminalità — le staminali neurali, dice la dispensa stessa a pagina 255, **non
 partecipano** alla rigenerazione.
-**Chi scriverà i mazzi 04 e 05 riparte da 041.** Restano nel mazzo
-dove la sbobina le colloca, ma la selezione per argomento le pesca insieme alle
-staminali.
+**I mazzi 04 e 05 hanno poi chiuso il contatore**, il 04 da `041` a `077` e il
+05 da `078` a `098`: sono gli unici due capitoli in cui `staminali` è l'**unico**
+`argomento::` su tutte le carte, come `linfoide` nel 16. Le carte dei capitoli
+precedenti restano nel mazzo dove la sbobina le colloca, ma la selezione per
+argomento le pesca insieme a questi due.
 
 **Il capitolo 12 riapre `embriologia` e prosegue `connettivi`.** Le quattro
 carte sull'origine mesenchimale dei connettivi (mesoderma, creste neurali,
@@ -349,12 +358,16 @@ così una selezione per argomento pesca da entrambi i tagli. `tecnica-istologica
 (fissazione, inclusione, taglio, congelamento) più le carte introduttive sulla
 disciplina.
 
-Il capitolo 03 ha aggiunto gli ultimi due valori e non se ne prevedono altri:
+Il capitolo 03 ha aggiunto gli ultimi due valori, e nessuno dei quindici
+capitoli scritti dopo di lui ne ha aggiunti altri: **l'elenco qui sopra è
+chiuso**.
 
 - `tessuti` — la panoramica: che cos'è un tessuto, l'equilibrio dinamico, le
   popolazioni perenni, stabili e labili, le due vie del rinnovamento. Sono le
   carte che non appartengono a nessuno dei quattro tessuti in particolare.
-- `staminali` — le cellule staminali, che avranno per sé i mazzi 04 e 05.
+- `staminali` — le cellule staminali. È diventato il tag più trasversale del
+  progetto: **otto capitoli** lo usano, e i due che ne portano il nome (il `04`
+  e il `05`) sono stati gli ultimi a essere scritti, non i primi.
 
 `embriologia` invece **non è nuovo**: esisteva già nel Laboratorio (mazzi 09a e
 09b) ed è stato riusato per gastrulazione, foglietti embrionali e creste neurali,
@@ -492,6 +505,30 @@ obbligate:
   e la **glia radiale** di pagina 252 stanno invece su `staminali`, perché sono
   la filiera dei progenitori.
 
+**E nemmeno i mazzi 04 e 05, gli ultimi.** Sono gli unici due capitoli in cui
+`argomento::staminali` sta su **tutte** le carte, senza una sola eccezione: è la
+situazione del 16 con `linfoide`. Una scelta però non era obbligata e va
+ricordata.
+
+**Le pagine 17-18 sono embriologia, e stanno lo stesso su `staminali`.**
+Descrivono zigote, segmentazione, morula, blastocisti, trofoblasto, massa
+cellulare interna, annessi extraembrionali e gastrulazione, cioè materia che nel
+mazzo 03 ha prodotto `teoria-embriologia-001`-`022`. Restano su `staminali` per
+due motivi: la dispensa le presenta dentro la **scala della potenza**
+(totipotente → pluripotente → multipotente), che è il tema del capitolo, e
+soprattutto la massa cellulare interna era **già** su `staminali`
+(`teoria-staminali-006`, mazzo 03). Metterci sopra `embriologia` avrebbe
+separato la blastocisti dalle cellule che contiene. È il criterio del 18 con
+l'origine embrionale delle cellule gliali, non quello del 12 con l'origine
+mesenchimale dei connettivi: lì l'argomento *era* la gastrulazione, qui è la
+potenza differenziativa.
+
+Nessuna carta di questi due mazzi porta `embriologia`, `muscolare` o
+`epiteli`, benché il 04 parli di distrofie muscolari e il 05 di epidermide e
+cornea: in tutti e tre i casi l'oggetto della carta è il **compartimento
+staminale**, non il tessuto. È lo stesso criterio con cui il 17 ha messo le
+cellule satellite su `staminali` e la distrofia di Duchenne su `muscolare`.
+
 ### Il tag `non-trattato`
 
 La sbobina marca alcuni passaggi con un riquadro laterale **"Argomento non
@@ -577,6 +614,32 @@ Due di questi vanno guardati con attenzione:
   (`067`-`069`) sono quindi materiale **trattato** e non portano il tag; solo la
   carta sulle tre componenti del citoscheletro (`066`) lo porta.
 
+**Il mazzo 04 ne ha aggiunti due, e sono i primi due del PDF**, alle pagine 16 e
+17. Sono fatti come tutti gli altri — dicitura nel margine sinistro, blocco in
+corsivo a destra — ma hanno una particolarità che li avvicina alla doppia
+stesura del 18: **ripetono materiale trattato altrove**, e vanno quindi letti
+prima di scrivere, non dopo.
+
+| Pagine | Riquadro | Carte |
+|---|---|---|
+| 16 | `Meccanismi Maladattativi` | `042`-`043` |
+| 17 | `Classificazione` | `048`-`052` |
+
+- quello di **pagina 16** rifà in breve ciò che il testo in tondo delle pagine
+  21-22 dice per esteso (squilibrio del compartimento, distrofie muscolari,
+  tumori). Ne restano due carte: la **via WNT** iperattivata nelle cellule
+  tumorali, che il tondo non nomina, e l'**età e le cause della morte** nelle
+  distrofie, che `teoria-muscolare-022` non ha;
+- quello di **pagina 17** è più insidioso, perché ripete la classificazione
+  cronologica delle staminali che il **mazzo 03** ha già cardato da pagina 15
+  (`teoria-staminali-005`-`011`), e in più contraddice il testo in tondo della
+  **stessa pagina** sullo stadio in cui finisce la totipotenza. Ne restano
+  cinque carte, tutte su fatti che né il 03 né il tondo hanno: l'**epiblasto** come
+  origine delle embrionali, gli **aborti spontanei** come provenienza delle
+  fetali, il perché la **donazione del cordone** sia utile, le **cellule
+  germinali** come secondo esempio di unipotenti e i due esempi contrapposti di
+  turnover (sangue ed epidermide contro muscolo cardiaco).
+
 Attenzione al riquadro di pagina 173 del mazzo 14: il riquadro descrive la figura, ma il **processo** che
 la figura illustra è trattato subito sotto, in tondo, ed è materiale normale
 (`teoria-osso-158`-`161`). Non tutta la figura è "non trattata": lo sono i **due
@@ -657,8 +720,11 @@ si sistemano invece senza cerimonie: non cambiano il contenuto.
 
 ## 4. Cosa resta, in ordine
 
-Resta la sola Teoria. **L'ordine di lavorazione è stato concordato con Pietro il
-2026-08-10** e sta qui sotto.
+**Non resta niente.** Le due fonti sono coperte per intero. Questo punto resta
+com'è perché è il registro di come ogni capitolo è stato deciso: serve a chi
+dovrà *correggere* una carta, non più a chi deve scriverne. L'ordine di
+lavorazione qui sotto è quello concordato con Pietro il 2026-08-10 ed è stato
+seguito fino in fondo.
 
 ### Laboratorio
 
@@ -712,8 +778,8 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 01 - Preparazione del preparato istologico | 1-7 | 7 | 1 | **fatto**, 64 note |
 | 02 - Colorazioni istochimiche | 7-12 | 6 | 2 | **fatto**, 60 note |
 | 03 - Tessuti e rinnovamento | 12-16 | 5 | 3 | **fatto**, 58 note |
-| 04 - Cellule staminali e potenziale differenziativo | 16-24 | 9 | 16 | |
-| 05 - Applicazioni terapeutiche delle cellule staminali | 24-28 | 5 | 17 | |
+| 04 - Cellule staminali e potenziale differenziativo | 16-24 | 9 | 16 | **fatto**, 37 note |
+| 05 - Applicazioni terapeutiche delle cellule staminali | 24-28 | 5 | 17 | **fatto**, 21 note |
 | 06 - Tessuti epiteliali | 28-49 | 22 | 5 | **fatto**, 158 note in due file |
 | 07 - Concetti base di microscopia | 49-60 | 12 | 4 | **fatto**, 89 note |
 | 08 - Epitelio di rivestimento | 60-85 | 26 | 6 | **fatto**, 183 note in tre file |
@@ -791,8 +857,8 @@ endocrine`, il `12 - Tessuti connettivi`, il `13 - Tessuti connettivi di
 sostegno`, il `14 - Tessuto osseo`, il `15 - Il sangue`, il `16 - Sistema
 linfatico`, il `17 - Tessuto muscolare` e il `18 - Il tessuto nervoso`.
 
-**Restano solo il `04` e il `05`, le cellule staminali, pagine 16-28.** Vedi
-il puntatore in fondo a questo punto.
+**Il `04` e il `05`, le cellule staminali, sono stati gli ultimi**, e con loro
+la Teoria si è chiusa. La loro sottosezione sta in fondo a questo punto.
 
 Il `07` è l'unico capitolo che **non è istologia**: è ottica e strumentazione,
 dalla struttura dell'occhio ai fluorofori. Sta nella sezione 024, occupa le
@@ -1944,71 +2010,187 @@ punto di vista diverso (meccanismi invece che riconoscimento al vetrino). Non è
 duplicazione da evitare, sono due tagli complementari. Il validatore blocca solo
 i duplicati esatti dentro lo stesso mazzo.
 
-#### Il prossimo capitolo
+#### I mazzi 04 e 05, le cellule staminali
 
-**Restano il `04 - Cellule staminali e potenziale differenziativo` (pagine
-16-24) e il `05 - Applicazioni terapeutiche delle cellule staminali` (pagine
-24-28), gli ultimi due.** Sono anche gli unici due che **non stanno in fondo al
-PDF ma in mezzo**: il buco è fra il mazzo 03, che chiude a fine pagina 15, e il
-mazzo 06, che apre a pagina 28.
+**Il `04 - Cellule staminali e potenziale differenziativo` va da inizio pagina
+16 a metà di pagina 24; il `05 - Applicazioni terapeutiche delle cellule
+staminali` da metà di pagina 24 a fine pagina 27.** Sono gli unici due capitoli
+che **non stanno in fondo al PDF ma in mezzo**, fra il mazzo 03 che chiude a
+fine pagina 15 e il mazzo 06 che apre a pagina 28. Sono anche gli ultimi due
+scritti, e con loro il progetto si è chiuso.
 
-- **Sono corti.** Il 04 copre le sezioni da `011` a `017` (**3.209 parole**,
-  9 pagine) e il 05 le sezioni da `018` a `020` (**1.395 parole**, 5 pagine):
-  insieme fanno **4.600 parole**, cioè **meno della metà** del capitolo più
-  piccolo fra quelli divisi in più file. **Un file per mazzo dovrebbe bastare**,
-  e i due si possono scrivere nella stessa sessione come è stato fatto per il 09
-  e il 10.
-- Il **confine di monte è già verificato**, ed è documentato al punto 2 sotto la
-  tabella della Teoria: il mazzo 03 **finisce alla fine di pagina 15**, e
-  **pagina 16 riparte** con il titolo `CELLULE STAMINALI E POTENZIALE
-  DIFFERENZIATIVO`, che è uno dei tre titoli che il segmentatore non vede. Per
-  questo le sezioni `011`-`017` portano ancora `chapter: 'Colorazioni
-  istochimiche'`: **il campo `chapter` mente**, i titoli delle sezioni sono
-  corretti.
-- Il **confine fra il 04 e il 05 è dichiarato ma non guardato**: la sezione
-  `018` si intitola `APPLICAZIONI TERAPEUTICHE DELLE CELLULE STAMINALI` e apre a
-  **pagina 24**, dove però la sezione `017` (`Il ruolo della nicchia staminale`)
-  è ancora in corso. **Pagina 24 va renderizzata** per vedere dove cade la riga
-  del titolo, come è stato fatto per pagina 93 nel mazzo 11.
-- Il **confine di valle va guardato anche lui**: la sezione `020` finisce a
-  **pagina 28**, ma pagina 28 è **già stata cardata dal mazzo 06** (`06a` copre
-  28-37). Bisogna quindi verificare **quanta parte** di pagina 28 sia del 05,
-  cioè dove comincia il titolo `TESSUTI EPITELIALI`, e non riprendere ciò che il
-  06 ha già preso. È il caso di pagina 198 fra il 15 e il 16, rovesciato.
-- Attenzione al titolo della sezione `019`, che il segmentatore restituisce
-  come `incontrollata.] Proliferazione in vitro di cellule somatiche cutanee`:
-  la prima parola è la **coda di un `[N.d.S.]`** finito dentro il titolo. Non è
-  il nome di niente.
-- `teoria-staminali` **riparte da 041**: è il contatore aperto dal capitolo 03 e
-  proseguito dai capitoli 11, 12, 15, 17 e 18. Saranno il **settimo e l'ottavo**
-  capitolo a proseguirlo, e presumibilmente gli ultimi. Se servisse
-  `argomento::tessuti`, quel contatore è fermo a **017**.
-- Le **22 figure** delle pagine 16-28 non sono mai state controllate con il clip
-  path del punto 6: va fatto prima di sceglierle. Quattro di loro
-  (`teoria_p016_59`, `teoria_p019_77`, `teoria_p019_78`, `teoria_p021_84`)
-  esistono **solo** perché la soglia di `is_artifact` è stata abbassata
-  scrivendo il 15, e sono le uniche recuperate che stanno in un capitolo ancora
-  da fare.
-- **Il Laboratorio non ha mai coperto le staminali**, quindi qui non c'è nessun
-  confronto fra le due fonti da fare: è il primo capitolo della Teoria in questa
-  situazione dopo il 07.
+Tutti e tre i confini sono stati renderizzati e guardati:
 
-**Dopo questi due il progetto è finito.** Vale la pena, a quel punto, riprendere
-i due follow-up ancora aperti al punto 6: le **dieci figure recuperate in
-capitoli già scritti**, che nessuno ha più guardato, e il **clip path di
-`extract.py`**, che resta l'unica modifica pianificata e mai fatta.
+- **pagina 16** è interamente del 04: si apre con l'intestazione della lezione
+  del 04-03-2025 (sbobinatori Pagliarini e Gasparini), la riga
+  `[continuazione della lezione precedente sulle CELLULE STAMINALI]` e subito
+  sotto il titolo `CELLULE STAMINALI E POTENZIALE DIFFERENZIATIVO`, che è uno
+  dei tre titoli che il segmentatore non vede. Per questo le sezioni
+  `011`-`017` portano ancora `chapter: 'Colorazioni istochimiche'`: **il campo
+  `chapter` mente**, i titoli delle sezioni sono corretti;
+- **pagina 24** si spezza **a metà esatta**. Sopra ci sono ancora le tre
+  modalità di divisione, le nicchie e i tre tipi di segnale, che sono la fine
+  della sezione `017` e quindi del 04, con **entrambe** le figure della pagina
+  (`teoria_p024_97` e `teoria_p024_98`); sotto comincia il titolo
+  `APPLICAZIONI TERAPEUTICHE DELLE CELLULE STAMINALI`. È il caso di pagina 198
+  fra il 15 e il 16, e di pagina 205 fra il 16 e il 17;
+- **pagina 28 non è contesa**: il piano avvisava che il 05 poteva sconfinarci e
+  che il `06a` l'aveva già cardata, ma la pagina si apre in cima con
+  l'intestazione di una **lezione nuova** (06-03-2025, sbobinatrici De Zordo e
+  Delpero) e subito sotto con `TESSUTI EPITELIALI`. **È tutta del 06**, e il 05
+  si ferma a fine pagina 27. Pagina 28 non ha figure: la prima della sezione
+  `021` è `teoria_p029_132`.
+
+Il 04 copre le sezioni da `011` a `017` (**3.209 parole**) e il 05 le sezioni da
+`018` a `020` (**1.395 parole**). **Un file per mazzo è bastato**, come il piano
+prevedeva, e i due sono stati scritti nella stessa sessione come il 09 e il 10.
+
+Attenzione al titolo della sezione `019`, che il segmentatore restituisce come
+`incontrollata.] Proliferazione in vitro di cellule somatiche cutanee`: la
+prima parola è la **coda di un `[N.d.S.]`** finito dentro il titolo. Non è il
+nome di niente.
+
+**Il vero problema di questi due capitoli non era il confine: era che quasi
+tutto il loro contenuto era già stato cardato altrove.** `staminali` era il tag
+più trasversale del progetto — sei capitoli lo avevano già usato prima che il
+suo capitolo esistesse — e il 05 racconta per esteso storie cliniche che il 06
+e il 12 avevano già toccato. È la trappola di `14f`/`15e`, ma su scala molto
+più grande, e il validatore **non ne vede niente**, perché i mazzi sono diversi.
+Il metodo è stato quello del 14: rileggere per intero le carte esistenti prima
+di scrivere una riga, e prendere solo ciò che non c'è.
+
+**Il tondo di pagina 16 non ha prodotto una sola carta.** Dice tre cose — le
+staminali somatiche mantengono l'omeostasi e la rigenerazione, la capacità
+rigenerativa varia col tessuto, «adulte» è un termine impreciso — e tutte e tre
+erano già `teoria-staminali-009`, `010` e `011`, scritte dal mazzo 03 su pagina
+15. Non è un caso: pagina 16 **dichiara essa stessa** di continuare la lezione
+precedente. L'unica carta della pagina (`041`) sta sul solo fatto che quelle
+carte non hanno, cioè che il nome preferito è **«cellule staminali somatiche»**,
+l'espressione usata nella letteratura in lingua inglese.
+
+Le altre sovrapposizioni risolte, in ordine di insidiosità:
+
+| Già coperto da | Che cosa il 04 o il 05 ha preso lo stesso |
+|---|---|
+| `teoria-staminali-005`-`011` (03, p. 15) | niente del tondo di p. 16; del riquadro di p. 17 solo epiblasto, aborti spontanei, donazione del cordone, cellule germinali, i due esempi di turnover |
+| `teoria-staminali-025` (15e, p. 195) | il **nome** *transit amplifying cells* e il loro ciclo; il *perché* (rischio di mutazioni) è finito **dentro** la carta di definizione (`070`), non in una carta sua |
+| `teoria-staminali-036` (18f, p. 253) | la sola **identificazione per ritenzione del marcatore** e l'immunoistochimica (`074`); il principio di diluizione della BrdU non è stato riscritto |
+| `teoria-staminali-018`-`020` e `teoria-muscolare-021`-`022` (17a, p. 207) | il solo **perché il compartimento si esaurisce** (`069`): il muscolo scheletrico non è a elevato turnover |
+| `teoria-epiteli-035` (06a, p. 31), `136` (06b, p. 43), `teoria-connettivi-074` (12b, p. 120) | dell'epidermolisi bollosa: il caso del **2017**, i **tre tipi** e le quattro sigle, gli **olocloni**, i **due metodi** di correzione genica. Non è stata riscritta né la definizione né il ruolo del collagene VII |
+
+`teoria-epiteli-136` merita una nota: descrive già, in due righe, la terapia
+genica di De Luca e Pellegrini («ricercatori italiani hanno inserito il gene
+corretto nelle cellule staminali epiteliali, fatto crescere lembi di pelle in
+vitro e trapiantati sul paziente»). È la stessa vicenda che il 05 racconta su
+tre pagine. Chi tocca l'una deve ricordarsi dell'altra.
+
+**Le 22 figure delle pagine 16-27 sono state controllate con il clip path del
+punto 6**: 22 placement su 22 sopra soglia, con correlazione **fra 0,96 e
+1,00**. Solo il 16 ha fatto meglio, con 9 su 9 a `corr=1.00`, ma su meno della
+metà delle figure. Nessuna finestra di browser, come nel 18. Le quattro figure
+recuperate abbassando la soglia di `is_artifact` scrivendo il 15 (`teoria_p016_59`,
+`teoria_p019_77`, `teoria_p019_78`, `teoria_p021_84`) **sono tutte integre e
+tutte usate**: al contrario di `teoria_p165_1091` nel 14, qui il recupero ha
+davvero fruttato, e fra le quattro c'è lo schema delle tre modalità di divisione
+con i loro contesti biologici, che è la figura più utile del 04.
+
+**Delle 22 ne sono state usate 21.** L'unica scartata è `teoria_p025_104`, il
+**ritratto fotografico di Howard Green**: non è materiale istologico, e una
+carta di riconoscimento su un volto non è materia d'esame. È il primo scarto del
+progetto per questo motivo, diverso sia dalle finestre di browser sia dai
+doppioni.
+
+**Il 04 non ha nessuna figura sul fronte**, ed è il secondo capitolo così dopo
+il `06`: le sue quattordici figure sono tutte schemi e tavole con i nomi
+stampati sopra, dal `Depauperamento delle stem cells` alla filiera delle
+*transit amplifying cells*. Il 05 ne ha **due su sette** (29%), ed è la
+proporzione più alta della Teoria dopo il 14: la **coppia di cornee prima e dopo
+il trapianto** (`teoria_p026_114`, senza etichette a parte un `6 yr`) e la
+**cornea prodotta in vitro** nella piastra Petri (`teoria_p027_121`, la cui
+didascalia sta sulla pagina ma **non è stampata sull'immagine**).
+
+**Quattro segnalazioni su 58 carte** (6,9%), cioè il tasso del 14. Una nel 04 e
+tre nel 05. Quella del 04 nasce da una **contraddizione fra il riquadro non
+trattato e il tondo della stessa pagina 17** — la totipotenza data per finita a
+«circa otto cellule» dal tondo e a «circa 16 cellule» dal riquadro — ed è il
+caso di `teoria-endocrino-019` nel mazzo 11: la carta tiene la versione del
+testo trattato, che è anche quella classica, e cita l'altra in corsivo.
+
+Le tre del 05 sono di natura diversa e vale la pena distinguerle, perché **due
+sono contraddette da una figura della stessa dispensa**:
+
+- `teoria-staminali-088`, i tre tipi di epidermolisi bollosa: la
+  `Divagazione del docente` definisce il tipo **distrofico** come quello in cui
+  «la mutazione è a livello **giunzionale**», due righe dopo aver elencato il
+  tipo giunzionale come categoria a sé e due righe dopo aver attribuito la forma
+  distrofica al **collagene di tipo VII**. Lo schema di pagina 26 disegna DEB al
+  livello del collagene VII e JEB a quello della laminina 332, cioè su **due
+  piani diversi**;
+- `teoria-staminali-096`, le SCID: la dispensa attribuisce l'immunodeficienza
+  alla «mancanza delle cellule che combattono le infezioni (**cellule B**)», ma
+  SCID sta per immunodeficienza **combinata** grave e lo schema della stessa
+  pagina 27 mostra la ricostituzione di **tutte le linee linfoidi**;
+- `teoria-staminali-092`, il limbus: dato per il confine fra l'**iride** e la
+  sclera. È classicamente la giunzione **corneo-sclerale**, ed è la sola lettura
+  coerente con il fatto che quella nicchia rigeneri l'epitelio corneale. Qui non
+  c'è figura a smentire, ma c'è la frase successiva della dispensa stessa.
+
+**Il Laboratorio non ha mai coperto le staminali**, quindi per questi due
+capitoli non c'era nessun confronto fra le due fonti da fare, e nessuna
+segnalazione del Laboratorio si chiude qui. È la situazione del `07`, ed è
+l'unico altro caso della Teoria.
+
+**Due `[N.d.S.]` e tre blocchi del docente producono carte**, e nessuno è di
+quelli che si possono saltare: l'`[N.d.S.]` di pagina 18 sull'uso del termine
+«multipotente» (citato in corsivo dentro `057`), quello di pagina 24 sulle
+staminali embrionali (due carte, `081` e `082`, sul loro vantaggio teorico e sul
+doppio problema etico e tecnico), la `Divagazione del docente` di pagina 25 sui
+tre tipi di epidermolisi, le `Osservazioni del docente` di pagina 26 su vettori
+virali e CRISPR, e la `Divagazione` di pagina 27 su malattie rare e Telethon.
+
+#### Il progetto è finito
+
+Con il 04 e il 05 non resta più niente da cardare: **1871 note di Teoria e 673
+di Laboratorio, 2544 in tutto**, su 362 pagine di sbobina.
+
+Restano i **due follow-up del punto 6**, che sono lavoro sugli strumenti e non
+sulle carte, e che nessuno è obbligato a fare:
+
+- le **dieci figure recuperate in capitoli già scritti** (pagine 7, 13, 42, 53,
+  56, 57 ×2, 58, 125, 148), che nessuno ha più guardato. Attenzione a non
+  aspettarsene troppo: nel 14 la sola figura recuperata si è rivelata un
+  rettangolo colorato, mentre nel 04 tutte e quattro erano buone. Il modo per
+  ritrovarle sta al punto 6;
+- il **clip path di `extract.py`**, l'unica modifica pianificata e mai fatta.
+  Cambierebbe il **contenuto** di file già referenziati dalle carte consegnate a
+  Pietro, quindi non è additiva come l'abbassamento della soglia: andava fatta
+  prima di scrivere le carte, non dopo. Oggi che le carte ci sono tutte,
+  rifarla vorrebbe dire ricontrollare le 445 immagini del pacchetto. Le
+  **diciannove** finestre di browser che il ritaglio recupererebbe (dieci
+  nell'`08`, nove nel 17) sono già state scartate a ragion veduta, e il loro
+  **contenuto**, dove valeva qualcosa, è stato trascritto a mano: vedi lo schema
+  riassuntivo dei vetrini del 17. Restano le tre slide intere di pagine 60 e 69,
+  che sono già usate sul retro e che il ritaglio non migliorerebbe. **Il costo
+  supera il beneficio**, ed è la raccomandazione con cui questo piano si chiude.
 
 ### Ritmo di consegna
 
 Un capitolo per volta: scrivere le carte, `build_apkg` (che valida), commit.
-Ogni capitolo committato è un incremento che Pietro può già importare.
+Ogni capitolo committato è un incremento che Pietro può già importare. È il
+ritmo con cui tutti e diciotto i mazzi della Teoria sono stati consegnati, e
+resta quello giusto anche per una correzione: **si ricostruisce e si rispedisce
+il pacchetto intero**, e Anki riconosce le note dal guid senza toccare lo
+storico di ripetizione.
 
 ---
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Centodue carte taggate, più due figure scartate senza produrre carta. Vale la pena
-rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella.
+Centosei carte taggate, più due figure scartate senza produrre carta. Ora che
+non c'è più niente da scrivere, questo elenco cambia destinatario: non serve più
+a calibrare l'asticella, ma è **la lista di ciò che Pietro deve portare al
+libro**. Le carte sono ordinate come i mazzi, quindi si ripercorre nell'ordine
+del corso.
 
 | Carta | Cosa non torna |
 |---|---|
@@ -2029,6 +2211,10 @@ rileggerle prima di scriverne di nuove, per calibrare quanto è alta l'asticella
 | `teoria-colorazioni-021` | descrive come "strati di muscolatura liscia" la banda pallida sotto la mucosa in un vetrino di trachea fetale; per aspetto e per anatomia è cartilagine ialina, e la muscolatura liscia della trachea sta nella parte membranacea posteriore |
 | `teoria-colorazioni-024` | classifica l'Azocarminio come colorante **basico** e nella stessa frase gli attribuisce la colorazione dei granuli **acidofili** dell'ipofisi; l'azocarminio è classicamente descritto come colorante acido |
 | `teoria-epiteli-001` | il pannello a della tavola dei tre epiteli è dato per **pancreas**, ma mostra una cavità piena di materiale eosinofilo omogeneo circondata da un solo strato di cellule cubiche, cioè un follicolo (tiroideo o ovarico); il pancreas esocrino è ad acini sierosi. L'epitelio resta comunque monostratificato cubico |
+| `teoria-staminali-045` | dà la totipotenza per conservata «fino allo stadio di circa otto cellule», mentre il riquadro non trattato della **stessa pagina 17** la dà «fino allo stadio di circa 16 cellule». La carta tiene la versione del testo in tondo, che è quella trattata e anche quella classica |
+| `teoria-staminali-088` | definisce l'epidermolisi bollosa **distrofica** come quella in cui «la mutazione è a livello **giunzionale**», due righe dopo aver elencato il tipo **giunzionale** come categoria a sé e dopo aver attribuito la forma distrofica al **collagene di tipo VII**. Lo schema di pagina 26 disegna DEB al livello del collagene VII, sotto la lamina densa, e JEB a quello della laminina 332: sono due piani diversi |
+| `teoria-staminali-092` | colloca il **limbus**, e con esso la nicchia delle staminali limbari, «al confine tra l'**iride** e la sclera»; il limbus è classicamente la giunzione **corneo-sclerale**, che è anche la sola lettura coerente con il fatto che quella nicchia rigeneri l'**epitelio corneale**, come la frase successiva della dispensa stessa dice |
+| `teoria-staminali-096` | attribuisce l'immunodeficienza di ADA-SCID e SCID-X1 alla «mancanza delle cellule che combattono le infezioni (**cellule B**)»; SCID sta per immunodeficienza **combinata** grave e il difetto riguarda classicamente sia i linfociti T sia i B, con il blocco anzitutto sui T nella SCID-X1. Lo schema della stessa pagina 27 mostra la ricostituzione di **tutte le linee linfoidi** |
 | `teoria-connettivi-002` | chiama sangue e linfa connettivi "trofici o **propriamente detti**"; i propriamente detti sono classicamente il lasso e il denso, mentre sangue, cartilagine, osso e adiposo stanno fra gli specializzati |
 | `teoria-microscopia-033` | definisce l'ingrandimento come il rapporto fra le dimensioni **dell'oggetto e quelle dell'immagine**; è il capovolgimento del rapporto giusto, altrimenti un'immagine ingrandita darebbe un valore minore di 1 |
 | `teoria-microscopia-036` | dà 100 nm come limite di risoluzione del microscopio ottico a immersione; con luce visibile e NA 1,4 la formula 0,61·λ/NA dà ancora circa 200 nm. Il numero serve però al calcolo dell'ingrandimento utile di 1000x fatto subito dopo |
@@ -2245,22 +2431,32 @@ Laboratorio) e le **due formule** di pagina 54 della Teoria. La suite è passata
 da 151 a **153 test**.
 
 L'estrazione rigenerata dà **486 immagini** per la Teoria (erano 463) e **235**
-per il Laboratorio (erano 222). **I due pacchetti non sono cambiati**: 1301
-carte / 302 immagini e 673 carte / 120 immagini, esattamente come prima, perché
-`build_apkg` impacchetta solo le immagini **referenziate** dalle carte.
+per il Laboratorio (erano 222). **I due pacchetti non sono cambiati il giorno
+della modifica**: 1301 carte / 302 immagini e 673 carte / 120 immagini,
+esattamente come prima, perché `build_apkg` impacchetta solo le immagini
+**referenziate** dalle carte. (I numeri di oggi, molto più alti, sono al punto
+1: sono cresciuti scrivendo i capitoli, non abbassando la soglia.)
 
 **Le figure recuperate non ancora usate** (le otto del mazzo 15 sono già
 finite sulle carte):
 
-| Dove | Figure | Stato del capitolo |
+| Dove | Figure | Stato |
 |---|---|---|
-| p. 7 (mazzo 01), p. 13 (03), p. 42 (06), p. 53, 56, 57 ×2, 58 (07), p. 125 (12), p. 148 (13) | 10 | **già scritti**: è un follow-up aperto, non lavoro del capitolo in corso |
-| p. 16, 19 ×2, 21 (mazzo 04) | 4 | **da scrivere**: chi farà il 04 le troverà già estratte |
+| p. 7 (mazzo 01), p. 13 (03), p. 42 (06), p. 53, 56, 57 ×2, 58 (07), p. 125 (12), p. 148 (13) | 10 | **follow-up aperto**: quei capitoli erano già scritti quando la soglia è stata abbassata, e nessuno le ha più guardate |
+| p. 16, 19 ×2, 21 (mazzo 04) | 4 | **recuperate davvero**: il 04 le ha guardate una per una e le ha usate tutte e quattro |
 | p. 165 (mazzo 14) | 1 | **falso positivo**, vedi qui sotto |
 
 *Attenzione*: la stesura precedente di questo piano dava tutte e quindici per
-"in capitoli già scritti". Non è così: **quattro stanno in capitoli ancora da
-fare**, e per quelle non c'è niente da recuperare a posteriori.
+"in capitoli già scritti". Non era così: quattro stavano in un capitolo ancora
+da fare, ed è quello che le ha usate.
+
+**Il bilancio dell'abbassamento della soglia si può ora chiudere.** Ha fruttato
+in due capitoli su tre: otto figure al `15` (fra cui lo schema
+dell'eritropoiesi e cinque strisci da fronte) e quattro al `04` (fra cui lo
+schema delle tre modalità di divisione con i loro contesti biologici, la figura
+più utile di quel mazzo). Al `14` non ha fruttato niente, perché la sua unica
+candidata non era una figura. Le dieci della prima riga restano l'unica cosa
+non verificata, e vale la pena aspettarsi da loro un esito misto come questo.
 
 **La quindicesima non era una figura.** `teoria_p165_1091` (301x138) è stata
 guardata scrivendo il mazzo 14 ed è uno dei **rettangoli colorati sovrapposti**
@@ -2299,9 +2495,10 @@ soglia è stata abbassata proprio lì, e non prima.
 differenza con la trappola del clip path qui sotto: il nome del file è
 `teoria_pNNN_XREF.jpg`, quindi rigenerare **aggiunge** file senza rinominare né
 modificare quelli esistenti, e nessuna carta già consegnata a Pietro cambia. Il
-clip path invece cambierebbe il **contenuto** di file già referenziati, e va
-perciò fatto prima di scrivere altre carte, **non dopo**: resta l'unica modifica
-a `extract.py` ancora aperta.
+clip path invece cambierebbe il **contenuto** di file già referenziati, e andava
+perciò fatto prima di scrivere le carte, **non dopo**. È l'unica modifica a
+`extract.py` mai fatta, ed è ormai troppo tardi perché convenga: vedi la
+raccomandazione in fondo a questo punto e a quello 4.
 
 **Le sezioni si sovrappongono ai bordi.** `images_for_section` assegna per
 intervallo di pagine, quindi una figura a cavallo di due sezioni compare in
@@ -2329,6 +2526,12 @@ comunque**: fra quelli del 17 c'era lo schema riassuntivo per il riconoscimento
 dei vetrini annunciato da un `[N.d.S.]`, cioè materiale d'esame che nel testo
 estratto non compare affatto e che è stato recuperato leggendolo dallo
 screenshot. Si scarta l'immagine, non il contenuto.
+
+**Nei mazzi 04 e 05 non ricompare**, e il controllo sulle pagine 16-27 non ha
+segnalato **nemmeno un placement su 22**, con correlazione minima 0,96: è
+l'esito migliore di tutta la Teoria, e chiude il conto. Su tutto il progetto il
+problema si è concentrato in **due soli sbobinatori**, quelli dell'`08` e del
+`17`.
 
 Il controllo dei bordi non basta, perché il clip può stare tutto dentro la
 pagina. Il modo affidabile è **confrontare il file estratto con la regione
@@ -2368,4 +2571,9 @@ finestra di browser va scartata. Recuperare il ritaglio richiederebbe di leggere
 il clip path dal content stream: né `get_image_rects` né `get_image_info` lo
 riportano, e non vale la pena per delle illustrazioni da retro. Se un giorno
 servisse, è un intervento su `extract.py` che cambia l'output di **entrambe** le
-fonti, quindi va fatto prima di scrivere altre carte, non dopo.
+fonti, quindi andava fatto prima di scrivere le carte, non dopo.
+
+**Ora è dopo, e la raccomandazione è di non farlo.** Il perché sta in fondo al
+punto 4, sotto "Il progetto è finito": le carte ci sono tutte, le ventuno figure
+che il clip path recupererebbe sono già state scartate a ragion veduta, e il
+loro contenuto, dove valeva qualcosa, è stato trascritto a mano.
