@@ -48,7 +48,7 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1871 carte, 18 mazzi, 445 immagini** per la Teoria e **673 carte,
+Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **673 carte,
 11 mazzi, 120 immagini** per il Laboratorio.
 
 **Due pacchetti, uno per fonte**, non uno solo: `--media` è una singola
@@ -62,15 +62,16 @@ rispedire ogni volta le 673 note del laboratorio.
 
 ## 2. Stato al 2026-08-12
 
-**673 note** di Laboratorio + **1871 di Teoria**, 565 immagini, 153 test verdi.
+**673 note** di Laboratorio + **1872 di Teoria**, 573 immagini, 153 test verdi.
 
 **Il progetto è finito.** Il Laboratorio copre tutte e 106 le sue pagine, la
 Teoria tutti e **diciotto** i capitoli e tutte e 256 le pagine. Non c'è più
 nessun buco, né in fondo né in mezzo.
 
-Restano aperti i due follow-up del punto 6, che **non sono lavoro sulle carte**:
-le dieci figure recuperate in capitoli già scritti e il clip path di
-`extract.py`. Vedi la chiusura del punto 4.
+**Anche il follow-up delle dieci figure recuperate è chiuso**: sono state
+guardate tutte e dieci e collocate, con il bilancio che il punto 6 riporta. Resta
+aperto **solo** il clip path di `extract.py`, che non è lavoro sulle carte e che
+il piano raccomanda di **non fare**. Vedi la chiusura del punto 4.
 
 Lo stile delle carte è stato **approvato da Pietro** dopo aver importato un
 campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
@@ -148,7 +149,7 @@ vetrini, e l'ordine alfabetico resta quello delle pagine.
 | `12d-classificazione-dei-connettivi.jsonl` | 36 | sezioni 065-067, pagine 128-131 e 134-137 |
 | `12e-confronti-al-microscopio.jsonl` | 12 | sezioni 065-066, pagine 131-134, **mazzi 10 e 11** |
 | `13a-cartilagine-generalita.jsonl` | 51 | sezioni 068-069, pagine 137-144 |
-| `13b-tipi-di-cartilagine.jsonl` | 25 | sezione 069, pagine 145-148 |
+| `13b-tipi-di-cartilagine.jsonl` | 26 | sezione 069, pagine 145-148 |
 | `14a-generalita-e-matrice.jsonl` | 31 | sezioni 070-071, pagine 149-152 |
 | `14b-osso-lamellare-e-immaturo.jsonl` | 29 | sezione 072, pagine 152-157 |
 | `14c-osteone-e-canali.jsonl` | 27 | sezione 073, prima parte, pagine 157-161 |
@@ -186,6 +187,12 @@ Otto delle nove figure del capitolo 01 sono state usate. La nona,
 sta a pagina 7 ma illustra le colorazioni istochimiche. È stata poi usata nel
 capitolo 02, dove appartiene.
 
+**Le figure di pagina 7 sono poi diventate tre**, non due: `teoria_p007_21` è
+una delle dieci recuperate abbassando la soglia di `is_artifact` (punto 6), è la
+micrografia di cripte intestinali in Alcian blu, ed è finita anche lei nel
+capitolo 02, sul **fronte** di `teoria-colorazioni-033`. Le pagine 1-7 hanno
+quindi dieci figure e le pagine 7-12 dodici, tutte usate.
+
 **Il capitolo 02 si ferma a pagina 12, non a pagina 24.** A pagina 12 la
 sbobina apre `TESSUTI E RINNOVAMENTO`, un titolo che `segment.py` non riconosce;
 il segmentatore attribuisce perciò alle "Colorazioni istochimiche" tutte le
@@ -201,7 +208,11 @@ di pagina 15; pagina 16 riparte con `CELLULE STAMINALI E POTENZIALE
 DIFFERENZIATIVO`, che è il mazzo 04. La tabella dei mazzi dice "12-16" perché
 indica la pagina in cui il capitolo successivo comincia, non l'ultima scritta.
 
-Le pagine 12-15 hanno cinque figure e **sono state usate tutte**. Due sono
+Le pagine 12-15 hanno **sei** figure e **sono state usate tutte**. La sesta è
+`teoria_p013_46`, una delle dieci recuperate dalla soglia (punto 6): è la
+sezione trasversale di nervo del paragrafo "Tessuto nervoso", **senza etichette**,
+ed è finita sul **fronte** di `teoria-nervoso-002`, che la descriveva a parole
+senza mostrarla. Le altre cinque: due sono
 schemi con i nomi stampati sopra (`teoria_p013_47` sul differenziamento,
 `teoria_p015_56` sulla divisione asimmetrica) e stanno sul retro; le due
 tavole di microfotografie dei tessuti muscolari (`teoria_p013_45`) e del
@@ -247,7 +258,7 @@ restare unico dentro tutto il mazzo:
 | `teoria-endocrino` | `09` 001-006, `11a` 007-041, `11b` 042-089, `11c` 090-121, poi `12e` 122-124 |
 | `teoria-connettivi` | `03` 001-004, `12a` 005-043, `12b` 044-090, `12c` 091-129, `12d` 130-160, poi `13a` 161 |
 | `teoria-embriologia` | `03` 001-022, `12a` 023-026, poi `13a` 027, `13b` 028 |
-| `teoria-cartilagine` | `13a` 001-047, poi `13b` 048-070 |
+| `teoria-cartilagine` | `13a` 001-047, poi `13b` 048-071 |
 | `teoria-linfoide` | `16` 001-077 |
 | `teoria-muscolare` | `03` 001, `17a` 002-047, `17b` 048-091, `17c` 092-115, poi `17d` 116-140 |
 | `teoria-osso` | `14a` 001-030, `14b` 031-059, `14c` 060-086, `14d` 087-119, `14e` 120-152, poi `14f` 153-168 |
@@ -787,7 +798,7 @@ colonna "ordine" è la sequenza di lavorazione concordata.
 | 10 - Ghiandole esocrine | 86-93 | 8 | 7 | **fatto**, 73 note |
 | 11 - Ghiandole endocrine | 93-111 | 19 | 8 | **fatto**, 120 note in tre file |
 | 12 - Tessuti connettivi | 111-137 | 27 | 9 | **fatto**, 179 note in cinque file |
-| 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | **fatto**, 76 note in due file |
+| 13 - Tessuti connettivi di sostegno | 137-149 | 13 | 10 | **fatto**, 77 note in due file |
 | 14 - Tessuto osseo | 149-176 | 28 | 14 | **fatto**, 175 note in sei file |
 | 15 - Il sangue | 177-198 | 22 | 13 | **fatto**, 173 note in cinque file |
 | 16 - Sistema linfatico | 198-205 | 8 | 11 | **fatto**, 77 note |
@@ -867,6 +878,16 @@ figure, **tutte usate**. Sono quasi tutte schemi e tabelle con le didascalie
 stampate sopra, quindi stanno sul retro; l'unica sul fronte è la coppia di
 dischi di Airy al limite di Rayleigh, che non ha etichette.
 
+**Le figure sono poi diventate venticinque**, cinque delle quali recuperate
+abbassando la soglia di `is_artifact` (punto 6). **Ne sono usate 23**: tre sono
+andate sul **retro** di carte che esistevano già (lo schema del campo chiaro
+`teoria_p057_406` su `teoria-microscopia-066`, la coppia campo chiaro/contrasto
+di fase `teoria_p057_408` su `072`, i due spettri dello Stokes shift
+`teoria_p058_417` su `080`); le altre due **non sono figure** e restano
+scartate, ed è il caso descritto al punto 6: `teoria_p053_371` è la formula
+dell'ingrandimento totale e `teoria_p056_398` la tabella degli spessori del
+coprioggetto. Il capitolo resta con **una sola figura sul fronte**.
+
 Il `06 - Tessuti epiteliali` **finisce a pagina 48**, non a 49: la tabella qui
 sopra dice 28-49 perché la sezione 023 sconfina di una riga, ma pagina 49 apre
 già `CONCETTI BASE DI MICROSCOPIA`. Copre tre sezioni (021, 022, 023) e due
@@ -883,7 +904,12 @@ Come nel Laboratorio (`09a` e `09b`), i due file **condividono lo stesso mazzo**
 `Istologia::Teoria::06 - Tessuti epiteliali`: dividere è una comodità di
 scrittura, non una scelta di studio.
 
-Le quarantuno figure delle pagine 28-48 sono **tutte usate, tutte sul retro**.
+Le **quarantadue** figure delle pagine 28-48 sono **tutte usate, tutte sul
+retro**. La quarantaduesima è `teoria_p042_279`, recuperata dalla soglia (punto
+6): è la micrografia al ME delle **interdigitazioni laterali** della membrana,
+con la didascalia del libro stampata sopra, e sta sul retro di
+`teoria-epiteli-122`. Attenzione: non va su `teoria-epiteli-095`, che parla
+delle interdigitazioni del dominio **basale**.
 Il capitolo non offre niente da mettere sul fronte: le micrografie senza
 etichette (microvilli e stereociglia al microscopio elettronico) sono
 indistinguibili l'una dall'altra fuori dal contesto, e tutto il resto sono schemi
@@ -1079,7 +1105,10 @@ corticale surrenale e delle cellule dell'adenoipofisi era già coperta dal mazzo
 11 (`teoria-endocrino-055`-`058` e `095`-`098`), quindi da lì si sono prese solo
 le immagini e il criterio con cui distinguere i due tessuti.
 
-**Le 59 figure sono state usate tutte.** Il controllo del clip path del punto 6
+**Le 60 figure sono state usate tutte.** La sessantesima è `teoria_p125_906`,
+recuperata dalla soglia (punto 6): è la micrografia dei **macrofagi** con la
+scritta `Macrofagi` stampata sopra, e sta sul retro di `teoria-connettivi-109`,
+la carta della morfologia stellata. Il controllo del clip path del punto 6
 è stato eseguito sulle pagine 111-137 e ha segnalato quattro figure sotto
 soglia, tutte guardate una per una e tutte utilizzabili:
 
@@ -1137,7 +1166,12 @@ prima stesura, e `13b` prende dalla seconda **solo ciò che aggiunge**, cioè la
 composizione della matrice tipo per tipo. Il punto in cui le due passate si
 contraddicono è diventato una segnalazione (`teoria-cartilagine-050`).
 
-**Le 27 figure delle pagine 137-148 sono state usate tutte.** Il controllo del
+**Le 28 figure delle pagine 137-148 sono state usate tutte.** La ventottesima è
+`teoria_p148_1016`, recuperata dalla soglia (punto 6) e l'**unica delle dieci a
+valere una carta nuova**: è il disco intervertebrale in sezione longitudinale,
+con i richiami muti `V`, `NP` e `AF`, ed è il pannello di sinistra della coppia
+di pagina 148 di cui `teoria-cartilagine-070` usa già il destro. Sta sul
+**fronte** di `teoria-cartilagine-071`. Il controllo del
 clip path del punto 6 è stato eseguito sulle pagine 137-149 e ha segnalato
 cinque figure sotto soglia, tutte guardate una per una e tutte utilizzabili.
 Nessuna è il caso della finestra di browser che aveva costretto a scartarne
@@ -1163,11 +1197,11 @@ nessun singolo ritaglio somiglia al file intero:
 - `teoria_p148_1020` (corr 0,73): la tavola delle vertebre più il disegno di
   midollo e radici nervose, che la pagina mette in due punti diversi.
 
-Quattro figure stanno sul **fronte**, e sono le sole che portino marcatori muti:
-`teoria_p137_971` (la sigla `L` sulle lacune), `teoria_p142_993` (`C`, `AT`,
+**Cinque** figure stanno sul **fronte**, e sono le sole che portino marcatori
+muti: `teoria_p137_971` (la sigla `L` sulle lacune), `teoria_p142_993` (`C`, `AT`,
 `AI` sulle zone della matrice in Alcian blu-PAS), `teoria_p145_1003` (`TCD`,
-`P`, `CA`, `MT`, `MI`, `N`) e `teoria_p148_1017` (`C`, `M`, `NP` sulla
-fibrocartilagine). Tutto il resto sono schemi, tavole e figure di libro con la
+`P`, `CA`, `MT`, `MI`, `N`), `teoria_p148_1017` (`C`, `M`, `NP` sulla
+fibrocartilagine) e `teoria_p148_1016` (`V`, `NP`, `AF` sul disco intero). Tutto il resto sono schemi, tavole e figure di libro con la
 **didascalia stampata sopra**, cioè materiale da retro.
 
 #### Il mazzo 14 e il tessuto osseo
@@ -2150,24 +2184,23 @@ virali e CRISPR, e la `Divagazione` di pagina 27 su malattie rare e Telethon.
 
 #### Il progetto è finito
 
-Con il 04 e il 05 non resta più niente da cardare: **1871 note di Teoria e 673
-di Laboratorio, 2544 in tutto**, su 362 pagine di sbobina.
+Con il 04 e il 05 non resta più niente da cardare: **1872 note di Teoria e 673
+di Laboratorio, 2545 in tutto**, su 362 pagine di sbobina.
 
-Restano i **due follow-up del punto 6**, che sono lavoro sugli strumenti e non
+Le **dieci figure recuperate in capitoli già scritti** (pagine 7, 13, 42, 53,
+56, 57 ×2, 58, 125, 148) sono state guardate tutte e collocate: il bilancio, e
+il ragionamento carta per carta, stanno al punto 6. In sintesi **una carta
+nuova, otto figure attaccate a carte che esistevano già e due scarti**, il che
+conferma che l'attesa di "due o tre carte" era giusta e semmai generosa.
+
+Resta il **solo follow-up del clip path**, che è lavoro sugli strumenti e non
 sulle carte, e che nessuno è obbligato a fare:
 
-- le **dieci figure recuperate in capitoli già scritti** (pagine 7, 13, 42, 53,
-  56, 57 ×2, 58, 125, 148). **Quattro sono già state campionate** e il punto 6
-  riporta che cosa sono: una vale una carta di riconoscimento sul fronte, una
-  vale un'illustrazione da retro, e **due non sono figure** ma una formula e una
-  tabella. Aspettarsi dalle sei rimaste **due o tre carte in tutto**: è mezz'ora
-  di lavoro, non una sessione, ed è additivo e sicuro perché aggiungere carte e
-  attaccare figure a carte esistenti non tocca nessun guid;
 - il **clip path di `extract.py`**, l'unica modifica pianificata e mai fatta.
   Cambierebbe il **contenuto** di file già referenziati dalle carte consegnate a
   Pietro, quindi non è additiva come l'abbassamento della soglia: andava fatta
   prima di scrivere le carte, non dopo. Oggi che le carte ci sono tutte,
-  rifarla vorrebbe dire ricontrollare le 445 immagini del pacchetto. Le
+  rifarla vorrebbe dire ricontrollare le 453 immagini del pacchetto. Le
   **diciannove** finestre di browser che il ritaglio recupererebbe (dieci
   nell'`08`, nove nel 17) sono già state scartate a ragion veduta, e il loro
   **contenuto**, dove valeva qualcosa, è stato trascritto a mano: vedi lo schema
@@ -2439,44 +2472,80 @@ esattamente come prima, perché `build_apkg` impacchetta solo le immagini
 **referenziate** dalle carte. (I numeri di oggi, molto più alti, sono al punto
 1: sono cresciuti scrivendo i capitoli, non abbassando la soglia.)
 
-**Le figure recuperate non ancora usate** (le otto del mazzo 15 sono già
-finite sulle carte):
+**Le figure recuperate, e dove sono finite** (il follow-up è **chiuso**: tutte e
+quindici sono state guardate e decise):
 
 | Dove | Figure | Stato |
 |---|---|---|
-| p. 7 (mazzo 01), p. 13 (03), p. 42 (06), p. 53, 56, 57 ×2, 58 (07), p. 125 (12), p. 148 (13) | 10 | **follow-up aperto**, ma **quattro sono già state campionate**: vedi qui sotto |
+| p. 7 (mazzo 02), p. 13 (03), p. 42 (06), p. 53, 56, 57 ×2, 58 (07), p. 125 (12), p. 148 (13) | 10 | **chiuse**, con **una carta nuova, otto figure su carte esistenti e due scarti**: vedi qui sotto |
 | p. 16, 19 ×2, 21 (mazzo 04) | 4 | **recuperate davvero**: il 04 le ha guardate una per una e le ha usate tutte e quattro |
 | p. 165 (mazzo 14) | 1 | **falso positivo**, vedi qui sotto |
 
-*Attenzione*: la stesura precedente di questo piano dava tutte e quindici per
+*Attenzione*: una stesura precedente di questo piano dava tutte e quindici per
 "in capitoli già scritti". Non era così: quattro stavano in un capitolo ancora
 da fare, ed è quello che le ha usate.
 
-**Quattro delle dieci sono state guardate chiudendo il progetto**, per capire
-quanto valga la pena finire il lavoro. L'esito è **misto, e più basso di quanto
-il piano lasciasse sperare**:
+**Le dieci, una per una.** Le prime quattro erano già state campionate chiudendo
+il progetto; le altre sei sono state guardate dopo, insieme alle pagine
+renderizzate che le contengono. L'esito è **più basso di quanto il piano
+lasciasse sperare**, ma non nullo:
 
-| File | Che cos'è | Vale |
+| File | Che cos'è | Dove è finita |
 |---|---|---|
-| `teoria_p007_21` (226x173) | micrografia di **epitelio intestinale in istochimica**, cellule caliciformi in blu, **senza alcuna etichetta** | una **carta nuova, sul fronte**: è materiale da riconoscimento vero |
-| `teoria_p125_906` (232x196) | micrografia di **macrofagi** con la scritta `Macrofagi` **stampata sopra** | al più un'illustrazione sul **retro** di una carta di `12c`, che il testo copre già |
-| `teoria_p053_371` (678x112) | la **formula** `M_tot = M_obiettivo × M_oculari` | **niente**: non è una figura |
-| `teoria_p056_398` (1200x132) | la **tabella** degli spessori del coprioggetto | **niente**: il testo del `07` la copre già |
+| `teoria_p148_1016` (329x161) | il **disco intervertebrale** in sezione longitudinale, con i richiami muti `V`, `NP`, `AF` | **carta nuova sul fronte**, `teoria-cartilagine-071`: è l'unica delle dieci a valerne una |
+| `teoria_p007_21` (226x173) | micrografia di **cripte intestinali in Alcian blu**, **senza alcuna etichetta** | **fronte** di `teoria-colorazioni-033` |
+| `teoria_p013_46` (186x156) | **sezione trasversale di nervo**, **senza alcuna etichetta** | **fronte** di `teoria-nervoso-002` |
+| `teoria_p042_279` (165x411) | ME delle **interdigitazioni laterali**, didascalia del libro **stampata sopra** | **retro** di `teoria-epiteli-122` |
+| `teoria_p057_406` (342x148) | schema del **campo chiaro**, `Source`/`Translucent Sample`/`Detector` stampati sopra | **retro** di `teoria-microscopia-066` |
+| `teoria_p057_408` (338x196) | cellule vive in **campo chiaro e contrasto di fase**, titolo stampato sopra | **retro** di `teoria-microscopia-072` |
+| `teoria_p058_417` (460x182) | i due **spettri** di eccitazione ed emissione, etichette stampate sopra | **retro** di `teoria-microscopia-080` (Stokes shift) |
+| `teoria_p125_906` (232x196) | micrografia di **macrofagi**, scritta `Macrofagi` **stampata sopra** | **retro** di `teoria-connettivi-109` |
+| `teoria_p053_371` (678x112) | la **formula** `M_tot = M_obiettivo × M_oculari` | **scartata**: non è una figura |
+| `teoria_p056_398` (1200x132) | la **tabella** degli spessori del coprioggetto | **scartata**: il testo del `07` la copre già |
 
-Due delle quattro **non sono figure**, ed è lo stesso caso che il test
+Due delle dieci **non sono figure**, ed è lo stesso caso che il test
 `test_flags_a_formula_rendered_as_an_image` descrive: larghe abbastanza ma alte
 quanto una riga. La soglia a 100 px non le prende perché hanno **entrambi** i
-lati sopra i 100. Chi finisce il lavoro guardi per prime le sei rimaste con il
-**rapporto d'aspetto meno allungato**, che sono le uniche con una probabilità
-seria di essere micrografie.
+lati sopra i 100. L'euristica del **rapporto d'aspetto** ha funzionato: le due
+più allungate (6,05 e 9,09) sono gli scarti, e le tre meno allungate (1,18,
+1,19, 1,31) sono le tre micrografie senza etichette.
 
-**Il bilancio dell'abbassamento della soglia si può ora chiudere.** Ha fruttato
-in due capitoli su tre: otto figure al `15` (fra cui lo schema
-dell'eritropoiesi e cinque strisci da fronte) e quattro al `04` (fra cui lo
+**Perché una sola carta nuova, e non tre.** Il criterio delle immagini decide
+dove va la figura, non se serva una carta: sei delle otto figure usate
+illustrano un fatto che una carta **già copriva**, e per quelle la cosa giusta è
+attaccare l'immagine, non scriverne una nuova. Due casi meritano di essere
+ricordati perché la decisione non era obbligata:
+
+- `teoria_p007_21` era data da questo piano per «una carta nuova, sul fronte».
+  Non lo è diventata: `teoria-colorazioni-033` era **già** una carta
+  `tipo::riconoscimento` («che cosa si colora di blu e che cosa di rosso?») a cui
+  mancava solo la cosa da riconoscere. Una carta nuova ne sarebbe stata una
+  **parafrasi**, cioè esattamente il doppione che il validatore **non**
+  intercetta, perché blocca solo le domande identiche. Stesso ragionamento per
+  `teoria_p013_46` e `teoria-nervoso-002`;
+- `teoria_p042_279` sembra la figura di `teoria-epiteli-095`, che parla di
+  interdigitazioni, e invece no: la `095` descrive quelle del dominio **basale**,
+  mentre la figura sta a pagina 42 sotto il titolo «Specializzazioni morfologiche
+  della superficie **laterale**». È andata su `teoria-epiteli-122`, che è la
+  carta di quel paragrafo.
+
+Un'ultima osservazione, che vale se un giorno si toccasse il clip path: la
+figura di pagina 42 è uno dei casi in cui **la pagina mostra meno del file**. Il
+documento ritaglia via la striscia di didascalia `Figura 5.24 ■ Interdigitazioni
+laterali della membrana plasmatica`, che sulla pagina non si vede e nel file c'è.
+È il motivo per cui va sul retro e non sul fronte: quello che conta è **il file
+che finisce sulla carta**, non quello che si vede sulla pagina.
+
+**Il bilancio dell'abbassamento della soglia si può ora chiudere del tutto.** Ha
+fruttato in tre capitoli su quattro: otto figure al `15` (fra cui lo schema
+dell'eritropoiesi e cinque strisci da fronte), quattro al `04` (fra cui lo
 schema delle tre modalità di divisione con i loro contesti biologici, la figura
-più utile di quel mazzo). Al `14` non ha fruttato niente, perché la sua unica
-candidata non era una figura. Le dieci della prima riga restano l'unica cosa
-non verificata, e vale la pena aspettarsi da loro un esito misto come questo.
+più utile di quel mazzo) e **otto sparse** nei capitoli già scritti, di cui però
+**una sola** ha prodotto una carta. Al `14` non ha fruttato niente, perché la
+sua unica candidata non era una figura. La lezione, per una prossima modifica
+degli strumenti: **recuperare figure in un capitolo ancora da scrivere rende
+molto più che recuperarle in uno già scritto**, perché lì il testo ha già una
+carta per ogni fatto e alla figura resta solo il ruolo di illustrazione.
 
 **La quindicesima non era una figura.** `teoria_p165_1091` (301x138) è stata
 guardata scrivendo il mazzo 14 ed è uno dei **rettangoli colorati sovrapposti**
