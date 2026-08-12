@@ -2157,10 +2157,12 @@ Restano i **due follow-up del punto 6**, che sono lavoro sugli strumenti e non
 sulle carte, e che nessuno è obbligato a fare:
 
 - le **dieci figure recuperate in capitoli già scritti** (pagine 7, 13, 42, 53,
-  56, 57 ×2, 58, 125, 148), che nessuno ha più guardato. Attenzione a non
-  aspettarsene troppo: nel 14 la sola figura recuperata si è rivelata un
-  rettangolo colorato, mentre nel 04 tutte e quattro erano buone. Il modo per
-  ritrovarle sta al punto 6;
+  56, 57 ×2, 58, 125, 148). **Quattro sono già state campionate** e il punto 6
+  riporta che cosa sono: una vale una carta di riconoscimento sul fronte, una
+  vale un'illustrazione da retro, e **due non sono figure** ma una formula e una
+  tabella. Aspettarsi dalle sei rimaste **due o tre carte in tutto**: è mezz'ora
+  di lavoro, non una sessione, ed è additivo e sicuro perché aggiungere carte e
+  attaccare figure a carte esistenti non tocca nessun guid;
 - il **clip path di `extract.py`**, l'unica modifica pianificata e mai fatta.
   Cambierebbe il **contenuto** di file già referenziati dalle carte consegnate a
   Pietro, quindi non è additiva come l'abbassamento della soglia: andava fatta
@@ -2442,13 +2444,31 @@ finite sulle carte):
 
 | Dove | Figure | Stato |
 |---|---|---|
-| p. 7 (mazzo 01), p. 13 (03), p. 42 (06), p. 53, 56, 57 ×2, 58 (07), p. 125 (12), p. 148 (13) | 10 | **follow-up aperto**: quei capitoli erano già scritti quando la soglia è stata abbassata, e nessuno le ha più guardate |
+| p. 7 (mazzo 01), p. 13 (03), p. 42 (06), p. 53, 56, 57 ×2, 58 (07), p. 125 (12), p. 148 (13) | 10 | **follow-up aperto**, ma **quattro sono già state campionate**: vedi qui sotto |
 | p. 16, 19 ×2, 21 (mazzo 04) | 4 | **recuperate davvero**: il 04 le ha guardate una per una e le ha usate tutte e quattro |
 | p. 165 (mazzo 14) | 1 | **falso positivo**, vedi qui sotto |
 
 *Attenzione*: la stesura precedente di questo piano dava tutte e quindici per
 "in capitoli già scritti". Non era così: quattro stavano in un capitolo ancora
 da fare, ed è quello che le ha usate.
+
+**Quattro delle dieci sono state guardate chiudendo il progetto**, per capire
+quanto valga la pena finire il lavoro. L'esito è **misto, e più basso di quanto
+il piano lasciasse sperare**:
+
+| File | Che cos'è | Vale |
+|---|---|---|
+| `teoria_p007_21` (226x173) | micrografia di **epitelio intestinale in istochimica**, cellule caliciformi in blu, **senza alcuna etichetta** | una **carta nuova, sul fronte**: è materiale da riconoscimento vero |
+| `teoria_p125_906` (232x196) | micrografia di **macrofagi** con la scritta `Macrofagi` **stampata sopra** | al più un'illustrazione sul **retro** di una carta di `12c`, che il testo copre già |
+| `teoria_p053_371` (678x112) | la **formula** `M_tot = M_obiettivo × M_oculari` | **niente**: non è una figura |
+| `teoria_p056_398` (1200x132) | la **tabella** degli spessori del coprioggetto | **niente**: il testo del `07` la copre già |
+
+Due delle quattro **non sono figure**, ed è lo stesso caso che il test
+`test_flags_a_formula_rendered_as_an_image` descrive: larghe abbastanza ma alte
+quanto una riga. La soglia a 100 px non le prende perché hanno **entrambi** i
+lati sopra i 100. Chi finisce il lavoro guardi per prime le sei rimaste con il
+**rapporto d'aspetto meno allungato**, che sono le uniche con una probabilità
+seria di essere micrografie.
 
 **Il bilancio dell'abbassamento della soglia si può ora chiudere.** Ha fruttato
 in due capitoli su tre: otto figure al `15` (fra cui lo schema
