@@ -51,6 +51,15 @@ pacchetto non viene scritto):
 Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **673 carte,
 11 mazzi, 120 immagini** per il Laboratorio.
 
+E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
+
+```sh
+./venv/bin/python -m scripts.da_verificare --cards cards --out DA_VERIFICARE.md
+```
+
+Atteso oggi: **106 carte**. Questo comando legge solo `cards/`, non serve
+`build/`.
+
 **Due pacchetti, uno per fonte**, non uno solo: `--media` è una singola
 directory e le immagini stanno in due alberi separati (`build/lab/images` e
 `build/teoria/images`). In Anki non cambia nulla, i mazzi restano sotto lo
@@ -2226,6 +2235,35 @@ non c'è più niente da scrivere, questo elenco cambia destinatario: non serve p
 a calibrare l'asticella, ma è **la lista di ciò che Pietro deve portare al
 libro**. Le carte sono ordinate come i mazzi, quindi si ripercorre nell'ordine
 del corso.
+
+**La copia da dare a Pietro è `DA_VERIFICARE.md`, e si genera dalle carte.** La
+tabella qui sotto resta la vista per chi lavora al progetto: è scritta a mano,
+condensa ogni segnalazione in una riga e non riporta la pagina. Quella che serve
+al tavolo col libro è invece generata, porta il `source` di ogni carta e la nota
+per esteso, e soprattutto **non può divergere dal mazzo**: una voce sparisce
+quando la sua carta perde il tag.
+
+```sh
+./venv/bin/python -m scripts.da_verificare --cards cards --out DA_VERIFICARE.md
+```
+
+Chiudendo una segnalazione vanno quindi aggiornati **tre** posti: la carta
+(testo, nota, tag), questa tabella e `DA_VERIFICARE.md`, che si rigenera. I due
+punti senza carta (pagine 4 e 70 del Laboratorio) non hanno tag che li porti,
+quindi nel generatore stanno in una costante, `WITHOUT_CARD`: se ne emergessero
+altri vanno aggiunti lì, oltre che qui.
+
+**Attenzione a come è fatta la nota sul `back` di una carta basic**, se un
+giorno si tocca `da_verificare.py`. La segnalazione comincia dove si apre il
+corsivo e arriva in fondo al campo, ma **non coincide con i blocchi `<i>`**: il
+corsivo si chiude e riapre attorno a ogni parola in grassetto (in
+`teoria-sangue-030` prendere i soli blocchi `<i>` fa sparire il **C4** e il
+**C2**, cioè il contenuto della segnalazione), e su cinque carte in corsivo c'è
+la sola etichetta mentre la spiegazione prosegue in tondo
+(`lab-linfoide-022`, `lab-nervoso-015`, `lab-nervoso-069`, `lab-linfoide-039`,
+`lab-osso-046`). Due carte non hanno corsivo affatto, perché lì l'affermazione
+dubbia **è** la risposta (`lab-esocrino-033`, `lab-connettivi-037`). I test in
+`tests/test_da_verificare.py` descrivono tutti e quattro i casi.
 
 | Carta | Cosa non torna |
 |---|---|
