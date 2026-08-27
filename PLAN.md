@@ -48,8 +48,8 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **768 carte,
-12 mazzi, 151 immagini** per il Laboratorio.
+Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **798 carte,
+12 mazzi, 161 immagini** per il Laboratorio.
 
 E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 
@@ -65,13 +65,13 @@ directory e le immagini stanno in due alberi separati (`build/lab/images` e
 `build/teoria/images`). In Anki non cambia nulla, i mazzi restano sotto lo
 stesso genitore `Istologia::` e i tag `argomento::` continuano a pescare da
 entrambe le fonti. Così la teoria si consegna un capitolo per volta senza
-rispedire ogni volta le 768 note del laboratorio.
+rispedire ogni volta le 798 note del laboratorio.
 
 ---
 
 ## 2. Stato al 2026-08-12
 
-**768 note** di Laboratorio + **1872 di Teoria**, 604 immagini, 163 test verdi.
+**798 note** di Laboratorio + **1872 di Teoria**, 614 immagini, 163 test verdi.
 
 **Il progetto è finito.** Il Laboratorio copre tutte e 106 le sue pagine, la
 Teoria tutti e **diciotto** i capitoli e tutte e 256 le pagine. Non c'è più
@@ -117,6 +117,7 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `vetrini-01-colorazioni.jsonl` | 24 | mazzo `Vetrini`, 8 vetrini delle pagine 3-5 |
 | `vetrini-02-epiteli.jsonl` | 42 | mazzo `Vetrini`, 8 vetrini + 4 schermate di quiz, pagine 8-12 |
 | `vetrini-03a-esocrino.jsonl` | 29 | mazzo `Vetrini`, classificazione + vetrini 1-7, pagine 15-21 |
+| `vetrini-03b-esocrino.jsonl` | 30 | mazzo `Vetrini`, vetrini 8-13 + 3 schermate di quiz, pagine 21-27 |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
@@ -260,7 +261,7 @@ restare unico dentro tutto il mazzo:
 |---|---|
 | `lab-colorazioni` | `01` 001-038, poi `vetrini-01` 039-062 |
 | `lab-epiteli` | `02` 001-034, poi `vetrini-02` 035-076 |
-| `lab-esocrino` | `03` 001-035, `03b` 040-087, poi `vetrini-03a` 088-116 |
+| `lab-esocrino` | `03` 001-035, `03b` 040-087, `vetrini-03a` 088-116, poi `vetrini-03b` 117-146 |
 | `lab-osso` | `06b` 001-032, poi `06d` 033-046 |
 | `lab-cartilagine` | `06a` 001-025, poi `06d` 026-043 |
 | `lab-muscolare` | `07a` 001-024, poi `07b` 025-044 |
@@ -2288,7 +2289,7 @@ una qualsiasi di esse e il mazzo resta coerente.
 | 1 | `vetrini-01-colorazioni.jsonl` | 01 Colorazioni, pp. 3-5 | 8 | 24 | **fatto** |
 | 2 | `vetrini-02-epiteli.jsonl` | 02 Epiteli, pp. 8-12 | 13 | 42 | **fatto** |
 | 3a | `vetrini-03a-esocrino.jsonl` | 03 Ghiand. esocrino, classificazione + vetrini 1-7, pp. 14-21 | 12 | 29 | **fatto** |
-| 3b | `vetrini-03b-esocrino.jsonl` | 03 Ghiand. esocrino, vetrini 8-13 + quiz, pp. 21-27 | 11 | ~30 | da fare |
+| 3b | `vetrini-03b-esocrino.jsonl` | 03 Ghiand. esocrino, vetrini 8-13 + quiz, pp. 21-27 | 11 | 30 | **fatto** |
 | 4 | `vetrini-04-endocrino.jsonl` | 04 Ghiand. endocrino, pp. 28-43 | ~32 | ~109 | da fare |
 | 5 | `vetrini-05-connettivi.jsonl` | 05 Connettivi, pp. 43-55 | ~14 | ~48 | da fare |
 | 6 | `vetrini-06-specializzati.jsonl` | 06 Conn. specializzati, pp. 55-76 | ~12 | ~30 | da fare |
@@ -2298,14 +2299,15 @@ una qualsiasi di esse e il mazzo resta coerente.
 
 Le stime valgono come tetto, non come obiettivo: assumono che ogni immagine sia
 un vetrino distinto, e una parte sono duplicati dello stesso campo a
-ingrandimenti diversi o schemi da scartare. Le iterazioni 3, 4 e 7 vanno
-**spezzate a metà** se superano le ~50 carte.
+ingrandimenti diversi o schemi da scartare. L'iterazione 3 è stata spezzata
+nelle due metà 3a e 3b; le iterazioni 4 e 7 vanno **spezzate a metà** se
+superano le ~50 carte.
 
 La riga 3 è stata sdoppiata il 2026-08-27, come il piano prevedeva. La stima di
 ~95 carte si è però rivelata larga di molto: il capitolo 03 è l'unico finora in
 cui la sezione era **già cardata per intero** nel mazzo di capitolo, e nove
 figure hanno già la loro carta con immagine sul fronte. Il totale reale delle
-due metà è intorno alle **60 carte**, non 95.
+due metà è di **59 carte**, non 95.
 
 Il perimetro è **solo il Laboratorio**. La Teoria ha 453 immagini e lo stesso
 trattamento sarebbe possibile, ma è un lavoro di dimensioni analoghe e va
@@ -2547,7 +2549,7 @@ di pagina 27 non esistono da nessuna parte, e non c'è nessun file
 `03c-quiz-*.jsonl`. È lo stesso buco già segnalato per il capitolo 02: i due
 vanno chiusi insieme, in una iterazione a parte.
 
-**Che cosa resta all'iterazione 3b**, già guardato una per una:
+**Che cosa è passato all'iterazione 3b**, già guardato una per una:
 
 | Pagina | Figure | Vetrino |
 |---|---|---|
@@ -2572,9 +2574,53 @@ risposte sono, nell'ordine, *ghiandola sottomandibolare a secrezione mista*,
 *pancreas* e *fondo dello stomaco*. Attenzione: le didascalie estratte per
 queste tre sono **sfasate di una domanda**, e vanno rilette sulla pagina resa.
 
+### Capitolo 03, seconda metà: quello che è stato deciso
+
+Undici figure delle pagine 21-27, 30 carte, `lab-esocrino-117`-`146`: tre carte
+per ciascuna delle otto microfotografie e due per ciascuna delle tre schermate
+del quiz. Tutte sono note `basic`, con immagine sul fronte e
+`tipo::riconoscimento`.
+
+**Nessuna delle undici figure è stata scartata.** Le otto microfotografie sono
+campi istologici senza etichette che contengano la risposta; le tre schermate
+del quiz mostrano soltanto il marcatore `1`, mentre domanda e soluzione sono
+testo esterno al ritaglio. Tutte erano quindi adatte al fronte. Le immagini
+uniche del pacchetto aumentano però di **dieci**, non undici:
+`lab_p024_1258.jpg` era già conteggiata perché usata, con l'abbinamento
+sbagliato, da `lab-esocrino-082`.
+
+La distribuzione delle domande segue i campi, non ripete semplicemente le carte
+di solo testo già presenti:
+
+| Figure | Carte | Taglio |
+|---|---:|---|
+| `lab_p021_1151.jpg`, `lab_p022_1195.jpg` | 6 | papille foliate a piccolo ingrandimento; solco, bottoni e pori gustativi ad alto ingrandimento |
+| `lab_p023_1213.jpg` | 3 | papille fungiformi: identificazione, differenza dalle filiformi, rivestimento |
+| `lab_p023_1215.jpg` | 3 | scalpo: organo, morfologia olocrina delle sebacee, muscolo erettore del pelo |
+| `lab_p024_1256.jpg`, `lab_p024_1258.jpg` | 6 | i due dotti escretori di diverso calibro della sottolinguale e gli adenomeri mucosi circostanti |
+| `lab_p024_1254.jpg` | 3 | sottomandibolare: classificazione mista, semilune del Giannuzzi, confronto sieroso/mucoso |
+| `lab_p025_1300.jpg` | 3 | ghiandole gastriche propriamente dette ad alto ingrandimento |
+| `lab_p027_1506.jpg`, `1508`, `1510` | 6 | due carte per quiz: sottomandibolare mista, pancreas, fondo dello stomaco |
+
+La sovrapposizione fra le due immagini di ghiandola sebacea è stata risolta
+come previsto dalla 3a: `lab_p016_962.jpg` continua a chiedere il **tipo di
+secrezione**; `lab_p023_1215.jpg` chiede invece di riconoscere lo **scalpo**, la
+morfologia chiara delle cellule olocrine e il muscolo erettore del pelo.
+
+`lab_p024_1258.jpg` è stata usata correttamente come **piccolo dotto escretore
+della sottolinguale**, ma `lab-esocrino-082` non è stata modificata: la sua
+correzione resta il lavoro separato già annotato nella prima metà. Lo stesso
+vale per `lab-esocrino-047`, `lab-epiteli-026` e per i quiz di solo testo delle
+pagine 11-13 e 25-27.
+
+Le tre risposte del quiz sono state abbinate rileggendo la **pagina 27 resa**,
+non le didascalie estratte: `1506` è la sottomandibolare a secrezione mista,
+`1508` il pancreas, `1510` il fondo dello stomaco. Nessuna nuova carta ha
+richiesto il tag `da-verificare`: il totale resta **107**.
+
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Centosei carte taggate, più due figure scartate senza produrre carta. Ora che
+Centosette carte taggate, più due figure scartate senza produrre carta. Ora che
 non c'è più niente da scrivere, questo elenco cambia destinatario: non serve più
 a calibrare l'asticella, ma è **la lista di ciò che Pietro deve portare al
 libro**. Le carte sono ordinate come i mazzi, quindi si ripercorre nell'ordine
