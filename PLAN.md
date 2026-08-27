@@ -26,7 +26,7 @@ DL=/Users/pietrodibello/Downloads
 ./venv/bin/python scripts/segment.py --build build/lab
 ./venv/bin/python scripts/segment.py --build build/teoria
 
-./venv/bin/python -m pytest tests/ -q          # atteso: 153 passed
+./venv/bin/python -m pytest tests/ -q          # atteso: 163 passed
 ```
 
 L'estrazione della teoria richiede qualche minuto: 256 pagine e 486 immagini.
@@ -48,8 +48,8 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **673 carte,
-11 mazzi, 120 immagini** per il Laboratorio.
+Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **697 carte,
+12 mazzi, 126 immagini** per il Laboratorio.
 
 E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 
@@ -65,13 +65,13 @@ directory e le immagini stanno in due alberi separati (`build/lab/images` e
 `build/teoria/images`). In Anki non cambia nulla, i mazzi restano sotto lo
 stesso genitore `Istologia::` e i tag `argomento::` continuano a pescare da
 entrambe le fonti. Così la teoria si consegna un capitolo per volta senza
-rispedire ogni volta le 673 note del laboratorio.
+rispedire ogni volta le 697 note del laboratorio.
 
 ---
 
 ## 2. Stato al 2026-08-12
 
-**673 note** di Laboratorio + **1872 di Teoria**, 573 immagini, 153 test verdi.
+**697 note** di Laboratorio + **1872 di Teoria**, 579 immagini, 163 test verdi.
 
 **Il progetto è finito.** Il Laboratorio copre tutte e 106 le sue pagine, la
 Teoria tutti e **diciotto** i capitoli e tutte e 256 le pagine. Non c'è più
@@ -114,6 +114,7 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `09a-embriologia.jsonl` | 20 | sezione 025, pagine 96-97 |
 | `09b-modellini-embriologia.jsonl` | 37 | sezione 026, modellini 1-9, pagine 98-103 |
 | `10a-tonsilla-palatina.jsonl` | 11 | sezione 027, pagina 106 |
+| `vetrini-01-colorazioni.jsonl` | 24 | mazzo `Vetrini`, 8 vetrini delle pagine 3-5 |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
@@ -255,6 +256,7 @@ restare unico dentro tutto il mazzo:
 
 | Argomento | Dove sta |
 |---|---|
+| `lab-colorazioni` | `01` 001-038, poi `vetrini-01` 039-062 |
 | `lab-osso` | `06b` 001-032, poi `06d` 033-046 |
 | `lab-cartilagine` | `06a` 001-025, poi `06d` 026-043 |
 | `lab-muscolare` | `07a` 001-024, poi `07b` 025-044 |
@@ -351,11 +353,52 @@ grep -ho '"id": "lab-osso-[0-9]*"' cards/laboratorio/*.jsonl | sort | tail -1
 ```
 Istologia::Laboratorio::<NN> - <Nome capitolo>
 Istologia::Laboratorio::Quiz              (unico, per tutti i quiz)
+Istologia::Laboratorio::Vetrini           (unico, allenamento al riconoscimento)
 Istologia::Teoria::<NN> - <Nome capitolo>
 ```
 
 La numerazione segue l'ordine delle pagine nella sbobina, così i mazzi si
 ordinano da soli come il corso.
+
+### Il mazzo `Vetrini`
+
+Aperto il 2026-08-27 su richiesta di Pietro, per allenare il **riconoscimento
+dei vetrini** in vista dell'esame pratico. È la seconda eccezione alla regola
+"un mazzo per capitolo", dopo `Quiz`, e per la stessa ragione: è un percorso di
+studio a sé, con opzioni di mazzo proprie.
+
+Regole, tutte diverse dal resto del progetto e da rispettare:
+
+- **immagine sempre sul fronte**, `"image_side": "front"`, e sempre `basic`
+  (il notetype Cloze non ha un campo per l'immagine sul fronte, e non lo
+  tocchiamo);
+- **3-4 domande sullo stesso vetrino**, con un mix fisso: identificazione,
+  carattere distintivo, colorazione, struttura visibile nel campo. La quarta
+  solo se il campo ha davvero qualcosa da indicare: **meglio tre carte solide
+  che quattro con una inventata**;
+- **regola anti-spoiler**: solo la domanda di identificazione tace il nome del
+  tessuto, tutte le altre lo dichiarano *nella domanda* (`Vetrino di colon:
+  ...`). Sono note separate, quindi la sepoltura dei fratelli non le divide: la
+  disciplina di scrittura è l'unica difesa. Non scrivere mai il nome del
+  tessuto solo nella risposta di una carta di dettaglio;
+- `tipo::riconoscimento` su **tutte**, comprese quelle su colorazione e
+  tecnica: partono tutte da una figura, ed è quello il senso del tag;
+- gli **id proseguono il contatore dell'argomento** come ovunque: le carte del
+  capitolo 01 sono `lab-colorazioni-039`-`062`, non ripartono da 001;
+- **un file per capitolo**, `cards/laboratorio/vetrini-NN-<nome>.jsonl`.
+
+**Le carte con immagine sul fronte già esistenti restano nel loro mazzo di
+capitolo.** Non vanno spostate qui: Anki, al reimport, aggiorna i campi della
+nota ma non necessariamente il mazzo della carta, quindi lo spostamento non
+sarebbe affidabile. Le nuove domande sullo stesso vetrino vanno comunque nel
+mazzo `Vetrini`, e prima di scriverle **va letta la carta che già esiste**:
+
+```sh
+grep -h "lab_p005_290.jpg" cards/laboratorio/*.jsonl
+```
+
+Il validatore intercetta i doppioni solo *dentro* lo stesso mazzo, quindi
+questo controllo è manuale.
 
 ### Tag
 
@@ -740,11 +783,13 @@ si sistemano invece senza cerimonie: non cambiano il contenuto.
 
 ## 4. Cosa resta, in ordine
 
-**Non resta niente.** Le due fonti sono coperte per intero. Questo punto resta
-com'è perché è il registro di come ogni capitolo è stato deciso: serve a chi
-dovrà *correggere* una carta, non più a chi deve scriverne. L'ordine di
-lavorazione qui sotto è quello concordato con Pietro il 2026-08-10 ed è stato
-seguito fino in fondo.
+**La copertura delle due sbobine è completa**, e quello che segue è il registro
+di come ogni capitolo è stato deciso: serve a chi dovrà *correggere* una carta,
+non più a chi deve scriverne. L'ordine di lavorazione qui sotto è quello
+concordato con Pietro il 2026-08-10 ed è stato seguito fino in fondo.
+
+**Resta invece aperto il mazzo `Vetrini`**, cominciato il 2026-08-27: vedi il
+punto 4-bis.
 
 ### Laboratorio
 
@@ -2227,6 +2272,73 @@ il pacchetto intero**, e Anki riconosce le note dal guid senza toccare lo
 storico di ripetizione.
 
 ---
+
+## 4-bis. Il mazzo `Vetrini`, capitolo per capitolo
+
+Lavoro aperto il 2026-08-27. Le convenzioni stanno al punto 3; qui c'è **a che
+punto siamo**. Ogni riga è un'iterazione auto-contenuta: ci si può fermare dopo
+una qualsiasi di esse e il mazzo resta coerente.
+
+| # | File | Capitolo / pagine | Vetrini | Carte | Stato |
+|---|---|---|---|---|---|
+| 1 | `vetrini-01-colorazioni.jsonl` | 01 Colorazioni, pp. 3-5 | 8 | 24 | **fatto** |
+| 2 | `vetrini-02-epiteli.jsonl` | 02 Epiteli, pp. 6-14 | ~14 | ~48 | da fare |
+| 3 | `vetrini-03-esocrino.jsonl` | 03 Ghiand. esocrino, pp. 14-28 | ~30 | ~95 | da fare |
+| 4 | `vetrini-04-endocrino.jsonl` | 04 Ghiand. endocrino, pp. 28-43 | ~32 | ~109 | da fare |
+| 5 | `vetrini-05-connettivi.jsonl` | 05 Connettivi, pp. 43-55 | ~14 | ~48 | da fare |
+| 6 | `vetrini-06-specializzati.jsonl` | 06 Conn. specializzati, pp. 55-76 | ~12 | ~30 | da fare |
+| 7 | `vetrini-08-nervoso.jsonl` | 08 Nervoso/SNP, pp. 78-96 | ~27 | ~78 | da fare |
+| 8 | `vetrini-09-embriologia.jsonl` | 09 Embriologia, pp. 96-106 | ~13 | ~32 | da fare |
+| 9 | `vetrini-07-10-coda.jsonl` | 07 Muscolare + 10 Tonsilla | 2 | ~5 | da fare |
+
+Le stime valgono come tetto, non come obiettivo: assumono che ogni immagine sia
+un vetrino distinto, e una parte sono duplicati dello stesso campo a
+ingrandimenti diversi o schemi da scartare. Le iterazioni 3, 4 e 7 vanno
+**spezzate a metà** se superano le ~50 carte.
+
+Il perimetro è **solo il Laboratorio**. La Teoria ha 453 immagini e lo stesso
+trattamento sarebbe possibile, ma è un lavoro di dimensioni analoghe e va
+deciso a parte.
+
+### Procedura di una iterazione
+
+1. leggere la sbobina di quelle pagine con `show_section.py`;
+2. elencare le immagini del capitolo con la didascalia e le carte che già le usano;
+3. **guardare ogni immagine, una per una**, prima di decidere qualsiasi cosa. Le
+   didascalie estratte a volte sono sbagliate (punto 5), e senza guardare non si
+   sa nemmeno se la figura è un vetrino o uno schema;
+4. leggere le carte che già usano quelle immagini, per non ripetersi;
+5. scrivere le carte seguendo il mix fisso e la regola anti-spoiler;
+6. ricostruire il pacchetto, far girare i test, rigenerare `DA_VERIFICARE.md`;
+7. aggiornare questo punto e i conteggi del punto 1 e 2;
+8. un commit `feat(cards)` per le carte e un `docs:` per il piano.
+
+### Capitolo 01, quello che è stato deciso
+
+Otto vetrini delle pagine 3-5: il colon non colorato (p.3), quattro campi del
+colon in H&E (p.4) e tre campi dello striscio di sangue in Diff-Quik (p.5).
+
+**Scartata `lab_p004_262.jpg`**: è lo schema dell'esecuzione dello striscio
+sanguigno, con il titolo *Esecuzione striscio sanguigno* stampato sopra. Non è
+un vetrino, e per la regola delle immagini del punto 3 una figura che contiene
+la risposta non va sul fronte.
+
+`lab_p003_226.jpg` (il microtomo) **non è entrato**: è uno strumento, non un
+vetrino, e la sua carta `lab-colorazioni-019` resta dov'è.
+
+**Una avvertenza per chi correggerà queste carte.** A queste pagine la sbobina
+usa i vetrini solo per illustrare *la colorazione*, e non descrive mai la parete
+del colon. Quindi:
+
+- tutto ciò che le risposte dicono su **colorazione, preparazione e tecnica**
+  viene dal testo delle pagine 2-5, alla lettera;
+- ciò che dicono sulla **morfologia** (ghiandole tubulari sezionate, adipociti,
+  vasi, eritrociti) è la descrizione di quello che si vede nel campo, tenuta
+  apposta su termini non controversi. Nessuna carta nomina strutture che la
+  sbobina non nomina: non si parla di tonache, di cripte del Lieberkühn o di
+  cellule caliciformi, che il documento introduce solo più avanti.
+
+Nessuna carta del capitolo 01 ha richiesto il tag `da-verificare`.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
