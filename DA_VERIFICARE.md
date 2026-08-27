@@ -1,6 +1,6 @@
 # Carte da verificare sul libro
 
-**108 carte**, piu 2 punti su cui non e stata scritta nessuna carta.
+**110 carte**, piu 2 punti su cui non e stata scritta nessuna carta.
 
 Sono i punti in cui la sbobina dice qualcosa che non torna. La convenzione del progetto e non correggere mai in silenzio: la carta riporta quello che dice la sbobina, spiega cosa non quadra e porta il tag `da-verificare`, e la decisione resta tua.
 
@@ -83,6 +83,14 @@ Attenzione: La sbobina segna **Fibroblasto**. La cellula che sintetizza la matri
 Attenzione: La sbobina segna due risposte. La **riserva energetica** è però proprio una funzione tipica del tessuto adiposo, che è un connettivo specializzato: lo dicono anche le domande 11 e 13 di questo stesso quiz. L'unica risposta attesa è la **contrazione muscolare**.
 
 ## Istologia::Laboratorio::Vetrini
+
+**`lab-connettivi-081`** — Laboratorio p. 50
+
+Da verificare: la sbobina dice «soltanto nelle arterie», ma le vene non sono prive di elastina, ne hanno molta meno e non hanno una lamina elastica interna così evidente. Quello che la Verhoeff mostra è una differenza di quantità, non una presenza contro un'assenza.
+
+**`lab-connettivi-085`** — Laboratorio p. 50
+
+Da verificare: questa è la descrizione di una **mucosa**, non del tessuto mucoso. Il tessuto mucoso è il connettivo gelatinoso ricco di acido ialuronico che riempie il cordone (la **gelatina di Wharton**), come dice la stessa sbobina a pagina 44: non ha né un epitelio di rivestimento né ghiandole.
 
 **`lab-endocrino-117`** — Laboratorio p. 39
 
