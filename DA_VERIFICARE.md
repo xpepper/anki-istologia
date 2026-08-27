@@ -1,6 +1,6 @@
 # Carte da verificare sul libro
 
-**106 carte**, piu 2 punti su cui non e stata scritta nessuna carta.
+**107 carte**, piu 2 punti su cui non e stata scritta nessuna carta.
 
 Sono i punti in cui la sbobina dice qualcosa che non torna. La convenzione del progetto e non correggere mai in silenzio: la carta riporta quello che dice la sbobina, spiega cosa non quadra e porta il tag `da-verificare`, e la decisione resta tua.
 
@@ -81,6 +81,12 @@ Attenzione: La sbobina segna **Fibroblasto**. La cellula che sintetizza la matri
 **`lab-quiz-connettivi-specializzati-026`** — Laboratorio p. 71-75
 
 Attenzione: La sbobina segna due risposte. La **riserva energetica** è però proprio una funzione tipica del tessuto adiposo, che è un connettivo specializzato: lo dicono anche le domande 11 e 13 di questo stesso quiz. L'unica risposta attesa è la **contrazione muscolare**.
+
+## Istologia::Laboratorio::Vetrini
+
+**`lab-esocrino-108`** — Laboratorio p. 18
+
+Da verificare: «blu di toluene» non è una colorazione istologica. Il nome che ci si aspetta è **blu di toluidina**, che il corso incontra fra i coloranti basici insieme a ematossilina, blu di metilene e rosso carminio. Riportato qui come lo scrive la sbobina.
 
 ## Istologia::Teoria::01 - Preparazione del preparato istologico
 
