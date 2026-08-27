@@ -48,8 +48,8 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **828 carte,
-12 mazzi, 174 immagini** per il Laboratorio.
+Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **875 carte,
+12 mazzi, 191 immagini** per il Laboratorio.
 
 E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 
@@ -57,7 +57,7 @@ E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 ./venv/bin/python -m scripts.da_verificare --cards cards --out DA_VERIFICARE.md
 ```
 
-Atteso oggi: **107 carte**. Questo comando legge solo `cards/`, non serve
+Atteso oggi: **108 carte**. Questo comando legge solo `cards/`, non serve
 `build/`.
 
 **Due pacchetti, uno per fonte**, non uno solo: `--media` è una singola
@@ -65,13 +65,13 @@ directory e le immagini stanno in due alberi separati (`build/lab/images` e
 `build/teoria/images`). In Anki non cambia nulla, i mazzi restano sotto lo
 stesso genitore `Istologia::` e i tag `argomento::` continuano a pescare da
 entrambe le fonti. Così la teoria si consegna un capitolo per volta senza
-rispedire ogni volta le 828 note del laboratorio.
+rispedire ogni volta le 875 note del laboratorio.
 
 ---
 
 ## 2. Stato al 2026-08-12
 
-**828 note** di Laboratorio + **1872 di Teoria**, 627 immagini, 163 test verdi.
+**875 note** di Laboratorio + **1872 di Teoria**, 644 immagini, 163 test verdi.
 
 **Il progetto è finito.** Il Laboratorio copre tutte e 106 le sue pagine, la
 Teoria tutti e **diciotto** i capitoli e tutte e 256 le pagine. Non c'è più
@@ -118,6 +118,8 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `vetrini-02-epiteli.jsonl` | 42 | mazzo `Vetrini`, 8 vetrini + 4 schermate di quiz, pagine 8-12 |
 | `vetrini-03a-esocrino.jsonl` | 29 | mazzo `Vetrini`, classificazione + vetrini 1-7, pagine 15-21 |
 | `vetrini-03b-esocrino.jsonl` | 30 | mazzo `Vetrini`, vetrini 8-13 + 3 schermate di quiz, pagine 21-27 |
+| `vetrini-04a-endocrino.jsonl` | 30 | mazzo `Vetrini`, vetrini 1-3, pagine 30-32 |
+| `vetrini-04b-endocrino.jsonl` | 47 | mazzo `Vetrini`, vetrini 4-8, pagine 33-39 |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
@@ -262,7 +264,7 @@ restare unico dentro tutto il mazzo:
 | `lab-colorazioni` | `01` 001-038, poi `vetrini-01` 039-062 |
 | `lab-epiteli` | `02` 001-034, poi `vetrini-02` 035-076 |
 | `lab-esocrino` | `03` 001-035, `03b` 040-087, `vetrini-03a` 088-116, poi `vetrini-03b` 117-146 |
-| `lab-endocrino` | `04a` 001-015, `04b` 020-045, poi `vetrini-04a` 046-075 |
+| `lab-endocrino` | `04a` 001-015, `04b` 020-045, `vetrini-04a` 046-075, poi `vetrini-04b` 076-122 |
 | `lab-osso` | `06b` 001-032, poi `06d` 033-046 |
 | `lab-cartilagine` | `06a` 001-025, poi `06d` 026-043 |
 | `lab-muscolare` | `07a` 001-024, poi `07b` 025-044 |
@@ -2292,7 +2294,7 @@ una qualsiasi di esse e il mazzo resta coerente.
 | 3a | `vetrini-03a-esocrino.jsonl` | 03 Ghiand. esocrino, classificazione + vetrini 1-7, pp. 14-21 | 12 | 29 | **fatto** |
 | 3b | `vetrini-03b-esocrino.jsonl` | 03 Ghiand. esocrino, vetrini 8-13 + quiz, pp. 21-27 | 11 | 30 | **fatto** |
 | 4a | `vetrini-04a-endocrino.jsonl` | 04 Ghiand. endocrino, vetrini 1-3, pp. 28-32 | 13 | 30 | **fatto** |
-| 4b | `vetrini-04b-endocrino.jsonl` | 04 Ghiand. endocrino, vetrini 4-8, pp. 33-39 | 17 | ~45 | da fare |
+| 4b | `vetrini-04b-endocrino.jsonl` | 04 Ghiand. endocrino, vetrini 4-8, pp. 33-39 | 17 | 47 | **fatto** |
 | 5 | `vetrini-05-connettivi.jsonl` | 05 Connettivi, pp. 43-55 | ~14 | ~48 | da fare |
 | 6 | `vetrini-06-specializzati.jsonl` | 06 Conn. specializzati, pp. 55-76 | ~12 | ~30 | da fare |
 | 7 | `vetrini-08-nervoso.jsonl` | 08 Nervoso/SNP, pp. 78-96 | ~27 | ~78 | da fare |
@@ -2316,7 +2318,8 @@ utilizzabili sono troppe per una sola sessione. Anche qui la stima di ~109
 carte era larga, ma per il motivo opposto a quello del capitolo 03: le 45 carte
 già esistenti del capitolo 04 sono **tutte di solo testo**, nessuna figura era
 già stata usata, e il taglio è quindi sceso solo per gli scarti. Il totale
-atteso delle due metà è di **~75 carte**.
+reale delle due metà è di **77 carte**, ed è l'unica stima del mazzo che si sia
+rivelata **stretta** invece che larga.
 
 Il perimetro è **solo il Laboratorio**. La Teoria ha 453 immagini e lo stesso
 trattamento sarebbe possibile, ma è un lavoro di dimensioni analoghe e va
@@ -2752,9 +2755,103 @@ testo estratto:
   `da-verificare` e con la spiegazione nel `back`, esattamente come
   `lab-esocrino-108`.
 
+### Capitolo 04, seconda metà: quello che è stato deciso
+
+Diciassette figure delle pagine 33-39, 47 carte, `lab-endocrino-076`-`122`: i
+**vetrini 4, 5, 6, 7 e 8** (ovaio con follicoli di Graaf, ovaio con corpo luteo,
+ovaio con corpi albicanti, ghiandola surrenale, pancreas). Con questa iterazione
+il capitolo 04 è **chiuso**: le due metà valgono 77 carte, e le trenta figure
+utilizzabili delle pagine 28-39 sono state usate tutte.
+
+Tutte le carte sono `basic`, con immagine sul fronte e `tipo::riconoscimento`.
+**Nessuna figura è stata scartata**: i tre scarti del capitolo li aveva già
+fatti la 4a. Una sola carta porta `da-verificare`, ed è quella annunciata dalla
+4a: il totale passa da 107 a **108**.
+
+Le tre avvertenze lasciate dalla 4a sono state **tutte confermate** rendendo di
+nuovo le pagine 33 e 35-39, e non ce n'erano altre.
+
+La distribuzione delle domande segue i campi, non le pagine:
+
+| Vetrino | Figure | Carte | Taglio |
+|---|---|---:|---|
+| 4, ovaio | `lab_p033_1846.jpg` | 3 | identificazione, le due regioni, l'ilo e i vasi della midollare |
+| 4 | `lab_p033_1844.jpg` | 4 | stadio dei follicoli e antri, liquor follicoli, distacco del cumulo ooforo, follicoli che paiono senza ovocita |
+| 4 | `lab_p033_1848.jpg` | 4 | granuli corticali, zona pellucida, granulosa/corona radiata/cumulo ooforo, teche e ormoni |
+| 4 | `lab_p035_1880.jpg` | 3 | follicoli primordiali della corticale, epitelio pavimentoso semplice, migrazione in profondità |
+| 5, corpo luteo | `lab_p035_1882.jpg` | 3 | identificazione, che cos'è il corpo luteo, che altro c'è nella sezione |
+| 5 | `lab_p035_1884.jpg` | 3 | cellule luteiniche e progesterone, morfologia e gocce lipidiche, cellule para luteiniche |
+| 5 | `lab_p036_1936.jpg` | 2 | ovociti primari, secondo campo, e l'indicazione sull'età |
+| 6, corpi albicanti | `lab_p036_1938.jpg` | 3 | identificazione, come si riconosce l'ovaio senza follicoli, che cos'è il corpo albicante |
+| 6 | `lab_p037_1979.jpg` | 3 | aspetto del corpo albicante, confronto con il corpo luteo, la menopausa |
+| 7, surrene | `lab_p037_1981.jpg` | 2 | identificazione, e le quattro zone marcate 2-5 |
+| 7 | `lab_p037_1983.jpg` | 3 | zona glomerulare e i suoi gomitoli, mineralcorticoidi, come agisce l'aldosterone |
+| 7 | `lab_p038_2041.jpg` | 2 | zona fascicolata e glucocorticoidi |
+| 7 | `lab_p038_2043.jpg` | 2 | zona reticolata e ormoni sessuali deboli |
+| 7 | `lab_p038_2045.jpg` | 2 | midollare e catecolamine |
+| 7 | `lab_p038_2047.jpg` | 2 | cellule cromaffini, e da dove viene il loro nome |
+| 8, pancreas | `lab_p039_2099.jpg` | 4 | identificazione e colorazione, ghiandola mista, isole di Langerhans, i loro tipi cellulari |
+| 8 | `lab_p039_2101.jpg` | 2 | acini sierosi e destinazione del secreto |
+
+**I numeri stampati nelle figure del surrene sono di due specie diverse, e
+confonderle rovina la carta.** Sulle pagine 37-38 il numero accanto al bordo
+della figura è il numero della **figura** (1-6, richiamato in grassetto dal
+testo: «la ghiandola surrenale (1.)», «Zona glomerulare (2.)»); i numeri
+`2`, `3`, `4`, `5` stampati **dentro** `lab_p037_1981.jpg` sono invece i
+**marcatori delle zone** su quel campo d'insieme, e rimandano proprio ai
+cinque ingrandimenti che seguono. È il motivo per cui `lab-endocrino-105`
+chiede le zone marcate 2-5 e non 1-4. I marcatori sono **soli numeri**, senza
+nomi stampati: la figura sta sul fronte senza spoilerare niente. Lo stesso vale
+per i marcatori `(1.)`, `(2.)`, `(3.)` e `(6.)` del Vetrino 4, che però nel
+testo rimandano alle figure e non a punti del campo.
+
+**La figura più affollata è `lab_p033_1848.jpg`, non un campo d'insieme.** È
+l'unico caso del mazzo in cui l'alto ingrandimento vale più domande della
+panoramica: ci stanno sopra i granuli corticali, la zona pellucida, i tre nomi
+della granulosa e le due teche. Il campo d'insieme del vetrino (`1846`) ne ha
+invece tre, perché la sbobina di quel campo dice poco più delle due regioni.
+
+**Cinque figure del surrene hanno due carte e non tre**, ed è voluto: dalla
+fascicolata in giù la sbobina dà per ciascuna zona **solo la posizione, l'aspetto
+e il secreto**. La terza domanda sarebbe stata inventata, e vale il criterio del
+punto 3. La zona glomerulare ne ha tre solo perché l'aldosterone ha un
+meccanismo d'azione descritto per esteso.
+
+**Una carta mette a confronto due vetrini diversi.** `lab-endocrino-102` chiede
+come si distingue un corpo albicante dal corpo luteo del vetrino precedente. È
+l'unica carta del capitolo che attraversi due vetrini, e non è una forzatura: i
+Vetrini 5 e 6 sono due sezioni dello **stesso organo** che la sbobina presenta
+apposta in sequenza, e all'esame pratico la differenza fra le due strutture è
+esattamente quello che si deve saper leggere.
+
+**Il pancreas era già nel mazzo `Vetrini`, e le carte nuove non lo ripetono.**
+La 3a lo aveva cardato dal lato **esocrino** con `lab-esocrino-103`-`108`
+(identificazione, isole come zone più chiare, confronto con la parotide, dotti
+intercalari, colorazione). Il Vetrino 8 è un **preparato diverso**, a pagina 39,
+e lo guarda dal lato **endocrino**: che cosa contengono le isole, in che
+proporzioni, e perché i loro tipi cellulari non si distinguono. Le due domande
+che potevano sovrapporsi sono state girate di conseguenza: `119` non chiede
+*che cosa siano* le isole, che `lab-esocrino-103` già chiede, ma *come si
+presentano* rispetto al parenchima.
+
+**La seconda segnalazione sul «blu di toluene».** `lab-endocrino-117` riporta la
+colorazione come la scrive la sbobina e spiega nel `back` che il nome atteso è
+**blu di toluidina**, esattamente come `lab-esocrino-108` aveva fatto per il
+vetrino di pagina 18. Sono due carte distinte su due vetrini distinti, non un
+doppione: la sbobina commette lo stesso errore due volte, e Pietro trova ora
+entrambe le occorrenze in `DA_VERIFICARE.md`. Il campo di pagina 39 è
+effettivamente **azzurro-violetto**, quindi la colorazione *è* un blu basico e
+l'errore è solo nel nome.
+
+**La sovrapposizione con le carte di solo testo del capitolo è voluta**, come
+nella 3a e nella 4a. In particolare `lab-endocrino-042`, `043`, `044` e `045`
+(pagina 29) definiscono corpo luteo, corpo albicante, il loro rapporto con
+l'età e le zone del surrene: lì si chiede di ricordare una definizione, qui di
+leggere un campo. Nessuna delle carte nuove è stata tolta per questo.
+
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Centosette carte taggate, più due figure scartate senza produrre carta. Ora che
+Centotto carte taggate, più due figure scartate senza produrre carta. Ora che
 non c'è più niente da scrivere, questo elenco cambia destinatario: non serve più
 a calibrare l'asticella, ma è **la lista di ciò che Pietro deve portare al
 libro**. Le carte sono ordinate come i mazzi, quindi si ripercorre nell'ordine
