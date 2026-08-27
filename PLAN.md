@@ -48,8 +48,8 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **697 carte,
-12 mazzi, 126 immagini** per il Laboratorio.
+Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **739 carte,
+12 mazzi, 139 immagini** per il Laboratorio.
 
 E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 
@@ -65,13 +65,13 @@ directory e le immagini stanno in due alberi separati (`build/lab/images` e
 `build/teoria/images`). In Anki non cambia nulla, i mazzi restano sotto lo
 stesso genitore `Istologia::` e i tag `argomento::` continuano a pescare da
 entrambe le fonti. Così la teoria si consegna un capitolo per volta senza
-rispedire ogni volta le 697 note del laboratorio.
+rispedire ogni volta le 739 note del laboratorio.
 
 ---
 
 ## 2. Stato al 2026-08-12
 
-**697 note** di Laboratorio + **1872 di Teoria**, 579 immagini, 163 test verdi.
+**739 note** di Laboratorio + **1872 di Teoria**, 592 immagini, 163 test verdi.
 
 **Il progetto è finito.** Il Laboratorio copre tutte e 106 le sue pagine, la
 Teoria tutti e **diciotto** i capitoli e tutte e 256 le pagine. Non c'è più
@@ -115,6 +115,7 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `09b-modellini-embriologia.jsonl` | 37 | sezione 026, modellini 1-9, pagine 98-103 |
 | `10a-tonsilla-palatina.jsonl` | 11 | sezione 027, pagina 106 |
 | `vetrini-01-colorazioni.jsonl` | 24 | mazzo `Vetrini`, 8 vetrini delle pagine 3-5 |
+| `vetrini-02-epiteli.jsonl` | 42 | mazzo `Vetrini`, 8 vetrini + 4 schermate di quiz, pagine 8-12 |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
@@ -257,6 +258,7 @@ restare unico dentro tutto il mazzo:
 | Argomento | Dove sta |
 |---|---|
 | `lab-colorazioni` | `01` 001-038, poi `vetrini-01` 039-062 |
+| `lab-epiteli` | `02` 001-034, poi `vetrini-02` 035-076 |
 | `lab-osso` | `06b` 001-032, poi `06d` 033-046 |
 | `lab-cartilagine` | `06a` 001-025, poi `06d` 026-043 |
 | `lab-muscolare` | `07a` 001-024, poi `07b` 025-044 |
@@ -2282,7 +2284,7 @@ una qualsiasi di esse e il mazzo resta coerente.
 | # | File | Capitolo / pagine | Vetrini | Carte | Stato |
 |---|---|---|---|---|---|
 | 1 | `vetrini-01-colorazioni.jsonl` | 01 Colorazioni, pp. 3-5 | 8 | 24 | **fatto** |
-| 2 | `vetrini-02-epiteli.jsonl` | 02 Epiteli, pp. 6-14 | ~14 | ~48 | da fare |
+| 2 | `vetrini-02-epiteli.jsonl` | 02 Epiteli, pp. 8-12 | 13 | 42 | **fatto** |
 | 3 | `vetrini-03-esocrino.jsonl` | 03 Ghiand. esocrino, pp. 14-28 | ~30 | ~95 | da fare |
 | 4 | `vetrini-04-endocrino.jsonl` | 04 Ghiand. endocrino, pp. 28-43 | ~32 | ~109 | da fare |
 | 5 | `vetrini-05-connettivi.jsonl` | 05 Connettivi, pp. 43-55 | ~14 | ~48 | da fare |
@@ -2339,6 +2341,82 @@ del colon. Quindi:
   cellule caliciformi, che il documento introduce solo più avanti.
 
 Nessuna carta del capitolo 01 ha richiesto il tag `da-verificare`.
+
+### Capitolo 02, quello che è stato deciso
+
+Tredici figure delle pagine 8-12, 42 carte, `lab-epiteli-035`-`076`. Sono gli
+**otto vetrini** della sezione 008 — aorta (p.8), rene in **due campi** (p.9),
+trachea (p.9), ovidotto (p.10), vescica (p.10), pianta del piede (p.10),
+ghiandola sudoripara (p.11), esofago (p.11) — più le **quattro schermate del
+quiz Wooclap** di pagina 12, che nessuna carta del progetto usava ancora.
+
+Qui la sbobina ha i blocchi *Vetrino N / Tessuto / Colorazione / Descrizione*,
+quindi, al contrario del capitolo 01, **le risposte sulla morfologia vengono dal
+documento** e non sono tenute su termini generici. Tutti e otto i vetrini sono
+in Ematossilina-Eosina, quindi la colorazione è chiesta **dentro la domanda di
+identificazione** (`Di che organo è questa sezione, e con quale colorazione è
+preparata?`), come già faceva il capitolo 01: otto carte separate che rispondono
+tutte "H&E" non avrebbero insegnato niente.
+
+**Le nove figure delle pagine 6-8 non sono entrate, ed è la decisione che conta.**
+Sono le microfotografie e gli schemi che illustrano la *classificazione* degli
+epiteli, e il mazzo `02` le ha già cardate per intero:
+
+- cinque hanno **già la loro carta di identificazione con l'immagine sul fronte**
+  (`lab-epiteli-009`, `012`, `015`, `018`, `025`, tutte `Che epitelio è questo?`)
+  e restano nel mazzo di capitolo, come il punto 3 prescrive;
+- tutto il resto che si potrebbe chiedere su di esse — funzione, sedi,
+  specializzazioni, come si riconoscono — è **già** in `lab-epiteli-010`, `011`,
+  `013`, `014`, `016`, `017`, `019`, `021`-`024`, `027`. Riscriverlo qui sarebbe
+  stato il doppione che il punto 3 chiede di evitare leggendo prima le carte
+  esistenti.
+
+**Scartate quattro figure**, tutte per la regola delle immagini del punto 3 (una
+figura che contiene la risposta non va sul fronte):
+
+- `lab_p006_312.jpg` e `lab_p006_314.jpg`: schemi a blocchi con il nome
+  dell'epitelio **stampato sopra** (*Pseudostratificato*, *Semplice / Squamoso /
+  Cubico / Cilindrico*);
+- `lab_p008_405.jpg`: lo schema dell'epitelio di transizione rilassato e disteso,
+  con *Transizione* stampato sopra;
+- `lab_p008_403.jpg`: microfotografia dell'epitelio di transizione annotata con
+  *Cellule cupoliformi*, *clavate*, *basali*. Non nomina l'epitelio, ma
+  "cupoliformi" **è** il carattere che lo identifica: in caso di dubbio la figura
+  va sul retro, ed è dove sta già (`lab-epiteli-028`).
+
+`lab_p014_886.jpg` (schema esocrina/endocrina, p.14) **non appartiene a questo
+capitolo**: è della sezione 009 e tocca all'iterazione 3, che comunque lo
+scarterà perché ha i due nomi stampati sopra.
+
+**Le quattro schermate di quiz hanno due carte l'una, non tre.** Il materiale è
+solo la risposta che la sbobina dà, e il punto 3 dice che è meglio una carta in
+meno che una inventata. Due deroghe consapevoli alla regola anti-spoiler, che
+vale per il *tessuto* e qui non ha un tessuto unico da tacere:
+
+- `lab_p012_680.jpg` ha **due marcatori** su due epiteli diversi, quindi due
+  carte di identificazione, una per marcatore;
+- su `lab_p012_678.jpg` le due carte si identificano a vicenda: `069` dichiara
+  l'organo e chiede l'epitelio, `070` dichiara l'epitelio e chiede l'organo.
+
+Nessuna carta del capitolo 02 ha richiesto il tag `da-verificare`: i blocchi
+della sezione 008 sono espliciti e non contraddicono il testo delle pagine 6-8.
+
+**Due cose trovate strada facendo, da non perdere** (nessuna delle due è stata
+toccata: sono fuori dal perimetro di questa iterazione):
+
+1. **Il quiz delle pagine 11-13 non è mai stato cardato.** Le domande con figura
+   (4, 5, 6, 7) le ha adesso il mazzo `Vetrini`; le domande di solo testo
+   (1, 2, 3, 8, 9, 10 e l'aperta 11) **non esistono da nessuna parte**. Gli altri
+   capitoli hanno un file `NNx-quiz-*.jsonl` generato da `quiz_to_cards.py`; il
+   capitolo 02 no. Vale una iterazione a parte.
+2. **`lab-epiteli-026` ha probabilmente l'immagine sbagliata sul retro.** La
+   carta è un cloze sull'epitelio **cubico** composto, ma `lab_p007_372.jpg`
+   mostra un primo strato di cellule nettamente **cilindriche** sopra un secondo
+   strato basale, cioè l'epitelio **cilindrico** composto — che è invece la carta
+   `lab-epiteli-027`, senza immagine. Le didascalie estratte a pagina 7 sono
+   sfasate di un paragrafo, il che spiega lo scambio. Da guardare prima di
+   correggere: l'immagine è sul **retro**, quindi non spoilera niente, e il fix
+   è spostarla da `026` a `027`.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
