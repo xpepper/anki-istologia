@@ -48,8 +48,8 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **739 carte,
-12 mazzi, 139 immagini** per il Laboratorio.
+Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **768 carte,
+12 mazzi, 151 immagini** per il Laboratorio.
 
 E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 
@@ -57,7 +57,7 @@ E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 ./venv/bin/python -m scripts.da_verificare --cards cards --out DA_VERIFICARE.md
 ```
 
-Atteso oggi: **106 carte**. Questo comando legge solo `cards/`, non serve
+Atteso oggi: **107 carte**. Questo comando legge solo `cards/`, non serve
 `build/`.
 
 **Due pacchetti, uno per fonte**, non uno solo: `--media` è una singola
@@ -65,13 +65,13 @@ directory e le immagini stanno in due alberi separati (`build/lab/images` e
 `build/teoria/images`). In Anki non cambia nulla, i mazzi restano sotto lo
 stesso genitore `Istologia::` e i tag `argomento::` continuano a pescare da
 entrambe le fonti. Così la teoria si consegna un capitolo per volta senza
-rispedire ogni volta le 739 note del laboratorio.
+rispedire ogni volta le 768 note del laboratorio.
 
 ---
 
 ## 2. Stato al 2026-08-12
 
-**739 note** di Laboratorio + **1872 di Teoria**, 592 immagini, 163 test verdi.
+**768 note** di Laboratorio + **1872 di Teoria**, 604 immagini, 163 test verdi.
 
 **Il progetto è finito.** Il Laboratorio copre tutte e 106 le sue pagine, la
 Teoria tutti e **diciotto** i capitoli e tutte e 256 le pagine. Non c'è più
@@ -116,6 +116,7 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `10a-tonsilla-palatina.jsonl` | 11 | sezione 027, pagina 106 |
 | `vetrini-01-colorazioni.jsonl` | 24 | mazzo `Vetrini`, 8 vetrini delle pagine 3-5 |
 | `vetrini-02-epiteli.jsonl` | 42 | mazzo `Vetrini`, 8 vetrini + 4 schermate di quiz, pagine 8-12 |
+| `vetrini-03a-esocrino.jsonl` | 29 | mazzo `Vetrini`, classificazione + vetrini 1-7, pagine 15-21 |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
@@ -259,6 +260,7 @@ restare unico dentro tutto il mazzo:
 |---|---|
 | `lab-colorazioni` | `01` 001-038, poi `vetrini-01` 039-062 |
 | `lab-epiteli` | `02` 001-034, poi `vetrini-02` 035-076 |
+| `lab-esocrino` | `03` 001-035, `03b` 040-087, poi `vetrini-03a` 088-116 |
 | `lab-osso` | `06b` 001-032, poi `06d` 033-046 |
 | `lab-cartilagine` | `06a` 001-025, poi `06d` 026-043 |
 | `lab-muscolare` | `07a` 001-024, poi `07b` 025-044 |
@@ -2285,7 +2287,8 @@ una qualsiasi di esse e il mazzo resta coerente.
 |---|---|---|---|---|---|
 | 1 | `vetrini-01-colorazioni.jsonl` | 01 Colorazioni, pp. 3-5 | 8 | 24 | **fatto** |
 | 2 | `vetrini-02-epiteli.jsonl` | 02 Epiteli, pp. 8-12 | 13 | 42 | **fatto** |
-| 3 | `vetrini-03-esocrino.jsonl` | 03 Ghiand. esocrino, pp. 14-28 | ~30 | ~95 | da fare |
+| 3a | `vetrini-03a-esocrino.jsonl` | 03 Ghiand. esocrino, classificazione + vetrini 1-7, pp. 14-21 | 12 | 29 | **fatto** |
+| 3b | `vetrini-03b-esocrino.jsonl` | 03 Ghiand. esocrino, vetrini 8-13 + quiz, pp. 21-27 | 11 | ~30 | da fare |
 | 4 | `vetrini-04-endocrino.jsonl` | 04 Ghiand. endocrino, pp. 28-43 | ~32 | ~109 | da fare |
 | 5 | `vetrini-05-connettivi.jsonl` | 05 Connettivi, pp. 43-55 | ~14 | ~48 | da fare |
 | 6 | `vetrini-06-specializzati.jsonl` | 06 Conn. specializzati, pp. 55-76 | ~12 | ~30 | da fare |
@@ -2297,6 +2300,12 @@ Le stime valgono come tetto, non come obiettivo: assumono che ogni immagine sia
 un vetrino distinto, e una parte sono duplicati dello stesso campo a
 ingrandimenti diversi o schemi da scartare. Le iterazioni 3, 4 e 7 vanno
 **spezzate a metà** se superano le ~50 carte.
+
+La riga 3 è stata sdoppiata il 2026-08-27, come il piano prevedeva. La stima di
+~95 carte si è però rivelata larga di molto: il capitolo 03 è l'unico finora in
+cui la sezione era **già cardata per intero** nel mazzo di capitolo, e nove
+figure hanno già la loro carta con immagine sul fronte. Il totale reale delle
+due metà è intorno alle **60 carte**, non 95.
 
 Il perimetro è **solo il Laboratorio**. La Teoria ha 453 immagini e lo stesso
 trattamento sarebbe possibile, ma è un lavoro di dimensioni analoghe e va
@@ -2417,6 +2426,151 @@ toccata: sono fuori dal perimetro di questa iterazione):
    sfasate di un paragrafo, il che spiega lo scambio. Da guardare prima di
    correggere: l'immagine è sul **retro**, quindi non spoilera niente, e il fix
    è spostarla da `026` a `027`.
+
+### Capitolo 03, prima metà: quello che è stato deciso
+
+Dodici figure delle pagine 15-21, 29 carte, `lab-esocrino-088`-`116`. Il taglio
+fra le due metà segue i **vetrini** e non le pagine: la 3a arriva fino al
+**Vetrino 7** compreso, la 3b riparte dal **Vetrino 8**. Entrambi stanno a
+pagina 21, che quindi compare in tutte e due le righe della tabella.
+
+**La decisione che conta è che qui la sezione era già cardata per intero.** Al
+contrario del capitolo 02 — dove la sezione 008 non aveva mai prodotto una
+carta — la 009 ha già 83 note fra `03-ghiandolare-esocrino.jsonl` (001-035) e
+`03b-esocrino-vetrini.jsonl` (040-087), e **nove** delle 37 figure hanno già la
+loro carta con immagine sul fronte. Quelle nove non sono state rifatte, per la
+regola del punto 3, e restano nel mazzo di capitolo:
+
+| Figura | Carta che la usa già |
+|---|---|
+| `lab_p017_1000.jpg` | `lab-esocrino-040`, parotide |
+| `lab_p018_1039.jpg` | `lab-esocrino-047`, pancreas |
+| `lab_p019_1070.jpg` | `lab-esocrino-052`, prostata giovane |
+| `lab_p019_1072.jpg` | `lab-esocrino-056`, corpi amilacei |
+| `lab_p020_1109.jpg` | `lab-esocrino-058`, mammario attivo |
+| `lab_p021_1146.jpg` | `lab-esocrino-062`, papille filiformi |
+| `lab_p022_1193.jpg` | `lab-esocrino-067`, papille foliate |
+| `lab_p024_1252.jpg` | `lab-esocrino-078`, sottolinguale |
+| `lab_p025_1298.jpg` | `lab-esocrino-084`, fondo dello stomaco |
+
+Conseguenza da tenere a mente: la **prostata sparisce dal mazzo `Vetrini`**. È
+l'unico vetrino della sezione le cui **due** figure hanno già una carta con
+immagine sul fronte, quindi nessuna delle due poteva essere ripresa. Pietro si
+allena comunque sul riconoscimento della prostata, ma dal mazzo `03`.
+
+**Le quattro microfotografie delle pagine 15-16 sono la scoperta di questa
+iterazione.** Non sono blocchi *Vetrino N*, sono le figure che illustrano il
+paragrafo `Tipo di secrezione`, e nessuna carta del progetto le usava. Sono
+però **l'unico confronto affiancato dei quattro tipi di secrezione** di tutto il
+Laboratorio, ed è esattamente la domanda che l'esame pratico fa davanti a un
+campo. Le loro didascalie **non stanno nel testo estratto**: sono testo del PDF
+sotto la figura, e si leggono solo rendendo la pagina.
+
+| Figura | Didascalia nel PDF | Tipo di secrezione |
+|---|---|---|
+| `lab_p015_936.jpg` | *Parotide, ghiandole sierose* | sierosa |
+| `lab_p016_959.jpg` | *Sottolinguale, ghiandole mucipare* | mucosa |
+| `lab_p016_965.jpg` | *Sottomandibolare, ghiandole miste, mucipare e sierose* | mista |
+| `lab_p016_962.jpg` | *ghiandole sebacee, in prossimità di un follicolo pilifero* | lipidica |
+
+Le didascalie sono **testo del PDF, non pixel dell'immagine**: la figura sul
+fronte non contiene la risposta e la regola delle immagini è rispettata. Il
+testo estratto le sposta di un paragrafo — è lo stesso sfasamento del punto 5 —
+quindi l'abbinamento è stato ricavato dalle **coordinate** delle immagini nella
+pagina, non dalle didascalie estratte:
+
+```sh
+./venv/bin/python -c "import pymupdf; \
+  [print(i['xref'], i['bbox']) for i in \
+   pymupdf.open('$DL/Istologia Laboratorio combinato.pdf')[15].get_image_info(xrefs=True)]"
+```
+
+**Queste quattro figure hanno due carte l'una, non tre**, come le schermate di
+quiz del capitolo 02 e per la stessa ragione: il materiale è solo il paragrafo
+che le accompagna, e il punto 3 dice che è meglio una carta in meno che una
+inventata. Le loro risposte ripetono in parte `lab-esocrino-019`-`030`, che sono
+però carte **di solo testo**: lì si chiede di ricordare una definizione, qui di
+leggere un campo. È la differenza che giustifica l'intero mazzo `Vetrini`.
+
+**Scartate cinque figure**, quattro per la regola delle immagini del punto 3 e
+una perché è di un altro capitolo:
+
+- `lab_p014_886.jpg` e `lab_p028_1584.jpg`: lo **stesso schema** esocrina/endocrina,
+  ripetuto a pagina 14 e a pagina 28, con *ghiandola esocrina* e *ghiandola
+  endocrina* stampati sopra. Il capitolo 02 aveva già previsto lo scarto del
+  primo. Il secondo sta comunque a **pagina 28**, che apre la sezione 011: se
+  l'iterazione 4 lo ritrova, è già stato guardato ed è già stato scartato;
+- `lab_p015_932.jpg`: la tavola delle otto forme di ghiandola (*Tubulare
+  semplice*, *Acinosa composta*…), con tutti i nomi stampati sopra;
+- `lab_p015_934.jpg`: lo schema olocrina / merocrina / apocrina, con i tre nomi
+  stampati sopra;
+- `lab_p016_968.jpg`: lo schemino *Ghiandola intraepiteliale* / *Ghiandola
+  esoepiteliale coriale*, con i nomi stampati sotto. È anche minuscolo, 195×127.
+
+**Una carta ha richiesto il tag `da-verificare`, la prima del mazzo `Vetrini`.**
+`lab-esocrino-108`: la sbobina dà come colorazione del Vetrino 2 «**blu di
+toluene**», che non è una colorazione istologica. Il nome atteso è **blu di
+toluidina**, che il progetto incontra fra i coloranti basici
+(`teoria-colorazioni-006`). La carta riporta quello che dice la sbobina e
+spiega nel `back` che cosa non torna, come prescrive il punto 3.
+
+**Due errori trovati in carte già pubblicate, nessuno dei due corretto.** Sono
+fuori dal perimetro di questa iterazione, valgono un lavoro a sé come
+`lab-epiteli-026`, e in entrambi i casi il fix è sicuro perché il guid dipende
+solo dall'id:
+
+1. **`lab-esocrino-047` ha la risposta sbagliata.** La carta chiede che cosa
+   evidenzia il cerchio tratteggiato di `lab_p018_1039.jpg` e risponde «un'isola
+   di Langerhans». Il cerchio racchiude invece un **adenomero**, cioè un acino
+   con le cellule polarizzate attorno a un lume centrale, e il testo della
+   sbobina lo dice esplicitamente: *«Nel primo vetrino è evidenziata la sezione
+   di una adenomero, in cui si notano le cellule polarizzate, raggruppate
+   attorno a un lume centrale che è l'ingresso di un dotto»*. Le isole di
+   Langerhans stanno nella **seconda** figura (`lab_p018_1041.jpg`), non
+   cerchiate, e sono le zone più chiare. Si vede anche dalla colorazione: la
+   figura cerchiata è azzurra, e la sbobina descrive le isole come «di
+   colorazione più chiara» nel campo rosa.
+2. **`lab-esocrino-082` ha probabilmente l'immagine sbagliata sul fronte.** La
+   carta è `Che ghiandola è questa? → Ghiandola sottomandibolare`, ma usa
+   `lab_p024_1258.jpg`, che è la **piccola figura in basso a sinistra** del
+   Vetrino 11 (uno dei «due dotti escretori di diverse dimensioni» della
+   sottolinguale): adenomeri pallidi, mucosi, con un piccolo lume al centro. La
+   sottomandibolare è `lab_p024_1254.jpg`, la figura del **Vetrino 12**, dove le
+   cellule sierose scure e granulose circondano quelle mucose chiare. Verificato
+   sulle coordinate delle quattro immagini di pagina 24 e sulla pagina resa. Il
+   fix è spostare l'immagine da `1258` a `1254`, e l'id resta `082`.
+
+**Il quiz delle pagine 25-27 è nella stessa situazione del quiz delle pagine
+11-13**: le tre domande con figura le avrà il mazzo `Vetrini` con
+l'iterazione 3b, le **nove domande di solo testo** di pagina 25-26 e l'aperta
+di pagina 27 non esistono da nessuna parte, e non c'è nessun file
+`03c-quiz-*.jsonl`. È lo stesso buco già segnalato per il capitolo 02: i due
+vanno chiusi insieme, in una iterazione a parte.
+
+**Che cosa resta all'iterazione 3b**, già guardato una per una:
+
+| Pagina | Figure | Vetrino |
+|---|---|---|
+| 21 | `lab_p021_1151.jpg` | 8, papille foliate |
+| 22 | `lab_p022_1195.jpg` | 8, ingrandimento del solco con i bottoni gustativi |
+| 23 | `lab_p023_1213.jpg` | 9, papille fungiformi |
+| 23 | `lab_p023_1215.jpg` | 10, scalpo, ghiandola sebacea e follicolo |
+| 24 | `lab_p024_1256.jpg`, `lab_p024_1258.jpg` | 11, i due dotti escretori della sottolinguale |
+| 24 | `lab_p024_1254.jpg` | 12, sottomandibolare, semilune del Giannuzzi |
+| 25 | `lab_p025_1300.jpg` | 13, ghiandole gastriche ad alto ingrandimento |
+| 27 | `lab_p027_1506.jpg`, `1508`, `1510` | tre schermate di quiz con marcatore |
+
+Sul `lab_p023_1215.jpg` una avvertenza: mostra una ghiandola sebacea accanto a
+un follicolo pilifero, come `lab_p016_962.jpg` che la 3a ha già usato. Sono
+**due campi diversi** e le carte vanno tenute su tagli diversi: la 962 chiede il
+**tipo di secrezione**, la 1215 deve chiedere l'**organo** (scalpo, cute) e la
+morfologia olocrina delle cellule.
+
+Sulle tre schermate di quiz vale il precedente del capitolo 02: **due carte
+l'una, non tre**, perché il materiale è solo la risposta che la sbobina dà. Le
+risposte sono, nell'ordine, *ghiandola sottomandibolare a secrezione mista*,
+*pancreas* e *fondo dello stomaco*. Attenzione: le didascalie estratte per
+queste tre sono **sfasate di una domanda**, e vanno rilette sulla pagina resa.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
