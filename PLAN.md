@@ -48,8 +48,8 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **944 carte,
-12 mazzi, 210 immagini** per il Laboratorio.
+Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **960 carte,
+12 mazzi, 212 immagini** per il Laboratorio.
 
 E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 
@@ -122,6 +122,7 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `vetrini-04b-endocrino.jsonl` | 47 | mazzo `Vetrini`, vetrini 4-8, pagine 33-39 |
 | `vetrini-05-connettivi.jsonl` | 44 | mazzo `Vetrini`, vetrini 1-5, 7-10 + 3 figure di classificazione, pagine 44-50 |
 | `vetrini-06-specializzati.jsonl` | 25 | mazzo `Vetrini`, vetrini 3-8, 10 e 11, pagine 63-70 |
+| `vetrini-08-nervoso.jsonl` | 16 | mazzo `Vetrini`, vetrini 4-7 e 9, pagine 86-91 |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
@@ -138,6 +139,11 @@ che Pietro ripassa il muscolare; il campo `source` rimanda comunque alle pagine
 82-85. Il precedente di `06d` (deck del capitolo dove sta la pagina) non si
 applicava: lì tutti gli argomenti appartenevano davvero a quel capitolo.
 Spostare una carta di mazzo è comunque sicuro, il guid dipende solo dall'id.
+
+Lo stesso taglio vale nel mazzo `Vetrini`: `vetrini-08-nervoso.jsonl` prende
+solo i vetrini **nervosi** (4-7 e 9, pagine 86-91), e i tre vetrini muscolari
+delle pagine 82-85 restano all'iterazione 9, che ha un file suo
+(`vetrini-07-10-coda.jsonl`) e prosegue il contatore `lab-muscolare`.
 
 Il nome `08b2` esiste perché `08c` era già occupato dal quiz, generato prima
 che il capitolo fosse scritto: `08b` è la teoria del periferico, `08b2` i suoi
@@ -275,7 +281,7 @@ restare unico dentro tutto il mazzo:
 | `lab-cartilagine` | `06a` 001-025, `06d` 026-043, poi `vetrini-06` 044-049 |
 | `lab-sangue` | `06c` 001-014, `06d` 015-018, poi `vetrini-06` 019-022 |
 | `lab-muscolare` | `07a` 001-024, poi `07b` 025-044 |
-| `lab-nervoso` | `08a` 001-027, poi `08b` 028-045, poi `08b2` 046-084 |
+| `lab-nervoso` | `08a` 001-027, `08b` 028-045, `08b2` 046-084, poi `vetrini-08` 085-100 |
 | `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, `10a` 037-047, poi `vetrini-06` 048-053 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
@@ -829,8 +835,14 @@ sono quasi tutte doppioni dello stesso campo a ingrandimento simile
 `lab_p088_5557`, `lab_p089_5593`), più tre casi su cui non si poteva costruire
 una domanda onesta: `lab_p084_5401` e `lab_p085_5433` non sono identificabili
 con certezza, e `lab_p085_5429`/`lab_p085_5431` sono quelle di cui **il prof
-stesso dice di non essere sicuro della colorazione**. Non c'è materiale rimasto
-da recuperare lì.
+stesso dice di non essere sicuro della colorazione**.
+
+Quel «non c'è materiale rimasto da recuperare» valeva per i mazzi di capitolo,
+**non** per il mazzo `Vetrini`: due di quelle dieci (`lab_p088_5557` e
+`lab_p089_5593`) sono diventate carte con l'immagine sul fronte con
+l'iterazione 7, e altre cinque delle pagine 82-85 aspettano l'iterazione 9. Un
+doppione dello stesso campo è un doppione quando si spiega un tessuto; è un
+**secondo campo su cui allenarsi** quando lo si deve riconoscere.
 
 Attenzione al conteggio delle parole di una sezione: quello di `sections.jsonl`
 comprende anche le descrizioni dei vetrini e le pagine di quiz, che sono lavoro
@@ -2304,15 +2316,15 @@ una qualsiasi di esse e il mazzo resta coerente.
 | 4b | `vetrini-04b-endocrino.jsonl` | 04 Ghiand. endocrino, vetrini 4-8, pp. 33-39 | 17 | 47 | **fatto** |
 | 5 | `vetrini-05-connettivi.jsonl` | 05 Connettivi, vetrini 1-5 e 7-10, pp. 44-50 | 16 | 44 | **fatto** |
 | 6 | `vetrini-06-specializzati.jsonl` | 06 Conn. specializzati, vetrini 3-8, 10 e 11, pp. 63-70 | 8 | 25 | **fatto** |
-| 7 | `vetrini-08-nervoso.jsonl` | 08 Nervoso/SNP, pp. 78-96 | ~27 | ~78 | da fare |
+| 7 | `vetrini-08-nervoso.jsonl` | 08 Nervoso/SNP, vetrini 4-7 e 9, pp. 86-91 | 5 | 16 | **fatto** |
 | 8 | `vetrini-09-embriologia.jsonl` | 09 Embriologia, pp. 96-106 | ~13 | ~32 | da fare |
-| 9 | `vetrini-07-10-coda.jsonl` | 07 Muscolare + 10 Tonsilla | 2 | ~5 | da fare |
+| 9 | `vetrini-07-10-coda.jsonl` | 07 Muscolare (vetrini 1-3, pp. 82-85) + 10 Tonsilla (p. 106) | 4 | ~20 | da fare |
 
 Le stime valgono come tetto, non come obiettivo: assumono che ogni immagine sia
 un vetrino distinto, e una parte sono duplicati dello stesso campo a
 ingrandimenti diversi o schemi da scartare. Le iterazioni 3 e 4 sono state
-spezzate nelle due metà a e b; l'iterazione 7 va **spezzata a metà** se supera
-le ~50 carte.
+spezzate nelle due metà a e b; l'iterazione 7 **non** è stata spezzata, perché
+non ci è andata nemmeno vicino: vedi qui sotto.
 
 La riga 3 è stata sdoppiata il 2026-08-27, come il piano prevedeva. La stima di
 ~95 carte si è però rivelata larga di molto: il capitolo 03 è l'unico finora in
@@ -2339,6 +2351,16 @@ quasi esatta, ma per compensazione: le figure utilizzabili sono state 16 e non
 14, e sei figure sono state scartate. Il perimetro reale è **pagine 44-50**, non
 43-55: a pagina 43 ci sono due soli schemi, le pagine 51-54 sono il quiz già
 cardato e senza figure, e l'unica figura di pagina 55 è della cartilagine.
+
+La riga 7 **non** è stata sdoppiata, ed è la stima più larga di tutto il mazzo:
+~78 carte previste, **16** scritte. Il motivo è la somma di tre cose che si
+vedono solo guardando le figure una per una: le pagine 78-81 non danno **niente**
+(sono schemi e microfotografie annotate), le pagine 92-96 non hanno **nemmeno una
+figura**, e i tre vetrini muscolari delle pagine 82-85 sono passati
+all'iterazione 9. Il perimetro reale è **pagine 86-91**. È lo stesso fenomeno del
+capitolo 06, portato all'estremo: la sezione era già cardata per intero, e
+**undici** delle ventiquattro figure delle pagine 86-91 hanno già la loro carta
+con l'immagine sul fronte.
 
 Il perimetro è **solo il Laboratorio**. La Teoria ha 453 immagini e lo stesso
 trattamento sarebbe possibile, ma è un lavoro di dimensioni analoghe e va
@@ -3222,6 +3244,180 @@ superficie delle trabecole del Vetrino 8 (`lab-osso-037`) e i canali di Havers
 rosati del Vetrino 7 (`lab-osso-034`). Evitata anche la carta sui condroblasti
 lungo le pareti dei canali di Havers, perché `lab-osso-046` porta già
 `da-verificare` proprio su quel punto.
+
+### Capitolo 08, quello che è stato deciso
+
+Dieci figure delle pagine 86-91, 16 carte, `lab-nervoso-085`-`100`: i **vetrini
+4, 5, 6, 7 e 9** della sezione 022 (cervelletto, motoneurone in Nissl, midollo
+spinale, ganglio spinale in Golgi, nervo periferico). Tutte le carte sono
+`basic`, con immagine sul fronte e `tipo::riconoscimento`. Nessuna ha richiesto
+il tag `da-verificare`: il totale resta **112**.
+
+**Il perimetro reale è pagine 86-91, non 78-96**, ed è il taglio più stretto di
+tutto il mazzo rispetto alla stima. Le altre tredici pagine non sono un buco:
+
+- **pagine 78-81** sono la teoria del tessuto nervoso e del SNP (sezione 021 e
+  apertura della 022). Hanno dieci figure: due sono già la domanda di
+  `lab-nervoso-035` e `036`, e le **altre otto sono tutte da scartare** (vedi
+  sotto). Da lì non viene **niente**;
+- **pagine 82-85** sono i **tre vetrini muscolari** (lingua, cuore, intestino) e
+  passano all'**iterazione 9**, insieme alla tonsilla: vedi più sotto il perché e
+  che cosa ci troverà;
+- **pagine 92-96** sono il quiz, **già cardato per intero** in
+  `08c-quiz-nervoso.jsonl` (24 carte) e **senza nessuna figura**: la sezione 023
+  dichiara `images: []` ed è vero, `images.jsonl` non elenca nemmeno un file
+  fra pagina 92 e pagina 96. È la situazione dei quiz dei capitoli 05 e 06, non
+  quella dei capitoli 02 e 03: non c'è niente da chiudere. Vale anche per
+  **pagina 96**, che la tabella del punto 2 dà come condivisa con la sezione 025:
+  il taglio con il capitolo 09 **non tocca nessun vetrino**, perché lì di figure
+  non ce ne sono.
+
+**Perché i tre vetrini muscolari sono dell'iterazione 9 e non di questa.** La
+riga 9 della tabella esiste apposta per il muscolare e la tonsilla, e il taglio
+segue i **vetrini** come fra la 3a e la 3b: qui però segue anche l'**argomento**,
+perché quelle carte porterebbero id `lab-muscolare` (il contatore è fermo a
+`044`) dentro un file che si chiama `vetrini-08-nervoso.jsonl`. La regola del
+punto 3 è **un file per capitolo**, e il capitolo del muscolare è il `07`. È lo
+stesso ragionamento con cui `07b` tiene le carte dei vetrini 1-3 nel mazzo del
+muscolare invece che in quello del nervoso.
+
+**La situazione di partenza è quella del capitolo 06, portata all'estremo.** La
+sezione 022 e la 021 hanno già 84 note fra `08a`, `08b` e `08b2`, e il solo
+`08b2` copre i vetrini 4-9 con 39 carte. Delle **ventiquattro** figure delle
+pagine 86-91, **undici** hanno già la loro carta con l'immagine sul fronte e
+restano nel mazzo di capitolo, come il punto 3 prescrive:
+
+| Figura | Carta che la usa già |
+|---|---|
+| `lab_p086_5472.jpg` | `lab-nervoso-046`, Vetrino 4, cervelletto d'insieme |
+| `lab_p087_5502.jpg` | `lab-nervoso-055`, Vetrino 5, motoneuroni in Nissl |
+| `lab_p087_5508.jpg` | `lab-nervoso-058`, Vetrino 6, midollo spinale in H&E |
+| `lab_p088_5549.jpg` | `lab-nervoso-065`, Vetrino 6, motoneuroni nelle corna ventrali |
+| `lab_p088_5551.jpg` | `lab-nervoso-066`, Vetrino 6, il midollo in tecnica di Golgi |
+| `lab_p089_5591.jpg` | `lab-nervoso-068`, Vetrino 7, ganglio spinale d'insieme |
+| `lab_p089_5599.jpg` | `lab-nervoso-074`, Vetrino 7, i due prolungamenti nervosi |
+| `lab_p090_5630.jpg` | `lab-nervoso-077`, Vetrino 8, ganglio spinale in H&E |
+| `lab_p090_5632.jpg` | `lab-nervoso-078`, Vetrino 9, nervo periferico d'insieme |
+| `lab_p091_5668.jpg` | `lab-nervoso-080`, Vetrino 9, le guaine mieliniche |
+| `lab_p091_5672.jpg` | `lab-nervoso-083`, Vetrino 9, sezione longitudinale |
+
+Conseguenza, la stessa che era toccata alla prostata nella 3a, al Vetrino 6
+nella 5 e ai vetrini 1, 2 e 9 nella 6: **il Vetrino 8 sparisce dal mazzo
+`Vetrini`**, perché la sua unica figura è già la domanda di `lab-nervoso-077`.
+Pietro si allena comunque a riconoscere il ganglio in ematossilina-eosina, ma
+dal mazzo `08`.
+
+**La carta di identificazione è stata scritta una volta sola**, come nel
+capitolo 06, e qui manca in un caso solo: `lab-nervoso-091`, il **midollo
+spinale in tecnica di Golgi**. Esiste `058`, che identifica lo stesso vetrino in
+H&E, ed esiste `066`, che sulla figura d'insieme in Golgi chiede però la
+**colorazione** e non l'organo. È il caso del Vetrino 3 del capitolo 06
+(`lab-cartilagine-036`): l'identificazione non c'era, e in Golgi il midollo ha un
+aspetto abbastanza diverso da meritarla. Per tutti gli altri vetrini
+l'identificazione esiste già e non è stata rifatta.
+
+La distribuzione delle domande segue i campi:
+
+| Vetrino | Figura | Carte | Taglio |
+|---|---|---:|---|
+| 4, cervelletto | `lab_p086_5474.jpg` | 2 | le tre bande di colore dall'esterno all'interno; perché lo strato molecolare è chiaro e povero di nuclei |
+| 4 | `lab_p086_5476.jpg` | 2 | lo strato granulare e il rischio di confondere i granuli con i linfociti; che cosa l'H&E non mostra |
+| 5, motoneurone in Nissl | `lab_p087_5506.jpg` | 2 | il materiale basofilo del citoplasma; il nucleolo e che cosa indica |
+| 6, midollo spinale in Golgi | `lab_p088_5557.jpg` | 2 | identificazione e tecnica; corna ventrali contro corna dorsali |
+| 6, midollo spinale in H&E | `lab_p088_5547.jpg` | 1 | come si distinguono sostanza grigia e sostanza bianca nel campo |
+| 6, Golgi ad alto ingrandimento | `lab_p088_5553.jpg` | 1 | corpi e prolungamenti insieme: in che porzione del midollo siamo |
+| 7, ganglio spinale | `lab_p089_5593.jpg` | 2 | la capsula e i setti; neuroni in periferia e groviglio di fibre al centro |
+| 7 | `lab_p089_5595.jpg` | 1 | perché in un ganglio non si osservano sinapsi |
+| 9, nervo periferico | `lab_p091_5666.jpg` | 2 | i fascicoli e i loro rivestimenti; dov'è l'endonevrio e come si intuisce |
+| 9 | `lab_p091_5670.jpg` | 1 | gli assoni non si vedono in ematossilina-eosina |
+
+**Scartate otto figure delle pagine 78-81**, tutte per la regola delle immagini
+del punto 3 (una figura che contiene la risposta non va sul fronte). Sono la
+ragione per cui la sezione 021 non produce nemmeno una carta di riconoscimento:
+
+- `lab_p078_5166.jpg`: lo schema del neurone con *Dendriti*, *Soma*, *Nucleo e
+  nucleolo*, *Assone*, *Guaina mielinica*, *Nodo di Ranvier* e *Bottoni
+  sinaptici* stampati sopra;
+- `lab_p078_5168.jpg`: i tre neuroni in colorazione di Nissl, con *Nucleo*,
+  *Sostanza tigroide*, *Nucleolo* stampati sopra e la didascalia *Neuroni:
+  nucleo, nucleolo e sostanza tigroide* stampata sotto;
+- `lab_p079_5213.jpg`: la tavola della neuroglia con *oligodendrociti*,
+  *microglia*, *cellula ependimale*, *cellula di Schwann* e *astrocita*
+  stampati attorno;
+- `lab_p079_5215.jpg`: la grande tavola orto/parasimpatico, con il nome di ogni
+  effetto su ogni organo;
+- `lab_p080_5251.jpg`: l'organigramma del sistema nervoso, tutto testo;
+- `lab_p080_5253.jpg`: lo schema *I NERVI SPINALI* con *EPINEVRIO*,
+  *PERINEVRIO*, *ENDONEVRIO*, *FASCICOLO*, *ASSONE* e *VASI SANGUIGNI* stampati
+  attorno;
+- `lab_p080_5255.jpg`: lo schema del midollo con *Sostanza grigia*, *Sostanza
+  bianca*, *Corno dorsale*, *Ganglio spinale*, *Neurone sensitivo* e tutto il
+  resto stampato attorno;
+- `lab_p081_5292.jpg`: la sezione di midollo in Golgi da manuale, annotata
+  (*Corno posteriore*, *Sostanza grigia*, *Canale ependimale*, *Neuroni
+  multipolari*) **e** con la didascalia completa stampata sotto, ingrandimento
+  compreso. È il caso di `lab_p058_4026.jpg` del capitolo 06.
+
+**Scartate altre tre figure delle pagine 86-91**, e nessuna delle tre per via
+delle etichette:
+
+- `lab_p088_5555.jpg`: campo in Golgi **sfocato e senza una struttura
+  riconoscibile**, un passaggio fra sostanza grigia e sostanza bianca su cui non
+  si può costruire una domanda onesta;
+- `lab_p087_5504.jpg` e `lab_p089_5597.jpg`: figure buone, ma con le
+  **angolature esaurite** dalle carte che le usano già sul retro.
+  Sulla `5504`, `lab-nervoso-057` chiede che cosa siano i piccoli nuclei scuri
+  dello sfondo e `056` la differenza fra dendrite e assone in Nissl; quel che
+  resterebbe (che cosa evidenzia la colorazione di Nissl, con quali coloranti)
+  è già `lab-nervoso-015` e `039`. Sulla `5597`, che è un campo quasi identico
+  alla `5595`, `lab-nervoso-070` esaurisce l'anello di cellule satelliti.
+  Non è uno scarto per la regola delle immagini: è la regola del punto 3 sulla
+  lettura delle carte esistenti.
+
+**Non è stata riaperta `lab-nervoso-069`**, che porta `da-verificare` sul
+Vetrino 7 (la sbobina dichiara la tecnica di Golgi ma descrive corpi di Nissl
+basofili e cellule satelliti in tutti i neuroni). Le tre carte nuove sul ganglio
+non nominano la colorazione, proprio per non contraddirla: chiedono la capsula,
+la distribuzione dei neuroni e l'assenza di sinapsi.
+
+**La sovrapposizione con le carte di solo testo della sezione è voluta**, come in
+tutte le iterazioni da 3a in poi: `lab-nervoso-048`, `049`, `051`, `052`, `054`,
+`059`, `063`, `071`, `072`, `073`, `082` e `029` dicono in parte le stesse cose.
+Lì si chiede di ricordare una definizione, qui di leggere un campo.
+
+**Che cosa troverà l'iterazione 9 alle pagine 82-85**, già guardato una per una
+mentre si leggeva la sezione 022, come il capitolo 06 aveva fatto con pagina 76.
+Quattro figure hanno già la loro carta con l'immagine sul fronte
+(`lab_p082_5334` → `lab-muscolare-031`, `lab_p083_5367` → `030`,
+`lab_p084_5399` → `035`, `lab_p085_5435` → `043`). Delle **undici** libere,
+sette sono usabili:
+
+| Figura | Che cos'è | Verdetto |
+|---|---|---|
+| `lab_p082_5330.jpg` | due campi: lingua con papille e fasci di striato scheletrico in tutte le direzioni | **usabile**, senza etichette |
+| `lab_p082_5332.jpg` | due papille filiformi della lingua, con una terza sezionata in mezzo | **usabile** |
+| `lab_p083_5365.jpg` | cuore a piccolo ingrandimento, fasci ramificati in tutte le direzioni | **usabile** |
+| `lab_p083_5369.jpg` | un **nervo** in sezione trasversale in mezzo al muscolo della lingua | **usabile**, è la figura delle «terminazioni nervose» |
+| `lab_p083_5371.jpg` | fra le fibre, un piccolo aggregato ghiandolare e adipociti | **da riguardare**: senza etichette, ma il campo è ambiguo |
+| `lab_p084_5397.jpg` | cuore, setto connettivale con adipociti e un vaso | **usabile** |
+| `lab_p085_5437.jpg` | intestino tenue, le quattro tonache dalla mucosa alla muscolare | **usabile** |
+
+E le quattro da **scartare**, per ragioni che valgono già adesso:
+
+- `lab_p085_5429.jpg` e `lab_p085_5431.jpg`: sono le due figure di cui **il prof
+  stesso dice di non essere sicuro della colorazione** (`[N.d.S ... non è
+  importante saperlo]`, pagina 85). Il campo è azzurrino e non identificabile
+  con certezza;
+- `lab_p084_5401.jpg`: campo rosa uniforme di fibre lisce longitudinali, **senza
+  un riferimento** che permetta di dire di che organo si tratti;
+- `lab_p085_5433.jpg`: due campi in **un unico file estratto**. Quello in basso a
+  sinistra è un ottimo intestino tenue, ma quello in alto a destra non è
+  identificabile con certezza e i due non si possono separare senza ritagliare.
+  È il caso di `lab_p044_2673.jpg` del capitolo 05.
+
+La stima della riga 9 è stata alzata di conseguenza da «2 vetrini, ~5 carte» a
+«4 vetrini, ~20 carte», su sette figure libere: i tre vetrini muscolari, che il
+registro del capitolo 06 le aveva già assegnato, più la tonsilla di pagina 106.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
