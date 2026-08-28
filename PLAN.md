@@ -48,8 +48,8 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **960 carte,
-12 mazzi, 212 immagini** per il Laboratorio.
+Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **976 carte,
+12 mazzi, 214 immagini** per il Laboratorio.
 
 E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 
@@ -65,13 +65,13 @@ directory e le immagini stanno in due alberi separati (`build/lab/images` e
 `build/teoria/images`). In Anki non cambia nulla, i mazzi restano sotto lo
 stesso genitore `Istologia::` e i tag `argomento::` continuano a pescare da
 entrambe le fonti. Così la teoria si consegna un capitolo per volta senza
-rispedire ogni volta le 944 note del laboratorio.
+rispedire ogni volta le 976 note del laboratorio.
 
 ---
 
-## 2. Stato al 2026-08-12
+## 2. Stato al 2026-08-28
 
-**944 note** di Laboratorio + **1872 di Teoria**, 663 immagini, 163 test verdi.
+**976 note** di Laboratorio + **1872 di Teoria**, 667 immagini, 163 test verdi.
 
 **Il progetto è finito.** Il Laboratorio copre tutte e 106 le sue pagine, la
 Teoria tutti e **diciotto** i capitoli e tutte e 256 le pagine. Non c'è più
@@ -123,6 +123,7 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `vetrini-05-connettivi.jsonl` | 44 | mazzo `Vetrini`, vetrini 1-5, 7-10 + 3 figure di classificazione, pagine 44-50 |
 | `vetrini-06-specializzati.jsonl` | 25 | mazzo `Vetrini`, vetrini 3-8, 10 e 11, pagine 63-70 |
 | `vetrini-08-nervoso.jsonl` | 16 | mazzo `Vetrini`, vetrini 4-7 e 9, pagine 86-91 |
+| `vetrini-07-10-coda.jsonl` | 16 | mazzo `Vetrini`, vetrini muscolari 1-3 (pagine 82-85) + tonsilla (pagina 106) |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
@@ -142,8 +143,18 @@ Spostare una carta di mazzo è comunque sicuro, il guid dipende solo dall'id.
 
 Lo stesso taglio vale nel mazzo `Vetrini`: `vetrini-08-nervoso.jsonl` prende
 solo i vetrini **nervosi** (4-7 e 9, pagine 86-91), e i tre vetrini muscolari
-delle pagine 82-85 restano all'iterazione 9, che ha un file suo
+delle pagine 82-85 sono andati all'iterazione 9, che ha un file suo
 (`vetrini-07-10-coda.jsonl`) e prosegue il contatore `lab-muscolare`.
+
+**`vetrini-07-10-coda.jsonl` è l'unico file del progetto che unisce due
+capitoli**, ed è voluto: contiene i tre vetrini muscolari delle pagine 82-85
+(capitolo `07`) e la tonsilla palatina di pagina 106 (capitolo `10`). Il taglio
+segue l'**argomento**, quindi le dodici carte del muscolare portano id
+`lab-muscolare` e le quattro della tonsilla `lab-linfoide`, e il campo `source`
+segue le pagine di ciascuna. Il **mazzo** è invece uno solo, `Vetrini`, come il
+punto 3 prescrive per tutte le carte di questo percorso. La regola "un file per
+capitolo" cede qui perché le due code sono troppo piccole per un file ciascuna
+e perché sono state decise nella stessa iterazione, l'ultima del mazzo.
 
 Il nome `08b2` esiste perché `08c` era già occupato dal quiz, generato prima
 che il capitolo fosse scritto: `08b` è la teoria del periferico, `08b2` i suoi
@@ -280,9 +291,9 @@ restare unico dentro tutto il mazzo:
 | `lab-osso` | `06b` 001-032, `06d` 033-046, poi `vetrini-06` 047-055 |
 | `lab-cartilagine` | `06a` 001-025, `06d` 026-043, poi `vetrini-06` 044-049 |
 | `lab-sangue` | `06c` 001-014, `06d` 015-018, poi `vetrini-06` 019-022 |
-| `lab-muscolare` | `07a` 001-024, poi `07b` 025-044 |
+| `lab-muscolare` | `07a` 001-024, `07b` 025-044, poi `vetrini-07-10-coda` 045-056 |
 | `lab-nervoso` | `08a` 001-027, `08b` 028-045, `08b2` 046-084, poi `vetrini-08` 085-100 |
-| `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, `10a` 037-047, poi `vetrini-06` 048-053 |
+| `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, `10a` 037-047, `vetrini-06` 048-053, poi `vetrini-07-10-coda` 054-057 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
 | `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, `12a` 080, `12b` 081, `12d` 082-085, `13a` 086-087, `13b` 088, `15a` 089-090, `14a` 091, poi `18a` 092-094 e `18c` 095 |
@@ -809,8 +820,8 @@ di come ogni capitolo è stato deciso: serve a chi dovrà *correggere* una carta
 non più a chi deve scriverne. L'ordine di lavorazione qui sotto è quello
 concordato con Pietro il 2026-08-10 ed è stato seguito fino in fondo.
 
-**Resta invece aperto il mazzo `Vetrini`**, cominciato il 2026-08-27: vedi il
-punto 4-bis.
+**Anche il mazzo `Vetrini` è chiuso**, aperto il 2026-08-27 e finito il
+2026-08-28 con l'iterazione 9: vedi il punto 4-bis.
 
 ### Laboratorio
 
@@ -840,9 +851,12 @@ stesso dice di non essere sicuro della colorazione**.
 Quel «non c'è materiale rimasto da recuperare» valeva per i mazzi di capitolo,
 **non** per il mazzo `Vetrini`: due di quelle dieci (`lab_p088_5557` e
 `lab_p089_5593`) sono diventate carte con l'immagine sul fronte con
-l'iterazione 7, e altre cinque delle pagine 82-85 aspettano l'iterazione 9. Un
-doppione dello stesso campo è un doppione quando si spiega un tessuto; è un
-**secondo campo su cui allenarsi** quando lo si deve riconoscere.
+l'iterazione 7, e altre due delle pagine 82-85 (`lab_p082_5332` e
+`lab_p083_5371`) con la 9. Un doppione dello stesso campo è un doppione quando
+si spiega un tessuto; è un **secondo campo su cui allenarsi** quando lo si deve
+riconoscere. Le altre sei di quelle dieci sono rimaste scartate anche per il
+mazzo `Vetrini`, `lab_p082_5330` compresa: vedi il registro dei capitoli 07 e
+10 al punto 4-bis.
 
 Attenzione al conteggio delle parole di una sezione: quello di `sections.jsonl`
 comprende anche le descrizioni dei vetrini e le pagine di quiz, che sono lavoro
@@ -2302,9 +2316,15 @@ storico di ripetizione.
 
 ## 4-bis. Il mazzo `Vetrini`, capitolo per capitolo
 
-Lavoro aperto il 2026-08-27. Le convenzioni stanno al punto 3; qui c'è **a che
-punto siamo**. Ogni riga è un'iterazione auto-contenuta: ci si può fermare dopo
-una qualsiasi di esse e il mazzo resta coerente.
+Lavoro aperto il 2026-08-27 e **chiuso il 2026-08-28**: tutte e nove le
+iterazioni sono state fatte, e il mazzo `Vetrini` è finito. Le convenzioni
+stanno al punto 3; qui c'è **come è stato deciso ogni capitolo**, e serve ormai
+a chi dovrà *correggere* una carta, non a chi deve scriverne. Ogni riga era
+un'iterazione auto-contenuta: ci si poteva fermare dopo una qualsiasi di esse e
+il mazzo restava coerente.
+
+Il totale è **303 carte** in **dieci file**, ed è il mazzo più grande del
+Laboratorio.
 
 | # | File | Capitolo / pagine | Vetrini | Carte | Stato |
 |---|---|---|---|---|---|
@@ -2318,7 +2338,7 @@ una qualsiasi di esse e il mazzo resta coerente.
 | 6 | `vetrini-06-specializzati.jsonl` | 06 Conn. specializzati, vetrini 3-8, 10 e 11, pp. 63-70 | 8 | 25 | **fatto** |
 | 7 | `vetrini-08-nervoso.jsonl` | 08 Nervoso/SNP, vetrini 4-7 e 9, pp. 86-91 | 5 | 16 | **fatto** |
 | 8 | *(nessun file)* | 09 Embriologia, pp. 96-105 | 0 | **0** | **fatto, senza carte** |
-| 9 | `vetrini-07-10-coda.jsonl` | 07 Muscolare (vetrini 1-3, pp. 82-85) + 10 Tonsilla (p. 106) | 4 | ~20 | da fare |
+| 9 | `vetrini-07-10-coda.jsonl` | 07 Muscolare (vetrini 1-3, pp. 82-85) + 10 Tonsilla (p. 106) | 4 | 16 | **fatto** |
 
 Le stime valgono come tetto, non come obiettivo: assumono che ogni immagine sia
 un vetrino distinto, e una parte sono duplicati dello stesso campo a
@@ -2372,9 +2392,39 @@ limite: quando una sezione è già cardata per intero **e** le sue figure sono
 tutte sul fronte, al mazzo `Vetrini` non resta niente. Vedi il registro del
 capitolo 09 qui sotto.
 
+**La riga 9 ha chiuso il mazzo**, ed è l'unica che unisce due capitoli in un
+file solo: ~20 carte previste, **16** scritte, su quattro vetrini. La stima è
+scesa per una figura sola, ma per un motivo nuovo: `lab_p082_5330.jpg`, che il
+registro del capitolo 08 dava per usabile, è stata **scartata guardandola**
+perché la pagina la ritaglia e il file si porta dietro un secondo campo che
+sulla pagina non si vede. Le figure libere e usabili sono quindi sette e non
+otto. Nessuno dei quattro vetrini ha richiesto una carta di identificazione:
+ce l'hanno **tutti e quattro** già nel mazzo di capitolo. Vedi il registro dei
+capitoli 07 e 10 qui sotto.
+
 Il perimetro è **solo il Laboratorio**. La Teoria ha 453 immagini e lo stesso
 trattamento sarebbe possibile, ma è un lavoro di dimensioni analoghe e va
 deciso a parte.
+
+**Il bilancio del mazzo, ora che è chiuso.** Le stime delle nove righe sommavano
+**~484 carte** (con la riga 9 già alzata da ~5 a ~20), le carte scritte sono
+**303**: sei su dieci. Nessuna riga è andata oltre la propria stima. Il motivo è
+sempre lo stesso, e si vede solo guardando le figure una per una, mai
+contandole:
+
+- una figura **già sul fronte** di una carta di capitolo non si riprende, e il
+  suo vetrino sparisce dal mazzo `Vetrini` (la prostata nella 3a, il Vetrino 6
+  nella 5, i vetrini 1, 2 e 9 nella 6, il Vetrino 8 nella 7, tutti e quattro i
+  vetrini della 9);
+- una **sezione già cardata per intero** lascia al mazzo solo le figure libere,
+  ed è il caso dei capitoli 03, 06, 07, 08, 09 e 10;
+- una parte delle immagini non sono vetrini: schemi, tavole da manuale con la
+  didascalia stampata sui pixel, modellini in gesso.
+
+Le stime che ci sono andate **vicine** sono quelle dei capitoli 02, 05 e 06 (42
+su ~48, 44 su ~48, 25 su ~30); quelle sbagliate di più sono la 7 (16 su ~78) e
+la 8 (0 su ~32), cioè le due dove la sezione era già cardata per intero **e** le
+figure erano quasi tutte già sul fronte.
 
 ### Procedura di una iterazione
 
@@ -3221,9 +3271,8 @@ da qui:
 - `lab_p076_5075.jpg`: lo schema del cardiomiocita con *Nucleo*, *Miofibrille* e
   *Dischi intercalari*.
 
-L'iterazione 9 resta comunque da fare — copre anche i vetrini del muscolare
-delle pagine 82-85 e la tonsilla di pagina 106 — ma **da pagina 76 non prenderà
-niente**.
+L'iterazione 9 ha poi coperto i vetrini del muscolare delle pagine 82-85 e la
+tonsilla di pagina 106, ma **da pagina 76 non ha preso niente**.
 
 **Due carte portano `da-verificare`, e il totale passa da 110 a 112.** Sono
 `lab-sangue-021` e `lab-sangue-022`, ed è la stessa segnalazione vista da due
@@ -3558,6 +3607,158 @@ La stima della riga 9 **non cambia**: resta «4 vetrini, ~20 carte», su otto
 figure libere: le sette delle pagine 82-85 che il capitolo 08 ha elencato, più
 `lab_p106_6255.jpg`. Con la riga 8 chiusa a zero, **l'iterazione 9 è l'ultima
 del mazzo `Vetrini`**.
+
+### Capitoli 07 e 10, quello che è stato deciso
+
+Sette figure delle pagine 82-85 e 106, **16 carte**: `lab-muscolare-045`-`056`
+per i tre vetrini muscolari e `lab-linfoide-054`-`057` per la tonsilla palatina.
+È l'iterazione che **chiude il mazzo**, ed è l'unica che tiene due capitoli in
+un file solo, `vetrini-07-10-coda.jsonl`. Tutte le carte sono `basic`, con
+immagine sul fronte e `tipo::riconoscimento`, e stanno tutte nel mazzo
+`Vetrini`; il campo `source` segue invece le pagine di ciascuna (`Laboratorio
+p. 82` … `p. 85` per il muscolare, `p. 106` per la tonsilla). Nessuna ha
+richiesto il tag `da-verificare`: il totale resta **112**.
+
+**Perché un file solo per due capitoli.** Il taglio segue l'**argomento**, come
+fra il capitolo 08 e i tre vetrini muscolari: le carte del muscolare portano id
+`lab-muscolare`, quelle della tonsilla `lab-linfoide`, e nessuno dei due gruppi
+poteva finire nel file dell'altro. Due file da dodici e da quattro carte
+sarebbero però stati due file per una coda sola, decisa in una sessione sola:
+la riga 9 della tabella li teneva insieme fin dall'apertura del mazzo, ed è
+stata rispettata. Vedi anche la nota al punto 2.
+
+**Nessuna carta di identificazione**, e non era mai successo in un'iterazione
+che scrivesse carte. Tutti e quattro i vetrini ce l'hanno già nel mazzo di
+capitolo, con l'immagine sul fronte:
+
+| Figura | Carta che la usa già |
+|---|---|
+| `lab_p082_5334.jpg` | `lab-muscolare-031`, Vetrino 1, la lingua e i suoi fasci di scheletrico |
+| `lab_p083_5367.jpg` | `lab-muscolare-030`, Vetrino 1, scheletrico in sezione longitudinale |
+| `lab_p084_5399.jpg` | `lab-muscolare-035`, Vetrino 2, muscolo cardiaco |
+| `lab_p085_5435.jpg` | `lab-muscolare-043`, Vetrino 3, intestino tenue |
+| `lab_p106_6257.jpg` | `lab-linfoide-047`, tonsilla palatina d'insieme |
+
+Le sedici carte sono quindi **tutte di dettaglio**, e **tutte dichiarano il
+tessuto nella domanda** («Vetrino di lingua: …», «Vetrino di cuore: …»,
+«Vetrino di intestino tenue: …», «Vetrino di tonsilla palatina: …»), come vuole
+la regola anti-spoiler del punto 3. È la situazione del Vetrino 10 nella 6,
+dove l'identificazione non è stata rifatta perché già c'era, estesa qui a tutti
+e quattro i vetrini insieme. I vetrini non spariscono però dal mazzo, come era
+toccato alla prostata nella 3a e al Vetrino 8 nella 7: qui ognuno ha almeno una
+figura libera, e quindi le sue domande di dettaglio.
+
+La distribuzione delle domande segue i campi:
+
+| Vetrino | Figura | Carte | Taglio |
+|---|---|---:|---|
+| 1, lingua (scheletrico) | `lab_p082_5332.jpg` | 2 | le papille e il loro rivestimento; perché la terza papilla appare tonda e chiusa ad anello |
+| 1 | `lab_p083_5365.jpg` | 2 | endomisio e perimisio letti nel campo; perché lo stesso campo mostra profili poligonali punteggiati e fibre lunghe e parallele |
+| 1 | `lab_p083_5369.jpg` | 1 | il nervo tagliato di traverso in mezzo ai fasci |
+| 1 | `lab_p083_5371.jpg` | 2 | i nuclei periferici e che cosa escludono; gli adipociti nel connettivo |
+| 2, cuore | `lab_p084_5397.jpg` | 2 | lo stroma connettivale con vaso e adipociti; che cosa distingue il miocardio dalla lingua, che pure ha fasci in tutte le direzioni |
+| 3, intestino tenue | `lab_p085_5437.jpg` | 3 | le quattro tonache lette dal lume verso l'esterno; le cellule caliciformi; perché la banda muscolare profonda è liscia e non striata |
+| tonsilla palatina | `lab_p106_6255.jpg` | 4 | la cripta; il tessuto linfoide e i suoi follicoli; la lamina propria; come si vede che la colorazione è ematossilina-eosina |
+
+**`lab_p082_5330.jpg` è stata scartata, contro il verdetto del registro del
+capitolo 08**, ed è la scoperta di questa iterazione. Il registro la dava per
+«usabile, senza etichette», e il file in effetti non ha etichette: ha però
+**due campi**, la lingua a piccolo ingrandimento in basso a sinistra e un
+secondo campo di muscolo in alto a destra. La **pagina mostra solo il primo**,
+e il controllo del clip path del punto 6 la segnala infatti con correlazione
+**0,45**. Cade quindi per due ragioni indipendenti:
+
+- è il caso di `lab_p085_5433.jpg` e di `lab_p044_2673.jpg` del capitolo 05:
+  due campi in un unico file estratto, che non si separano senza ritagliare. Qui
+  è anche peggio, perché il secondo campo è uno che **la pagina nasconde** e che
+  il testo non commenta mai: non c'è modo di dire con certezza che cos'è;
+- il campo che la pagina mostra è lo stesso di `lab_p082_5334.jpg`, che è già il
+  fronte di `lab-muscolare-031`. Una carta su questa figura sarebbe stata una
+  **parafrasi** di quella, cioè il doppione che il validatore **non** intercetta
+  perché blocca solo le domande identiche: è la lezione di `teoria_p007_21` al
+  punto 6.
+
+La lezione generale, per chi tornasse sulle immagini: **il controllo del clip
+path va fatto anche sulle figure che si stanno per usare**, non solo su quelle
+che si sospettano. Fin qui aveva trovato finestre di browser e i bordi scuri
+degli scatti attraverso l'oculare; qui ha trovato un **montaggio di due campi**
+di cui la pagina ne mostra uno solo.
+
+**`lab_p083_5371.jpg` è stata invece promossa**, ed era l'unica che il registro
+del capitolo 08 lasciava aperta («senza etichette, ma il campo è ambiguo»). Il
+campo è ottimo: fibre scheletriche ad alto ingrandimento con i **nuclei
+periferici** ben visibili e un gruppo di **adipociti**. Resta **non deciso** che
+cosa sia il nido di cellule pallide al centro: la pagina lo indica come
+l'immagine «a destra» dei «rari gangli», e la posizione lo conferma (`5369` sta
+a sinistra, `5371` a destra), ma ingrandito somiglia tanto a un piccolo ganglio
+— corpi pallidi circondati da nuclei piccoli e scuri — quanto a un gruppo di
+acini ghiandolari mucosi, che nella lingua sono altrettanto attesi. **Su quel
+nido non è stata scritta nessuna carta**, e non è stata aperta nessuna
+segnalazione: `lab-muscolare-032` riporta già quello che la sbobina dice
+(«numerose terminazioni nervose e, più raramente, qualche ganglio»), e una
+segnalazione `da-verificare` non servirebbe, perché il dubbio non si scioglie
+sul libro ma solo guardando meglio il vetrino. Le due carte scritte su questa
+figura stanno sui due fatti certi del campo.
+
+**Le altre quattro figure delle pagine 82-85 restano scartate**, come il
+registro del capitolo 08 aveva deciso, e sono state riguardate tutte e quattro:
+
+- `lab_p085_5429.jpg` e `lab_p085_5431.jpg`: i due campi azzurrini di cui il
+  prof stesso dice di non essere sicuro della colorazione (`[N.d.S … non è
+  importante saperlo]`, pagina 85). La `5431` è morfologicamente leggibile — si
+  vedono fibre ramificate con nuclei centrali — ma l'identificazione del
+  cardiaco è già la carta `lab-muscolare-035` su un campo migliore, e la
+  colorazione, che sarebbe l'altra domanda naturale, **la sbobina si rifiuta di
+  nominarla**;
+- `lab_p084_5401.jpg`: campo rosa uniforme di fibre longitudinali senza **nessun
+  riferimento** — niente epitelio, niente vasi, niente lume — su cui non si può
+  dire di che organo si tratti;
+- `lab_p085_5433.jpg`: due campi in un unico file estratto, con la stessa
+  diagnosi di `5330`. Quello in basso a sinistra è un ottimo intestino tenue,
+  quello in alto a destra non è identificabile con certezza, e la pagina mostra
+  **solo il primo** (correlazione 0,57).
+
+**Da pagina 76 non è stato preso niente**, come il registro del capitolo 06
+aveva già deciso guardando le sue quattro figure una per una: tre sono schemi
+con i nomi stampati sopra, e la quarta è un file con due microfotografie e la
+didascalia stampata sotto.
+
+**A pagina 106 la sola figura libera era `lab_p106_6255.jpg`**, come il registro
+del capitolo 09 aveva già visto: `6257` è il fronte di `lab-linfoide-047` e ci
+resta, `6253` è la tavola da manuale con *Epitelio*, *Sottomucosa*, *Noduli
+linfatici* e *Cripta tonsillare* stampati sui pixel. Le due fotografie sono
+**scatti attraverso l'oculare**, con un ampio bordo scuro attorno al campo
+illuminato che la pagina ritaglia via: il controllo del clip path le segnala con
+correlazione 0,01 e 0,11, ed è un **falso allarme**, perché il campo nel file è
+integro e il bordo scuro sulla carta non disturba. Lo stesso vale per
+`lab_p083_5369.jpg` (correlazione −0,16), che è uno scatto attraverso l'oculare
+delle stesse mani.
+
+**Le quattro carte della tonsilla non toccano la cheratinizzazione**, perché
+`lab-linfoide-039` porta già `da-verificare` proprio su quel punto: chiedono la
+cripta, il tessuto linfoide, la lamina propria e il contrasto della colorazione,
+e non nominano mai il tipo di epitelio. È lo stesso riguardo che l'iterazione 7
+ha avuto con `lab-nervoso-069`. Anche `lab-muscolare-016` è stata lasciata
+stare: `lab-muscolare-050` spiega i nuclei periferici con la **fusione dei
+mioblasti**, senza usare la parola «sincizio», che è quella su cui la
+segnalazione è aperta.
+
+**La sovrapposizione con le carte di solo testo della sezione è voluta**, come
+in tutte le iterazioni da 3a in poi: `lab-muscolare-025`, `026`, `027`, `028`,
+`032`, `034`, `040`, `042`, `044` e `lab-linfoide-037`, `039`, `040`, `041`,
+`042`, `043`, `046` dicono in parte le stesse cose. Lì si chiede di ricordare
+una definizione, qui di leggere un campo. Il caso più stretto è
+`lab-muscolare-032`, che usa `5369` sul retro per dire che nel vetrino si notano
+terminazioni nervose e rari gangli: `lab-muscolare-049` mette la stessa figura
+sul **fronte** e chiede di indicare **quale** struttura del campo è il nervo e
+da che cosa si riconosce, che è la domanda che l'esame pratico fa davvero.
+
+Tre angolature sono invece state **evitate**, perché la carta esistente le
+esaurisce e usa la **stessa figura**:
+l'aspetto del muscolo scheletrico nei due piani di taglio su `5365`
+(`lab-muscolare-029`), l'aspetto reticolato del miocardio a basso ingrandimento
+su `5397` (`lab-muscolare-033`) e la descrizione di mucosa e sottomucosa
+dell'intestino su `5437` (`lab-muscolare-041`).
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
