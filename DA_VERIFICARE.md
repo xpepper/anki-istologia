@@ -1,6 +1,6 @@
 # Carte da verificare sul libro
 
-**110 carte**, piu 2 punti su cui non e stata scritta nessuna carta.
+**112 carte**, piu 2 punti su cui non e stata scritta nessuna carta.
 
 Sono i punti in cui la sbobina dice qualcosa che non torna. La convenzione del progetto e non correggere mai in silenzio: la carta riporta quello che dice la sbobina, spiega cosa non quadra e porta il tag `da-verificare`, e la decisione resta tua.
 
@@ -99,6 +99,14 @@ Da verificare: «blu di toluene» non è una colorazione istologica. Il nome che
 **`lab-esocrino-108`** — Laboratorio p. 18
 
 Da verificare: «blu di toluene» non è una colorazione istologica. Il nome che ci si aspetta è **blu di toluidina**, che il corso incontra fra i coloranti basici insieme a ematossilina, blu di metilene e rosso carminio. Riportato qui come lo scrive la sbobina.
+
+**`lab-sangue-021`** — Laboratorio p. 70
+
+Attenzione: la cellula di questo campo ha un nucleo rotondo, denso e scuro che occupa quasi tutta la cellula, lasciando un sottile anello di citoplasma, ed è poco più grande di un eritrocita. È la descrizione che la sbobina stessa dà del **linfocita** poche righe più sotto. Le figure «2.» e «3.» di pagina 70 sembrano scambiate: da verificare sul vetrino.
+
+**`lab-sangue-022`** — Laboratorio p. 70
+
+Attenzione: la cellula di questo campo ha un nucleo **pallido e indentato**, con un anello di citoplasma chiaro ben visibile attorno, e non il nucleo denso e scuro che la sbobina attribuisce al linfocita. È piuttosto la descrizione del **monocita** data per la figura «2.». Le due figure sembrano scambiate: da verificare sul vetrino.
 
 ## Istologia::Teoria::01 - Preparazione del preparato istologico
 
