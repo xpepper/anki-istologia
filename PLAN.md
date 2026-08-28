@@ -2317,7 +2317,7 @@ una qualsiasi di esse e il mazzo resta coerente.
 | 5 | `vetrini-05-connettivi.jsonl` | 05 Connettivi, vetrini 1-5 e 7-10, pp. 44-50 | 16 | 44 | **fatto** |
 | 6 | `vetrini-06-specializzati.jsonl` | 06 Conn. specializzati, vetrini 3-8, 10 e 11, pp. 63-70 | 8 | 25 | **fatto** |
 | 7 | `vetrini-08-nervoso.jsonl` | 08 Nervoso/SNP, vetrini 4-7 e 9, pp. 86-91 | 5 | 16 | **fatto** |
-| 8 | `vetrini-09-embriologia.jsonl` | 09 Embriologia, pp. 96-106 | ~13 | ~32 | da fare |
+| 8 | *(nessun file)* | 09 Embriologia, pp. 96-105 | 0 | **0** | **fatto, senza carte** |
 | 9 | `vetrini-07-10-coda.jsonl` | 07 Muscolare (vetrini 1-3, pp. 82-85) + 10 Tonsilla (p. 106) | 4 | ~20 | da fare |
 
 Le stime valgono come tetto, non come obiettivo: assumono che ogni immagine sia
@@ -2361,6 +2361,16 @@ all'iterazione 9. Il perimetro reale è **pagine 86-91**. È lo stesso fenomeno 
 capitolo 06, portato all'estremo: la sezione era già cardata per intero, e
 **undici** delle ventiquattro figure delle pagine 86-91 hanno già la loro carta
 con l'immagine sul fronte.
+
+**La riga 8 si è chiusa senza scrivere una sola carta**, ed è l'unica del mazzo:
+~32 carte previste, **zero**. Il file `vetrini-09-embriologia.jsonl` **non
+esiste e non va creato**. Le tredici figure delle pagine 98-105 sono state
+guardate tutte, e ognuna cade per **due** ragioni indipendenti: le nove dei
+modellini non sono campi al microscopio, e tutte e tredici hanno già la loro
+carta con l'immagine sul fronte. È il fenomeno delle righe 6 e 7 portato al suo
+limite: quando una sezione è già cardata per intero **e** le sue figure sono
+tutte sul fronte, al mazzo `Vetrini` non resta niente. Vedi il registro del
+capitolo 09 qui sotto.
 
 Il perimetro è **solo il Laboratorio**. La Teoria ha 453 immagini e lo stesso
 trattamento sarebbe possibile, ma è un lavoro di dimensioni analoghe e va
@@ -3418,6 +3428,136 @@ E le quattro da **scartare**, per ragioni che valgono già adesso:
 La stima della riga 9 è stata alzata di conseguenza da «2 vetrini, ~5 carte» a
 «4 vetrini, ~20 carte», su sette figure libere: i tre vetrini muscolari, che il
 registro del capitolo 06 le aveva già assegnato, più la tonsilla di pagina 106.
+
+### Capitolo 09, quello che è stato deciso
+
+**Zero carte, e nessun file.** È l'unica iterazione del mazzo `Vetrini` che si
+chiude senza scrivere niente, e il risultato è **definitivo**, non rinviato: le
+tredici figure delle pagine 98-105 sono state guardate una per una, e nessuna
+può entrare. `vetrini-09-embriologia.jsonl` non è stato creato e non va creato.
+I due contatori restano dove erano: `lab-embriologia` fermo a **057**,
+`lab-linfoide` a **053**.
+
+**Il perimetro reale è pagine 98-105, non 96-106**, e le pagine che restano
+fuori non sono un buco:
+
+- **pagine 96-97** non hanno **nemmeno una figura**. L'iterazione 7 lo aveva già
+  verificato per la 96 e vale anche per la 97: `images.jsonl` non elenca niente
+  fra pagina 92 e pagina 98, e `get_images` sul PDF conferma le liste vuote. Le
+  due pagine sono state comunque **rese e guardate**, perché una figura
+  vettoriale non comparirebbe in nessuno dei due elenchi: sono testo puro (la
+  fecondazione, la segmentazione, l'impianto, la gastrulazione), e i 49 e 44
+  "drawings" che `get_drawings` conta sono i punti elenco e le sottolineature
+  dei titoli. Da lì non viene **niente**;
+- **pagina 106** è la tonsilla palatina e appartiene all'**iterazione 9**
+  (`vetrini-07-10-coda.jsonl`), come il registro del capitolo 08 aveva già
+  deciso. Le sue tre figure sono comunque state guardate: vedi in fondo.
+
+**I nove modellini non sono vetrini, e questa è la decisione che conta.** Le
+figure delle pagine 98-103 sono **fotografie di modelli in gesso e resina
+dipinti a mano**, con i numeri di richiamo scritti a pennarello sul modello
+stesso: l'ovocita e i corpi polari dentro la zona pellucida (p. 98), lo stadio a
+quattro blastomeri (p. 99), la blastocisti impiantata montata su un piedistallo
+metallico con la sua base verde da laboratorio (p. 100), il disco embrionale in
+sezione (p. 101), il sacco vitellino e l'allantoide (p. 102), il feto nella
+placenta con l'albero coriale (p. 103). Non è un campo al microscopio, e il
+mazzo `Vetrini` allena il riconoscimento di un campo al microscopio: è
+esattamente la domanda che il capitolo 06 si è posto per lo schema dell'osteone
+(`lab_p057_4005.jpg`) e ha risolto scartandolo. Qui la risposta è la stessa,
+ripetuta nove volte.
+
+Vale la pena dire perché **non è una perdita**. La pagina 97 riporta una
+`Osservazione del docente` secondo cui il riconoscimento dei modellini è
+materia d'esame, e infatti Pietro ci si allena già: le nove figure sono i fronti
+di `lab-embriologia-021`, `024`, `028`, `029`, `031`, `033`, `038`, `044` e
+`053`, tutte carte di identificazione («Che stadio rappresenta questo
+modellino?») con l'immagine sul fronte. Si allena dal mazzo `09`, come si allena
+sulla prostata dal `03` e sul ganglio in ematossilina-eosina dall'`08`.
+
+**E le tredici figure hanno già tutte la loro carta con l'immagine sul fronte**,
+il che le escluderebbe comunque per la regola del punto 3. È il primo capitolo
+del progetto in cui il rapporto è **tredici su tredici**: nel 03 erano nove su
+37, nel 06 undici su ventuno, nel 07 undici su ventiquattro.
+
+| Figura | Carta che la usa già |
+|---|---|
+| `lab_p098_6012.jpg` | `lab-embriologia-021`, Modellino 1, ovocita secondario e corpo polare |
+| `lab_p098_6014.jpg` | `lab-embriologia-024`, Modellino 2, ingresso dello spermatozoo |
+| `lab_p099_6050.jpg` | `lab-embriologia-028`, Modellino 3, i due pronuclei |
+| `lab_p099_6052.jpg` | `lab-embriologia-029`, Modellino 4, fusione dei nuclei |
+| `lab_p099_6054.jpg` | `lab-embriologia-031`, Modellino 5, stadio a quattro blastomeri |
+| `lab_p100_6100.jpg` | `lab-embriologia-033`, Modellino 6, impianto nell'endometrio |
+| `lab_p101_6133.jpg` | `lab-embriologia-038`, Modellino 7, disco embrionale |
+| `lab_p102_6162.jpg` | `lab-embriologia-044`, Modellino 8, annessi extraembrionali |
+| `lab_p103_6187.jpg` | `lab-embriologia-053`, Modellino 9, feto e placenta |
+| `lab_p104_6206.jpg` | `lab-linfoide-026`, timo d'insieme, corteccia/midollare/Hassall |
+| `lab_p105_6222.jpg` | `lab-linfoide-031`, cellule epiteliali timiche (frecce bianche) |
+| `lab_p105_6224.jpg` | `lab-linfoide-032`, mastociti (frecce nere) |
+| `lab_p105_6226.jpg` | `lab-linfoide-028`, corpuscolo di Hassall (freccia) |
+
+**Dove cade il taglio con il timo delle pagine 104-105.** Quelle quattro figure
+**sono** campi al microscopio, e ottimi: il timo d'insieme con le marcature mute
+di corteccia, midollare e corpuscolo di Hassall, e i tre campi ad alto
+ingrandimento presi da *histology guide* con frecce che non nominano niente. Se
+fossero state libere sarebbero state materiale da fronte perfetto. Ma il timo
+appartiene al **capitolo 06**, non al 09: le sue carte stanno in `06f`, nel mazzo
+`06` con il resto del linfoide, e sta dentro la sezione dei modellini solo
+perché il professore lo ha ripreso a fine corso per un vetrino non osservato
+(vedi il punto 4). Il taglio segue quindi l'**argomento** e non la pagina, come
+fra il capitolo 08 e i tre vetrini muscolari: anche in presenza di una figura
+libera quelle carte avrebbero prolungato `vetrini-06-specializzati.jsonl`, non
+aperto un `vetrini-09`. Il punto è teorico, perché figure libere non ce ne sono.
+
+**Perché il timo non è stato ripreso lo stesso sulle figure già usate.** La
+tentazione c'era, perché `06f` ha quindici carte e una sola è di
+identificazione. Non regge a due controlli. Il primo è il precedente: da
+quattro iterazioni la regola è che una figura già sul fronte di una carta di
+capitolo **non si riprende**, e il vetrino sparisce dal mazzo `Vetrini` (la
+prostata nella 3a, il Vetrino 6 nella 5, i vetrini 1, 2 e 9 nella 6, il Vetrino
+8 nella 7). Il secondo è che `06f` **è già** un trattamento in stile `Vetrini`:
+`lab-linfoide-028`, `031` e `032` hanno l'immagine sul fronte e chiedono esattamente
+«che cosa indica la freccia, e come si riconosce questa cellula», cioè la carta
+di dettaglio che il mazzo `Vetrini` scriverebbe. Quello che resterebbe da
+chiedere sarebbe una **parafrasi**, cioè il doppione che il validatore **non**
+intercetta perché blocca solo le domande identiche: è la lezione di
+`teoria_p007_21` al punto 6.
+
+Le **tre eccezioni** che esistono nel mazzo — `lab_p003_229.jpg` e
+`lab_p005_290.jpg` (capitolo 01), `lab_p024_1258.jpg` (capitolo 03b) — non
+autorizzano una quarta. Le prime due sono dell'iterazione 1, scritta prima che
+la dottrina si consolidasse nella 3a, e le carte del mazzo `01` che le usano
+chiedono la **preparazione** e la **colorazione**, non il tessuto; la terza è il
+caso di `lab-esocrino-082`, la cui carta porta `da-verificare` proprio per
+l'**abbinamento sbagliato** dell'immagine, e la figura era quindi di fatto
+libera. Nessuna delle tre situazioni si ripresenta qui.
+
+Nessuna carta è stata scritta, quindi nessuna ha richiesto `da-verificare`: il
+totale resta **112**, e i conteggi del punto 1 non cambiano (960 carte, 12
+mazzi, 212 immagini per il Laboratorio, 163 test verdi).
+
+**Che cosa troverà l'iterazione 9 a pagina 106**, già guardato una per una come
+il capitolo 06 aveva fatto con pagina 76 e il capitolo 08 con le pagine 82-85.
+Le figure sono tre, e una sola è libera:
+
+| Figura | Che cos'è | Verdetto |
+|---|---|---|
+| `lab_p106_6255.jpg` | tonsilla ad alto ingrandimento: l'epitelio pavimentoso stratificato che si insinua a formare una cripta, con i noduli linfatici sotto. Nessuna etichetta | **libera e usabile**: oggi sta solo sul **retro** di `lab-linfoide-039`, quindi diventa il fronte delle carte di dettaglio |
+| `lab_p106_6257.jpg` | tonsilla d'insieme: la superficie con l'epitelio e i follicoli con i centri germinativi | **già sul fronte** di `lab-linfoide-047` (identificazione), e ci resta. Sta anche sul retro di `043` |
+| `lab_p106_6253.jpg` | la tavola da manuale della tonsilla | **scartata**: ha *Epitelio*, *Muscolatura striata*, *Sottomucosa*, *Noduli linfatici*, *Cripta tonsillare* e *Ghiandola salivare* stampati sui pixel. Nessuna carta la usa oggi, ed è giusto così |
+
+Le due fotografie sono **scatti attraverso l'oculare**, 1200x1600, con un ampio
+bordo scuro attorno al campo illuminato. La pagina le mostra **ritagliate al
+solo cerchio chiaro**, ed è il motivo per cui il controllo del clip path del
+punto 6 le segnala con correlazione 0,01 e 0,11: è un falso allarme, il campo
+nel file è integro e usabile: si porta dietro il bordo scuro, che sulla carta
+non disturba. Stessa cosa per `lab_p104_6206.jpg` (correlazione −0,62) e
+`lab_p100_6100.jpg` (−0,09), che sono comunque figure già collocate. **Su queste
+pagine il clip path non toglie niente a nessuno.**
+
+La stima della riga 9 **non cambia**: resta «4 vetrini, ~20 carte», su otto
+figure libere: le sette delle pagine 82-85 che il capitolo 08 ha elencato, più
+`lab_p106_6255.jpg`. Con la riga 8 chiusa a zero, **l'iterazione 9 è l'ultima
+del mazzo `Vetrini`**.
 
 ## 5. Segnalazioni `da-verificare` già trovate
 
