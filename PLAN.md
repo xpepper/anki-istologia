@@ -48,8 +48,8 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **919 carte,
-12 mazzi, 207 immagini** per il Laboratorio.
+Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **944 carte,
+12 mazzi, 210 immagini** per il Laboratorio.
 
 E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 
@@ -57,7 +57,7 @@ E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 ./venv/bin/python -m scripts.da_verificare --cards cards --out DA_VERIFICARE.md
 ```
 
-Atteso oggi: **110 carte**. Questo comando legge solo `cards/`, non serve
+Atteso oggi: **112 carte**. Questo comando legge solo `cards/`, non serve
 `build/`.
 
 **Due pacchetti, uno per fonte**, non uno solo: `--media` è una singola
@@ -65,13 +65,13 @@ directory e le immagini stanno in due alberi separati (`build/lab/images` e
 `build/teoria/images`). In Anki non cambia nulla, i mazzi restano sotto lo
 stesso genitore `Istologia::` e i tag `argomento::` continuano a pescare da
 entrambe le fonti. Così la teoria si consegna un capitolo per volta senza
-rispedire ogni volta le 919 note del laboratorio.
+rispedire ogni volta le 944 note del laboratorio.
 
 ---
 
 ## 2. Stato al 2026-08-12
 
-**919 note** di Laboratorio + **1872 di Teoria**, 660 immagini, 163 test verdi.
+**944 note** di Laboratorio + **1872 di Teoria**, 663 immagini, 163 test verdi.
 
 **Il progetto è finito.** Il Laboratorio copre tutte e 106 le sue pagine, la
 Teoria tutti e **diciotto** i capitoli e tutte e 256 le pagine. Non c'è più
@@ -121,11 +121,15 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `vetrini-04a-endocrino.jsonl` | 30 | mazzo `Vetrini`, vetrini 1-3, pagine 30-32 |
 | `vetrini-04b-endocrino.jsonl` | 47 | mazzo `Vetrini`, vetrini 4-8, pagine 33-39 |
 | `vetrini-05-connettivi.jsonl` | 44 | mazzo `Vetrini`, vetrini 1-5, 7-10 + 3 figure di classificazione, pagine 44-50 |
+| `vetrini-06-specializzati.jsonl` | 25 | mazzo `Vetrini`, vetrini 3-8, 10 e 11, pagine 63-70 |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
 il capitolo `06 - Tessuti connettivi specializzati` aperto dalla cartilagine.
-I quattro file `06b`-`06e` la chiudono per intero.
+I quattro file `06b`-`06e` la chiudono per intero, e
+`vetrini-06-specializzati.jsonl` vi si affianca con le domande di dettaglio del
+mazzo `Vetrini`: è quindi l'unica sezione del progetto che alimenta **cinque**
+file e **quattro** argomenti diversi.
 
 **Anche la sezione 022 mescola gli argomenti**, come già il suo quiz: i primi
 tre dei nove vetrini sono di tessuto **muscolare** (lingua, cuore, intestino).
@@ -267,11 +271,12 @@ restare unico dentro tutto il mazzo:
 | `lab-esocrino` | `03` 001-035, `03b` 040-087, `vetrini-03a` 088-116, poi `vetrini-03b` 117-146 |
 | `lab-endocrino` | `04a` 001-015, `04b` 020-045, `vetrini-04a` 046-075, poi `vetrini-04b` 076-122 |
 | `lab-connettivi` | `05a` 001-041, poi `vetrini-05` 042-085 |
-| `lab-osso` | `06b` 001-032, poi `06d` 033-046 |
-| `lab-cartilagine` | `06a` 001-025, poi `06d` 026-043 |
+| `lab-osso` | `06b` 001-032, `06d` 033-046, poi `vetrini-06` 047-055 |
+| `lab-cartilagine` | `06a` 001-025, `06d` 026-043, poi `vetrini-06` 044-049 |
+| `lab-sangue` | `06c` 001-014, `06d` 015-018, poi `vetrini-06` 019-022 |
 | `lab-muscolare` | `07a` 001-024, poi `07b` 025-044 |
 | `lab-nervoso` | `08a` 001-027, poi `08b` 028-045, poi `08b2` 046-084 |
-| `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, poi `10a` 037-047 |
+| `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, `10a` 037-047, poi `vetrini-06` 048-053 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
 | `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, `12a` 080, `12b` 081, `12d` 082-085, `13a` 086-087, `13b` 088, `15a` 089-090, `14a` 091, poi `18a` 092-094 e `18c` 095 |
@@ -2298,7 +2303,7 @@ una qualsiasi di esse e il mazzo resta coerente.
 | 4a | `vetrini-04a-endocrino.jsonl` | 04 Ghiand. endocrino, vetrini 1-3, pp. 28-32 | 13 | 30 | **fatto** |
 | 4b | `vetrini-04b-endocrino.jsonl` | 04 Ghiand. endocrino, vetrini 4-8, pp. 33-39 | 17 | 47 | **fatto** |
 | 5 | `vetrini-05-connettivi.jsonl` | 05 Connettivi, vetrini 1-5 e 7-10, pp. 44-50 | 16 | 44 | **fatto** |
-| 6 | `vetrini-06-specializzati.jsonl` | 06 Conn. specializzati, pp. 55-76 | ~12 | ~30 | da fare |
+| 6 | `vetrini-06-specializzati.jsonl` | 06 Conn. specializzati, vetrini 3-8, 10 e 11, pp. 63-70 | 8 | 25 | **fatto** |
 | 7 | `vetrini-08-nervoso.jsonl` | 08 Nervoso/SNP, pp. 78-96 | ~27 | ~78 | da fare |
 | 8 | `vetrini-09-embriologia.jsonl` | 09 Embriologia, pp. 96-106 | ~13 | ~32 | da fare |
 | 9 | `vetrini-07-10-coda.jsonl` | 07 Muscolare + 10 Tonsilla | 2 | ~5 | da fare |
@@ -2322,6 +2327,11 @@ già esistenti del capitolo 04 sono **tutte di solo testo**, nessuna figura era
 già stata usata, e il taglio è quindi sceso solo per gli scarti. Il totale
 reale delle due metà è di **77 carte**, ed è l'unica stima del mazzo che si sia
 rivelata **stretta** invece che larga.
+
+La riga 6 **non** è stata sdoppiata, benché il capitolo copra 21 pagine contro le
+7 del capitolo 05: la stima di ~30 carte si è rivelata quasi esatta (25) perché la
+sezione 019 era **già cardata per intero**, quiz compreso. Il perimetro reale è
+**pagine 63-70**, non 55-76: vedi il registro del capitolo 06 qui sotto.
 
 La riga 5 **non** è stata sdoppiata: le 44 carte stanno sotto la soglia delle
 ~50 e il capitolo 05 si chiude in una sola iterazione. La stima di ~48 carte era
@@ -3035,9 +3045,187 @@ ialina della giunzione miotendinea (`lab-connettivi-037`, che porta già
 `da-verificare`). Al loro posto il Vetrino 5 chiede l'**artefatto di taglio** e
 lo **strato condrogenico**, che nessuna carta copriva.
 
+### Capitolo 06, quello che è stato deciso
+
+Dieci figure delle pagine 63-70, 25 carte: `lab-cartilagine-044`-`049`,
+`lab-linfoide-048`-`053`, `lab-osso-047`-`055` e `lab-sangue-019`-`022`. Sono i
+**vetrini 3, 4, 5, 6, 7, 8, 10 e 11** della sezione 019. È la prima iterazione
+del mazzo `Vetrini` che tocca **quattro argomenti** e quindi quattro contatori
+di id: cartilagine, linfoide, osso e sangue.
+
+**Il perimetro reale è pagine 63-70, non 55-76**, e le tredici pagine che restano
+fuori non sono un buco:
+
+- **pagine 55-60** hanno otto figure e sono **tutte scartate** (vedi sotto): due
+  schemi con i nomi stampati sopra, due figure da manuale con la didascalia
+  stampata sui pixel, tre microfotografie annotate e lo schema dell'osteone, che
+  è un disegno e non un vetrino;
+- **pagine 61-62** sono i vetrini 1 e 2, le cui **uniche** figure hanno già la
+  loro carta di identificazione con l'immagine sul fronte;
+- **pagine 71-75** sono il quiz, **già cardato per intero** in
+  `06e-quiz-connettivi-specializzati.jsonl` (30 carte) e **senza nessuna
+  figura**. È la situazione del quiz del capitolo 05, non quella dei quiz dei
+  capitoli 02 e 03: non c'è niente da chiudere;
+- **pagina 76** compare nella sezione 019 ma il testo è del **muscolare**. Il
+  taglio è stato deciso sui vetrini, come fra la 3a e la 3b e fra la 4a e la 4b:
+  il capitolo 06 finisce al **Vetrino 11** di pagina 70, e le quattro figure
+  della 76 passano all'**iterazione 9** (`vetrini-07-10-coda.jsonl`). Sono già
+  state guardate tutte e quattro, ed è già stato deciso: **si scartano tutte**
+  (vedi in fondo).
+
+**La situazione di partenza è quella del capitolo 03, ma più estrema.** La
+sezione 019 ha già 133 note fra `06b`, `06c`, `06d` e `06e`, e `06d-vetrini.jsonl`
+copre da solo gli undici vetrini con 45 carte, di cui **undici** hanno già
+l'immagine sul fronte. Quelle undici non sono state rifatte, per la regola del
+punto 3, e restano nel mazzo di capitolo:
+
+| Figura | Carta che la usa già |
+|---|---|
+| `lab_p061_4108.jpg` | `lab-cartilagine-026`, Vetrino 1, cartilagine ialina della trachea |
+| `lab_p062_4132.jpg` | `lab-cartilagine-031`, Vetrino 2, giunzione muscolotendinea |
+| `lab_p063_4148.jpg` | `lab-cartilagine-036`, Vetrino 3, la colorazione Azan-Mallory |
+| `lab_p064_4175.jpg` | `lab-cartilagine-040`, Vetrino 4, cartilagine elastica |
+| `lab_p065_4201.jpg` | `lab-linfoide-013`, Vetrino 5, milza |
+| `lab_p066_4230.jpg` | `lab-linfoide-018`, Vetrino 6, linfonodo |
+| `lab_p068_4276.jpg` | `lab-osso-036`, Vetrino 8, osso spugnoso |
+| `lab_p069_4297.jpg` | `lab-osso-039`, Vetrino 9, osso decorticato non colorato |
+| `lab_p069_4299.jpg` | `lab-osso-042`, Vetrino 10, il piano di taglio |
+| `lab_p070_4338.jpg` | `lab-sangue-015`, Vetrino 11, striscio di sangue |
+| `lab_p056_3988.jpg` | `lab-cartilagine-020`, cartilagine elastica dell'epiglottide (p. 56) |
+
+Conseguenza, la stessa che era toccata alla prostata nella 3a e al Vetrino 6
+nella 5: **i vetrini 1, 2 e 9 spariscono dal mazzo `Vetrini`**, perché la loro
+unica figura è già la domanda di una carta del capitolo. Pietro si allena
+comunque a riconoscerli, ma dal mazzo `06`.
+
+**La regola seguita per gli altri otto vetrini è quella del capitolo 01, non
+quella del 03.** Dove il vetrino ha una **seconda figura libera** — un altro
+campo, di solito a ingrandimento maggiore — quella figura entra nel mazzo
+`Vetrini` con le domande di dettaglio, che **dichiarano il tessuto nella
+domanda** secondo la regola anti-spoiler. La carta di **identificazione** resta
+una sola per vetrino: se esiste già nel mazzo di capitolo non è stata rifatta, e
+il mazzo `Vetrini` ne scrive una solo dove manca. Manca in tre casi, ed è il
+motivo per cui `lab-cartilagine-044` e `lab-osso-047` sono carte di
+identificazione:
+
+- **Vetrino 3**: `lab-cartilagine-036` chiede la *colorazione*, non il tessuto;
+- **Vetrino 7**: le sue due figure sono **entrambe sul retro**, quindi non c'era
+  nessuna carta di identificazione con l'immagine sul fronte;
+- **Vetrino 10**: `lab-osso-042` chiede il *piano di taglio* e dichiara il
+  tessuto nella domanda. Qui però l'identificazione non è stata rifatta lo
+  stesso, perché la figura libera (`4336`) è un dettaglio ad alto ingrandimento
+  in cui non si riconosce l'osso nel suo insieme: le sue due carte sono di
+  dettaglio.
+
+**Le tre miniature di pagina 70 sono la scoperta di questa iterazione.** Sono le
+figure numerate `1.`, `2.` e `3.` accanto al Vetrino 11, ritagli dello striscio
+di sangue attorno a un singolo leucocita, e **nessuna carta del progetto le
+usava**. Sono minuscole (171×141, 121×126, 272×295) e il formato faceva pensare
+a icone di layout, ma guardate sono microfotografie pulite: è esattamente la
+domanda che l'esame pratico fa davanti a uno striscio. L'abbinamento numero →
+ritaglio è stato verificato sulle **coordinate** delle immagini nella pagina e
+sulla pagina resa, non sulle didascalie:
+
+```sh
+./venv/bin/python -c "import pymupdf; \
+  [print(i['xref'], [round(x) for x in i['bbox']]) for i in \
+   pymupdf.open('$DL/Istologia Laboratorio combinato.pdf')[69].get_image_info(xrefs=True)]"
+```
+
+La distribuzione delle domande segue i campi:
+
+| Vetrino | Figura | Carte | Taglio |
+|---|---|---:|---|
+| 3, cartilagine fibrosa | `lab_p063_4150.jpg` | 3 | identificazione e colorazione, i condrociti azzurri nelle lacune, l'assenza di pericondrio |
+| 4, cartilagine elastica | `lab_p064_4177.jpg` | 3 | perché i condrociti si vedono male in Weigert, dove stanno le fibre elastiche, matrice e gruppi isogeni contro la ialina |
+| 5, milza | `lab_p065_4199.jpg` | 3 | polpa bianca e polpa rossa nel campo, l'arteria centrale eccentrica, le trabecole connettivali |
+| 6, linfonodo | `lab_p066_4232.jpg` | 3 | le tre zone dalla capsula all'interno, perché B e T non si distinguono in H&E, che cosa dà l'aspetto punteggiato |
+| 7, osso compatto trasversale | `lab_p067_4255.jpg` | 2 | identificazione e colorazione, perché e come si demineralizza |
+| 7 | `lab_p067_4257.jpg` | 2 | lacune e canalicoli, l'endostio che separa l'osso dalla cavità midollare |
+| 8, osso spugnoso | `lab_p068_4278.jpg` | 3 | il midollo giallo negli spazi intertrabecolari, sedi e vantaggio meccanico delle trabecole, perché gli osteociti sono sparsi |
+| 10, osso compatto longitudinale | `lab_p070_4336.jpg` | 2 | che cosa contengono i canali di Havers e i Volkmann, la forma delle lacune osteocitarie |
+| 11, striscio, figura `1.` | `lab_p070_4340.jpg` | 2 | identificazione del neutrofilo, i due criteri di classificazione dei leucociti |
+| 11, figura `2.` | `lab_p070_4342.jpg` | 1 | identificazione, più la carta segnalata |
+| 11, figura `3.` | `lab_p070_4344.jpg` | 1 | identificazione, più la carta segnalata |
+
+**Scartate otto figure**, tutte per la regola delle immagini del punto 3 (una
+figura che contiene la risposta non va sul fronte), tranne una che non è un
+vetrino:
+
+- `lab_p055_3953.jpg`: la trachea fetale in Azan-Mallory, **interamente
+  annotata** (*Cartilagine ialina immatura*, *Pericondrio*, *Connettivo lasso*,
+  *Epitelio di rivestimento*). Era già stata guardata e decisa dall'iterazione 5:
+  sta sul **retro** di `lab-cartilagine-011` e ci resta;
+- `lab_p056_3986.jpg`: cartilagine ialina e fibrosa con *Pericondrio*,
+  *Cartilagine ialina immatura* e *Cartilagine fibrosa* stampati sui pixel;
+- `lab_p057_4005.jpg`: il **disegno** dell'osso compatto con periostio, fibre di
+  Sharpey e osteoni. Non ha etichette, ed è infatti già sul fronte di
+  `lab-osso-031`, ma è uno **schema** e non un vetrino: il mazzo `Vetrini` allena
+  il riconoscimento di un campo al microscopio;
+- `lab_p058_4026.jpg`: figura da manuale (*Figura 16.9*) con la **didascalia
+  completa stampata sotto**, compresi il tessuto, la colorazione e le sigle
+  *T*, *MO*, *VS*, *Oc*, *Ob*;
+- `lab_p058_4028.jpg`: lo schema dell'osso compatto in sezione con *Osteone*,
+  *Canale di Havers*, *Periostio*, *Endostio* e tutto il resto stampato attorno;
+- `lab_p059_4057.jpg`: l'osteone con *Canale di Havers*, *Canalicoli ossei* e
+  *Lacune ossee* stampati sopra e l'osteone tratteggiato in rosa;
+- `lab_p060_4081.jpg`: i tre campi dello striscio con *PIASTRINE*, *BASOFILO*,
+  *EOSINOFILO* e *NEUTROFILO* stampati sopra. È il confronto affiancato dei
+  granulari, e sarebbe stato ottimo per il fronte: le etichette lo escludono;
+- `lab_p060_4083.jpg`: lo striscio con *MONOCITA* e *LINFOCITA* stampati sopra.
+
+**E scartate le quattro figure di pagina 76**, che sono già state guardate una
+per una benché appartengano all'iterazione 9. Nessuna delle quattro è
+utilizzabile, e questo è il bilancio della coda del muscolare per come si vede
+da qui:
+
+- `lab_p076_5069.jpg`: lo schema dei tre tipi di tessuto muscolare con
+  *TESSUTO MUSCOLARE STRIATO SCHELETRICO*, *… CARDIACO* e *… LISCIO* stampati
+  sopra;
+- `lab_p076_5071.jpg`: lo schema della fibra striata con *Nucleo*,
+  *Lamina esterna* e *Miofibrille*;
+- `lab_p076_5073.jpg`: le due microfotografie di muscolo striato scheletrico con
+  la **didascalia stampata sotto** entrambe, ingrandimento compreso;
+- `lab_p076_5075.jpg`: lo schema del cardiomiocita con *Nucleo*, *Miofibrille* e
+  *Dischi intercalari*.
+
+L'iterazione 9 resta comunque da fare — copre anche i vetrini del muscolare
+delle pagine 82-85 e la tonsilla di pagina 106 — ma **da pagina 76 non prenderà
+niente**.
+
+**Due carte portano `da-verificare`, e il totale passa da 110 a 112.** Sono
+`lab-sangue-021` e `lab-sangue-022`, ed è la stessa segnalazione vista da due
+lati:
+
+le figure `2.` e `3.` di pagina 70 sembrano **scambiate**. La sbobina numera
+`2.` come monocita e `3.` come linfocita, ma la cellula di `4342` (la `2.`) ha un
+nucleo rotondo, denso e scuro che occupa quasi tutta la cellula, con un sottile
+anello di citoplasma, mentre quella di `4344` (la `3.`) ha un nucleo **pallido e
+indentato** e un anello di citoplasma chiaro ben visibile. È l'opposto di quello
+che la sbobina scrive nella **stessa pagina**: che il monocita è il leucocita di
+maggior calibro, con nucleo ampio a ferro di cavallo, «meno denso e di
+conseguenza meno scuro rispetto a quello dei linfociti». Le due carte riportano
+quello che dice la sbobina e spiegano nel `back` che cosa non torna, come
+prescrive il punto 3.
+
+**La sovrapposizione con le carte di solo testo della sezione è voluta**, come in
+tutte le iterazioni da 3a in poi, ma qui è più larga che altrove, perché `06b`,
+`06c` e `06d` avevano già cardato la sezione per intero. Le carte che dicono in
+parte le stesse cose sono `lab-cartilagine-018`, `019`, `021`, `022`, `037`,
+`039`, `042`; `lab-linfoide-002`, `016`, `017`, `020`, `021`; `lab-osso-006`,
+`008`, `013`, `014`, `015`, `020`, `021`, `023`, `024`, `027`, `028`, `035`,
+`038`; `lab-sangue-011`, `016`. Lì si chiede di ricordare una definizione, qui di
+leggere un campo. Tre angolature sono invece state **evitate** perché la carta
+esistente le esaurisce e usa la **stessa figura**: l'osso spugnoso e il tendine
+in formazione del Vetrino 3 (`lab-cartilagine-038`), gli osteoblasti sulla
+superficie delle trabecole del Vetrino 8 (`lab-osso-037`) e i canali di Havers
+rosati del Vetrino 7 (`lab-osso-034`). Evitata anche la carta sui condroblasti
+lungo le pareti dei canali di Havers, perché `lab-osso-046` porta già
+`da-verificare` proprio su quel punto.
+
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Centodieci carte taggate, più due figure scartate senza produrre carta. Ora che
+Centododici carte taggate, più una figura scartata senza produrre carta. Ora che
 non c'è più niente da scrivere, questo elenco cambia destinatario: non serve più
 a calibrare l'asticella, ma è **la lista di ciò che Pietro deve portare al
 libro**. Le carte sono ordinate come i mazzi, quindi si ripercorre nell'ordine
@@ -3091,6 +3279,8 @@ dubbia **è** la risposta (`lab-esocrino-033`, `lab-connettivi-037`). I test in
 | `lab-connettivi-085` | il Vetrino 10 descrive il **tessuto mucoso** come una struttura stratificata con epitelio secernente muco e ghiandole; è la descrizione di una **mucosa**, e contraddice pagina 44 dove il tessuto mucoso è la gelatina di Wharton |
 | `lab-endocrino-117` | il Vetrino 8 del capitolo 04 dà la colorazione per «**blu di toluene**», che non è una colorazione istologica; il nome atteso è **blu di toluidina**, e il campo è effettivamente azzurro-violetto |
 | `lab-esocrino-108` | il Vetrino 2 del capitolo 03 dà la colorazione per «**blu di toluene**»; stesso errore, stessa correzione attesa, **blu di toluidina** |
+| `lab-sangue-021` | il Vetrino 11 numera «2.» un **monocita**, ma il ritaglio mostra una cellula poco più grande di un eritrocita, con nucleo rotondo denso e scuro che occupa quasi tutta la cellula: è il **linfocita** come lo descrive la sbobina stessa poche righe sotto |
+| `lab-sangue-022` | il Vetrino 11 numera «3.» un **linfocita**, ma il ritaglio mostra un nucleo pallido e indentato con un anello di citoplasma chiaro ben visibile: è il **monocita**. Le figure «2.» e «3.» di pagina 70 sembrano scambiate |
 | `teoria-tecnica-030` | la sbobina dà due spessori diversi per le sezioni istologiche: 5-20 micron per il microscopio ottico (p. 2) e 1-10 µm per il taglio al microtomo (p. 4), senza spiegare la differenza |
 | `teoria-colorazioni-021` | descrive come "strati di muscolatura liscia" la banda pallida sotto la mucosa in un vetrino di trachea fetale; per aspetto e per anatomia è cartilagine ialina, e la muscolatura liscia della trachea sta nella parte membranacea posteriore |
 | `teoria-colorazioni-024` | classifica l'Azocarminio come colorante **basico** e nella stessa frase gli attribuisce la colorazione dei granuli **acidofili** dell'ipofisi; l'azocarminio è classicamente descritto come colorante acido |
@@ -3185,7 +3375,6 @@ dubbia **è** la risposta (`lab-esocrino-033`, `lab-connettivi-037`). I test in
 | `teoria-nervoso-120` | elenca la **microglia** due volte nello stesso elenco delle origini embrionali: prima fra le gliali del SNC derivate dal **neuroectoderma**, poi come derivata dal **mesoderma** in quanto fagocita mononucleato. La seconda è la versione corretta, ed è quella che la pagina successiva conferma facendola derivare dai progenitori mieloidi |
 | `teoria-nervoso-145` | dice che gli astrociti che invadono il sito di lesione "si riattivano e diventano **neurotrofici**", e nella frase successiva che la cicatrice gliale che formano "impedisce fisicamente e chimicamente la ricrescita degli assoni". Classicamente l'astrocita reattivo produce molecole **inibitorie** per la crescita assonale |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
-| (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
 Casi risolti senza tag, perché il refuso è evidente e non c'è dubbio di contenuto:
 
