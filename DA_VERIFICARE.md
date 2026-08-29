@@ -1,6 +1,6 @@
 # Carte da verificare sul libro
 
-**106 carte**, piu 2 punti su cui non e stata scritta nessuna carta.
+**112 carte**, piu 2 punti su cui non e stata scritta nessuna carta.
 
 Sono i punti in cui la sbobina dice qualcosa che non torna. La convenzione del progetto e non correggere mai in silenzio: la carta riporta quello che dice la sbobina, spiega cosa non quadra e porta il tag `da-verificare`, e la decisione resta tua.
 
@@ -81,6 +81,32 @@ Attenzione: La sbobina segna **Fibroblasto**. La cellula che sintetizza la matri
 **`lab-quiz-connettivi-specializzati-026`** — Laboratorio p. 71-75
 
 Attenzione: La sbobina segna due risposte. La **riserva energetica** è però proprio una funzione tipica del tessuto adiposo, che è un connettivo specializzato: lo dicono anche le domande 11 e 13 di questo stesso quiz. L'unica risposta attesa è la **contrazione muscolare**.
+
+## Istologia::Laboratorio::Vetrini
+
+**`lab-connettivi-081`** — Laboratorio p. 50
+
+Da verificare: la sbobina dice «soltanto nelle arterie», ma le vene non sono prive di elastina, ne hanno molta meno e non hanno una lamina elastica interna così evidente. Quello che la Verhoeff mostra è una differenza di quantità, non una presenza contro un'assenza.
+
+**`lab-connettivi-085`** — Laboratorio p. 50
+
+Da verificare: questa è la descrizione di una **mucosa**, non del tessuto mucoso. Il tessuto mucoso è il connettivo gelatinoso ricco di acido ialuronico che riempie il cordone (la **gelatina di Wharton**), come dice la stessa sbobina a pagina 44: non ha né un epitelio di rivestimento né ghiandole.
+
+**`lab-endocrino-117`** — Laboratorio p. 39
+
+Da verificare: «blu di toluene» non è una colorazione istologica. Il nome che ci si aspetta è **blu di toluidina**, il colorante basico che il corso incontra insieme a ematossilina, blu di metilene e rosso carminio. Riportato qui come lo scrive la sbobina, che fa lo stesso errore anche a pagina 18.
+
+**`lab-esocrino-108`** — Laboratorio p. 18
+
+Da verificare: «blu di toluene» non è una colorazione istologica. Il nome che ci si aspetta è **blu di toluidina**, che il corso incontra fra i coloranti basici insieme a ematossilina, blu di metilene e rosso carminio. Riportato qui come lo scrive la sbobina.
+
+**`lab-sangue-021`** — Laboratorio p. 70
+
+Attenzione: la cellula di questo campo ha un nucleo rotondo, denso e scuro che occupa quasi tutta la cellula, lasciando un sottile anello di citoplasma, ed è poco più grande di un eritrocita. È la descrizione che la sbobina stessa dà del **linfocita** poche righe più sotto. Le figure «2.» e «3.» di pagina 70 sembrano scambiate: da verificare sul vetrino.
+
+**`lab-sangue-022`** — Laboratorio p. 70
+
+Attenzione: la cellula di questo campo ha un nucleo **pallido e indentato**, con un anello di citoplasma chiaro ben visibile attorno, e non il nucleo denso e scuro che la sbobina attribuisce al linfocita. È piuttosto la descrizione del **monocita** data per la figura «2.». Le due figure sembrano scambiate: da verificare sul vetrino.
 
 ## Istologia::Teoria::01 - Preparazione del preparato istologico
 

@@ -26,7 +26,7 @@ DL=/Users/pietrodibello/Downloads
 ./venv/bin/python scripts/segment.py --build build/lab
 ./venv/bin/python scripts/segment.py --build build/teoria
 
-./venv/bin/python -m pytest tests/ -q          # atteso: 153 passed
+./venv/bin/python -m pytest tests/ -q          # atteso: 163 passed
 ```
 
 L'estrazione della teoria richiede qualche minuto: 256 pagine e 486 immagini.
@@ -48,8 +48,8 @@ pacchetto non viene scritto):
     --media build/teoria/images --out dist/Istologia-Teoria.apkg
 ```
 
-Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **673 carte,
-11 mazzi, 120 immagini** per il Laboratorio.
+Atteso oggi: **1872 carte, 18 mazzi, 453 immagini** per la Teoria e **976 carte,
+12 mazzi, 214 immagini** per il Laboratorio.
 
 E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 
@@ -57,7 +57,7 @@ E per rigenerare l'elenco delle segnalazioni da portare al libro (vedi punto 5):
 ./venv/bin/python -m scripts.da_verificare --cards cards --out DA_VERIFICARE.md
 ```
 
-Atteso oggi: **106 carte**. Questo comando legge solo `cards/`, non serve
+Atteso oggi: **112 carte**. Questo comando legge solo `cards/`, non serve
 `build/`.
 
 **Due pacchetti, uno per fonte**, non uno solo: `--media` è una singola
@@ -65,13 +65,13 @@ directory e le immagini stanno in due alberi separati (`build/lab/images` e
 `build/teoria/images`). In Anki non cambia nulla, i mazzi restano sotto lo
 stesso genitore `Istologia::` e i tag `argomento::` continuano a pescare da
 entrambe le fonti. Così la teoria si consegna un capitolo per volta senza
-rispedire ogni volta le 673 note del laboratorio.
+rispedire ogni volta le 976 note del laboratorio.
 
 ---
 
-## 2. Stato al 2026-08-12
+## 2. Stato al 2026-08-28
 
-**673 note** di Laboratorio + **1872 di Teoria**, 573 immagini, 153 test verdi.
+**976 note** di Laboratorio + **1872 di Teoria**, 667 immagini, 163 test verdi.
 
 **Il progetto è finito.** Il Laboratorio copre tutte e 106 le sue pagine, la
 Teoria tutti e **diciotto** i capitoli e tutte e 256 le pagine. Non c'è più
@@ -97,7 +97,7 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `04b-endocrino-ipofisi-tiroide-paratiroide.jsonl` | 26 | sezione 011, vetrini 1-3, pagine 29-32 |
 | `04c-quiz-endocrino.jsonl` | 18 | generato, pagine 40-42 |
 | `04d-quiz-endocrino-aperte.jsonl` | 4 | scritto a mano, domande 19-22 |
-| `05a-tessuti-connettivi.jsonl` | 41 | sezioni 013-015, vetrini 1-7, pagine 43-50 |
+| `05a-tessuti-connettivi.jsonl` | 41 | sezioni 013-015, vetrini 1-7, pagine 43-49 |
 | `05c-quiz-connettivi.jsonl` | 21 | generato, pagine 51-54 |
 | `06a-cartilagine.jsonl` | 25 | sezione 018, pagine 55-57 |
 | `06b-tessuto-osseo.jsonl` | 32 | sezione 019, pagine 57-58 |
@@ -114,11 +114,24 @@ campione in Anki. Non va reinventato: vedi le convenzioni al punto 3.
 | `09a-embriologia.jsonl` | 20 | sezione 025, pagine 96-97 |
 | `09b-modellini-embriologia.jsonl` | 37 | sezione 026, modellini 1-9, pagine 98-103 |
 | `10a-tonsilla-palatina.jsonl` | 11 | sezione 027, pagina 106 |
+| `vetrini-01-colorazioni.jsonl` | 24 | mazzo `Vetrini`, 8 vetrini delle pagine 3-5 |
+| `vetrini-02-epiteli.jsonl` | 42 | mazzo `Vetrini`, 8 vetrini + 4 schermate di quiz, pagine 8-12 |
+| `vetrini-03a-esocrino.jsonl` | 29 | mazzo `Vetrini`, classificazione + vetrini 1-7, pagine 15-21 |
+| `vetrini-03b-esocrino.jsonl` | 30 | mazzo `Vetrini`, vetrini 8-13 + 3 schermate di quiz, pagine 21-27 |
+| `vetrini-04a-endocrino.jsonl` | 30 | mazzo `Vetrini`, vetrini 1-3, pagine 30-32 |
+| `vetrini-04b-endocrino.jsonl` | 47 | mazzo `Vetrini`, vetrini 4-8, pagine 33-39 |
+| `vetrini-05-connettivi.jsonl` | 44 | mazzo `Vetrini`, vetrini 1-5, 7-10 + 3 figure di classificazione, pagine 44-50 |
+| `vetrini-06-specializzati.jsonl` | 25 | mazzo `Vetrini`, vetrini 3-8, 10 e 11, pagine 63-70 |
+| `vetrini-08-nervoso.jsonl` | 16 | mazzo `Vetrini`, vetrini 4-7 e 9, pagine 86-91 |
+| `vetrini-07-10-coda.jsonl` | 16 | mazzo `Vetrini`, vetrini muscolari 1-3 (pagine 82-85) + tonsilla (pagina 106) |
 
 **La sezione 019 non è solo il tessuto osseo**, nonostante il titolo. Copre
 osso, sangue, sistema linfoide, undici vetrini e il quiz finale, tutto dentro
 il capitolo `06 - Tessuti connettivi specializzati` aperto dalla cartilagine.
-I quattro file `06b`-`06e` la chiudono per intero.
+I quattro file `06b`-`06e` la chiudono per intero, e
+`vetrini-06-specializzati.jsonl` vi si affianca con le domande di dettaglio del
+mazzo `Vetrini`: è quindi l'unica sezione del progetto che alimenta **cinque**
+file e **quattro** argomenti diversi.
 
 **Anche la sezione 022 mescola gli argomenti**, come già il suo quiz: i primi
 tre dei nove vetrini sono di tessuto **muscolare** (lingua, cuore, intestino).
@@ -127,6 +140,21 @@ che Pietro ripassa il muscolare; il campo `source` rimanda comunque alle pagine
 82-85. Il precedente di `06d` (deck del capitolo dove sta la pagina) non si
 applicava: lì tutti gli argomenti appartenevano davvero a quel capitolo.
 Spostare una carta di mazzo è comunque sicuro, il guid dipende solo dall'id.
+
+Lo stesso taglio vale nel mazzo `Vetrini`: `vetrini-08-nervoso.jsonl` prende
+solo i vetrini **nervosi** (4-7 e 9, pagine 86-91), e i tre vetrini muscolari
+delle pagine 82-85 sono andati all'iterazione 9, che ha un file suo
+(`vetrini-07-10-coda.jsonl`) e prosegue il contatore `lab-muscolare`.
+
+**`vetrini-07-10-coda.jsonl` è l'unico file del progetto che unisce due
+capitoli**, ed è voluto: contiene i tre vetrini muscolari delle pagine 82-85
+(capitolo `07`) e la tonsilla palatina di pagina 106 (capitolo `10`). Il taglio
+segue l'**argomento**, quindi le dodici carte del muscolare portano id
+`lab-muscolare` e le quattro della tonsilla `lab-linfoide`, e il campo `source`
+segue le pagine di ciascuna. Il **mazzo** è invece uno solo, `Vetrini`, come il
+punto 3 prescrive per tutte le carte di questo percorso. La regola "un file per
+capitolo" cede qui perché le due code sono troppo piccole per un file ciascuna
+e perché sono state decise nella stessa iterazione, l'ultima del mazzo.
 
 Il nome `08b2` esiste perché `08c` era già occupato dal quiz, generato prima
 che il capitolo fosse scritto: `08b` è la teoria del periferico, `08b2` i suoi
@@ -255,11 +283,17 @@ restare unico dentro tutto il mazzo:
 
 | Argomento | Dove sta |
 |---|---|
-| `lab-osso` | `06b` 001-032, poi `06d` 033-046 |
-| `lab-cartilagine` | `06a` 001-025, poi `06d` 026-043 |
-| `lab-muscolare` | `07a` 001-024, poi `07b` 025-044 |
-| `lab-nervoso` | `08a` 001-027, poi `08b` 028-045, poi `08b2` 046-084 |
-| `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, poi `10a` 037-047 |
+| `lab-colorazioni` | `01` 001-038, poi `vetrini-01` 039-062 |
+| `lab-epiteli` | `02` 001-034, poi `vetrini-02` 035-076 |
+| `lab-esocrino` | `03` 001-035, `03b` 040-087, `vetrini-03a` 088-116, poi `vetrini-03b` 117-146 |
+| `lab-endocrino` | `04a` 001-015, `04b` 020-045, `vetrini-04a` 046-075, poi `vetrini-04b` 076-122 |
+| `lab-connettivi` | `05a` 001-041, poi `vetrini-05` 042-085 |
+| `lab-osso` | `06b` 001-032, `06d` 033-046, poi `vetrini-06` 047-055 |
+| `lab-cartilagine` | `06a` 001-025, `06d` 026-043, poi `vetrini-06` 044-049 |
+| `lab-sangue` | `06c` 001-014, `06d` 015-018, poi `vetrini-06` 019-022 |
+| `lab-muscolare` | `07a` 001-024, `07b` 025-044, poi `vetrini-07-10-coda` 045-056 |
+| `lab-nervoso` | `08a` 001-027, `08b` 028-045, `08b2` 046-084, poi `vetrini-08` 085-100 |
+| `lab-linfoide` | `06c` 001-012, `06d` 013-021, `06f` 022-036, `10a` 037-047, `vetrini-06` 048-053, poi `vetrini-07-10-coda` 054-057 |
 | `lab-embriologia` | `09a` 001-020, poi `09b` 021-057 |
 | `teoria-tecnica` | `01` 001-038, poi `02` 039-049 |
 | `teoria-colorazioni` | `01` 001-026, `02` 027-075, `10` 076-079, `12a` 080, `12b` 081, `12d` 082-085, `13a` 086-087, `13b` 088, `15a` 089-090, `14a` 091, poi `18a` 092-094 e `18c` 095 |
@@ -351,11 +385,52 @@ grep -ho '"id": "lab-osso-[0-9]*"' cards/laboratorio/*.jsonl | sort | tail -1
 ```
 Istologia::Laboratorio::<NN> - <Nome capitolo>
 Istologia::Laboratorio::Quiz              (unico, per tutti i quiz)
+Istologia::Laboratorio::Vetrini           (unico, allenamento al riconoscimento)
 Istologia::Teoria::<NN> - <Nome capitolo>
 ```
 
 La numerazione segue l'ordine delle pagine nella sbobina, così i mazzi si
 ordinano da soli come il corso.
+
+### Il mazzo `Vetrini`
+
+Aperto il 2026-08-27 su richiesta di Pietro, per allenare il **riconoscimento
+dei vetrini** in vista dell'esame pratico. È la seconda eccezione alla regola
+"un mazzo per capitolo", dopo `Quiz`, e per la stessa ragione: è un percorso di
+studio a sé, con opzioni di mazzo proprie.
+
+Regole, tutte diverse dal resto del progetto e da rispettare:
+
+- **immagine sempre sul fronte**, `"image_side": "front"`, e sempre `basic`
+  (il notetype Cloze non ha un campo per l'immagine sul fronte, e non lo
+  tocchiamo);
+- **3-4 domande sullo stesso vetrino**, con un mix fisso: identificazione,
+  carattere distintivo, colorazione, struttura visibile nel campo. La quarta
+  solo se il campo ha davvero qualcosa da indicare: **meglio tre carte solide
+  che quattro con una inventata**;
+- **regola anti-spoiler**: solo la domanda di identificazione tace il nome del
+  tessuto, tutte le altre lo dichiarano *nella domanda* (`Vetrino di colon:
+  ...`). Sono note separate, quindi la sepoltura dei fratelli non le divide: la
+  disciplina di scrittura è l'unica difesa. Non scrivere mai il nome del
+  tessuto solo nella risposta di una carta di dettaglio;
+- `tipo::riconoscimento` su **tutte**, comprese quelle su colorazione e
+  tecnica: partono tutte da una figura, ed è quello il senso del tag;
+- gli **id proseguono il contatore dell'argomento** come ovunque: le carte del
+  capitolo 01 sono `lab-colorazioni-039`-`062`, non ripartono da 001;
+- **un file per capitolo**, `cards/laboratorio/vetrini-NN-<nome>.jsonl`.
+
+**Le carte con immagine sul fronte già esistenti restano nel loro mazzo di
+capitolo.** Non vanno spostate qui: Anki, al reimport, aggiorna i campi della
+nota ma non necessariamente il mazzo della carta, quindi lo spostamento non
+sarebbe affidabile. Le nuove domande sullo stesso vetrino vanno comunque nel
+mazzo `Vetrini`, e prima di scriverle **va letta la carta che già esiste**:
+
+```sh
+grep -h "lab_p005_290.jpg" cards/laboratorio/*.jsonl
+```
+
+Il validatore intercetta i doppioni solo *dentro* lo stesso mazzo, quindi
+questo controllo è manuale.
 
 ### Tag
 
@@ -740,11 +815,13 @@ si sistemano invece senza cerimonie: non cambiano il contenuto.
 
 ## 4. Cosa resta, in ordine
 
-**Non resta niente.** Le due fonti sono coperte per intero. Questo punto resta
-com'è perché è il registro di come ogni capitolo è stato deciso: serve a chi
-dovrà *correggere* una carta, non più a chi deve scriverne. L'ordine di
-lavorazione qui sotto è quello concordato con Pietro il 2026-08-10 ed è stato
-seguito fino in fondo.
+**La copertura delle due sbobine è completa**, e quello che segue è il registro
+di come ogni capitolo è stato deciso: serve a chi dovrà *correggere* una carta,
+non più a chi deve scriverne. L'ordine di lavorazione qui sotto è quello
+concordato con Pietro il 2026-08-10 ed è stato seguito fino in fondo.
+
+**Anche il mazzo `Vetrini` è chiuso**, aperto il 2026-08-27 e finito il
+2026-08-28 con l'iterazione 9: vedi il punto 4-bis.
 
 ### Laboratorio
 
@@ -769,8 +846,17 @@ sono quasi tutte doppioni dello stesso campo a ingrandimento simile
 `lab_p088_5557`, `lab_p089_5593`), più tre casi su cui non si poteva costruire
 una domanda onesta: `lab_p084_5401` e `lab_p085_5433` non sono identificabili
 con certezza, e `lab_p085_5429`/`lab_p085_5431` sono quelle di cui **il prof
-stesso dice di non essere sicuro della colorazione**. Non c'è materiale rimasto
-da recuperare lì.
+stesso dice di non essere sicuro della colorazione**.
+
+Quel «non c'è materiale rimasto da recuperare» valeva per i mazzi di capitolo,
+**non** per il mazzo `Vetrini`: due di quelle dieci (`lab_p088_5557` e
+`lab_p089_5593`) sono diventate carte con l'immagine sul fronte con
+l'iterazione 7, e altre due delle pagine 82-85 (`lab_p082_5332` e
+`lab_p083_5371`) con la 9. Un doppione dello stesso campo è un doppione quando
+si spiega un tessuto; è un **secondo campo su cui allenarsi** quando lo si deve
+riconoscere. Le altre sei di quelle dieci sono rimaste scartate anche per il
+mazzo `Vetrini`, `lab_p082_5330` compresa: vedi il registro dei capitoli 07 e
+10 al punto 4-bis.
 
 Attenzione al conteggio delle parole di una sezione: quello di `sections.jsonl`
 comprende anche le descrizioni dei vetrini e le pagine di quiz, che sono lavoro
@@ -2228,9 +2314,1455 @@ storico di ripetizione.
 
 ---
 
+## 4-bis. Il mazzo `Vetrini`, capitolo per capitolo
+
+Lavoro aperto il 2026-08-27 e **chiuso il 2026-08-28**: tutte e nove le
+iterazioni sono state fatte, e il mazzo `Vetrini` è finito. Le convenzioni
+stanno al punto 3; qui c'è **come è stato deciso ogni capitolo**, e serve ormai
+a chi dovrà *correggere* una carta, non a chi deve scriverne. Ogni riga era
+un'iterazione auto-contenuta: ci si poteva fermare dopo una qualsiasi di esse e
+il mazzo restava coerente.
+
+Il totale è **303 carte** in **dieci file**, ed è il mazzo più grande del
+Laboratorio.
+
+| # | File | Capitolo / pagine | Vetrini | Carte | Stato |
+|---|---|---|---|---|---|
+| 1 | `vetrini-01-colorazioni.jsonl` | 01 Colorazioni, pp. 3-5 | 8 | 24 | **fatto** |
+| 2 | `vetrini-02-epiteli.jsonl` | 02 Epiteli, pp. 8-12 | 13 | 42 | **fatto** |
+| 3a | `vetrini-03a-esocrino.jsonl` | 03 Ghiand. esocrino, classificazione + vetrini 1-7, pp. 14-21 | 12 | 29 | **fatto** |
+| 3b | `vetrini-03b-esocrino.jsonl` | 03 Ghiand. esocrino, vetrini 8-13 + quiz, pp. 21-27 | 11 | 30 | **fatto** |
+| 4a | `vetrini-04a-endocrino.jsonl` | 04 Ghiand. endocrino, vetrini 1-3, pp. 28-32 | 13 | 30 | **fatto** |
+| 4b | `vetrini-04b-endocrino.jsonl` | 04 Ghiand. endocrino, vetrini 4-8, pp. 33-39 | 17 | 47 | **fatto** |
+| 5 | `vetrini-05-connettivi.jsonl` | 05 Connettivi, vetrini 1-5 e 7-10, pp. 44-50 | 16 | 44 | **fatto** |
+| 6 | `vetrini-06-specializzati.jsonl` | 06 Conn. specializzati, vetrini 3-8, 10 e 11, pp. 63-70 | 8 | 25 | **fatto** |
+| 7 | `vetrini-08-nervoso.jsonl` | 08 Nervoso/SNP, vetrini 4-7 e 9, pp. 86-91 | 5 | 16 | **fatto** |
+| 8 | *(nessun file)* | 09 Embriologia, pp. 96-105 | 0 | **0** | **fatto, senza carte** |
+| 9 | `vetrini-07-10-coda.jsonl` | 07 Muscolare (vetrini 1-3, pp. 82-85) + 10 Tonsilla (p. 106) | 4 | 16 | **fatto** |
+
+Le stime valgono come tetto, non come obiettivo: assumono che ogni immagine sia
+un vetrino distinto, e una parte sono duplicati dello stesso campo a
+ingrandimenti diversi o schemi da scartare. Le iterazioni 3 e 4 sono state
+spezzate nelle due metà a e b; l'iterazione 7 **non** è stata spezzata, perché
+non ci è andata nemmeno vicino: vedi qui sotto.
+
+La riga 3 è stata sdoppiata il 2026-08-27, come il piano prevedeva. La stima di
+~95 carte si è però rivelata larga di molto: il capitolo 03 è l'unico finora in
+cui la sezione era **già cardata per intero** nel mazzo di capitolo, e nove
+figure hanno già la loro carta con immagine sul fronte. Il totale reale delle
+due metà è di **59 carte**, non 95.
+
+La riga 4 è stata sdoppiata il 2026-08-27, come il piano prevedeva: 30 figure
+utilizzabili sono troppe per una sola sessione. Anche qui la stima di ~109
+carte era larga, ma per il motivo opposto a quello del capitolo 03: le 45 carte
+già esistenti del capitolo 04 sono **tutte di solo testo**, nessuna figura era
+già stata usata, e il taglio è quindi sceso solo per gli scarti. Il totale
+reale delle due metà è di **77 carte**, ed è l'unica stima del mazzo che si sia
+rivelata **stretta** invece che larga.
+
+La riga 6 **non** è stata sdoppiata, benché il capitolo copra 21 pagine contro le
+7 del capitolo 05: la stima di ~30 carte si è rivelata quasi esatta (25) perché la
+sezione 019 era **già cardata per intero**, quiz compreso. Il perimetro reale è
+**pagine 63-70**, non 55-76: vedi il registro del capitolo 06 qui sotto.
+
+La riga 5 **non** è stata sdoppiata: le 44 carte stanno sotto la soglia delle
+~50 e il capitolo 05 si chiude in una sola iterazione. La stima di ~48 carte era
+quasi esatta, ma per compensazione: le figure utilizzabili sono state 16 e non
+14, e sei figure sono state scartate. Il perimetro reale è **pagine 44-50**, non
+43-55: a pagina 43 ci sono due soli schemi, le pagine 51-54 sono il quiz già
+cardato e senza figure, e l'unica figura di pagina 55 è della cartilagine.
+
+La riga 7 **non** è stata sdoppiata, ed è la stima più larga di tutto il mazzo:
+~78 carte previste, **16** scritte. Il motivo è la somma di tre cose che si
+vedono solo guardando le figure una per una: le pagine 78-81 non danno **niente**
+(sono schemi e microfotografie annotate), le pagine 92-96 non hanno **nemmeno una
+figura**, e i tre vetrini muscolari delle pagine 82-85 sono passati
+all'iterazione 9. Il perimetro reale è **pagine 86-91**. È lo stesso fenomeno del
+capitolo 06, portato all'estremo: la sezione era già cardata per intero, e
+**undici** delle ventiquattro figure delle pagine 86-91 hanno già la loro carta
+con l'immagine sul fronte.
+
+**La riga 8 si è chiusa senza scrivere una sola carta**, ed è l'unica del mazzo:
+~32 carte previste, **zero**. Il file `vetrini-09-embriologia.jsonl` **non
+esiste e non va creato**. Le tredici figure delle pagine 98-105 sono state
+guardate tutte, e ognuna cade per **due** ragioni indipendenti: le nove dei
+modellini non sono campi al microscopio, e tutte e tredici hanno già la loro
+carta con l'immagine sul fronte. È il fenomeno delle righe 6 e 7 portato al suo
+limite: quando una sezione è già cardata per intero **e** le sue figure sono
+tutte sul fronte, al mazzo `Vetrini` non resta niente. Vedi il registro del
+capitolo 09 qui sotto.
+
+**La riga 9 ha chiuso il mazzo**, ed è l'unica che unisce due capitoli in un
+file solo: ~20 carte previste, **16** scritte, su quattro vetrini. La stima è
+scesa per una figura sola, ma per un motivo nuovo: `lab_p082_5330.jpg`, che il
+registro del capitolo 08 dava per usabile, è stata **scartata guardandola**
+perché la pagina la ritaglia e il file si porta dietro un secondo campo che
+sulla pagina non si vede. Le figure libere e usabili sono quindi sette e non
+otto. Nessuno dei quattro vetrini ha richiesto una carta di identificazione:
+ce l'hanno **tutti e quattro** già nel mazzo di capitolo. Vedi il registro dei
+capitoli 07 e 10 qui sotto.
+
+Il perimetro è **solo il Laboratorio**. La Teoria ha 453 immagini e lo stesso
+trattamento sarebbe possibile, ma è un lavoro di dimensioni analoghe e va
+deciso a parte.
+
+**Il bilancio del mazzo, ora che è chiuso.** Le stime delle nove righe sommavano
+**~484 carte** (con la riga 9 già alzata da ~5 a ~20), le carte scritte sono
+**303**: sei su dieci. Nessuna riga è andata oltre la propria stima. Il motivo è
+sempre lo stesso, e si vede solo guardando le figure una per una, mai
+contandole:
+
+- una figura **già sul fronte** di una carta di capitolo non si riprende, e il
+  suo vetrino sparisce dal mazzo `Vetrini` (la prostata nella 3a, il Vetrino 6
+  nella 5, i vetrini 1, 2 e 9 nella 6, il Vetrino 8 nella 7, tutti e quattro i
+  vetrini della 9);
+- una **sezione già cardata per intero** lascia al mazzo solo le figure libere,
+  ed è il caso dei capitoli 03, 06, 07, 08, 09 e 10;
+- una parte delle immagini non sono vetrini: schemi, tavole da manuale con la
+  didascalia stampata sui pixel, modellini in gesso.
+
+Le stime che ci sono andate **vicine** sono quelle dei capitoli 02, 05 e 06 (42
+su ~48, 44 su ~48, 25 su ~30); quelle sbagliate di più sono la 7 (16 su ~78) e
+la 8 (0 su ~32), cioè le due dove la sezione era già cardata per intero **e** le
+figure erano quasi tutte già sul fronte.
+
+### Procedura di una iterazione
+
+1. leggere la sbobina di quelle pagine con `show_section.py`;
+2. elencare le immagini del capitolo con la didascalia e le carte che già le usano;
+3. **guardare ogni immagine, una per una**, prima di decidere qualsiasi cosa. Le
+   didascalie estratte a volte sono sbagliate (punto 5), e senza guardare non si
+   sa nemmeno se la figura è un vetrino o uno schema;
+4. leggere le carte che già usano quelle immagini, per non ripetersi;
+5. scrivere le carte seguendo il mix fisso e la regola anti-spoiler;
+6. ricostruire il pacchetto, far girare i test, rigenerare `DA_VERIFICARE.md`;
+7. aggiornare questo punto e i conteggi del punto 1 e 2;
+8. un commit `feat(cards)` per le carte e un `docs:` per il piano.
+
+### Capitolo 01, quello che è stato deciso
+
+Otto vetrini delle pagine 3-5: il colon non colorato (p.3), quattro campi del
+colon in H&E (p.4) e tre campi dello striscio di sangue in Diff-Quik (p.5).
+
+**Scartata `lab_p004_262.jpg`**: è lo schema dell'esecuzione dello striscio
+sanguigno, con il titolo *Esecuzione striscio sanguigno* stampato sopra. Non è
+un vetrino, e per la regola delle immagini del punto 3 una figura che contiene
+la risposta non va sul fronte.
+
+`lab_p003_226.jpg` (il microtomo) **non è entrato**: è uno strumento, non un
+vetrino, e la sua carta `lab-colorazioni-019` resta dov'è.
+
+**Una avvertenza per chi correggerà queste carte.** A queste pagine la sbobina
+usa i vetrini solo per illustrare *la colorazione*, e non descrive mai la parete
+del colon. Quindi:
+
+- tutto ciò che le risposte dicono su **colorazione, preparazione e tecnica**
+  viene dal testo delle pagine 2-5, alla lettera;
+- ciò che dicono sulla **morfologia** (ghiandole tubulari sezionate, adipociti,
+  vasi, eritrociti) è la descrizione di quello che si vede nel campo, tenuta
+  apposta su termini non controversi. Nessuna carta nomina strutture che la
+  sbobina non nomina: non si parla di tonache, di cripte del Lieberkühn o di
+  cellule caliciformi, che il documento introduce solo più avanti.
+
+Nessuna carta del capitolo 01 ha richiesto il tag `da-verificare`.
+
+### Capitolo 02, quello che è stato deciso
+
+Tredici figure delle pagine 8-12, 42 carte, `lab-epiteli-035`-`076`. Sono gli
+**otto vetrini** della sezione 008 — aorta (p.8), rene in **due campi** (p.9),
+trachea (p.9), ovidotto (p.10), vescica (p.10), pianta del piede (p.10),
+ghiandola sudoripara (p.11), esofago (p.11) — più le **quattro schermate del
+quiz Wooclap** di pagina 12, che nessuna carta del progetto usava ancora.
+
+Qui la sbobina ha i blocchi *Vetrino N / Tessuto / Colorazione / Descrizione*,
+quindi, al contrario del capitolo 01, **le risposte sulla morfologia vengono dal
+documento** e non sono tenute su termini generici. Tutti e otto i vetrini sono
+in Ematossilina-Eosina, quindi la colorazione è chiesta **dentro la domanda di
+identificazione** (`Di che organo è questa sezione, e con quale colorazione è
+preparata?`), come già faceva il capitolo 01: otto carte separate che rispondono
+tutte "H&E" non avrebbero insegnato niente.
+
+**Le nove figure delle pagine 6-8 non sono entrate, ed è la decisione che conta.**
+Sono le microfotografie e gli schemi che illustrano la *classificazione* degli
+epiteli, e il mazzo `02` le ha già cardate per intero:
+
+- cinque hanno **già la loro carta di identificazione con l'immagine sul fronte**
+  (`lab-epiteli-009`, `012`, `015`, `018`, `025`, tutte `Che epitelio è questo?`)
+  e restano nel mazzo di capitolo, come il punto 3 prescrive;
+- tutto il resto che si potrebbe chiedere su di esse — funzione, sedi,
+  specializzazioni, come si riconoscono — è **già** in `lab-epiteli-010`, `011`,
+  `013`, `014`, `016`, `017`, `019`, `021`-`024`, `027`. Riscriverlo qui sarebbe
+  stato il doppione che il punto 3 chiede di evitare leggendo prima le carte
+  esistenti.
+
+**Scartate quattro figure**, tutte per la regola delle immagini del punto 3 (una
+figura che contiene la risposta non va sul fronte):
+
+- `lab_p006_312.jpg` e `lab_p006_314.jpg`: schemi a blocchi con il nome
+  dell'epitelio **stampato sopra** (*Pseudostratificato*, *Semplice / Squamoso /
+  Cubico / Cilindrico*);
+- `lab_p008_405.jpg`: lo schema dell'epitelio di transizione rilassato e disteso,
+  con *Transizione* stampato sopra;
+- `lab_p008_403.jpg`: microfotografia dell'epitelio di transizione annotata con
+  *Cellule cupoliformi*, *clavate*, *basali*. Non nomina l'epitelio, ma
+  "cupoliformi" **è** il carattere che lo identifica: in caso di dubbio la figura
+  va sul retro, ed è dove sta già (`lab-epiteli-028`).
+
+`lab_p014_886.jpg` (schema esocrina/endocrina, p.14) **non appartiene a questo
+capitolo**: è della sezione 009 e tocca all'iterazione 3, che comunque lo
+scarterà perché ha i due nomi stampati sopra.
+
+**Le quattro schermate di quiz hanno due carte l'una, non tre.** Il materiale è
+solo la risposta che la sbobina dà, e il punto 3 dice che è meglio una carta in
+meno che una inventata. Due deroghe consapevoli alla regola anti-spoiler, che
+vale per il *tessuto* e qui non ha un tessuto unico da tacere:
+
+- `lab_p012_680.jpg` ha **due marcatori** su due epiteli diversi, quindi due
+  carte di identificazione, una per marcatore;
+- su `lab_p012_678.jpg` le due carte si identificano a vicenda: `069` dichiara
+  l'organo e chiede l'epitelio, `070` dichiara l'epitelio e chiede l'organo.
+
+Nessuna carta del capitolo 02 ha richiesto il tag `da-verificare`: i blocchi
+della sezione 008 sono espliciti e non contraddicono il testo delle pagine 6-8.
+
+**Due cose trovate strada facendo, da non perdere** (nessuna delle due è stata
+toccata: sono fuori dal perimetro di questa iterazione):
+
+1. **Il quiz delle pagine 11-13 non è mai stato cardato.** Le domande con figura
+   (4, 5, 6, 7) le ha adesso il mazzo `Vetrini`; le domande di solo testo
+   (1, 2, 3, 8, 9, 10 e l'aperta 11) **non esistono da nessuna parte**. Gli altri
+   capitoli hanno un file `NNx-quiz-*.jsonl` generato da `quiz_to_cards.py`; il
+   capitolo 02 no. Vale una iterazione a parte.
+2. **`lab-epiteli-026` ha probabilmente l'immagine sbagliata sul retro.** La
+   carta è un cloze sull'epitelio **cubico** composto, ma `lab_p007_372.jpg`
+   mostra un primo strato di cellule nettamente **cilindriche** sopra un secondo
+   strato basale, cioè l'epitelio **cilindrico** composto — che è invece la carta
+   `lab-epiteli-027`, senza immagine. Le didascalie estratte a pagina 7 sono
+   sfasate di un paragrafo, il che spiega lo scambio. Da guardare prima di
+   correggere: l'immagine è sul **retro**, quindi non spoilera niente, e il fix
+   è spostarla da `026` a `027`.
+
+### Capitolo 03, prima metà: quello che è stato deciso
+
+Dodici figure delle pagine 15-21, 29 carte, `lab-esocrino-088`-`116`. Il taglio
+fra le due metà segue i **vetrini** e non le pagine: la 3a arriva fino al
+**Vetrino 7** compreso, la 3b riparte dal **Vetrino 8**. Entrambi stanno a
+pagina 21, che quindi compare in tutte e due le righe della tabella.
+
+**La decisione che conta è che qui la sezione era già cardata per intero.** Al
+contrario del capitolo 02 — dove la sezione 008 non aveva mai prodotto una
+carta — la 009 ha già 83 note fra `03-ghiandolare-esocrino.jsonl` (001-035) e
+`03b-esocrino-vetrini.jsonl` (040-087), e **nove** delle 37 figure hanno già la
+loro carta con immagine sul fronte. Quelle nove non sono state rifatte, per la
+regola del punto 3, e restano nel mazzo di capitolo:
+
+| Figura | Carta che la usa già |
+|---|---|
+| `lab_p017_1000.jpg` | `lab-esocrino-040`, parotide |
+| `lab_p018_1039.jpg` | `lab-esocrino-047`, pancreas |
+| `lab_p019_1070.jpg` | `lab-esocrino-052`, prostata giovane |
+| `lab_p019_1072.jpg` | `lab-esocrino-056`, corpi amilacei |
+| `lab_p020_1109.jpg` | `lab-esocrino-058`, mammario attivo |
+| `lab_p021_1146.jpg` | `lab-esocrino-062`, papille filiformi |
+| `lab_p022_1193.jpg` | `lab-esocrino-067`, papille foliate |
+| `lab_p024_1252.jpg` | `lab-esocrino-078`, sottolinguale |
+| `lab_p025_1298.jpg` | `lab-esocrino-084`, fondo dello stomaco |
+
+Conseguenza da tenere a mente: la **prostata sparisce dal mazzo `Vetrini`**. È
+l'unico vetrino della sezione le cui **due** figure hanno già una carta con
+immagine sul fronte, quindi nessuna delle due poteva essere ripresa. Pietro si
+allena comunque sul riconoscimento della prostata, ma dal mazzo `03`.
+
+**Le quattro microfotografie delle pagine 15-16 sono la scoperta di questa
+iterazione.** Non sono blocchi *Vetrino N*, sono le figure che illustrano il
+paragrafo `Tipo di secrezione`, e nessuna carta del progetto le usava. Sono
+però **l'unico confronto affiancato dei quattro tipi di secrezione** di tutto il
+Laboratorio, ed è esattamente la domanda che l'esame pratico fa davanti a un
+campo. Le loro didascalie **non stanno nel testo estratto**: sono testo del PDF
+sotto la figura, e si leggono solo rendendo la pagina.
+
+| Figura | Didascalia nel PDF | Tipo di secrezione |
+|---|---|---|
+| `lab_p015_936.jpg` | *Parotide, ghiandole sierose* | sierosa |
+| `lab_p016_959.jpg` | *Sottolinguale, ghiandole mucipare* | mucosa |
+| `lab_p016_965.jpg` | *Sottomandibolare, ghiandole miste, mucipare e sierose* | mista |
+| `lab_p016_962.jpg` | *ghiandole sebacee, in prossimità di un follicolo pilifero* | lipidica |
+
+Le didascalie sono **testo del PDF, non pixel dell'immagine**: la figura sul
+fronte non contiene la risposta e la regola delle immagini è rispettata. Il
+testo estratto le sposta di un paragrafo — è lo stesso sfasamento del punto 5 —
+quindi l'abbinamento è stato ricavato dalle **coordinate** delle immagini nella
+pagina, non dalle didascalie estratte:
+
+```sh
+./venv/bin/python -c "import pymupdf; \
+  [print(i['xref'], i['bbox']) for i in \
+   pymupdf.open('$DL/Istologia Laboratorio combinato.pdf')[15].get_image_info(xrefs=True)]"
+```
+
+**Queste quattro figure hanno due carte l'una, non tre**, come le schermate di
+quiz del capitolo 02 e per la stessa ragione: il materiale è solo il paragrafo
+che le accompagna, e il punto 3 dice che è meglio una carta in meno che una
+inventata. Le loro risposte ripetono in parte `lab-esocrino-019`-`030`, che sono
+però carte **di solo testo**: lì si chiede di ricordare una definizione, qui di
+leggere un campo. È la differenza che giustifica l'intero mazzo `Vetrini`.
+
+**Scartate cinque figure**, quattro per la regola delle immagini del punto 3 e
+una perché è di un altro capitolo:
+
+- `lab_p014_886.jpg` e `lab_p028_1584.jpg`: lo **stesso schema** esocrina/endocrina,
+  ripetuto a pagina 14 e a pagina 28, con *ghiandola esocrina* e *ghiandola
+  endocrina* stampati sopra. Il capitolo 02 aveva già previsto lo scarto del
+  primo. Il secondo sta comunque a **pagina 28**, che apre la sezione 011: se
+  l'iterazione 4 lo ritrova, è già stato guardato ed è già stato scartato;
+- `lab_p015_932.jpg`: la tavola delle otto forme di ghiandola (*Tubulare
+  semplice*, *Acinosa composta*…), con tutti i nomi stampati sopra;
+- `lab_p015_934.jpg`: lo schema olocrina / merocrina / apocrina, con i tre nomi
+  stampati sopra;
+- `lab_p016_968.jpg`: lo schemino *Ghiandola intraepiteliale* / *Ghiandola
+  esoepiteliale coriale*, con i nomi stampati sotto. È anche minuscolo, 195×127.
+
+**Una carta ha richiesto il tag `da-verificare`, la prima del mazzo `Vetrini`.**
+`lab-esocrino-108`: la sbobina dà come colorazione del Vetrino 2 «**blu di
+toluene**», che non è una colorazione istologica. Il nome atteso è **blu di
+toluidina**, che il progetto incontra fra i coloranti basici
+(`teoria-colorazioni-006`). La carta riporta quello che dice la sbobina e
+spiega nel `back` che cosa non torna, come prescrive il punto 3.
+
+**Due errori trovati in carte già pubblicate, nessuno dei due corretto.** Sono
+fuori dal perimetro di questa iterazione, valgono un lavoro a sé come
+`lab-epiteli-026`, e in entrambi i casi il fix è sicuro perché il guid dipende
+solo dall'id:
+
+1. **`lab-esocrino-047` ha la risposta sbagliata.** La carta chiede che cosa
+   evidenzia il cerchio tratteggiato di `lab_p018_1039.jpg` e risponde «un'isola
+   di Langerhans». Il cerchio racchiude invece un **adenomero**, cioè un acino
+   con le cellule polarizzate attorno a un lume centrale, e il testo della
+   sbobina lo dice esplicitamente: *«Nel primo vetrino è evidenziata la sezione
+   di una adenomero, in cui si notano le cellule polarizzate, raggruppate
+   attorno a un lume centrale che è l'ingresso di un dotto»*. Le isole di
+   Langerhans stanno nella **seconda** figura (`lab_p018_1041.jpg`), non
+   cerchiate, e sono le zone più chiare. Si vede anche dalla colorazione: la
+   figura cerchiata è azzurra, e la sbobina descrive le isole come «di
+   colorazione più chiara» nel campo rosa.
+2. **`lab-esocrino-082` ha probabilmente l'immagine sbagliata sul fronte.** La
+   carta è `Che ghiandola è questa? → Ghiandola sottomandibolare`, ma usa
+   `lab_p024_1258.jpg`, che è la **piccola figura in basso a sinistra** del
+   Vetrino 11 (uno dei «due dotti escretori di diverse dimensioni» della
+   sottolinguale): adenomeri pallidi, mucosi, con un piccolo lume al centro. La
+   sottomandibolare è `lab_p024_1254.jpg`, la figura del **Vetrino 12**, dove le
+   cellule sierose scure e granulose circondano quelle mucose chiare. Verificato
+   sulle coordinate delle quattro immagini di pagina 24 e sulla pagina resa. Il
+   fix è spostare l'immagine da `1258` a `1254`, e l'id resta `082`.
+
+**Il quiz delle pagine 25-27 è nella stessa situazione del quiz delle pagine
+11-13**: le tre domande con figura le avrà il mazzo `Vetrini` con
+l'iterazione 3b, le **nove domande di solo testo** di pagina 25-26 e l'aperta
+di pagina 27 non esistono da nessuna parte, e non c'è nessun file
+`03c-quiz-*.jsonl`. È lo stesso buco già segnalato per il capitolo 02: i due
+vanno chiusi insieme, in una iterazione a parte.
+
+**Che cosa è passato all'iterazione 3b**, già guardato una per una:
+
+| Pagina | Figure | Vetrino |
+|---|---|---|
+| 21 | `lab_p021_1151.jpg` | 8, papille foliate |
+| 22 | `lab_p022_1195.jpg` | 8, ingrandimento del solco con i bottoni gustativi |
+| 23 | `lab_p023_1213.jpg` | 9, papille fungiformi |
+| 23 | `lab_p023_1215.jpg` | 10, scalpo, ghiandola sebacea e follicolo |
+| 24 | `lab_p024_1256.jpg`, `lab_p024_1258.jpg` | 11, i due dotti escretori della sottolinguale |
+| 24 | `lab_p024_1254.jpg` | 12, sottomandibolare, semilune del Giannuzzi |
+| 25 | `lab_p025_1300.jpg` | 13, ghiandole gastriche ad alto ingrandimento |
+| 27 | `lab_p027_1506.jpg`, `1508`, `1510` | tre schermate di quiz con marcatore |
+
+Sul `lab_p023_1215.jpg` una avvertenza: mostra una ghiandola sebacea accanto a
+un follicolo pilifero, come `lab_p016_962.jpg` che la 3a ha già usato. Sono
+**due campi diversi** e le carte vanno tenute su tagli diversi: la 962 chiede il
+**tipo di secrezione**, la 1215 deve chiedere l'**organo** (scalpo, cute) e la
+morfologia olocrina delle cellule.
+
+Sulle tre schermate di quiz vale il precedente del capitolo 02: **due carte
+l'una, non tre**, perché il materiale è solo la risposta che la sbobina dà. Le
+risposte sono, nell'ordine, *ghiandola sottomandibolare a secrezione mista*,
+*pancreas* e *fondo dello stomaco*. Attenzione: le didascalie estratte per
+queste tre sono **sfasate di una domanda**, e vanno rilette sulla pagina resa.
+
+### Capitolo 03, seconda metà: quello che è stato deciso
+
+Undici figure delle pagine 21-27, 30 carte, `lab-esocrino-117`-`146`: tre carte
+per ciascuna delle otto microfotografie e due per ciascuna delle tre schermate
+del quiz. Tutte sono note `basic`, con immagine sul fronte e
+`tipo::riconoscimento`.
+
+**Nessuna delle undici figure è stata scartata.** Le otto microfotografie sono
+campi istologici senza etichette che contengano la risposta; le tre schermate
+del quiz mostrano soltanto il marcatore `1`, mentre domanda e soluzione sono
+testo esterno al ritaglio. Tutte erano quindi adatte al fronte. Le immagini
+uniche del pacchetto aumentano però di **dieci**, non undici:
+`lab_p024_1258.jpg` era già conteggiata perché usata, con l'abbinamento
+sbagliato, da `lab-esocrino-082`.
+
+La distribuzione delle domande segue i campi, non ripete semplicemente le carte
+di solo testo già presenti:
+
+| Figure | Carte | Taglio |
+|---|---:|---|
+| `lab_p021_1151.jpg`, `lab_p022_1195.jpg` | 6 | papille foliate a piccolo ingrandimento; solco, bottoni e pori gustativi ad alto ingrandimento |
+| `lab_p023_1213.jpg` | 3 | papille fungiformi: identificazione, differenza dalle filiformi, rivestimento |
+| `lab_p023_1215.jpg` | 3 | scalpo: organo, morfologia olocrina delle sebacee, muscolo erettore del pelo |
+| `lab_p024_1256.jpg`, `lab_p024_1258.jpg` | 6 | i due dotti escretori di diverso calibro della sottolinguale e gli adenomeri mucosi circostanti |
+| `lab_p024_1254.jpg` | 3 | sottomandibolare: classificazione mista, semilune del Giannuzzi, confronto sieroso/mucoso |
+| `lab_p025_1300.jpg` | 3 | ghiandole gastriche propriamente dette ad alto ingrandimento |
+| `lab_p027_1506.jpg`, `1508`, `1510` | 6 | due carte per quiz: sottomandibolare mista, pancreas, fondo dello stomaco |
+
+La sovrapposizione fra le due immagini di ghiandola sebacea è stata risolta
+come previsto dalla 3a: `lab_p016_962.jpg` continua a chiedere il **tipo di
+secrezione**; `lab_p023_1215.jpg` chiede invece di riconoscere lo **scalpo**, la
+morfologia chiara delle cellule olocrine e il muscolo erettore del pelo.
+
+`lab_p024_1258.jpg` è stata usata correttamente come **piccolo dotto escretore
+della sottolinguale**, ma `lab-esocrino-082` non è stata modificata: la sua
+correzione resta il lavoro separato già annotato nella prima metà. Lo stesso
+vale per `lab-esocrino-047`, `lab-epiteli-026` e per i quiz di solo testo delle
+pagine 11-13 e 25-27.
+
+Le tre risposte del quiz sono state abbinate rileggendo la **pagina 27 resa**,
+non le didascalie estratte: `1506` è la sottomandibolare a secrezione mista,
+`1508` il pancreas, `1510` il fondo dello stomaco. Nessuna nuova carta ha
+richiesto il tag `da-verificare`: il totale resta **107**.
+
+### Capitolo 04, prima metà: quello che è stato deciso
+
+Tredici figure delle pagine 30-32, 30 carte, `lab-endocrino-046`-`075`: i
+**vetrini 1, 2 e 3** (ipofisi, tiroide, paratiroide). Il taglio fra le due metà
+segue i vetrini come nel capitolo 03, e cade dove finisce il blocco del collo:
+la 4a arriva fino al **Vetrino 3** compreso, la 4b riparte dal **Vetrino 4**
+(ovaio). Tutte le carte sono `basic`, con immagine sul fronte e
+`tipo::riconoscimento`. Nessuna ha richiesto il tag `da-verificare`: il totale
+resta **107**.
+
+**La situazione di partenza è l'opposto di quella del capitolo 03.** Le 45
+carte che il capitolo 04 aveva già (`04a` 001-015 e `04b` 020-045) sono
+**tutte di solo testo**: nessuna figura delle pagine 28-39 era mai stata usata
+da nessuna carta del progetto. Non c'è quindi stato niente da escludere per la
+regola "le carte con immagine sul fronte restano nel loro mazzo", e nessun
+vetrino sparisce dal mazzo `Vetrini` come era successo alla prostata. La
+sovrapposizione con le carte di solo testo esistenti è voluta ed è la stessa
+già accettata nella 3a: lì si chiede di ricordare una definizione, qui di
+leggere un campo.
+
+La distribuzione delle domande segue i campi, non le pagine:
+
+| Figure | Carte | Taglio |
+|---|---:|---|
+| `lab_p030_1657.jpg` | 2 | ipofisi intera: identificazione, le due porzioni e come si distinguono |
+| `lab_p030_1659.jpg` | 2 | adenoipofisi: quale porzione è, cordoni di cellule cuboidi e vascolarizzazione |
+| `lab_p030_1663.jpg` | 2 | cellule acidofile: quali sono, che ormoni fanno, a che servono |
+| `lab_p030_1661.jpg` | 2 | cellule basofile: quali sono, che ormoni fanno, e il limite del preparato |
+| `lab_p030_1665.jpg` | 2 | cellule cromofobe e le tre categorie per affinità tintoriale |
+| `lab_p031_1745.jpg` | 3 | neuroipofisi: pituiciti e fibre, ormoni ipotalamici, origine dal tubo neurale |
+| `lab_p031_1747.jpg` | 2 | corpo di Herring cerchiato: che cos'è, perché sta lì |
+| `lab_p031_1749.jpg` | 4 | tiroide: identificazione, colloide, tireociti, stato funzionale |
+| `lab_p031_1751.jpg` | 2 | cellule C cerchiate: che cosa sono, come si individuano, calcitonina |
+| `lab_p032_1800.jpg` | 3 | paratiroide e tiroide affiancate: identificazione, come si distinguono, perché stanno insieme |
+| `lab_p032_1802.jpg` | 2 | cellule principali e paratormone |
+| `lab_p032_1804.jpg` | 2 | cellule ossifile indicate dalle frecce, e il loro ruolo incerto |
+| `lab_p032_1798.jpg` | 2 | adipociti fra i cordoni, e il loro aumento con l'età |
+
+**Le sette figure di pagina 30-31 sono tutte dello stesso vetrino**, l'ipofisi,
+ed è il caso più affollato incontrato finora nel mazzo. Le domande sono state
+distribuite invece di ripeterle campo per campo: l'identificazione della
+ghiandola sta solo sul campo d'insieme (`1657`), quella della *porzione* sui due
+ingrandimenti (`1659` adenoipofisi, `1745` neuroipofisi), e i tre campi ad alto
+ingrandimento (`1663`, `1661`, `1665`) chiedono ciascuno un tipo cellulare
+diverso. Per questo cinque figure hanno **due** carte e non tre: il punto 3 dice
+che è meglio una carta in meno che una inventata.
+
+**Una carta dice esplicitamente che il vetrino non basta.** `lab-endocrino-053`
+chiede se in questo preparato si riescano a separare acidofile e basofile, e
+risponde **no**: la sbobina avverte che «nel vetrino la colorazione non permette
+di apprezzare con precisione la differenza». È una carta di riconoscimento che
+insegna un limite del riconoscimento, ed è il genere di cosa che all'esame
+pratico conviene sapere prima di trovarsi davanti al campo.
+
+**Scartate tre figure, e ne restano fuori altre tre.**
+
+Scartate per la regola delle immagini del punto 3 (una figura che contiene la
+risposta non va sul fronte):
+
+- `lab_p028_1584.jpg`: lo **stesso schema** esocrina/endocrina già scartato due
+  volte, a pagina 14 dal capitolo 02 e a pagina 28 dalla 3a, che lo aveva
+  annunciato a questa iterazione. Guardato di nuovo, confermato: *ghiandola
+  esocrina* e *ghiandola endocrina* sono stampati sotto le due colonne;
+- `lab_p034_1867.jpg`: microfotografia del follicolo antrale **interamente
+  annotata**, con *zona pellucida*, *corona radiata*, *ovocita*, *cellule della
+  teca*, *cellule della granulosa* e *antro con liquor follicoli* stampati
+  sopra. Contiene la risposta di tutte le domande che si potrebbero fare;
+- `lab_p034_1869.jpg`: la stessa cosa in piccolo, con *cumulo ooforo* stampato
+  accanto al riquadro che lo indica. Vale il precedente di `lab_p008_403.jpg`
+  del capitolo 02: l'annotazione **è** il carattere che si vorrebbe chiedere.
+
+Restano fuori invece, e non è uno scarto, le **tre schermate del quiz di pagina
+42** (`lab_p042_2435.jpg`, `2437`, `2439`): hanno **già** la loro carta con
+immagine sul fronte in `04d-quiz-endocrino-aperte.jsonl`
+(`lab-quiz-endocrino-019`, `020`, `021`, rispettivamente zone del surrene,
+neuroipofisi e paratiroidi), e per il punto 3 restano dove sono. È la stessa
+situazione delle nove figure del capitolo 03, e la differenza con le schermate
+di quiz delle pagine 12 e 27 — che invece nessuno aveva mai cardato — sta tutta
+qui. Il quiz del capitolo 04, al contrario di quelli dei capitoli 02 e 03, è
+stato cardato per intero: **non** è uno dei buchi da chiudere.
+
+**Che cosa è passato all'iterazione 4b**, già guardato una per una e già
+abbinato al vetrino giusto rendendo le pagine:
+
+| Pagina | Figure | Vetrino |
+|---|---|---|
+| 33 | `lab_p033_1846.jpg` | 4, ovaio: le due regioni, corticale e midollare |
+| 33 | `lab_p033_1844.jpg` | 4, ovaio: i follicoli sezionati fra stadio antrale e di Graaf |
+| 33 | `lab_p033_1848.jpg` | 4, ovociti con zona pellucida e corona radiata |
+| 35 | `lab_p035_1880.jpg` | 4, ovociti primari nei follicoli primordiali della corticale |
+| 35 | `lab_p035_1882.jpg` | 5, corpo luteo a piccolo ingrandimento |
+| 35 | `lab_p035_1884.jpg` | 5, cellule luteiniche ad alto ingrandimento |
+| 36 | `lab_p036_1936.jpg` | 5, ovociti primari: secondo campo, indicazione sull'età |
+| 36 | `lab_p036_1938.jpg` | 6, corpi albicanti |
+| 37 | `lab_p037_1979.jpg` | 6, corpi albicanti: secondo campo |
+| 37 | `lab_p037_1981.jpg` | 7, surrenale: la corticale a strati, con i marcatori 2-5 |
+| 37 | `lab_p037_1983.jpg` | 7, zona glomerulare sotto la capsula |
+| 38 | `lab_p038_2041.jpg` | 7, zona fascicolata |
+| 38 | `lab_p038_2043.jpg` | 7, zona reticolata |
+| 38 | `lab_p038_2045.jpg` | 7, midollare |
+| 38 | `lab_p038_2047.jpg` | 7, cellule cromaffini ad alto ingrandimento |
+| 39 | `lab_p039_2099.jpg` | 8, pancreas a piccolo ingrandimento |
+| 39 | `lab_p039_2101.jpg` | 8, pancreas, acini esocrini ad alto ingrandimento |
+
+Tre avvertenze per chi la farà, tutte ricavate dalle **pagine rese**, non dal
+testo estratto:
+
+- le figure delle pagine 35-37 sono **sfasate rispetto al vetrino**. Le prime
+  immagini di pagina 35 e 37 chiudono il vetrino della pagina precedente:
+  `lab_p035_1880.jpg` è ancora il Vetrino 4 e `lab_p037_1979.jpg` è ancora il
+  Vetrino 6, benché il testo accanto a loro parli già del vetrino dopo. Il
+  campo `source` segue il **testo del vetrino**, non la pagina della figura;
+- `lab_p035_1880.jpg` e `lab_p036_1936.jpg` mostrano **lo stesso soggetto**,
+  gli ovociti primari nei follicoli primordiali della corticale, a due
+  ingrandimenti. Vanno tenuti su tagli diversi come è stato fatto con le due
+  ghiandole sebacee della 3a e 3b: la 1880 per il riconoscimento del follicolo
+  primordiale e del suo epitelio pavimentoso semplice, la 1936 per
+  l'indicazione sull'**età** della paziente;
+- il **Vetrino 8**, pancreas, ripete l'errore già segnalato nella 3a: la
+  colorazione dichiarata è «**blu di toluene**», che non è una colorazione
+  istologica, e il nome atteso è **blu di toluidina**. La carta va scritta come
+  prescrive il punto 3, riportando quello che dice la sbobina, taggata
+  `da-verificare` e con la spiegazione nel `back`, esattamente come
+  `lab-esocrino-108`.
+
+### Capitolo 04, seconda metà: quello che è stato deciso
+
+Diciassette figure delle pagine 33-39, 47 carte, `lab-endocrino-076`-`122`: i
+**vetrini 4, 5, 6, 7 e 8** (ovaio con follicoli di Graaf, ovaio con corpo luteo,
+ovaio con corpi albicanti, ghiandola surrenale, pancreas). Con questa iterazione
+il capitolo 04 è **chiuso**: le due metà valgono 77 carte, e le trenta figure
+utilizzabili delle pagine 28-39 sono state usate tutte.
+
+Tutte le carte sono `basic`, con immagine sul fronte e `tipo::riconoscimento`.
+**Nessuna figura è stata scartata**: i tre scarti del capitolo li aveva già
+fatti la 4a. Una sola carta porta `da-verificare`, ed è quella annunciata dalla
+4a: il totale passa da 107 a **108**.
+
+Le tre avvertenze lasciate dalla 4a sono state **tutte confermate** rendendo di
+nuovo le pagine 33 e 35-39, e non ce n'erano altre.
+
+La distribuzione delle domande segue i campi, non le pagine:
+
+| Vetrino | Figure | Carte | Taglio |
+|---|---|---:|---|
+| 4, ovaio | `lab_p033_1846.jpg` | 3 | identificazione, le due regioni, l'ilo e i vasi della midollare |
+| 4 | `lab_p033_1844.jpg` | 4 | stadio dei follicoli e antri, liquor follicoli, distacco del cumulo ooforo, follicoli che paiono senza ovocita |
+| 4 | `lab_p033_1848.jpg` | 4 | granuli corticali, zona pellucida, granulosa/corona radiata/cumulo ooforo, teche e ormoni |
+| 4 | `lab_p035_1880.jpg` | 3 | follicoli primordiali della corticale, epitelio pavimentoso semplice, migrazione in profondità |
+| 5, corpo luteo | `lab_p035_1882.jpg` | 3 | identificazione, che cos'è il corpo luteo, che altro c'è nella sezione |
+| 5 | `lab_p035_1884.jpg` | 3 | cellule luteiniche e progesterone, morfologia e gocce lipidiche, cellule para luteiniche |
+| 5 | `lab_p036_1936.jpg` | 2 | ovociti primari, secondo campo, e l'indicazione sull'età |
+| 6, corpi albicanti | `lab_p036_1938.jpg` | 3 | identificazione, come si riconosce l'ovaio senza follicoli, che cos'è il corpo albicante |
+| 6 | `lab_p037_1979.jpg` | 3 | aspetto del corpo albicante, confronto con il corpo luteo, la menopausa |
+| 7, surrene | `lab_p037_1981.jpg` | 2 | identificazione, e le quattro zone marcate 2-5 |
+| 7 | `lab_p037_1983.jpg` | 3 | zona glomerulare e i suoi gomitoli, mineralcorticoidi, come agisce l'aldosterone |
+| 7 | `lab_p038_2041.jpg` | 2 | zona fascicolata e glucocorticoidi |
+| 7 | `lab_p038_2043.jpg` | 2 | zona reticolata e ormoni sessuali deboli |
+| 7 | `lab_p038_2045.jpg` | 2 | midollare e catecolamine |
+| 7 | `lab_p038_2047.jpg` | 2 | cellule cromaffini, e da dove viene il loro nome |
+| 8, pancreas | `lab_p039_2099.jpg` | 4 | identificazione e colorazione, ghiandola mista, isole di Langerhans, i loro tipi cellulari |
+| 8 | `lab_p039_2101.jpg` | 2 | acini sierosi e destinazione del secreto |
+
+**I numeri stampati nelle figure del surrene sono di due specie diverse, e
+confonderle rovina la carta.** Sulle pagine 37-38 il numero accanto al bordo
+della figura è il numero della **figura** (1-6, richiamato in grassetto dal
+testo: «la ghiandola surrenale (1.)», «Zona glomerulare (2.)»); i numeri
+`2`, `3`, `4`, `5` stampati **dentro** `lab_p037_1981.jpg` sono invece i
+**marcatori delle zone** su quel campo d'insieme, e rimandano proprio ai
+cinque ingrandimenti che seguono. È il motivo per cui `lab-endocrino-105`
+chiede le zone marcate 2-5 e non 1-4. I marcatori sono **soli numeri**, senza
+nomi stampati: la figura sta sul fronte senza spoilerare niente. Lo stesso vale
+per i marcatori `(1.)`, `(2.)`, `(3.)` e `(6.)` del Vetrino 4, che però nel
+testo rimandano alle figure e non a punti del campo.
+
+**La figura più affollata è `lab_p033_1848.jpg`, non un campo d'insieme.** È
+l'unico caso del mazzo in cui l'alto ingrandimento vale più domande della
+panoramica: ci stanno sopra i granuli corticali, la zona pellucida, i tre nomi
+della granulosa e le due teche. Il campo d'insieme del vetrino (`1846`) ne ha
+invece tre, perché la sbobina di quel campo dice poco più delle due regioni.
+
+**Cinque figure del surrene hanno due carte e non tre**, ed è voluto: dalla
+fascicolata in giù la sbobina dà per ciascuna zona **solo la posizione, l'aspetto
+e il secreto**. La terza domanda sarebbe stata inventata, e vale il criterio del
+punto 3. La zona glomerulare ne ha tre solo perché l'aldosterone ha un
+meccanismo d'azione descritto per esteso.
+
+**Una carta mette a confronto due vetrini diversi.** `lab-endocrino-102` chiede
+come si distingue un corpo albicante dal corpo luteo del vetrino precedente. È
+l'unica carta del capitolo che attraversi due vetrini, e non è una forzatura: i
+Vetrini 5 e 6 sono due sezioni dello **stesso organo** che la sbobina presenta
+apposta in sequenza, e all'esame pratico la differenza fra le due strutture è
+esattamente quello che si deve saper leggere.
+
+**Il pancreas era già nel mazzo `Vetrini`, e le carte nuove non lo ripetono.**
+La 3a lo aveva cardato dal lato **esocrino** con `lab-esocrino-103`-`108`
+(identificazione, isole come zone più chiare, confronto con la parotide, dotti
+intercalari, colorazione). Il Vetrino 8 è un **preparato diverso**, a pagina 39,
+e lo guarda dal lato **endocrino**: che cosa contengono le isole, in che
+proporzioni, e perché i loro tipi cellulari non si distinguono. Le due domande
+che potevano sovrapporsi sono state girate di conseguenza: `119` non chiede
+*che cosa siano* le isole, che `lab-esocrino-103` già chiede, ma *come si
+presentano* rispetto al parenchima.
+
+**La seconda segnalazione sul «blu di toluene».** `lab-endocrino-117` riporta la
+colorazione come la scrive la sbobina e spiega nel `back` che il nome atteso è
+**blu di toluidina**, esattamente come `lab-esocrino-108` aveva fatto per il
+vetrino di pagina 18. Sono due carte distinte su due vetrini distinti, non un
+doppione: la sbobina commette lo stesso errore due volte, e Pietro trova ora
+entrambe le occorrenze in `DA_VERIFICARE.md`. Il campo di pagina 39 è
+effettivamente **azzurro-violetto**, quindi la colorazione *è* un blu basico e
+l'errore è solo nel nome.
+
+**La sovrapposizione con le carte di solo testo del capitolo è voluta**, come
+nella 3a e nella 4a. In particolare `lab-endocrino-042`, `043`, `044` e `045`
+(pagina 29) definiscono corpo luteo, corpo albicante, il loro rapporto con
+l'età e le zone del surrene: lì si chiede di ricordare una definizione, qui di
+leggere un campo. Nessuna delle carte nuove è stata tolta per questo.
+
+### Capitolo 05, quello che è stato deciso
+
+Sedici figure delle pagine 44-50, 44 carte, `lab-connettivi-042`-`085`: i
+**vetrini 1, 2, 3, 4, 5, 7, 8, 9 e 10** più le **tre microfotografie di
+classificazione** delle pagine 44-45. Tutte le carte sono `basic`, con immagine
+sul fronte e `tipo::riconoscimento`. Il capitolo si chiude in una sola
+iterazione.
+
+**Il perimetro vero è pagine 44-50, non 43-55**, e le tre pagine che restano
+fuori non sono un buco:
+
+- **pagina 43** ha due sole figure e sono entrambe schemi con i nomi stampati
+  sopra (vedi gli scarti qui sotto);
+- **pagine 51-54** sono il quiz, **già cardato per intero** in
+  `05c-quiz-connettivi.jsonl` (21 carte) e **senza nessuna figura**. Al
+  contrario dei quiz dei capitoli 02 e 03, qui non c'è niente da chiudere;
+- **pagina 55** è condivisa con il capitolo 06, ma il taglio non cade a metà
+  pagina come era successo con la 21 fra la 3a e la 3b: l'unica figura della 55,
+  `lab_p055_3953.jpg`, è la **trachea fetale in Azan-Mallory** della sezione
+  018, cioè materiale della cartilagine. Il capitolo 05 finisce al **Vetrino
+  10** di pagina 50, e l'iterazione 6 riparte da pagina 55.
+
+**La situazione di partenza è intermedia fra quella del capitolo 03 e quella del
+04.** Le 41 carte già esistenti (`05a-tessuti-connettivi.jsonl`, 001-041) sono
+quasi tutte di solo testo, ma **due** hanno già l'immagine sul fronte e restano
+quindi nel mazzo di capitolo, come il punto 3 prescrive:
+
+| Figura | Carta che la usa già |
+|---|---|
+| `lab_p046_2866.jpg` | `lab-connettivi-020`, campo d'insieme del Vetrino 1 (connettivo lasso) |
+| `lab_p049_2989.jpg` | `lab-connettivi-027`, Vetrino 6 (tessuto reticolare dell'ovaio, Bielschowsky) |
+
+Conseguenza da tenere a mente, la stessa che era toccata alla prostata nella 3a:
+il **Vetrino 6 sparisce dal mazzo `Vetrini`**, perché la sua unica figura è già
+la domanda di `lab-connettivi-027`. Del Vetrino 1 resta invece molto, perché ha
+tre primi piani oltre al campo d'insieme.
+
+**Le tre microfotografie di classificazione delle pagine 44-45 sono la scoperta
+di questa iterazione**, ed è lo stesso caso delle quattro figure sui tipi di
+secrezione trovate dalla 3a a pagina 15-16: non sono blocchi *Vetrino N*, sono
+le figure che accompagnano i paragrafi sui tipi di connettivo, e nessuna carta
+del progetto le usava. Due delle tre sono **confronti affiancati** che il resto
+del Laboratorio non offre da nessun'altra parte:
+
+| Figura | Che cosa mostra |
+|---|---|
+| `lab_p044_2671.jpg` | tessuto connettivo embrionale, due campi |
+| `lab_p045_2794.jpg` | denso **regolare** a sinistra, denso **irregolare** a destra |
+| `lab_p045_2797.jpg` | adiposo **uniloculare** a sinistra, **multiloculare** a destra |
+
+**Le strisce basse e larghe delle pagine 44-45 vanno guardate una per una, e non
+sono tutte uguali.** Sette figure di quelle due pagine hanno il formato a
+striscia (449x159, 442x164, 438x164, 402x152 e simili) e l'aspettativa era che
+fossero schemi; guardate, si sono divise a metà. Le tre della tabella qui sopra
+sono **microfotografie affiancate senza etichette** e stanno benissimo sul
+fronte; le altre hanno il nome della struttura **stampato sui pixel** e sono
+state scartate. Il formato non decide niente: decide solo l'occhio.
+
+La distribuzione delle domande segue i campi, non le pagine:
+
+| Vetrino / figura | Figure | Carte | Taglio |
+|---|---|---:|---|
+| classificazione, embrionale | `lab_p044_2671.jpg` | 2 | identificazione e fase della vita; come si riconosce la cellula mesenchimale |
+| classificazione, denso | `lab_p045_2794.jpg` | 3 | regolare contro irregolare nei due campi, dove si trovano, composizione e fibrocita |
+| classificazione, adiposo | `lab_p045_2797.jpg` | 2 | uniloculare contro multiloculare nei due campi, e quanto bruno ha un adulto |
+| 1, connettivo lasso | `lab_p046_2868.jpg` | 2 | nuclei dei fibroblasti indicati dalle frecce, e che cosa sia una cellula fissa |
+| 1 | `lab_p046_2869.jpg` | 2 | nucleo del macrofago, e che cosa sia una cellula migrante |
+| 1 | `lab_p046_2870.jpg` | 2 | nuclei dei mastociti, e il confronto con quello del macrofago |
+| 2, tendine | `lab_p047_2912.jpg` | 4 | identificazione, decorso dei fasci e resistenza alla trazione, tendinociti, il denso irregolare sovrastante |
+| 3, giunzione muscolo-tendinea | `lab_p047_2914.jpg` | 3 | identificazione delle due metà del campo, fasci e file di nuclei a destra, muscolare liscio contro connettivo denso |
+| 4, pianta della mano | `lab_p048_2951.jpg` | 2 | identificazione dalla cheratinizzazione, strutture da cercare per confermare |
+| 4 | `lab_p048_2953.jpg` | 2 | derma papillare, e come cambia il connettivo verso il reticolare |
+| 5, trachea | `lab_p048_2955.jpg` | 4 | identificazione, l'artefatto di taglio, l'epitelio della mucosa, i condroblasti dello strato condrogenico |
+| 7, adiposo | `lab_p049_2991.jpg` | 3 | identificazione e unità funzionale, perché gli adipociti sono trasparenti, le sezioni alveolari |
+| 7 | `lab_p049_2992.jpg` | 2 | morfologia dell'adipocita, e dove sta il nucleo |
+| 8, aorta H&E | `lab_p050_3030.jpg` | 4 | identificazione, le tre tonache, intima e media, che cosa c'è nell'avventizia |
+| 9, aorta Verhoeff | `lab_p050_3031.jpg` | 3 | identificazione e colorazione, l'elastina in viola scuro, arterie contro vene |
+| 10, cordone ombelicale | `lab_p050_3032.jpg` | 3+1 | identificazione, dove si osserva il tessuto mucoso, i tre grossi vasi, più la carta segnalata |
+
+**I vetrini 8, 9 e 10 non avevano nessuna carta, in nessun mazzo.** Il file
+`05a` si ferma al **Vetrino 7** di pagina 49, mentre la tabella del punto 2 lo
+dava per «pagine 43-50»: aorta in ematossilina-eosina, aorta in Verhoeff e
+cordone ombelicale, i tre vetrini di pagina 50, erano **scoperti per intero**.
+Sono dieci delle 44 carte di questa iterazione, ed è la prima volta che il mazzo
+`Vetrini` chiude un buco invece di affiancarsi a carte esistenti. La riga del
+punto 2 è stata corretta in «pagine 43-49», che è quello che il file copre
+davvero.
+
+**Scartate sei figure**, tutte per la regola delle immagini del punto 3 (una
+figura che contiene la risposta non va sul fronte):
+
+- `lab_p043_2572.jpg`: lo schema del differenziamento delle **MSC**, con
+  *CARTILAGE*, *BONE*, *MUSCLES*, *SKIN*, *FAT*, *CNS*, *MARROW* e i nomi delle
+  cellule figlie stampati attorno;
+- `lab_p043_2575.jpg`: la tavola del connettivo con *fibra di collagene*,
+  *fibra elastica*, *capillare*, *macrofago*, *fibroblasto*, *mastcellula*,
+  *lamina basale* e *glicosaminoglicani* tutti stampati sopra;
+- `lab_p044_2672.jpg`: cordone ombelicale in colorazione Ignesti, con
+  *Connettivo mucoso maturo* stampato in mezzo al campo. È il caso in cui la
+  didascalia sta **sui pixel** e non nel testo del PDF, al contrario delle
+  quattro figure sui tipi di secrezione della 3a;
+- `lab_p044_2673.jpg`: il pannello di destra è annotato con *Connettivo lasso*,
+  *Epitelio di rivestimento (cilindrico semplice)* e *Fibrocellule muscolari
+  lisce*. Il pannello di sinistra sarebbe stato usabile, ma le due
+  microfotografie sono **una sola immagine estratta** e non si possono separare
+  senza ritagliare;
+- `lab_p045_2795.jpg`: ovaio in Bielschowsky annotato con *Oocita*, *Follicolo* e
+  *Corpo luteo*. Il tessuto reticolare si chiede comunque sul Vetrino 6, che ha
+  già la sua carta;
+- `lab_p045_2796.jpg`: il pannello di destra è annotato con *Alveoli polmonari* e
+  *Tessuto connettivo elastico*. Vale lo stesso discorso del 2673.
+
+**Restano fuori invece, e non è uno scarto, `lab_p046_2866.jpg` e
+`lab_p049_2989.jpg`** (già usate dalle carte del capitolo, vedi la tabella
+sopra) e **`lab_p055_3953.jpg`**, che ha due ragioni per non entrare: è della
+sezione 018, quindi tocca all'iterazione 6, ed è comunque **interamente
+annotata** (*Cartilagine ialina immatura*, *Pericondrio (connettivo denso)*,
+*Connettivo lasso*, *Epitelio di rivestimento (pseudostratificato ciliato)*).
+Sta già dove deve stare: sul **retro** di `lab-cartilagine-011`.
+
+**Due carte portano `da-verificare`, e il totale passa da 108 a 110.**
+
+1. `lab-connettivi-081`, Vetrino 9: la sbobina motiva l'utilità della Verhoeff
+   dicendo che «l'elastina è presente **soltanto** nelle arterie». Le vene non
+   ne sono prive, ne hanno molta meno e senza una lamina elastica interna
+   evidente: quello che la colorazione mostra è una differenza di **quantità**,
+   non una presenza contro un'assenza. La carta riporta la sbobina e spiega nel
+   `back` che cosa non torna, come prescrive il punto 3;
+2. `lab-connettivi-085`, Vetrino 10: la descrizione del **tessuto mucoso** dice
+   «struttura stratificata, con uno strato superficiale di cellule epiteliali
+   specializzate nella secrezione di muco... e talvolta ghiandole». È la
+   descrizione di una **mucosa**, non del tessuto mucoso, e contraddice la
+   **stessa sbobina a pagina 44**, dove il tessuto mucoso è il connettivo
+   gelatinoso ricco di acido ialuronico del cordone ombelicale (gelatina di
+   Wharton). La carta riporta la descrizione e la segnala.
+
+**Un refuso sistemato senza cerimonie, seguendo un precedente.** A pagina 45 la
+sbobina scrive che il tessuto adiposo si divide in «uniloculare, detto bianco, e
+**multicolore**, detto bruno». `multicolore` non è un termine istologico e il
+termine atteso è **multiloculare**: è un refuso, non un errore di contenuto, e
+`lab-connettivi-030` lo aveva già normalizzato quando il file `05a` è stato
+scritto. `lab-connettivi-047` fa lo stesso, per non contraddire una carta che
+Pietro sta già ripassando.
+
+**La tabella del punto 5 aveva perso due righe**, ed è stato sistemato qui.
+`lab-esocrino-108` e `lab-endocrino-117`, le due segnalazioni sul «blu di
+toluene» scritte dalle iterazioni 3a e 4b, erano finite in `DA_VERIFICARE.md`
+(che si genera dalle carte e non può divergere) ma **non** nella tabella scritta
+a mano del punto 5, che si era fermata a 106 righe di carta contro 108 tag. Le
+quattro righe mancanti — quelle due più le due nuove — ci sono ora, e il
+controllo di coerenza è una riga di Python:
+
+```sh
+./venv/bin/python -c "
+import json, glob
+lines = open('PLAN.md').read().split(chr(10))
+i = next(n for n, l in enumerate(lines) if l.startswith('| Carta | Cosa non torna |'))
+rows = set()
+for l in lines[i + 2:]:
+    if not l.startswith('|'): break
+    rows.add(l.split('|')[1].strip().strip(chr(96)))
+tagged = {json.loads(l)['id'] for f in glob.glob('cards/**/*.jsonl', recursive=True)
+          for l in open(f) if 'da-verificare' in json.loads(l).get('tags', [])}
+print('mancanti dalla tabella:', sorted(tagged - rows))
+print('in tabella senza carta:', sorted(rows - tagged))"
+```
+
+**La sovrapposizione con le carte di solo testo del capitolo è voluta**, come in
+tutte le iterazioni da 3a in poi: `lab-connettivi-013`, `022`, `023`, `033`,
+`034`, `035`, `036`, `038`, `039` e `040` dicono in parte le stesse cose. Lì si
+chiede di ricordare una definizione, qui di leggere un campo. Due angolature
+sono invece state **evitate** perché la carta esistente le esaurisce: il
+pericondrio a due strati del Vetrino 5 (`lab-connettivi-040`) e la cartilagine
+ialina della giunzione miotendinea (`lab-connettivi-037`, che porta già
+`da-verificare`). Al loro posto il Vetrino 5 chiede l'**artefatto di taglio** e
+lo **strato condrogenico**, che nessuna carta copriva.
+
+### Capitolo 06, quello che è stato deciso
+
+Dieci figure delle pagine 63-70, 25 carte: `lab-cartilagine-044`-`049`,
+`lab-linfoide-048`-`053`, `lab-osso-047`-`055` e `lab-sangue-019`-`022`. Sono i
+**vetrini 3, 4, 5, 6, 7, 8, 10 e 11** della sezione 019. È la prima iterazione
+del mazzo `Vetrini` che tocca **quattro argomenti** e quindi quattro contatori
+di id: cartilagine, linfoide, osso e sangue.
+
+**Il perimetro reale è pagine 63-70, non 55-76**, e le tredici pagine che restano
+fuori non sono un buco:
+
+- **pagine 55-60** hanno otto figure e sono **tutte scartate** (vedi sotto): due
+  schemi con i nomi stampati sopra, due figure da manuale con la didascalia
+  stampata sui pixel, tre microfotografie annotate e lo schema dell'osteone, che
+  è un disegno e non un vetrino;
+- **pagine 61-62** sono i vetrini 1 e 2, le cui **uniche** figure hanno già la
+  loro carta di identificazione con l'immagine sul fronte;
+- **pagine 71-75** sono il quiz, **già cardato per intero** in
+  `06e-quiz-connettivi-specializzati.jsonl` (30 carte) e **senza nessuna
+  figura**. È la situazione del quiz del capitolo 05, non quella dei quiz dei
+  capitoli 02 e 03: non c'è niente da chiudere;
+- **pagina 76** compare nella sezione 019 ma il testo è del **muscolare**. Il
+  taglio è stato deciso sui vetrini, come fra la 3a e la 3b e fra la 4a e la 4b:
+  il capitolo 06 finisce al **Vetrino 11** di pagina 70, e le quattro figure
+  della 76 passano all'**iterazione 9** (`vetrini-07-10-coda.jsonl`). Sono già
+  state guardate tutte e quattro, ed è già stato deciso: **si scartano tutte**
+  (vedi in fondo).
+
+**La situazione di partenza è quella del capitolo 03, ma più estrema.** La
+sezione 019 ha già 133 note fra `06b`, `06c`, `06d` e `06e`, e `06d-vetrini.jsonl`
+copre da solo gli undici vetrini con 45 carte, di cui **undici** hanno già
+l'immagine sul fronte. Quelle undici non sono state rifatte, per la regola del
+punto 3, e restano nel mazzo di capitolo:
+
+| Figura | Carta che la usa già |
+|---|---|
+| `lab_p061_4108.jpg` | `lab-cartilagine-026`, Vetrino 1, cartilagine ialina della trachea |
+| `lab_p062_4132.jpg` | `lab-cartilagine-031`, Vetrino 2, giunzione muscolotendinea |
+| `lab_p063_4148.jpg` | `lab-cartilagine-036`, Vetrino 3, la colorazione Azan-Mallory |
+| `lab_p064_4175.jpg` | `lab-cartilagine-040`, Vetrino 4, cartilagine elastica |
+| `lab_p065_4201.jpg` | `lab-linfoide-013`, Vetrino 5, milza |
+| `lab_p066_4230.jpg` | `lab-linfoide-018`, Vetrino 6, linfonodo |
+| `lab_p068_4276.jpg` | `lab-osso-036`, Vetrino 8, osso spugnoso |
+| `lab_p069_4297.jpg` | `lab-osso-039`, Vetrino 9, osso decorticato non colorato |
+| `lab_p069_4299.jpg` | `lab-osso-042`, Vetrino 10, il piano di taglio |
+| `lab_p070_4338.jpg` | `lab-sangue-015`, Vetrino 11, striscio di sangue |
+| `lab_p056_3988.jpg` | `lab-cartilagine-020`, cartilagine elastica dell'epiglottide (p. 56) |
+
+Conseguenza, la stessa che era toccata alla prostata nella 3a e al Vetrino 6
+nella 5: **i vetrini 1, 2 e 9 spariscono dal mazzo `Vetrini`**, perché la loro
+unica figura è già la domanda di una carta del capitolo. Pietro si allena
+comunque a riconoscerli, ma dal mazzo `06`.
+
+**La regola seguita per gli altri otto vetrini è quella del capitolo 01, non
+quella del 03.** Dove il vetrino ha una **seconda figura libera** — un altro
+campo, di solito a ingrandimento maggiore — quella figura entra nel mazzo
+`Vetrini` con le domande di dettaglio, che **dichiarano il tessuto nella
+domanda** secondo la regola anti-spoiler. La carta di **identificazione** resta
+una sola per vetrino: se esiste già nel mazzo di capitolo non è stata rifatta, e
+il mazzo `Vetrini` ne scrive una solo dove manca. Manca in tre casi, ed è il
+motivo per cui `lab-cartilagine-044` e `lab-osso-047` sono carte di
+identificazione:
+
+- **Vetrino 3**: `lab-cartilagine-036` chiede la *colorazione*, non il tessuto;
+- **Vetrino 7**: le sue due figure sono **entrambe sul retro**, quindi non c'era
+  nessuna carta di identificazione con l'immagine sul fronte;
+- **Vetrino 10**: `lab-osso-042` chiede il *piano di taglio* e dichiara il
+  tessuto nella domanda. Qui però l'identificazione non è stata rifatta lo
+  stesso, perché la figura libera (`4336`) è un dettaglio ad alto ingrandimento
+  in cui non si riconosce l'osso nel suo insieme: le sue due carte sono di
+  dettaglio.
+
+**Le tre miniature di pagina 70 sono la scoperta di questa iterazione.** Sono le
+figure numerate `1.`, `2.` e `3.` accanto al Vetrino 11, ritagli dello striscio
+di sangue attorno a un singolo leucocita, e **nessuna carta del progetto le
+usava**. Sono minuscole (171×141, 121×126, 272×295) e il formato faceva pensare
+a icone di layout, ma guardate sono microfotografie pulite: è esattamente la
+domanda che l'esame pratico fa davanti a uno striscio. L'abbinamento numero →
+ritaglio è stato verificato sulle **coordinate** delle immagini nella pagina e
+sulla pagina resa, non sulle didascalie:
+
+```sh
+./venv/bin/python -c "import pymupdf; \
+  [print(i['xref'], [round(x) for x in i['bbox']]) for i in \
+   pymupdf.open('$DL/Istologia Laboratorio combinato.pdf')[69].get_image_info(xrefs=True)]"
+```
+
+La distribuzione delle domande segue i campi:
+
+| Vetrino | Figura | Carte | Taglio |
+|---|---|---:|---|
+| 3, cartilagine fibrosa | `lab_p063_4150.jpg` | 3 | identificazione e colorazione, i condrociti azzurri nelle lacune, l'assenza di pericondrio |
+| 4, cartilagine elastica | `lab_p064_4177.jpg` | 3 | perché i condrociti si vedono male in Weigert, dove stanno le fibre elastiche, matrice e gruppi isogeni contro la ialina |
+| 5, milza | `lab_p065_4199.jpg` | 3 | polpa bianca e polpa rossa nel campo, l'arteria centrale eccentrica, le trabecole connettivali |
+| 6, linfonodo | `lab_p066_4232.jpg` | 3 | le tre zone dalla capsula all'interno, perché B e T non si distinguono in H&E, che cosa dà l'aspetto punteggiato |
+| 7, osso compatto trasversale | `lab_p067_4255.jpg` | 2 | identificazione e colorazione, perché e come si demineralizza |
+| 7 | `lab_p067_4257.jpg` | 2 | lacune e canalicoli, l'endostio che separa l'osso dalla cavità midollare |
+| 8, osso spugnoso | `lab_p068_4278.jpg` | 3 | il midollo giallo negli spazi intertrabecolari, sedi e vantaggio meccanico delle trabecole, perché gli osteociti sono sparsi |
+| 10, osso compatto longitudinale | `lab_p070_4336.jpg` | 2 | che cosa contengono i canali di Havers e i Volkmann, la forma delle lacune osteocitarie |
+| 11, striscio, figura `1.` | `lab_p070_4340.jpg` | 2 | identificazione del neutrofilo, i due criteri di classificazione dei leucociti |
+| 11, figura `2.` | `lab_p070_4342.jpg` | 1 | identificazione, più la carta segnalata |
+| 11, figura `3.` | `lab_p070_4344.jpg` | 1 | identificazione, più la carta segnalata |
+
+**Scartate otto figure**, tutte per la regola delle immagini del punto 3 (una
+figura che contiene la risposta non va sul fronte), tranne una che non è un
+vetrino:
+
+- `lab_p055_3953.jpg`: la trachea fetale in Azan-Mallory, **interamente
+  annotata** (*Cartilagine ialina immatura*, *Pericondrio*, *Connettivo lasso*,
+  *Epitelio di rivestimento*). Era già stata guardata e decisa dall'iterazione 5:
+  sta sul **retro** di `lab-cartilagine-011` e ci resta;
+- `lab_p056_3986.jpg`: cartilagine ialina e fibrosa con *Pericondrio*,
+  *Cartilagine ialina immatura* e *Cartilagine fibrosa* stampati sui pixel;
+- `lab_p057_4005.jpg`: il **disegno** dell'osso compatto con periostio, fibre di
+  Sharpey e osteoni. Non ha etichette, ed è infatti già sul fronte di
+  `lab-osso-031`, ma è uno **schema** e non un vetrino: il mazzo `Vetrini` allena
+  il riconoscimento di un campo al microscopio;
+- `lab_p058_4026.jpg`: figura da manuale (*Figura 16.9*) con la **didascalia
+  completa stampata sotto**, compresi il tessuto, la colorazione e le sigle
+  *T*, *MO*, *VS*, *Oc*, *Ob*;
+- `lab_p058_4028.jpg`: lo schema dell'osso compatto in sezione con *Osteone*,
+  *Canale di Havers*, *Periostio*, *Endostio* e tutto il resto stampato attorno;
+- `lab_p059_4057.jpg`: l'osteone con *Canale di Havers*, *Canalicoli ossei* e
+  *Lacune ossee* stampati sopra e l'osteone tratteggiato in rosa;
+- `lab_p060_4081.jpg`: i tre campi dello striscio con *PIASTRINE*, *BASOFILO*,
+  *EOSINOFILO* e *NEUTROFILO* stampati sopra. È il confronto affiancato dei
+  granulari, e sarebbe stato ottimo per il fronte: le etichette lo escludono;
+- `lab_p060_4083.jpg`: lo striscio con *MONOCITA* e *LINFOCITA* stampati sopra.
+
+**E scartate le quattro figure di pagina 76**, che sono già state guardate una
+per una benché appartengano all'iterazione 9. Nessuna delle quattro è
+utilizzabile, e questo è il bilancio della coda del muscolare per come si vede
+da qui:
+
+- `lab_p076_5069.jpg`: lo schema dei tre tipi di tessuto muscolare con
+  *TESSUTO MUSCOLARE STRIATO SCHELETRICO*, *… CARDIACO* e *… LISCIO* stampati
+  sopra;
+- `lab_p076_5071.jpg`: lo schema della fibra striata con *Nucleo*,
+  *Lamina esterna* e *Miofibrille*;
+- `lab_p076_5073.jpg`: le due microfotografie di muscolo striato scheletrico con
+  la **didascalia stampata sotto** entrambe, ingrandimento compreso;
+- `lab_p076_5075.jpg`: lo schema del cardiomiocita con *Nucleo*, *Miofibrille* e
+  *Dischi intercalari*.
+
+L'iterazione 9 ha poi coperto i vetrini del muscolare delle pagine 82-85 e la
+tonsilla di pagina 106, ma **da pagina 76 non ha preso niente**.
+
+**Due carte portano `da-verificare`, e il totale passa da 110 a 112.** Sono
+`lab-sangue-021` e `lab-sangue-022`, ed è la stessa segnalazione vista da due
+lati:
+
+le figure `2.` e `3.` di pagina 70 sembrano **scambiate**. La sbobina numera
+`2.` come monocita e `3.` come linfocita, ma la cellula di `4342` (la `2.`) ha un
+nucleo rotondo, denso e scuro che occupa quasi tutta la cellula, con un sottile
+anello di citoplasma, mentre quella di `4344` (la `3.`) ha un nucleo **pallido e
+indentato** e un anello di citoplasma chiaro ben visibile. È l'opposto di quello
+che la sbobina scrive nella **stessa pagina**: che il monocita è il leucocita di
+maggior calibro, con nucleo ampio a ferro di cavallo, «meno denso e di
+conseguenza meno scuro rispetto a quello dei linfociti». Le due carte riportano
+quello che dice la sbobina e spiegano nel `back` che cosa non torna, come
+prescrive il punto 3.
+
+**La sovrapposizione con le carte di solo testo della sezione è voluta**, come in
+tutte le iterazioni da 3a in poi, ma qui è più larga che altrove, perché `06b`,
+`06c` e `06d` avevano già cardato la sezione per intero. Le carte che dicono in
+parte le stesse cose sono `lab-cartilagine-018`, `019`, `021`, `022`, `037`,
+`039`, `042`; `lab-linfoide-002`, `016`, `017`, `020`, `021`; `lab-osso-006`,
+`008`, `013`, `014`, `015`, `020`, `021`, `023`, `024`, `027`, `028`, `035`,
+`038`; `lab-sangue-011`, `016`. Lì si chiede di ricordare una definizione, qui di
+leggere un campo. Tre angolature sono invece state **evitate** perché la carta
+esistente le esaurisce e usa la **stessa figura**: l'osso spugnoso e il tendine
+in formazione del Vetrino 3 (`lab-cartilagine-038`), gli osteoblasti sulla
+superficie delle trabecole del Vetrino 8 (`lab-osso-037`) e i canali di Havers
+rosati del Vetrino 7 (`lab-osso-034`). Evitata anche la carta sui condroblasti
+lungo le pareti dei canali di Havers, perché `lab-osso-046` porta già
+`da-verificare` proprio su quel punto.
+
+### Capitolo 08, quello che è stato deciso
+
+Dieci figure delle pagine 86-91, 16 carte, `lab-nervoso-085`-`100`: i **vetrini
+4, 5, 6, 7 e 9** della sezione 022 (cervelletto, motoneurone in Nissl, midollo
+spinale, ganglio spinale in Golgi, nervo periferico). Tutte le carte sono
+`basic`, con immagine sul fronte e `tipo::riconoscimento`. Nessuna ha richiesto
+il tag `da-verificare`: il totale resta **112**.
+
+**Il perimetro reale è pagine 86-91, non 78-96**, ed è il taglio più stretto di
+tutto il mazzo rispetto alla stima. Le altre tredici pagine non sono un buco:
+
+- **pagine 78-81** sono la teoria del tessuto nervoso e del SNP (sezione 021 e
+  apertura della 022). Hanno dieci figure: due sono già la domanda di
+  `lab-nervoso-035` e `036`, e le **altre otto sono tutte da scartare** (vedi
+  sotto). Da lì non viene **niente**;
+- **pagine 82-85** sono i **tre vetrini muscolari** (lingua, cuore, intestino) e
+  passano all'**iterazione 9**, insieme alla tonsilla: vedi più sotto il perché e
+  che cosa ci troverà;
+- **pagine 92-96** sono il quiz, **già cardato per intero** in
+  `08c-quiz-nervoso.jsonl` (24 carte) e **senza nessuna figura**: la sezione 023
+  dichiara `images: []` ed è vero, `images.jsonl` non elenca nemmeno un file
+  fra pagina 92 e pagina 96. È la situazione dei quiz dei capitoli 05 e 06, non
+  quella dei capitoli 02 e 03: non c'è niente da chiudere. Vale anche per
+  **pagina 96**, che la tabella del punto 2 dà come condivisa con la sezione 025:
+  il taglio con il capitolo 09 **non tocca nessun vetrino**, perché lì di figure
+  non ce ne sono.
+
+**Perché i tre vetrini muscolari sono dell'iterazione 9 e non di questa.** La
+riga 9 della tabella esiste apposta per il muscolare e la tonsilla, e il taglio
+segue i **vetrini** come fra la 3a e la 3b: qui però segue anche l'**argomento**,
+perché quelle carte porterebbero id `lab-muscolare` (il contatore è fermo a
+`044`) dentro un file che si chiama `vetrini-08-nervoso.jsonl`. La regola del
+punto 3 è **un file per capitolo**, e il capitolo del muscolare è il `07`. È lo
+stesso ragionamento con cui `07b` tiene le carte dei vetrini 1-3 nel mazzo del
+muscolare invece che in quello del nervoso.
+
+**La situazione di partenza è quella del capitolo 06, portata all'estremo.** La
+sezione 022 e la 021 hanno già 84 note fra `08a`, `08b` e `08b2`, e il solo
+`08b2` copre i vetrini 4-9 con 39 carte. Delle **ventiquattro** figure delle
+pagine 86-91, **undici** hanno già la loro carta con l'immagine sul fronte e
+restano nel mazzo di capitolo, come il punto 3 prescrive:
+
+| Figura | Carta che la usa già |
+|---|---|
+| `lab_p086_5472.jpg` | `lab-nervoso-046`, Vetrino 4, cervelletto d'insieme |
+| `lab_p087_5502.jpg` | `lab-nervoso-055`, Vetrino 5, motoneuroni in Nissl |
+| `lab_p087_5508.jpg` | `lab-nervoso-058`, Vetrino 6, midollo spinale in H&E |
+| `lab_p088_5549.jpg` | `lab-nervoso-065`, Vetrino 6, motoneuroni nelle corna ventrali |
+| `lab_p088_5551.jpg` | `lab-nervoso-066`, Vetrino 6, il midollo in tecnica di Golgi |
+| `lab_p089_5591.jpg` | `lab-nervoso-068`, Vetrino 7, ganglio spinale d'insieme |
+| `lab_p089_5599.jpg` | `lab-nervoso-074`, Vetrino 7, i due prolungamenti nervosi |
+| `lab_p090_5630.jpg` | `lab-nervoso-077`, Vetrino 8, ganglio spinale in H&E |
+| `lab_p090_5632.jpg` | `lab-nervoso-078`, Vetrino 9, nervo periferico d'insieme |
+| `lab_p091_5668.jpg` | `lab-nervoso-080`, Vetrino 9, le guaine mieliniche |
+| `lab_p091_5672.jpg` | `lab-nervoso-083`, Vetrino 9, sezione longitudinale |
+
+Conseguenza, la stessa che era toccata alla prostata nella 3a, al Vetrino 6
+nella 5 e ai vetrini 1, 2 e 9 nella 6: **il Vetrino 8 sparisce dal mazzo
+`Vetrini`**, perché la sua unica figura è già la domanda di `lab-nervoso-077`.
+Pietro si allena comunque a riconoscere il ganglio in ematossilina-eosina, ma
+dal mazzo `08`.
+
+**La carta di identificazione è stata scritta una volta sola**, come nel
+capitolo 06, e qui manca in un caso solo: `lab-nervoso-091`, il **midollo
+spinale in tecnica di Golgi**. Esiste `058`, che identifica lo stesso vetrino in
+H&E, ed esiste `066`, che sulla figura d'insieme in Golgi chiede però la
+**colorazione** e non l'organo. È il caso del Vetrino 3 del capitolo 06
+(`lab-cartilagine-036`): l'identificazione non c'era, e in Golgi il midollo ha un
+aspetto abbastanza diverso da meritarla. Per tutti gli altri vetrini
+l'identificazione esiste già e non è stata rifatta.
+
+La distribuzione delle domande segue i campi:
+
+| Vetrino | Figura | Carte | Taglio |
+|---|---|---:|---|
+| 4, cervelletto | `lab_p086_5474.jpg` | 2 | le tre bande di colore dall'esterno all'interno; perché lo strato molecolare è chiaro e povero di nuclei |
+| 4 | `lab_p086_5476.jpg` | 2 | lo strato granulare e il rischio di confondere i granuli con i linfociti; che cosa l'H&E non mostra |
+| 5, motoneurone in Nissl | `lab_p087_5506.jpg` | 2 | il materiale basofilo del citoplasma; il nucleolo e che cosa indica |
+| 6, midollo spinale in Golgi | `lab_p088_5557.jpg` | 2 | identificazione e tecnica; corna ventrali contro corna dorsali |
+| 6, midollo spinale in H&E | `lab_p088_5547.jpg` | 1 | come si distinguono sostanza grigia e sostanza bianca nel campo |
+| 6, Golgi ad alto ingrandimento | `lab_p088_5553.jpg` | 1 | corpi e prolungamenti insieme: in che porzione del midollo siamo |
+| 7, ganglio spinale | `lab_p089_5593.jpg` | 2 | la capsula e i setti; neuroni in periferia e groviglio di fibre al centro |
+| 7 | `lab_p089_5595.jpg` | 1 | perché in un ganglio non si osservano sinapsi |
+| 9, nervo periferico | `lab_p091_5666.jpg` | 2 | i fascicoli e i loro rivestimenti; dov'è l'endonevrio e come si intuisce |
+| 9 | `lab_p091_5670.jpg` | 1 | gli assoni non si vedono in ematossilina-eosina |
+
+**Scartate otto figure delle pagine 78-81**, tutte per la regola delle immagini
+del punto 3 (una figura che contiene la risposta non va sul fronte). Sono la
+ragione per cui la sezione 021 non produce nemmeno una carta di riconoscimento:
+
+- `lab_p078_5166.jpg`: lo schema del neurone con *Dendriti*, *Soma*, *Nucleo e
+  nucleolo*, *Assone*, *Guaina mielinica*, *Nodo di Ranvier* e *Bottoni
+  sinaptici* stampati sopra;
+- `lab_p078_5168.jpg`: i tre neuroni in colorazione di Nissl, con *Nucleo*,
+  *Sostanza tigroide*, *Nucleolo* stampati sopra e la didascalia *Neuroni:
+  nucleo, nucleolo e sostanza tigroide* stampata sotto;
+- `lab_p079_5213.jpg`: la tavola della neuroglia con *oligodendrociti*,
+  *microglia*, *cellula ependimale*, *cellula di Schwann* e *astrocita*
+  stampati attorno;
+- `lab_p079_5215.jpg`: la grande tavola orto/parasimpatico, con il nome di ogni
+  effetto su ogni organo;
+- `lab_p080_5251.jpg`: l'organigramma del sistema nervoso, tutto testo;
+- `lab_p080_5253.jpg`: lo schema *I NERVI SPINALI* con *EPINEVRIO*,
+  *PERINEVRIO*, *ENDONEVRIO*, *FASCICOLO*, *ASSONE* e *VASI SANGUIGNI* stampati
+  attorno;
+- `lab_p080_5255.jpg`: lo schema del midollo con *Sostanza grigia*, *Sostanza
+  bianca*, *Corno dorsale*, *Ganglio spinale*, *Neurone sensitivo* e tutto il
+  resto stampato attorno;
+- `lab_p081_5292.jpg`: la sezione di midollo in Golgi da manuale, annotata
+  (*Corno posteriore*, *Sostanza grigia*, *Canale ependimale*, *Neuroni
+  multipolari*) **e** con la didascalia completa stampata sotto, ingrandimento
+  compreso. È il caso di `lab_p058_4026.jpg` del capitolo 06.
+
+**Scartate altre tre figure delle pagine 86-91**, e nessuna delle tre per via
+delle etichette:
+
+- `lab_p088_5555.jpg`: campo in Golgi **sfocato e senza una struttura
+  riconoscibile**, un passaggio fra sostanza grigia e sostanza bianca su cui non
+  si può costruire una domanda onesta;
+- `lab_p087_5504.jpg` e `lab_p089_5597.jpg`: figure buone, ma con le
+  **angolature esaurite** dalle carte che le usano già sul retro.
+  Sulla `5504`, `lab-nervoso-057` chiede che cosa siano i piccoli nuclei scuri
+  dello sfondo e `056` la differenza fra dendrite e assone in Nissl; quel che
+  resterebbe (che cosa evidenzia la colorazione di Nissl, con quali coloranti)
+  è già `lab-nervoso-015` e `039`. Sulla `5597`, che è un campo quasi identico
+  alla `5595`, `lab-nervoso-070` esaurisce l'anello di cellule satelliti.
+  Non è uno scarto per la regola delle immagini: è la regola del punto 3 sulla
+  lettura delle carte esistenti.
+
+**Non è stata riaperta `lab-nervoso-069`**, che porta `da-verificare` sul
+Vetrino 7 (la sbobina dichiara la tecnica di Golgi ma descrive corpi di Nissl
+basofili e cellule satelliti in tutti i neuroni). Le tre carte nuove sul ganglio
+non nominano la colorazione, proprio per non contraddirla: chiedono la capsula,
+la distribuzione dei neuroni e l'assenza di sinapsi.
+
+**La sovrapposizione con le carte di solo testo della sezione è voluta**, come in
+tutte le iterazioni da 3a in poi: `lab-nervoso-048`, `049`, `051`, `052`, `054`,
+`059`, `063`, `071`, `072`, `073`, `082` e `029` dicono in parte le stesse cose.
+Lì si chiede di ricordare una definizione, qui di leggere un campo.
+
+**Che cosa troverà l'iterazione 9 alle pagine 82-85**, già guardato una per una
+mentre si leggeva la sezione 022, come il capitolo 06 aveva fatto con pagina 76.
+Quattro figure hanno già la loro carta con l'immagine sul fronte
+(`lab_p082_5334` → `lab-muscolare-031`, `lab_p083_5367` → `030`,
+`lab_p084_5399` → `035`, `lab_p085_5435` → `043`). Delle **undici** libere,
+sette sono usabili:
+
+| Figura | Che cos'è | Verdetto |
+|---|---|---|
+| `lab_p082_5330.jpg` | due campi: lingua con papille e fasci di striato scheletrico in tutte le direzioni | **usabile**, senza etichette |
+| `lab_p082_5332.jpg` | due papille filiformi della lingua, con una terza sezionata in mezzo | **usabile** |
+| `lab_p083_5365.jpg` | cuore a piccolo ingrandimento, fasci ramificati in tutte le direzioni | **usabile** |
+| `lab_p083_5369.jpg` | un **nervo** in sezione trasversale in mezzo al muscolo della lingua | **usabile**, è la figura delle «terminazioni nervose» |
+| `lab_p083_5371.jpg` | fra le fibre, un piccolo aggregato ghiandolare e adipociti | **da riguardare**: senza etichette, ma il campo è ambiguo |
+| `lab_p084_5397.jpg` | cuore, setto connettivale con adipociti e un vaso | **usabile** |
+| `lab_p085_5437.jpg` | intestino tenue, le quattro tonache dalla mucosa alla muscolare | **usabile** |
+
+E le quattro da **scartare**, per ragioni che valgono già adesso:
+
+- `lab_p085_5429.jpg` e `lab_p085_5431.jpg`: sono le due figure di cui **il prof
+  stesso dice di non essere sicuro della colorazione** (`[N.d.S ... non è
+  importante saperlo]`, pagina 85). Il campo è azzurrino e non identificabile
+  con certezza;
+- `lab_p084_5401.jpg`: campo rosa uniforme di fibre lisce longitudinali, **senza
+  un riferimento** che permetta di dire di che organo si tratti;
+- `lab_p085_5433.jpg`: due campi in **un unico file estratto**. Quello in basso a
+  sinistra è un ottimo intestino tenue, ma quello in alto a destra non è
+  identificabile con certezza e i due non si possono separare senza ritagliare.
+  È il caso di `lab_p044_2673.jpg` del capitolo 05.
+
+La stima della riga 9 è stata alzata di conseguenza da «2 vetrini, ~5 carte» a
+«4 vetrini, ~20 carte», su sette figure libere: i tre vetrini muscolari, che il
+registro del capitolo 06 le aveva già assegnato, più la tonsilla di pagina 106.
+
+### Capitolo 09, quello che è stato deciso
+
+**Zero carte, e nessun file.** È l'unica iterazione del mazzo `Vetrini` che si
+chiude senza scrivere niente, e il risultato è **definitivo**, non rinviato: le
+tredici figure delle pagine 98-105 sono state guardate una per una, e nessuna
+può entrare. `vetrini-09-embriologia.jsonl` non è stato creato e non va creato.
+I due contatori restano dove erano: `lab-embriologia` fermo a **057**,
+`lab-linfoide` a **053**.
+
+**Il perimetro reale è pagine 98-105, non 96-106**, e le pagine che restano
+fuori non sono un buco:
+
+- **pagine 96-97** non hanno **nemmeno una figura**. L'iterazione 7 lo aveva già
+  verificato per la 96 e vale anche per la 97: `images.jsonl` non elenca niente
+  fra pagina 92 e pagina 98, e `get_images` sul PDF conferma le liste vuote. Le
+  due pagine sono state comunque **rese e guardate**, perché una figura
+  vettoriale non comparirebbe in nessuno dei due elenchi: sono testo puro (la
+  fecondazione, la segmentazione, l'impianto, la gastrulazione), e i 49 e 44
+  "drawings" che `get_drawings` conta sono i punti elenco e le sottolineature
+  dei titoli. Da lì non viene **niente**;
+- **pagina 106** è la tonsilla palatina e appartiene all'**iterazione 9**
+  (`vetrini-07-10-coda.jsonl`), come il registro del capitolo 08 aveva già
+  deciso. Le sue tre figure sono comunque state guardate: vedi in fondo.
+
+**I nove modellini non sono vetrini, e questa è la decisione che conta.** Le
+figure delle pagine 98-103 sono **fotografie di modelli in gesso e resina
+dipinti a mano**, con i numeri di richiamo scritti a pennarello sul modello
+stesso: l'ovocita e i corpi polari dentro la zona pellucida (p. 98), lo stadio a
+quattro blastomeri (p. 99), la blastocisti impiantata montata su un piedistallo
+metallico con la sua base verde da laboratorio (p. 100), il disco embrionale in
+sezione (p. 101), il sacco vitellino e l'allantoide (p. 102), il feto nella
+placenta con l'albero coriale (p. 103). Non è un campo al microscopio, e il
+mazzo `Vetrini` allena il riconoscimento di un campo al microscopio: è
+esattamente la domanda che il capitolo 06 si è posto per lo schema dell'osteone
+(`lab_p057_4005.jpg`) e ha risolto scartandolo. Qui la risposta è la stessa,
+ripetuta nove volte.
+
+Vale la pena dire perché **non è una perdita**. La pagina 97 riporta una
+`Osservazione del docente` secondo cui il riconoscimento dei modellini è
+materia d'esame, e infatti Pietro ci si allena già: le nove figure sono i fronti
+di `lab-embriologia-021`, `024`, `028`, `029`, `031`, `033`, `038`, `044` e
+`053`, tutte carte di identificazione («Che stadio rappresenta questo
+modellino?») con l'immagine sul fronte. Si allena dal mazzo `09`, come si allena
+sulla prostata dal `03` e sul ganglio in ematossilina-eosina dall'`08`.
+
+**E le tredici figure hanno già tutte la loro carta con l'immagine sul fronte**,
+il che le escluderebbe comunque per la regola del punto 3. È il primo capitolo
+del progetto in cui il rapporto è **tredici su tredici**: nel 03 erano nove su
+37, nel 06 undici su ventuno, nel 07 undici su ventiquattro.
+
+| Figura | Carta che la usa già |
+|---|---|
+| `lab_p098_6012.jpg` | `lab-embriologia-021`, Modellino 1, ovocita secondario e corpo polare |
+| `lab_p098_6014.jpg` | `lab-embriologia-024`, Modellino 2, ingresso dello spermatozoo |
+| `lab_p099_6050.jpg` | `lab-embriologia-028`, Modellino 3, i due pronuclei |
+| `lab_p099_6052.jpg` | `lab-embriologia-029`, Modellino 4, fusione dei nuclei |
+| `lab_p099_6054.jpg` | `lab-embriologia-031`, Modellino 5, stadio a quattro blastomeri |
+| `lab_p100_6100.jpg` | `lab-embriologia-033`, Modellino 6, impianto nell'endometrio |
+| `lab_p101_6133.jpg` | `lab-embriologia-038`, Modellino 7, disco embrionale |
+| `lab_p102_6162.jpg` | `lab-embriologia-044`, Modellino 8, annessi extraembrionali |
+| `lab_p103_6187.jpg` | `lab-embriologia-053`, Modellino 9, feto e placenta |
+| `lab_p104_6206.jpg` | `lab-linfoide-026`, timo d'insieme, corteccia/midollare/Hassall |
+| `lab_p105_6222.jpg` | `lab-linfoide-031`, cellule epiteliali timiche (frecce bianche) |
+| `lab_p105_6224.jpg` | `lab-linfoide-032`, mastociti (frecce nere) |
+| `lab_p105_6226.jpg` | `lab-linfoide-028`, corpuscolo di Hassall (freccia) |
+
+**Dove cade il taglio con il timo delle pagine 104-105.** Quelle quattro figure
+**sono** campi al microscopio, e ottimi: il timo d'insieme con le marcature mute
+di corteccia, midollare e corpuscolo di Hassall, e i tre campi ad alto
+ingrandimento presi da *histology guide* con frecce che non nominano niente. Se
+fossero state libere sarebbero state materiale da fronte perfetto. Ma il timo
+appartiene al **capitolo 06**, non al 09: le sue carte stanno in `06f`, nel mazzo
+`06` con il resto del linfoide, e sta dentro la sezione dei modellini solo
+perché il professore lo ha ripreso a fine corso per un vetrino non osservato
+(vedi il punto 4). Il taglio segue quindi l'**argomento** e non la pagina, come
+fra il capitolo 08 e i tre vetrini muscolari: anche in presenza di una figura
+libera quelle carte avrebbero prolungato `vetrini-06-specializzati.jsonl`, non
+aperto un `vetrini-09`. Il punto è teorico, perché figure libere non ce ne sono.
+
+**Perché il timo non è stato ripreso lo stesso sulle figure già usate.** La
+tentazione c'era, perché `06f` ha quindici carte e una sola è di
+identificazione. Non regge a due controlli. Il primo è il precedente: da
+quattro iterazioni la regola è che una figura già sul fronte di una carta di
+capitolo **non si riprende**, e il vetrino sparisce dal mazzo `Vetrini` (la
+prostata nella 3a, il Vetrino 6 nella 5, i vetrini 1, 2 e 9 nella 6, il Vetrino
+8 nella 7). Il secondo è che `06f` **è già** un trattamento in stile `Vetrini`:
+`lab-linfoide-028`, `031` e `032` hanno l'immagine sul fronte e chiedono esattamente
+«che cosa indica la freccia, e come si riconosce questa cellula», cioè la carta
+di dettaglio che il mazzo `Vetrini` scriverebbe. Quello che resterebbe da
+chiedere sarebbe una **parafrasi**, cioè il doppione che il validatore **non**
+intercetta perché blocca solo le domande identiche: è la lezione di
+`teoria_p007_21` al punto 6.
+
+Le **tre eccezioni** che esistono nel mazzo — `lab_p003_229.jpg` e
+`lab_p005_290.jpg` (capitolo 01), `lab_p024_1258.jpg` (capitolo 03b) — non
+autorizzano una quarta. Le prime due sono dell'iterazione 1, scritta prima che
+la dottrina si consolidasse nella 3a, e le carte del mazzo `01` che le usano
+chiedono la **preparazione** e la **colorazione**, non il tessuto; la terza è il
+caso di `lab-esocrino-082`, la cui carta porta `da-verificare` proprio per
+l'**abbinamento sbagliato** dell'immagine, e la figura era quindi di fatto
+libera. Nessuna delle tre situazioni si ripresenta qui.
+
+Nessuna carta è stata scritta, quindi nessuna ha richiesto `da-verificare`: il
+totale resta **112**, e i conteggi del punto 1 non cambiano (960 carte, 12
+mazzi, 212 immagini per il Laboratorio, 163 test verdi).
+
+**Che cosa troverà l'iterazione 9 a pagina 106**, già guardato una per una come
+il capitolo 06 aveva fatto con pagina 76 e il capitolo 08 con le pagine 82-85.
+Le figure sono tre, e una sola è libera:
+
+| Figura | Che cos'è | Verdetto |
+|---|---|---|
+| `lab_p106_6255.jpg` | tonsilla ad alto ingrandimento: l'epitelio pavimentoso stratificato che si insinua a formare una cripta, con i noduli linfatici sotto. Nessuna etichetta | **libera e usabile**: oggi sta solo sul **retro** di `lab-linfoide-039`, quindi diventa il fronte delle carte di dettaglio |
+| `lab_p106_6257.jpg` | tonsilla d'insieme: la superficie con l'epitelio e i follicoli con i centri germinativi | **già sul fronte** di `lab-linfoide-047` (identificazione), e ci resta. Sta anche sul retro di `043` |
+| `lab_p106_6253.jpg` | la tavola da manuale della tonsilla | **scartata**: ha *Epitelio*, *Muscolatura striata*, *Sottomucosa*, *Noduli linfatici*, *Cripta tonsillare* e *Ghiandola salivare* stampati sui pixel. Nessuna carta la usa oggi, ed è giusto così |
+
+Le due fotografie sono **scatti attraverso l'oculare**, 1200x1600, con un ampio
+bordo scuro attorno al campo illuminato. La pagina le mostra **ritagliate al
+solo cerchio chiaro**, ed è il motivo per cui il controllo del clip path del
+punto 6 le segnala con correlazione 0,01 e 0,11: è un falso allarme, il campo
+nel file è integro e usabile: si porta dietro il bordo scuro, che sulla carta
+non disturba. Stessa cosa per `lab_p104_6206.jpg` (correlazione −0,62) e
+`lab_p100_6100.jpg` (−0,09), che sono comunque figure già collocate. **Su queste
+pagine il clip path non toglie niente a nessuno.**
+
+La stima della riga 9 **non cambia**: resta «4 vetrini, ~20 carte», su otto
+figure libere: le sette delle pagine 82-85 che il capitolo 08 ha elencato, più
+`lab_p106_6255.jpg`. Con la riga 8 chiusa a zero, **l'iterazione 9 è l'ultima
+del mazzo `Vetrini`**.
+
+### Capitoli 07 e 10, quello che è stato deciso
+
+Sette figure delle pagine 82-85 e 106, **16 carte**: `lab-muscolare-045`-`056`
+per i tre vetrini muscolari e `lab-linfoide-054`-`057` per la tonsilla palatina.
+È l'iterazione che **chiude il mazzo**, ed è l'unica che tiene due capitoli in
+un file solo, `vetrini-07-10-coda.jsonl`. Tutte le carte sono `basic`, con
+immagine sul fronte e `tipo::riconoscimento`, e stanno tutte nel mazzo
+`Vetrini`; il campo `source` segue invece le pagine di ciascuna (`Laboratorio
+p. 82` … `p. 85` per il muscolare, `p. 106` per la tonsilla). Nessuna ha
+richiesto il tag `da-verificare`: il totale resta **112**.
+
+**Perché un file solo per due capitoli.** Il taglio segue l'**argomento**, come
+fra il capitolo 08 e i tre vetrini muscolari: le carte del muscolare portano id
+`lab-muscolare`, quelle della tonsilla `lab-linfoide`, e nessuno dei due gruppi
+poteva finire nel file dell'altro. Due file da dodici e da quattro carte
+sarebbero però stati due file per una coda sola, decisa in una sessione sola:
+la riga 9 della tabella li teneva insieme fin dall'apertura del mazzo, ed è
+stata rispettata. Vedi anche la nota al punto 2.
+
+**Nessuna carta di identificazione**, e non era mai successo in un'iterazione
+che scrivesse carte. Tutti e quattro i vetrini ce l'hanno già nel mazzo di
+capitolo, con l'immagine sul fronte:
+
+| Figura | Carta che la usa già |
+|---|---|
+| `lab_p082_5334.jpg` | `lab-muscolare-031`, Vetrino 1, la lingua e i suoi fasci di scheletrico |
+| `lab_p083_5367.jpg` | `lab-muscolare-030`, Vetrino 1, scheletrico in sezione longitudinale |
+| `lab_p084_5399.jpg` | `lab-muscolare-035`, Vetrino 2, muscolo cardiaco |
+| `lab_p085_5435.jpg` | `lab-muscolare-043`, Vetrino 3, intestino tenue |
+| `lab_p106_6257.jpg` | `lab-linfoide-047`, tonsilla palatina d'insieme |
+
+Le sedici carte sono quindi **tutte di dettaglio**, e **tutte dichiarano il
+tessuto nella domanda** («Vetrino di lingua: …», «Vetrino di cuore: …»,
+«Vetrino di intestino tenue: …», «Vetrino di tonsilla palatina: …»), come vuole
+la regola anti-spoiler del punto 3. È la situazione del Vetrino 10 nella 6,
+dove l'identificazione non è stata rifatta perché già c'era, estesa qui a tutti
+e quattro i vetrini insieme. I vetrini non spariscono però dal mazzo, come era
+toccato alla prostata nella 3a e al Vetrino 8 nella 7: qui ognuno ha almeno una
+figura libera, e quindi le sue domande di dettaglio.
+
+La distribuzione delle domande segue i campi:
+
+| Vetrino | Figura | Carte | Taglio |
+|---|---|---:|---|
+| 1, lingua (scheletrico) | `lab_p082_5332.jpg` | 2 | le papille e il loro rivestimento; perché la terza papilla appare tonda e chiusa ad anello |
+| 1 | `lab_p083_5365.jpg` | 2 | endomisio e perimisio letti nel campo; perché lo stesso campo mostra profili poligonali punteggiati e fibre lunghe e parallele |
+| 1 | `lab_p083_5369.jpg` | 1 | il nervo tagliato di traverso in mezzo ai fasci |
+| 1 | `lab_p083_5371.jpg` | 2 | i nuclei periferici e che cosa escludono; gli adipociti nel connettivo |
+| 2, cuore | `lab_p084_5397.jpg` | 2 | lo stroma connettivale con vaso e adipociti; che cosa distingue il miocardio dalla lingua, che pure ha fasci in tutte le direzioni |
+| 3, intestino tenue | `lab_p085_5437.jpg` | 3 | le quattro tonache lette dal lume verso l'esterno; le cellule caliciformi; perché la banda muscolare profonda è liscia e non striata |
+| tonsilla palatina | `lab_p106_6255.jpg` | 4 | la cripta; il tessuto linfoide e i suoi follicoli; la lamina propria; come si vede che la colorazione è ematossilina-eosina |
+
+**`lab_p082_5330.jpg` è stata scartata, contro il verdetto del registro del
+capitolo 08**, ed è la scoperta di questa iterazione. Il registro la dava per
+«usabile, senza etichette», e il file in effetti non ha etichette: ha però
+**due campi**, la lingua a piccolo ingrandimento in basso a sinistra e un
+secondo campo di muscolo in alto a destra. La **pagina mostra solo il primo**,
+e il controllo del clip path del punto 6 la segnala infatti con correlazione
+**0,45**. Cade quindi per due ragioni indipendenti:
+
+- è il caso di `lab_p085_5433.jpg` e di `lab_p044_2673.jpg` del capitolo 05:
+  due campi in un unico file estratto, che non si separano senza ritagliare. Qui
+  è anche peggio, perché il secondo campo è uno che **la pagina nasconde** e che
+  il testo non commenta mai: non c'è modo di dire con certezza che cos'è;
+- il campo che la pagina mostra è lo stesso di `lab_p082_5334.jpg`, che è già il
+  fronte di `lab-muscolare-031`. Una carta su questa figura sarebbe stata una
+  **parafrasi** di quella, cioè il doppione che il validatore **non** intercetta
+  perché blocca solo le domande identiche: è la lezione di `teoria_p007_21` al
+  punto 6.
+
+La lezione generale, per chi tornasse sulle immagini: **il controllo del clip
+path va fatto anche sulle figure che si stanno per usare**, non solo su quelle
+che si sospettano. Fin qui aveva trovato finestre di browser e i bordi scuri
+degli scatti attraverso l'oculare; qui ha trovato un **montaggio di due campi**
+di cui la pagina ne mostra uno solo.
+
+**`lab_p083_5371.jpg` è stata invece promossa**, ed era l'unica che il registro
+del capitolo 08 lasciava aperta («senza etichette, ma il campo è ambiguo»). Il
+campo è ottimo: fibre scheletriche ad alto ingrandimento con i **nuclei
+periferici** ben visibili e un gruppo di **adipociti**. Resta **non deciso** che
+cosa sia il nido di cellule pallide al centro: la pagina lo indica come
+l'immagine «a destra» dei «rari gangli», e la posizione lo conferma (`5369` sta
+a sinistra, `5371` a destra), ma ingrandito somiglia tanto a un piccolo ganglio
+— corpi pallidi circondati da nuclei piccoli e scuri — quanto a un gruppo di
+acini ghiandolari mucosi, che nella lingua sono altrettanto attesi. **Su quel
+nido non è stata scritta nessuna carta**, e non è stata aperta nessuna
+segnalazione: `lab-muscolare-032` riporta già quello che la sbobina dice
+(«numerose terminazioni nervose e, più raramente, qualche ganglio»), e una
+segnalazione `da-verificare` non servirebbe, perché il dubbio non si scioglie
+sul libro ma solo guardando meglio il vetrino. Le due carte scritte su questa
+figura stanno sui due fatti certi del campo.
+
+**Le altre quattro figure delle pagine 82-85 restano scartate**, come il
+registro del capitolo 08 aveva deciso, e sono state riguardate tutte e quattro:
+
+- `lab_p085_5429.jpg` e `lab_p085_5431.jpg`: i due campi azzurrini di cui il
+  prof stesso dice di non essere sicuro della colorazione (`[N.d.S … non è
+  importante saperlo]`, pagina 85). La `5431` è morfologicamente leggibile — si
+  vedono fibre ramificate con nuclei centrali — ma l'identificazione del
+  cardiaco è già la carta `lab-muscolare-035` su un campo migliore, e la
+  colorazione, che sarebbe l'altra domanda naturale, **la sbobina si rifiuta di
+  nominarla**;
+- `lab_p084_5401.jpg`: campo rosa uniforme di fibre longitudinali senza **nessun
+  riferimento** — niente epitelio, niente vasi, niente lume — su cui non si può
+  dire di che organo si tratti;
+- `lab_p085_5433.jpg`: due campi in un unico file estratto, con la stessa
+  diagnosi di `5330`. Quello in basso a sinistra è un ottimo intestino tenue,
+  quello in alto a destra non è identificabile con certezza, e la pagina mostra
+  **solo il primo** (correlazione 0,57).
+
+**Da pagina 76 non è stato preso niente**, come il registro del capitolo 06
+aveva già deciso guardando le sue quattro figure una per una: tre sono schemi
+con i nomi stampati sopra, e la quarta è un file con due microfotografie e la
+didascalia stampata sotto.
+
+**A pagina 106 la sola figura libera era `lab_p106_6255.jpg`**, come il registro
+del capitolo 09 aveva già visto: `6257` è il fronte di `lab-linfoide-047` e ci
+resta, `6253` è la tavola da manuale con *Epitelio*, *Sottomucosa*, *Noduli
+linfatici* e *Cripta tonsillare* stampati sui pixel. Le due fotografie sono
+**scatti attraverso l'oculare**, con un ampio bordo scuro attorno al campo
+illuminato che la pagina ritaglia via: il controllo del clip path le segnala con
+correlazione 0,01 e 0,11, ed è un **falso allarme**, perché il campo nel file è
+integro e il bordo scuro sulla carta non disturba. Lo stesso vale per
+`lab_p083_5369.jpg` (correlazione −0,16), che è uno scatto attraverso l'oculare
+delle stesse mani.
+
+**Le quattro carte della tonsilla non toccano la cheratinizzazione**, perché
+`lab-linfoide-039` porta già `da-verificare` proprio su quel punto: chiedono la
+cripta, il tessuto linfoide, la lamina propria e il contrasto della colorazione,
+e non nominano mai il tipo di epitelio. È lo stesso riguardo che l'iterazione 7
+ha avuto con `lab-nervoso-069`. Anche `lab-muscolare-016` è stata lasciata
+stare: `lab-muscolare-050` spiega i nuclei periferici con la **fusione dei
+mioblasti**, senza usare la parola «sincizio», che è quella su cui la
+segnalazione è aperta.
+
+**La sovrapposizione con le carte di solo testo della sezione è voluta**, come
+in tutte le iterazioni da 3a in poi: `lab-muscolare-025`, `026`, `027`, `028`,
+`032`, `034`, `040`, `042`, `044` e `lab-linfoide-037`, `039`, `040`, `041`,
+`042`, `043`, `046` dicono in parte le stesse cose. Lì si chiede di ricordare
+una definizione, qui di leggere un campo. Il caso più stretto è
+`lab-muscolare-032`, che usa `5369` sul retro per dire che nel vetrino si notano
+terminazioni nervose e rari gangli: `lab-muscolare-049` mette la stessa figura
+sul **fronte** e chiede di indicare **quale** struttura del campo è il nervo e
+da che cosa si riconosce, che è la domanda che l'esame pratico fa davvero.
+
+Tre angolature sono invece state **evitate**, perché la carta esistente le
+esaurisce e usa la **stessa figura**:
+l'aspetto del muscolo scheletrico nei due piani di taglio su `5365`
+(`lab-muscolare-029`), l'aspetto reticolato del miocardio a basso ingrandimento
+su `5397` (`lab-muscolare-033`) e la descrizione di mucosa e sottomucosa
+dell'intestino su `5437` (`lab-muscolare-041`).
+
 ## 5. Segnalazioni `da-verificare` già trovate
 
-Centosei carte taggate, più due figure scartate senza produrre carta. Ora che
+Centododici carte taggate, più una figura scartata senza produrre carta. Ora che
 non c'è più niente da scrivere, questo elenco cambia destinatario: non serve più
 a calibrare l'asticella, ma è **la lista di ciò che Pietro deve portare al
 libro**. Le carte sono ordinate come i mazzi, quindi si ripercorre nell'ordine
@@ -2280,6 +3812,12 @@ dubbia **è** la risposta (`lab-esocrino-033`, `lab-connettivi-037`). I test in
 | `lab-nervoso-069` | il vetrino 7 dichiara la tecnica di Golgi, ma descrive un citoplasma ricco di corpi di Nissl "visibili come zone basofile"; il Golgi impregna di nero pochi neuroni interi su fondo chiaro e non dà basofilia, e nelle figure si vedono tutti i neuroni con le loro cellule satelliti |
 | `lab-nervoso-015` | dice che la sostanza tigroide si vede **solo** con colorazioni speciali e non con ematossilina-eosina; i corpi di Nissl sono fortemente basofili e in un preparato EE si vedono come zolle basofile nel citoplasma |
 | `lab-muscolare-016` | nega che il miocardio sia un sincizio funzionale e attribuisce l'espressione al muscolo scheletrico; è il contrario, il cuore è il sincizio funzionale classico grazie alle gap junction dei dischi intercalari, mentre lo scheletrico è un sincizio strutturale |
+| `lab-connettivi-081` | il Vetrino 9 dice che l'elastina è presente **soltanto** nelle arterie; le vene ne hanno molta meno e senza lamina elastica interna evidente, ma non ne sono prive: la Verhoeff mostra una differenza di quantità |
+| `lab-connettivi-085` | il Vetrino 10 descrive il **tessuto mucoso** come una struttura stratificata con epitelio secernente muco e ghiandole; è la descrizione di una **mucosa**, e contraddice pagina 44 dove il tessuto mucoso è la gelatina di Wharton |
+| `lab-endocrino-117` | il Vetrino 8 del capitolo 04 dà la colorazione per «**blu di toluene**», che non è una colorazione istologica; il nome atteso è **blu di toluidina**, e il campo è effettivamente azzurro-violetto |
+| `lab-esocrino-108` | il Vetrino 2 del capitolo 03 dà la colorazione per «**blu di toluene**»; stesso errore, stessa correzione attesa, **blu di toluidina** |
+| `lab-sangue-021` | il Vetrino 11 numera «2.» un **monocita**, ma il ritaglio mostra una cellula poco più grande di un eritrocita, con nucleo rotondo denso e scuro che occupa quasi tutta la cellula: è il **linfocita** come lo descrive la sbobina stessa poche righe sotto |
+| `lab-sangue-022` | il Vetrino 11 numera «3.» un **linfocita**, ma il ritaglio mostra un nucleo pallido e indentato con un anello di citoplasma chiaro ben visibile: è il **monocita**. Le figure «2.» e «3.» di pagina 70 sembrano scambiate |
 | `teoria-tecnica-030` | la sbobina dà due spessori diversi per le sezioni istologiche: 5-20 micron per il microscopio ottico (p. 2) e 1-10 µm per il taglio al microtomo (p. 4), senza spiegare la differenza |
 | `teoria-colorazioni-021` | descrive come "strati di muscolatura liscia" la banda pallida sotto la mucosa in un vetrino di trachea fetale; per aspetto e per anatomia è cartilagine ialina, e la muscolatura liscia della trachea sta nella parte membranacea posteriore |
 | `teoria-colorazioni-024` | classifica l'Azocarminio come colorante **basico** e nella stessa frase gli attribuisce la colorazione dei granuli **acidofili** dell'ipofisi; l'azocarminio è classicamente descritto come colorante acido |
@@ -2374,7 +3912,6 @@ dubbia **è** la risposta (`lab-esocrino-033`, `lab-connettivi-037`). I test in
 | `teoria-nervoso-120` | elenca la **microglia** due volte nello stesso elenco delle origini embrionali: prima fra le gliali del SNC derivate dal **neuroectoderma**, poi come derivata dal **mesoderma** in quanto fagocita mononucleato. La seconda è la versione corretta, ed è quella che la pagina successiva conferma facendola derivare dai progenitori mieloidi |
 | `teoria-nervoso-145` | dice che gli astrociti che invadono il sito di lesione "si riattivano e diventano **neurotrofici**", e nella frase successiva che la cicatrice gliale che formano "impedisce fisicamente e chimicamente la ricrescita degli assoni". Classicamente l'astrocita reattivo produce molecole **inibitorie** per la crescita assonale |
 | (nessuna carta) | a pagina 4 una microfotografia è didascalizzata "colon" ma mostra tessuto adiposo e vasi: non ne è stata fatta una carta di riconoscimento |
-| (nessuna carta) | `lab_p070_4344.jpg` è un ritaglio con un solo leucocita fra gli eritrociti, non identificabile con certezza |
 
 Casi risolti senza tag, perché il refuso è evidente e non c'è dubbio di contenuto:
 
